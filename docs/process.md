@@ -2,6 +2,12 @@
 
 This doc captures **failure modes** we already hit and how this library prevents them.
 
+## Ship via pull request (default)
+
+- **Branch:** `git checkout -B feature/short-name origin/main` (never rely on a stale local `main` as the base).
+- **Push + PR:** push the branch, then `gh pr create --repo marvelousempire/ai-skills-library` (real or `--draft` if WIP). Merging through a PR keeps the library visible to parallel sessions and preserves review context.
+- **Direct to `main`:** only for trivial one-line fixes everyone agrees are safe; everything else should be a PR.
+
 ## Bottlenecks (known)
 
 | Problem | Why it hurts | Mitigation |
