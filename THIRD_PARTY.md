@@ -11,3 +11,7 @@ This repo **vendors** skill content for convenience. **Respect upstream licenses
 | `context/readyplay-product-marketing-context.md` | Snapshot from **red-e-play-app** `.agents/` | Internal |
 
 **Not affiliated** with upstream authors beyond using their published skills.
+## External project index
+
+Repos we **do not** vendor but track for reference: [`docs/related-github-projects.md`](docs/related-github-projects.md).
+

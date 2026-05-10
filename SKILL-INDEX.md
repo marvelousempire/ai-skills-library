@@ -38,3 +38,8 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 ## Adding something new
 
 [`docs/add-skill.md`](docs/add-skill.md) → then `./scripts/vendor-skills-from-home.sh` → commit.
+
+## External repos (not skills)
+
+Curated links to tools and stacks (scraping, voice, Blender MCP, agent orchestration): [`docs/related-github-projects.md`](docs/related-github-projects.md).
+

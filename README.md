@@ -23,6 +23,7 @@ Vendored **Agent Skills** + operating docs: browse on GitHub, sync to any Mac, a
 | **Bottlenecks & checklist** | [`docs/process.md`](docs/process.md) |
 | **Refresh copies from `~/`** | [`scripts/vendor-skills-from-home.sh`](scripts/vendor-skills-from-home.sh) (run after upstream updates) |
 | **Third-party licenses** | [`THIRD_PARTY.md`](THIRD_PARTY.md) |
+| **Related GitHub projects (scraping, voice, agents, …)** | [`docs/related-github-projects.md`](docs/related-github-projects.md) |
 
 ---
 
@@ -48,7 +49,7 @@ ai-skills-library/
 │   │   └── cursor/           ← 13 Cursor skills-cursor + SKILL-CATALOG.md
 │   └── project/
 │       └── red-e-play/       ← verify-ship, generate-weather-plates
-├── docs/                     ← process, install, sync, browse help
+├── docs/                     ← process, install, sync, browse help, related GitHub projects
 └── scripts/
     ├── rescan-skills.sh      ← list unique SKILL.md on a machine
     ├── vendor-skills-from-home.sh
