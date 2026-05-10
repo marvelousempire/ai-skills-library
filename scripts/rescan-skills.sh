@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# List every SKILL.md under known roots (edit roots if you add tools).
+# List every SKILL.md under known roots; dedupe by canonical path (symlinks).
 set -euo pipefail
 ROOTS=(
   "${HOME}/.agents/skills"
@@ -8,13 +8,15 @@ ROOTS=(
   "${HOME}/.claude/skills"
 )
 echo "# Rescan $(date -Iseconds)"
+tmp=$(mktemp)
 for r in "${ROOTS[@]}"; do
   [[ -d "$r" ]] || continue
-  echo ""
-  echo "## $r"
-  find "$r" -name SKILL.md 2>/dev/null | sort | while read -r f; do
-    echo "$f"
+  find "$r" -name SKILL.md 2>/dev/null | while read -r f; do
+    real=$(python3 -c "import os; print(os.path.realpath('$f'))" 2>/dev/null || echo "$f")
+    echo "$real"
   done
-done
+done | sort -u > "$tmp"
 echo ""
-echo "Total SKILL.md:" "$(find "${ROOTS[@]}" -name SKILL.md 2>/dev/null | wc -l | tr -d ' ')"
+echo "## Unique SKILL.md ($(wc -l < "$tmp" | tr -d ' ') files)"
+cat "$tmp"
+rm -f "$tmp"
