@@ -87,3 +87,20 @@ Re-run `npx skills add coreyhaines31/marketingskills` when upstream releases; th
 ## Overlap
 
 See **[overlap-rules.md](overlap-rules.md)** — **copywriting** / **page-cro** vs **ui-ux-pro-max**.
+
+## READYPLAY — canonical context (this org)
+
+The **versioned** marketing context for the monorepo lives at:
+
+`~/Developer/red-e-play-app/.agents/product-marketing-context.md`
+
+On a dev Mac, symlink so global agents resolve the same file:
+
+```bash
+CANON="$HOME/Developer/red-e-play-app/.agents/product-marketing-context.md"
+ln -sfn "$CANON" "$HOME/.agents/product-marketing-context.md"
+ln -sfn "$CANON" "$HOME/.claude/product-marketing-context.md"
+```
+
+Update the **canonical file in git** when positioning changes; do not fork a divergent copy under `~` only.
+
