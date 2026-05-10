@@ -1,5 +1,17 @@
 # Skill index
 
+## Coverage (no missing rows vs disk)
+
+This index was built by scanning for **`SKILL.md`** under:
+
+- `~/.cursor/skills` (nested install, e.g. UI Pro)
+- `~/.cursor/skills-cursor`
+- `~/.claude/skills`
+
+**Count:** 16 files found = 16 table rows (last full scan 2026-05-10).
+
+**Not indexed here:** skills that exist only in Cursor/Claude **UI** or another machine until a `SKILL.md` appears under those paths. Rows in **Gaps / future skills** are *intentional* placeholders (e.g. copywriting) if you install them later.
+
 **Last scanned (this Mac):** 2026-05-10  
 Paths are absolute on **your machine**; see [`docs/machine-paths.md`](docs/machine-paths.md) if you clone this repo elsewhere.
 

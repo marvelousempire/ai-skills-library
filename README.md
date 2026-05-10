@@ -1,5 +1,13 @@
 # AI Skills Library (private)
 
+## Repository status
+
+- **Remote:** private GitHub — `https://github.com/marvelousempire/ai-skills-library` (created 2026-05-10; adjust if you rename or move).
+- **Local clone:** `~/Developer/ai-skills-library`
+- **Scope:** catalog + docs only unless you add `vendor/` (see [`docs/sync.md`](docs/sync.md)).
+
+The `gh repo create …` block below is kept for **new machines** or if you re-create the remote.
+
 A **catalog + operating manual** for skills installed on your machines. This repo does **not** have to duplicate every skill’s files; it tracks **what you have**, **when to use it**, and **how to avoid collisions** when several skills match the same request.
 
 ## What lives here
