@@ -25,3 +25,17 @@ find ~/.cursor/skills ~/.cursor/skills-cursor ~/.claude/skills -name SKILL.md 2>
 1. Install: `command npx --yes skills add coreyhaines31/marketingskills` from `$HOME`.
 2. Symlink into `~/.cursor/skills/` and `~/.claude/skills/` if tools do not read `~/.agents/skills/` alone.
 3. Document in **`docs/marketingskills.md`** (this repo) and add a **bundle row** in **`SKILL-INDEX.md`**.
+
+## Mirror into this repo (`skills/`)
+
+After the skill exists under `~/`, refresh the private library:
+
+```bash
+cd ~/Developer/ai-skills-library
+./scripts/vendor-skills-from-home.sh
+git add skills/ context/ SKILL-INDEX.md  # plus any doc edits
+git commit -m "chore: refresh vendored skills"
+git push
+```
+
+For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/claude-local/<name>/` and document in `SKILL-INDEX.md`.
