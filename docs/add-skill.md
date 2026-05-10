@@ -47,3 +47,7 @@ For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/pro
 3. Commit the manifest + all generated files (`docs/related-github-projects.md`, `skills/external/**`).
 4. Optional: `./scripts/link-external-skills-to-claude.sh` on each machine.
 
+## Canonical rules (separate from skills)
+
+Repo-wide behavior for Cursor + Claude lives under **`rules/`**. See [`rules-pipeline.md`](rules-pipeline.md) and [`../rules/README.md`](../rules/README.md).
+

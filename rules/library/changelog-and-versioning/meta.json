@@ -1,0 +1,6 @@
+{
+  "id": "changelog-and-versioning",
+  "description": "Keep docs/CHANGELOG.md and Xcode marketing/build versions in sync; stamp US Eastern date-time on releases.",
+  "alwaysApply": true,
+  "globs": []
+}

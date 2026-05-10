@@ -1,0 +1,6 @@
+{
+  "id": "dev-discipline",
+  "description": "Session opener + closer rituals so nothing is behind, every shipped feature is logged, and bottlenecks teach us instead of repeating.",
+  "alwaysApply": true,
+  "globs": []
+}

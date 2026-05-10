@@ -59,3 +59,13 @@ After cloning this repo:
 
 Creates symlinks from \`skills/external/<id>/\` → \`~/.claude/skills/<id>/\`.
 
+## Push canonical rules into a product repo
+
+From `ai-skills-library` root:
+
+```bash
+./scripts/sync-rules-into-repo.sh /path/to/red-e-play-app
+```
+
+Uses [`rules-pipeline.md`](rules-pipeline.md) for details.
+

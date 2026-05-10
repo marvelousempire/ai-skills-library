@@ -1,0 +1,10 @@
+{
+  "id": "red-e-play-core",
+  "description": "Core engineering discipline rules ported from red-e-play-app",
+  "profile": "default-monorepo",
+  "rules": [
+    "dev-discipline",
+    "changelog-and-versioning",
+    "go-live-path"
+  ]
+}

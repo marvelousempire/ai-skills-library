@@ -2,7 +2,7 @@
 
 **Private repo** — [github.com/marvelousempire/ai-skills-library](https://github.com/marvelousempire/ai-skills-library)
 
-Vendored **Agent Skills** + operating docs: browse on GitHub, sync to any Mac, and keep marketing / Cursor / Claude skills in one place.
+Vendored **Agent Skills**, a **canonical rules** library (codegen to Cursor + Claude), and operating docs: browse on GitHub, sync to any Mac, and keep marketing / Cursor / Claude skills in one place.
 
 ---
 
@@ -24,6 +24,7 @@ Vendored **Agent Skills** + operating docs: browse on GitHub, sync to any Mac, a
 | **Refresh copies from `~/`** | [`scripts/vendor-skills-from-home.sh`](scripts/vendor-skills-from-home.sh) (run after upstream updates) |
 | **Third-party licenses** | [`THIRD_PARTY.md`](THIRD_PARTY.md) |
 | **Related GitHub projects (tagged table + links)** | [`docs/related-github-projects.md`](docs/related-github-projects.md) |
+| **Canonical agent rules (Cursor + Claude)** | [`rules/README.md`](rules/README.md) · [`docs/rules-pipeline.md`](docs/rules-pipeline.md) |
 | **External tool bridge skills (generated)** | [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) · [`docs/external-tools.manifest.json`](docs/external-tools.manifest.json) |
 
 ---
@@ -47,13 +48,16 @@ ai-skills-library/
 │   ├── ide/cursor/           ← 13 Cursor skills-cursor + SKILL-CATALOG.md
 │   ├── project/red-e-play/   ← verify-ship, generate-weather-plates
 │   └── external/             ← 10 generated bridge skills + SKILL-CATALOG.md
-├── docs/                     ← manifest, related projects (generated), process
+├── rules/                    ← canonical rules → Cursor .mdc + Claude .md
+├── docs/                     ← manifest, related projects (generated), process, rules pipeline
 └── scripts/
     ├── rescan-skills.sh
     ├── vendor-skills-from-home.sh
     ├── generate-skill-catalogs.py
     ├── generate-external-tool-skills.py
-    └── link-external-skills-to-claude.sh
+    ├── generate-agent-rules.py
+    ├── link-external-skills-to-claude.sh
+    └── sync-rules-into-repo.sh
 ```
 
 **Counts:** **67** `SKILL.md` files under `skills/` (regenerate catalogs after vendor).

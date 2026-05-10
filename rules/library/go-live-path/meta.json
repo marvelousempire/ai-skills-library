@@ -1,0 +1,6 @@
+{
+  "id": "go-live-path",
+  "description": "Always deliver go-live steps immediately—migrate, deploy, smoke-test—even on forced/hotfix ships",
+  "alwaysApply": true,
+  "globs": []
+}

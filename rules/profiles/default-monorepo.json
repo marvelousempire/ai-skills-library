@@ -1,0 +1,6 @@
+{
+  "id": "default-monorepo",
+  "summary": "Cursor rules under .cursor/rules and Claude Code rules under .claude/rules at repository root (Red-E Play–style layout).",
+  "docs_path_from_cursor_rules": "../../docs",
+  "docs_path_from_claude_rules": "../docs"
+}
