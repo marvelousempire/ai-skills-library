@@ -1,45 +1,40 @@
 # Skill index
 
-## Coverage (no missing rows vs disk)
+Quick reference: **what it is**, **where it lives in this repo**, **when to use it**, **overlap**.
 
-This index was built by scanning for **`SKILL.md`** under:
+**Browse all files on GitHub:** [`skills/README.md`](skills/README.md) → per-pack catalogs.
 
-- `~/.cursor/skills` (nested install, e.g. UI Pro)
-- `~/.cursor/skills-cursor`
-- `~/.claude/skills`
+## Coverage
 
-**Count:** After the marketing bundle, run `scripts/rescan-skills.sh` — expect **50+** `SKILL.md` paths across roots (was 16 before 2026-05-10).
+- **57** vendored `SKILL.md` files under [`skills/`](skills/).
+- Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
-**Not indexed here:** skills that exist only in Cursor/Claude **UI** or another machine until a `SKILL.md` appears under those paths. Rows in **Gaps / future skills** are *intentional* placeholders (e.g. copywriting) if you install them later.
+| Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
+|--------------|------|--------------|----------|--------|---------|
+| **Marketing** (41) | Cursor + Claude | [`skills/marketing/`](skills/marketing/) · [catalog](skills/marketing/SKILL-CATALOG.md) | CRO, SEO, copy, ads, ASO, email, research, launch… | **`product-marketing-context`** first → name skill (e.g. **page-cro**) | ui-ux-pro-max, canvas |
+| **ui-ux-pro-max** | Cursor | [`skills/ui-ux-pro-max/`](skills/ui-ux-pro-max/) | Design, review, improve UI/UX; design systems | “Follow **ui-ux-pro-max** workflow.” | copywriting, page-cro |
+| **verify-ship** | Claude Code | [`skills/claude-local/verify-ship/`](skills/claude-local/verify-ship/) | Ship state: merged? deployed? | “Use **verify-ship**.” | shell |
+| **generate-weather-plates** | Claude Code | [`skills/claude-local/generate-weather-plates/`](skills/claude-local/generate-weather-plates/) | Red-E Play weather hero plates | “Use **generate-weather-plates**.” | ui-ux-pro-max |
+| **babysit** | Cursor | [`skills/cursor/babysit/`](skills/cursor/babysit/) | PR merge-ready loop | “Use **babysit**.” | split-to-prs |
+| **canvas** | Cursor | [`skills/cursor/canvas/`](skills/cursor/canvas/) | Data-heavy / analytical UI beside chat | “Use **canvas**.” | ui-ux-pro-max |
+| **create-hook** | Cursor | [`skills/cursor/create-hook/`](skills/cursor/create-hook/) | Cursor hooks | “Use **create-hook**.” | create-rule |
+| **create-rule** | Cursor | [`skills/cursor/create-rule/`](skills/cursor/create-rule/) | `.cursor/rules` | “Use **create-rule**.” | create-skill |
+| **create-skill** | Cursor | [`skills/cursor/create-skill/`](skills/cursor/create-skill/) | Author `SKILL.md` | “Use **create-skill**.” | create-rule |
+| **create-subagent** | Cursor | [`skills/cursor/create-subagent/`](skills/cursor/create-subagent/) | Subagents | “Use **create-subagent**.” | — |
+| **migrate-to-skills** | Cursor | [`skills/cursor/migrate-to-skills/`](skills/cursor/migrate-to-skills/) | Rules → skills | “Use **migrate-to-skills**.” | create-skill |
+| **sdk** | Cursor | [`skills/cursor/sdk/`](skills/cursor/sdk/) | `@cursor/sdk` | “Use **sdk**.” | shell |
+| **shell** | Cursor | [`skills/cursor/shell/`](skills/cursor/shell/) | `/slash` shell | (slash) | babysit |
+| **split-to-prs** | Cursor | [`skills/cursor/split-to-prs/`](skills/cursor/split-to-prs/) | Split PRs | “Use **split-to-prs**.” | babysit |
+| **statusline** | Cursor | [`skills/cursor/statusline/`](skills/cursor/statusline/) | CLI statusline | “Use **statusline**.” | — |
+| **update-cli-config** | Cursor | [`skills/cursor/update-cli-config/`](skills/cursor/update-cli-config/) | `cli-config.json` | “Use **update-cli-config**.” | update-cursor-settings |
+| **update-cursor-settings** | Cursor | [`skills/cursor/update-cursor-settings/`](skills/cursor/update-cursor-settings/) | `settings.json` | “Use **update-cursor-settings**.” | update-cli-config |
 
-**Last scanned (this Mac):** 2026-05-10  
-Paths are absolute on **your machine**; see [`docs/machine-paths.md`](docs/machine-paths.md) if you clone this repo elsewhere.
+## Product context (not a skill folder)
 
-## How to read this table
+| Doc | In repo | Purpose |
+|-----|---------|---------|
+| READYPLAY marketing context | [`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md) | Positioning for all marketing skills — **edit canonical** in `red-e-play-app/.agents/` then re-vendor |
 
-- **Invoke** — Short phrase to paste when you want that skill to win over others.
-- **Overlap** — Other skills that might also fire; see [`docs/overlap-rules.md`](docs/overlap-rules.md).
+## Adding something new
 
-| Skill | Tool | Install path | Use when | Invoke | Overlap |
-|-------|------|--------------|----------|--------|---------|
-| **Marketing Skills** (41-pack) | Cursor + Claude | `~/.agents/skills/` (+ symlinks in `~/.cursor/skills/`, `~/.claude/skills/`) | CRO, SEO, copy, ads, research, launch, email, ASO, etc. | Start with **`product-marketing-context`**; then name the skill (e.g. **page-cro**, **copywriting**) | ui-ux-pro-max, canvas |
-| **ui-ux-pro-max** | Cursor | `~/.cursor/skills/.cursor/skills/ui-ux-pro-max/` | Design, build, **review**, **improve**, fix UI/UX; design systems; landing pages | “Follow **ui-ux-pro-max**; run the design-system workflow.” | copywriting, canvas |
-| **verify-ship** | Claude Code | `~/.claude/skills/verify-ship/` | “Did it ship?”, merge/deploy state, versions | “Use **verify-ship**.” | shell |
-| **generate-weather-plates** | Claude Code | `~/.claude/skills/generate-weather-plates/` | Red-E Play weather hero plates via gpt-image-1 | “Use **generate-weather-plates**.” | ui-ux-pro-max |
-| **babysit** | Cursor | `~/.cursor/skills-cursor/babysit/` | PR merge-ready loop: comments, conflicts, CI | “Use **babysit** on this PR.” | split-to-prs |
-| **canvas** | Cursor | `~/.cursor/skills-cursor/canvas/` | Analytical artifacts, data-heavy UI beside chat | “Render this in a **canvas**.” | ui-ux-pro-max |
-| **create-hook** | Cursor | `~/.cursor/skills-cursor/create-hook/` | Cursor hooks, `hooks.json` | “Use **create-hook**.” | create-rule |
-| **create-rule** | Cursor | `~/.cursor/skills-cursor/create-rule/` | `.cursor/rules`, AGENTS.md patterns | “Use **create-rule**.” | create-skill, migrate-to-skills |
-| **create-skill** | Cursor | `~/.cursor/skills-cursor/create-skill/` | Authoring `SKILL.md` structure | “Use **create-skill**.” | create-rule |
-| **create-subagent** | Cursor | `~/.cursor/skills-cursor/create-subagent/` | Custom subagent definitions | “Use **create-subagent**.” | — |
-| **migrate-to-skills** | Cursor | `~/.cursor/skills-cursor/migrate-to-skills/` | Rules/commands → skills format | “Use **migrate-to-skills**.” | create-skill |
-| **sdk** | Cursor | `~/.cursor/skills-cursor/sdk/` | `@cursor/sdk` programmatic agents | “Use **sdk** skill.” | shell |
-| **shell** | Cursor | `~/.cursor/skills-cursor/shell/` | User invoked `/shell` — literal terminal | (slash command) | babysit, verify-ship |
-| **split-to-prs** | Cursor | `~/.cursor/skills-cursor/split-to-prs/` | Split work into small PRs | “Use **split-to-prs**.” | babysit |
-| **statusline** | Cursor | `~/.cursor/skills-cursor/statusline/` | CLI status line / prompt footer | “Use **statusline**.” | — |
-| **update-cli-config** | Cursor | `~/.cursor/skills-cursor/update-cli-config/` | `~/.cursor/cli-config.json` | “Use **update-cli-config**.” | update-cursor-settings |
-| **update-cursor-settings** | Cursor | `~/.cursor/skills-cursor/update-cursor-settings/` | VS Code / Cursor `settings.json` | “Use **update-cursor-settings**.” | update-cli-config |
-
-## Gaps / future skills
-
-Add rows when you install skills (e.g. copywriting, customer-research) so they are not invisible to your workflow.
+[`docs/add-skill.md`](docs/add-skill.md) → then `./scripts/vendor-skills-from-home.sh` → commit.

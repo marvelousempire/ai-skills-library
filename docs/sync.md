@@ -1,58 +1,50 @@
-# Syncing skill sources into this repo (`vendor/`)
+# Syncing skills into this repo
 
-Use this when you want **Git** to own copies of skills (backup, second machine, or drift detection). The default library is **index-only**; `vendor/` is optional.
+## Primary: `skills/` (current layout)
 
-## 1. Create `vendor/` layout
+From the **repo root**:
 
 ```bash
-mkdir -p vendor/cursor vendor/claude
+./scripts/vendor-skills-from-home.sh
 ```
 
-## 2. Copy examples (adjust names)
+That refreshes:
 
-**Cursor — UI Pro install (large; may include scripts/data):**
+- `skills/marketing/` ← `~/.agents/skills/`
+- `skills/cursor/` ← `~/.cursor/skills-cursor/`
+- `skills/claude-local/` ← `verify-ship`, `generate-weather-plates`
+- `skills/ui-ux-pro-max/` ← UI Pro install path
+- `context/readyplay-product-marketing-context.md` ← `~/Developer/red-e-play-app/.agents/` (if present)
 
-```bash
-rsync -a --delete \
-  ~/.cursor/skills/.cursor/skills/ui-ux-pro-max/ \
-  ./vendor/cursor/ui-ux-pro-max/
-```
-
-**Cursor — skills-cursor pack (one folder at a time or all):**
+Then regenerate catalogs (the script runs `generate-skill-catalogs.py`).
 
 ```bash
-rsync -a ~/.cursor/skills-cursor/ ./vendor/cursor/skills-cursor/
-```
-
-**Claude Code:**
-
-```bash
-rsync -a ~/.claude/skills/ ./vendor/claude/skills/
-```
-
-## 3. Commit
-
-```bash
-git add vendor/
-git commit -m "Vendor skill snapshots"
+git add skills/ context/ scripts/
+git status
+git commit -m "chore: refresh vendored skills"
 git push
 ```
 
-## 4. Restore on a new machine
+## Manual rsync (custom paths)
 
-Copy or clone this repo, then reverse the paths (from `./vendor/...` into `~/.cursor/...` or `~/.claude/...`). Re-run installers (e.g. `npx uipro-cli`) if you prefer canonical installs over copies.
+If `HOME` or paths differ, mirror the commands inside `scripts/vendor-skills-from-home.sh`.
 
-## 5. Drift check (optional)
+### Optional legacy `vendor/` folder
 
-After editing skills in-place under `~/`, diff against vendor:
+Some teams keep a **second** copy under `vendor/` for archival. Example:
 
 ```bash
-diff -qr ~/.cursor/skills-cursor/babysit ./vendor/cursor/skills-cursor/babysit
+mkdir -p vendor/agents-skills
+rsync -a ~/.agents/skills/ ./vendor/agents-skills/
 ```
 
+### Restore on a new machine
 
-## Agent Skills root
+1. Clone this repo.
+2. Either run `./scripts/vendor-skills-from-home.sh` **after** installing skills under `~/`, **or** rsync **from** `skills/*` **into** `~/.agents/skills/`, `~/.cursor/skills/`, etc. (reverse of vendor script).
 
-\`\`\`bash
-rsync -a ~/.agents/skills/ ./vendor/agents-skills/
-\`\`\`
+### Drift check
+
+```bash
+diff -qr ~/.cursor/skills-cursor/babysit ./skills/cursor/babysit
+```
