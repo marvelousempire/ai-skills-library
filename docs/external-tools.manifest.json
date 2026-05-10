@@ -16,7 +16,7 @@
         "LLM scraping pipeline",
         "structured data from websites"
       ],
-      "install_pointer": "Follow https://github.com/ScrapeGraphAI/Scrapegraph-ai — package install, API keys, and examples in upstream README.",
+      "install_pointer": "Follow https://github.com/ScrapeGraphAI/Scrapegraph-ai \u2014 package install, API keys, and examples in upstream README.",
       "compliance_notes": [
         "Respect robots.txt, site terms, and applicable law; do not bypass paywalls or authentication without authorization.",
         "Rate-limit requests; prefer official APIs when they exist."
@@ -36,7 +36,7 @@
         "remember across Claude sessions",
         "session memory plugin"
       ],
-      "install_pointer": "Install as a Claude Code plugin per https://github.com/thedotmack/claude-mem — upstream may ship its own skill or plugin metadata.",
+      "install_pointer": "Install as a Claude Code plugin per https://github.com/thedotmack/claude-mem \u2014 upstream may ship its own skill or plugin metadata.",
       "compliance_notes": [
         "Clarify what is stored locally vs sent to models; follow org policy for code and secrets in memory."
       ]
@@ -91,9 +91,30 @@
         "Open Generative AI",
         "local image video generation stack"
       ],
-      "install_pointer": "Clone and configure per https://github.com/Anil-matcha/Open-Generative-AI — model keys and content policies are upstream.",
+      "install_pointer": "Clone and configure per https://github.com/Anil-matcha/Open-Generative-AI \u2014 model keys and content policies are upstream.",
       "compliance_notes": [
         "Generated media may be restricted by law, platform rules, and model licenses; the operator is responsible for policy."
+      ]
+    },
+    {
+      "id": "ltx-2",
+      "display_name": "LTX-2",
+      "repo": "Lightricks/LTX-2",
+      "section": "Generative image & video",
+      "artifact_type": "library",
+      "upstream_publishes_skill": false,
+      "summary": "Official Python inference and LoRA trainer package for the LTX-2 audio-video generative model (Lightricks).",
+      "triggers": [
+        "LTX-2",
+        "Lightricks LTX",
+        "LTX-2 inference",
+        "LTX-2 LoRA training",
+        "audio-video generative model Python"
+      ],
+      "install_pointer": "See https://github.com/Lightricks/LTX-2 and https://ltx.io/model/ltx-2 for install, weights, GPU requirements, and training docs.",
+      "compliance_notes": [
+        "Upstream license is nonstandard on GitHub; read it before redistribution or commercial use.",
+        "Generated audio/video may implicate copyright, likeness, and platform policies; operator is responsible."
       ]
     },
     {
@@ -179,7 +200,7 @@
         "C TTS Voxtral",
         "embedded Voxtral speech"
       ],
-      "install_pointer": "Build from https://github.com/mudler/voxtral-tts.c — check upstream for model weights and licensing.",
+      "install_pointer": "Build from https://github.com/mudler/voxtral-tts.c \u2014 check upstream for model weights and licensing.",
       "compliance_notes": []
     }
   ]

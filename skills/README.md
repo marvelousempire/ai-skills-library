@@ -11,9 +11,9 @@ Most folders are **copies** for backup and GitHub browsing. **External bridge sk
 | **Visual → Design** | [`visual/design/ui-ux-pro-max/`](visual/design/ui-ux-pro-max/) | 1 | Design system / UX (`uipro-cli`) |
 | **IDE → Cursor** | [`ide/cursor/`](ide/cursor/) | 13 | babysit, canvas, create-skill, sdk, … — [catalog](ide/cursor/SKILL-CATALOG.md) |
 | **Project → Red-E Play** | [`project/red-e-play/`](project/red-e-play/) | 2 | `verify-ship`, `generate-weather-plates` |
-| **External tools** (bridge) | [`external/`](external/) | 10 | Generated `SKILL.md` per upstream repo — [catalog](external/SKILL-CATALOG.md) · [manifest](../docs/external-tools.manifest.json) |
+| **External tools** (bridge) | [`external/`](external/) | 11 | Generated `SKILL.md` per upstream repo — [catalog](external/SKILL-CATALOG.md) · [manifest](../docs/external-tools.manifest.json) |
 
-**Total:** 67 `SKILL.md` files (57 vendored + 10 generated bridges).
+**Total:** 68 `SKILL.md` files (57 vendored + 11 generated bridges).
 
 **Cursor (flat project layout):** use [`../scripts/install-repo-skills-to-cursor-project.sh`](../scripts/install-repo-skills-to-cursor-project.sh) — see [`../docs/cursor-project-skills.md`](../docs/cursor-project-skills.md).
 

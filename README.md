@@ -48,7 +48,7 @@ ai-skills-library/
 │   ├── visual/design/ui-ux-pro-max/
 │   ├── ide/cursor/           ← 13 Cursor skills-cursor + SKILL-CATALOG.md
 │   ├── project/red-e-play/   ← verify-ship, generate-weather-plates
-│   └── external/             ← 10 generated bridge skills + SKILL-CATALOG.md
+│   └── external/             ← 11 generated bridge skills + SKILL-CATALOG.md
 ├── rules/                    ← canonical rules → Cursor .mdc + Claude .md
 ├── docs/                     ← manifest, related projects (generated), process, rules pipeline
 └── scripts/
@@ -63,7 +63,7 @@ ai-skills-library/
     └── sync-rules-into-repo.sh
 ```
 
-**Counts:** **67** `SKILL.md` files under `skills/` (regenerate catalogs after vendor).
+**Counts:** **68** `SKILL.md` files under `skills/` (regenerate catalogs after vendor).
 
 ---
 

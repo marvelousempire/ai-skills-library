@@ -35,6 +35,7 @@ Each row links the **upstream repo** and the **generated bridge skill** in this 
 | Repo | Artifact | Skill | Notes |
 |------|----------|-------|-------|
 | [Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) | Application | **Generated** · [`open-generative-ai`](../skills/external/open-generative-ai/SKILL.md) | Self-hosted generative image and video studio aggregating many third-party models (see upstream for list and terms). |
+| [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2) | Library | **Generated** · [`ltx-2`](../skills/external/ltx-2/SKILL.md) | Official Python inference and LoRA trainer package for the LTX-2 audio-video generative model (Lightricks). |
 
 ## 3D & MCP
 
