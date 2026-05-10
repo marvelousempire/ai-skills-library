@@ -65,11 +65,11 @@ diff -qr ~/.cursor/skills-cursor/babysit ./skills/ide/cursor/babysit
 
 After cloning this repo:
 
-\`\`\`bash
+```bash
 ./scripts/link-external-skills-to-claude.sh
-\`\`\`
+```
 
-Creates symlinks from \`skills/external/<id>/\` → \`~/.claude/skills/<id>/\`.
+Creates symlinks from `skills/external/<id>/` → `~/.claude/skills/<id>/`.
 
 ## Push canonical rules into a product repo
 

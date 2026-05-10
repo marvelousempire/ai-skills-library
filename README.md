@@ -19,6 +19,7 @@ Vendored **Agent Skills**, a **canonical rules** library (codegen to Cursor + Cl
 | **READYPLAY positioning (Agent context)** | **[`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md)** |
 | **Overlap / which skill wins** | [`docs/overlap-rules.md`](docs/overlap-rules.md) |
 | **Install & symlink on a new machine** | [`docs/marketingskills.md`](docs/marketingskills.md) |
+| **Use this library inside another private repo** | [`docs/consuming-from-other-private-repos.md`](docs/consuming-from-other-private-repos.md) |
 | **Install library into an app repo (Cursor `.cursor/skills`)** | [`docs/cursor-project-skills.md`](docs/cursor-project-skills.md) · [`scripts/install-repo-skills-to-cursor-project.sh`](scripts/install-repo-skills-to-cursor-project.sh) |
 | **Browse on GitHub** | [`docs/browse-on-github.md`](docs/browse-on-github.md) |
 | **Bottlenecks & checklist** | [`docs/process.md`](docs/process.md) |
