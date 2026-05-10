@@ -15,6 +15,12 @@ Curated **external** repos (not vendored in `skills/`). Use for integration idea
 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | Claude Code plugin: session capture, compression, and context injection across sessions. |
 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | Agent orchestration / multi-agent swarms with RAG; Claude Code / Codex integration (per upstream). |
 
+## Claude Code (local / on-device)
+
+| Repo | Notes |
+|------|--------|
+| [nicedreamzapp/claude-code-local](https://github.com/nicedreamzapp/claude-code-local) | Apple Silicon stack to run **Claude Code** against **local** models via an MLX-oriented, Anthropic-API-compatible server; offline / airgap-oriented (see upstream for models and setup). |
+
 ## Generative image & video
 
 | Repo | Notes |
