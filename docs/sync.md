@@ -38,10 +38,22 @@ mkdir -p vendor/agents-skills
 rsync -a ~/.agents/skills/ ./vendor/agents-skills/
 ```
 
+### Cursor: install into an application / monorepo
+
+This library’s `skills/` tree is **grouped by pack** (marketing, ide/cursor, …). Cursor expects a **flat** project folder: `<repo>/.cursor/skills/<skill-id>/SKILL.md`.
+
+From this repo’s root:
+
+```bash
+./scripts/install-repo-skills-to-cursor-project.sh /path/to/your-monorepo
+```
+
+Details: **[`cursor-project-skills.md`](cursor-project-skills.md)**.
+
 ### Restore on a new machine
 
 1. Clone this repo.
-2. Either run `./scripts/vendor-skills-from-home.sh` **after** installing skills under `~/`, **or** rsync **from** `skills/*` **into** `~/.agents/skills/`, `~/.cursor/skills/`, etc. (reverse of vendor script).
+2. Either run `./scripts/vendor-skills-from-home.sh` **after** installing skills under `~/`, **or** rsync **from** `skills/*` **into** `~/.agents/skills/`, `~/.cursor/skills/`, etc. (reverse of vendor script), **or** use **`install-repo-skills-to-cursor-project.sh`** to wire a project’s `.cursor/skills/` directly from this clone.
 
 ### Drift check
 

@@ -19,6 +19,7 @@ Vendored **Agent Skills**, a **canonical rules** library (codegen to Cursor + Cl
 | **READYPLAY positioning (Agent context)** | **[`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md)** |
 | **Overlap / which skill wins** | [`docs/overlap-rules.md`](docs/overlap-rules.md) |
 | **Install & symlink on a new machine** | [`docs/marketingskills.md`](docs/marketingskills.md) |
+| **Install library into an app repo (Cursor `.cursor/skills`)** | [`docs/cursor-project-skills.md`](docs/cursor-project-skills.md) · [`scripts/install-repo-skills-to-cursor-project.sh`](scripts/install-repo-skills-to-cursor-project.sh) |
 | **Browse on GitHub** | [`docs/browse-on-github.md`](docs/browse-on-github.md) |
 | **Bottlenecks & checklist** | [`docs/process.md`](docs/process.md) |
 | **Refresh copies from `~/`** | [`scripts/vendor-skills-from-home.sh`](scripts/vendor-skills-from-home.sh) (run after upstream updates) |
@@ -53,6 +54,8 @@ ai-skills-library/
 └── scripts/
     ├── rescan-skills.sh
     ├── vendor-skills-from-home.sh
+    ├── install-repo-skills-to-cursor-project.sh   # flat → <project>/.cursor/skills/
+    ├── validate-skill-frontmatter.py
     ├── generate-skill-catalogs.py
     ├── generate-external-tool-skills.py
     ├── generate-agent-rules.py
@@ -69,6 +72,7 @@ ai-skills-library/
 1. Fuzzy task → open **[`SKILL-INDEX.md`](SKILL-INDEX.md)** or **[`skills/marketing/SKILL-CATALOG.md`](skills/marketing/SKILL-CATALOG.md)**.
 2. Name the skill in chat: *“Use **page-cro** for this landing section.”*
 3. For READYPLAY marketing, align with **[`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md)** (canonical edit path: `red-e-play-app/.agents/product-marketing-context.md`).
+4. **Inside a monorepo (Cursor):** run `./scripts/install-repo-skills-to-cursor-project.sh /path/to/repo` so `.cursor/skills/` matches this library — see [`docs/cursor-project-skills.md`](docs/cursor-project-skills.md).
 
 ---
 

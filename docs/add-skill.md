@@ -33,10 +33,13 @@ After the skill exists under `~/`, refresh the private library:
 ```bash
 cd ~/Developer/ai-skills-library
 ./scripts/vendor-skills-from-home.sh
+python3 scripts/validate-skill-frontmatter.py
 git add skills/ context/ SKILL-INDEX.md  # plus any doc edits
 git commit -m "chore: refresh vendored skills"
 git push
 ```
+
+Every `SKILL.md` must start with YAML frontmatter (`name`, `description`). The validator enforces that across `skills/`.
 
 For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/project/red-e-play/<name>/` and document in `SKILL-INDEX.md`.
 

@@ -31,3 +31,9 @@ The **agent** may list skills that are **bundled or configured** separately from
 | `~/.cursor/skills-cursor/` | `skills/ide/cursor/` |
 | `~/.claude/skills/{verify-ship,generate-weather-plates}/` | `skills/project/red-e-play/` |
 | UI Pro Max install | `skills/visual/design/ui-ux-pro-max/` |
+
+## Application repos (monorepos)
+
+| Path | How |
+|------|-----|
+| `<repo>/.cursor/skills/<id>/` | Run [`scripts/install-repo-skills-to-cursor-project.sh`](../scripts/install-repo-skills-to-cursor-project.sh) from this library — see [`cursor-project-skills.md`](cursor-project-skills.md). |

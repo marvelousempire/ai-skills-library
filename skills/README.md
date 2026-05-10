@@ -15,6 +15,8 @@ Most folders are **copies** for backup and GitHub browsing. **External bridge sk
 
 **Total:** 67 `SKILL.md` files (57 vendored + 10 generated bridges).
 
+**Cursor (flat project layout):** use [`../scripts/install-repo-skills-to-cursor-project.sh`](../scripts/install-repo-skills-to-cursor-project.sh) — see [`../docs/cursor-project-skills.md`](../docs/cursor-project-skills.md).
+
 ## Browse on GitHub
 
 - Marketing (flat): **[marketing/SKILL-CATALOG.md](marketing/SKILL-CATALOG.md)**  
