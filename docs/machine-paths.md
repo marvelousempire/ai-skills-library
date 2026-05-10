@@ -22,3 +22,12 @@ The **agent** may list skills that are **bundled or configured** separately from
 
 | `~/.agents/skills/` | **Agent Skills** standard directory (`npx skills` installs here) |
 | `https://github.com/coreyhaines31/marketingskills` | Upstream marketing bundle source |
+
+## Repo mirror (this library)
+
+| On disk (`~/`) | Vendored under |
+|----------------|----------------|
+| `~/.agents/skills/` | `skills/marketing/` |
+| `~/.cursor/skills-cursor/` | `skills/ide/cursor/` |
+| `~/.claude/skills/{verify-ship,generate-weather-plates}/` | `skills/project/red-e-play/` |
+| UI Pro Max install | `skills/visual/design/ui-ux-pro-max/` |

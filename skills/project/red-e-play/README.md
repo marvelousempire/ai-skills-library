@@ -1,6 +1,6 @@
-# Claude-local skills
+# Red-E Play / Claude project skills
 
-Vendored from `~/.claude/skills/` — **not** part of the marketing pack.
+Vendored from `~/.claude/skills/` — **not** part of the marketing pack. Paths in this repo: [`skills/project/red-e-play/`](.).
 
 | Folder | Purpose |
 |--------|---------|

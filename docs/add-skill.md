@@ -38,4 +38,4 @@ git commit -m "chore: refresh vendored skills"
 git push
 ```
 
-For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/claude-local/<name>/` and document in `SKILL-INDEX.md`.
+For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/project/red-e-play/<name>/` and document in `SKILL-INDEX.md`.

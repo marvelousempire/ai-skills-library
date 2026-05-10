@@ -11,9 +11,9 @@ From the **repo root**:
 That refreshes:
 
 - `skills/marketing/` ← `~/.agents/skills/`
-- `skills/cursor/` ← `~/.cursor/skills-cursor/`
-- `skills/claude-local/` ← `verify-ship`, `generate-weather-plates`
-- `skills/ui-ux-pro-max/` ← UI Pro install path
+- `skills/ide/cursor/` ← `~/.cursor/skills-cursor/`
+- `skills/project/red-e-play/` ← `verify-ship`, `generate-weather-plates`
+- `skills/visual/design/ui-ux-pro-max/` ← UI Pro install path
 - `context/readyplay-product-marketing-context.md` ← `~/Developer/red-e-play-app/.agents/` (if present)
 
 Then regenerate catalogs (the script runs `generate-skill-catalogs.py`).
@@ -46,5 +46,5 @@ rsync -a ~/.agents/skills/ ./vendor/agents-skills/
 ### Drift check
 
 ```bash
-diff -qr ~/.cursor/skills-cursor/babysit ./skills/cursor/babysit
+diff -qr ~/.cursor/skills-cursor/babysit ./skills/ide/cursor/babysit
 ```

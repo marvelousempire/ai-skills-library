@@ -12,7 +12,10 @@ Vendored **Agent Skills** + operating docs: browse on GitHub, sync to any Mac, a
 |------------|------|
 | **See every skill file (clickable)** | **[`skills/README.md`](skills/README.md)** → packs |
 | **All 41 marketing skills** | **[`skills/marketing/SKILL-CATALOG.md`](skills/marketing/SKILL-CATALOG.md)** |
-| **Cursor toolkit (babysit, canvas, …)** | **[`skills/cursor/SKILL-CATALOG.md`](skills/cursor/SKILL-CATALOG.md)** |
+| **Cursor toolkit (babysit, canvas, …)** | **[`skills/ide/cursor/SKILL-CATALOG.md`](skills/ide/cursor/SKILL-CATALOG.md)** |
+| **Marketing by category (SEO, CRO, …)** | **[`skills/marketing/CATEGORIES.md`](skills/marketing/CATEGORIES.md)** |
+| **UI/UX Pro Max** | **[`skills/visual/design/ui-ux-pro-max/SKILL.md`](skills/visual/design/ui-ux-pro-max/SKILL.md)** |
+| **Red-E Play Claude skills** | **[`skills/project/red-e-play/README.md`](skills/project/red-e-play/README.md)** |
 | **READYPLAY positioning (Agent context)** | **[`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md)** |
 | **Overlap / which skill wins** | [`docs/overlap-rules.md`](docs/overlap-rules.md) |
 | **Install & symlink on a new machine** | [`docs/marketingskills.md`](docs/marketingskills.md) |
@@ -33,14 +36,18 @@ ai-skills-library/
 ├── context/                  ← product marketing context snapshot
 │   ├── README.md
 │   └── readyplay-product-marketing-context.md
-├── skills/                   ← vendored SKILL.md trees
-│   ├── README.md             ← pack overview + counts
+├── skills/                   ← vendored SKILL.md trees (categorized)
+│   ├── README.md             ← taxonomy + counts
 │   ├── marketing/            ← 41 skills (Corey Haines pack)
-│   │   └── SKILL-CATALOG.md
-│   ├── cursor/               ← 13 Cursor skills-cursor
-│   │   └── SKILL-CATALOG.md
-│   ├── claude-local/         ← verify-ship, generate-weather-plates
-│   └── ui-ux-pro-max/        ← UI Pro Max (uipro-cli)
+│   │   ├── SKILL-CATALOG.md
+│   │   └── CATEGORIES.md     ← SEO, CRO, copy, …
+│   ├── visual/
+│   │   └── design/
+│   │       └── ui-ux-pro-max/  ← UI Pro Max (uipro-cli)
+│   ├── ide/
+│   │   └── cursor/           ← 13 Cursor skills-cursor + SKILL-CATALOG.md
+│   └── project/
+│       └── red-e-play/       ← verify-ship, generate-weather-plates
 ├── docs/                     ← process, install, sync, browse help
 └── scripts/
     ├── rescan-skills.sh      ← list unique SKILL.md on a machine

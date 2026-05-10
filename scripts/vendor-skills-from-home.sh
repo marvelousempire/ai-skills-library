@@ -7,15 +7,15 @@ cd "$ROOT"
 echo "→ skills/marketing/  ← ~/.agents/skills/"
 rsync -a --delete "${HOME}/.agents/skills/" "${ROOT}/skills/marketing/"
 
-echo "→ skills/cursor/     ← ~/.cursor/skills-cursor/"
-rsync -a --delete "${HOME}/.cursor/skills-cursor/" "${ROOT}/skills/cursor/"
+echo "→ skills/ide/cursor/ ← ~/.cursor/skills-cursor/"
+rsync -a --delete "${HOME}/.cursor/skills-cursor/" "${ROOT}/skills/ide/cursor/"
 
-echo "→ skills/claude-local/"
-rsync -a "${HOME}/.claude/skills/verify-ship/" "${ROOT}/skills/claude-local/verify-ship/"
-rsync -a "${HOME}/.claude/skills/generate-weather-plates/" "${ROOT}/skills/claude-local/generate-weather-plates/"
+echo "→ skills/project/red-e-play/"
+rsync -a "${HOME}/.claude/skills/verify-ship/" "${ROOT}/skills/project/red-e-play/verify-ship/"
+rsync -a "${HOME}/.claude/skills/generate-weather-plates/" "${ROOT}/skills/project/red-e-play/generate-weather-plates/"
 
-echo "→ skills/ui-ux-pro-max/"
-rsync -a "${HOME}/.cursor/skills/.cursor/skills/ui-ux-pro-max/" "${ROOT}/skills/ui-ux-pro-max/"
+echo "→ skills/visual/design/ui-ux-pro-max/"
+rsync -a "${HOME}/.cursor/skills/.cursor/skills/ui-ux-pro-max/" "${ROOT}/skills/visual/design/ui-ux-pro-max/"
 
 if [[ -f "${HOME}/Developer/red-e-play-app/.agents/product-marketing-context.md" ]]; then
   echo "→ context/readyplay-product-marketing-context.md"

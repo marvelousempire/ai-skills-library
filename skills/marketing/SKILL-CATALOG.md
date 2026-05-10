@@ -47,3 +47,4 @@ Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marke
 | **video** | [video/SKILL.md](video/SKILL.md) |
 
 **Foundation:** [`../../context/readyplay-product-marketing-context.md`](../../context/readyplay-product-marketing-context.md)
+**By category:** [`CATEGORIES.md`](CATEGORIES.md) (SEO, CRO, copy, …)
