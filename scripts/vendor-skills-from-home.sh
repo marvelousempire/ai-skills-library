@@ -23,6 +23,8 @@ if [[ -f "${HOME}/Developer/red-e-play-app/.agents/product-marketing-context.md"
     "${ROOT}/context/readyplay-product-marketing-context.md"
 fi
 
+echo "Generating external bridge skills + catalogs…"
+python3 "${ROOT}/scripts/generate-external-tool-skills.py"
 echo "Regenerating SKILL-CATALOG.md files…"
 python3 "${ROOT}/scripts/generate-skill-catalogs.py"
 echo "Done. SKILL.md count:" "$(find "${ROOT}/skills" -name SKILL.md | wc -l | tr -d ' ')"

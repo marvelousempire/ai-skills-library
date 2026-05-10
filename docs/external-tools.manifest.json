@@ -1,0 +1,186 @@
+{
+  "$schema": "./external-tools.manifest.schema.json",
+  "description": "Canonical list of external GitHub tools. Edit this file, then run: python3 scripts/generate-external-tool-skills.py",
+  "items": [
+    {
+      "id": "scrapegraph-ai",
+      "display_name": "ScrapeGraph AI",
+      "repo": "ScrapeGraphAI/Scrapegraph-ai",
+      "section": "Data & web",
+      "artifact_type": "library",
+      "upstream_publishes_skill": false,
+      "summary": "Python AI-assisted web scraping and structured extraction for LLM/RAG pipelines.",
+      "triggers": [
+        "ScrapeGraph",
+        "AI web scraping",
+        "LLM scraping pipeline",
+        "structured data from websites"
+      ],
+      "install_pointer": "Follow https://github.com/ScrapeGraphAI/Scrapegraph-ai — package install, API keys, and examples in upstream README.",
+      "compliance_notes": [
+        "Respect robots.txt, site terms, and applicable law; do not bypass paywalls or authentication without authorization.",
+        "Rate-limit requests; prefer official APIs when they exist."
+      ]
+    },
+    {
+      "id": "claude-mem",
+      "display_name": "claude-mem",
+      "repo": "thedotmack/claude-mem",
+      "section": "Agents, memory & orchestration",
+      "artifact_type": "plugin",
+      "upstream_publishes_skill": true,
+      "summary": "Claude Code plugin that captures session work, compresses it, and injects context into later sessions.",
+      "triggers": [
+        "long-term memory for Claude Code",
+        "claude-mem",
+        "remember across Claude sessions",
+        "session memory plugin"
+      ],
+      "install_pointer": "Install as a Claude Code plugin per https://github.com/thedotmack/claude-mem — upstream may ship its own skill or plugin metadata.",
+      "compliance_notes": [
+        "Clarify what is stored locally vs sent to models; follow org policy for code and secrets in memory."
+      ]
+    },
+    {
+      "id": "ruflo",
+      "display_name": "Ruflo",
+      "repo": "ruvnet/ruflo",
+      "section": "Agents, memory & orchestration",
+      "artifact_type": "platform",
+      "upstream_publishes_skill": false,
+      "summary": "Agent orchestration platform: multi-agent swarms, workflows, RAG; Claude Code / Codex integration (per upstream).",
+      "triggers": [
+        "Ruflo",
+        "agent swarm orchestration",
+        "multi-agent Claude workflows"
+      ],
+      "install_pointer": "See https://github.com/ruvnet/ruflo for deployment, MCP, and Claude/Codex hooks.",
+      "compliance_notes": [
+        "Treat orchestration as production software: secrets, network exposure, and cost controls belong in operator runbooks."
+      ]
+    },
+    {
+      "id": "claude-code-local",
+      "display_name": "Claude Code Local",
+      "repo": "nicedreamzapp/claude-code-local",
+      "section": "Claude Code (local / on-device)",
+      "artifact_type": "platform",
+      "upstream_publishes_skill": false,
+      "summary": "Run Claude Code against local models on Apple Silicon using an MLX-oriented, Anthropic-API-compatible server; offline-oriented.",
+      "triggers": [
+        "Claude Code offline",
+        "local Claude Code Apple Silicon",
+        "MLX Claude API compatible server",
+        "airgap Claude Code"
+      ],
+      "install_pointer": "Follow https://github.com/nicedreamzapp/claude-code-local for hardware requirements, model weights, and server setup.",
+      "compliance_notes": [
+        "Local inference still bound by model licenses and your Anthropic / third-party terms for any hybrid setup; verify NDA and export rules for your sector."
+      ]
+    },
+    {
+      "id": "open-generative-ai",
+      "display_name": "Open Generative AI",
+      "repo": "Anil-matcha/Open-Generative-AI",
+      "section": "Generative image & video",
+      "artifact_type": "application",
+      "upstream_publishes_skill": false,
+      "summary": "Self-hosted generative image and video studio aggregating many third-party models (see upstream for list and terms).",
+      "triggers": [
+        "self-hosted AI video studio",
+        "Open Generative AI",
+        "local image video generation stack"
+      ],
+      "install_pointer": "Clone and configure per https://github.com/Anil-matcha/Open-Generative-AI — model keys and content policies are upstream.",
+      "compliance_notes": [
+        "Generated media may be restricted by law, platform rules, and model licenses; the operator is responsible for policy."
+      ]
+    },
+    {
+      "id": "blender-mcp",
+      "display_name": "Blender MCP",
+      "repo": "ahujasid/blender-mcp",
+      "section": "3D & MCP",
+      "artifact_type": "mcp_server",
+      "upstream_publishes_skill": false,
+      "summary": "Model Context Protocol bridge so agents can drive Blender scenes and operations.",
+      "triggers": [
+        "Blender MCP",
+        "control Blender from Claude",
+        "MCP Blender integration"
+      ],
+      "install_pointer": "Install Blender add-on / server per https://github.com/ahujasid/blender-mcp; wire MCP client to the documented endpoint.",
+      "compliance_notes": [
+        "Long-running 3D operations can be destructive; confirm before batch edits or script execution."
+      ]
+    },
+    {
+      "id": "voicebox",
+      "display_name": "Voicebox",
+      "repo": "jamiepine/voicebox",
+      "section": "Voice, speech & TTS",
+      "artifact_type": "application",
+      "upstream_publishes_skill": false,
+      "summary": "Open-source AI voice studio for cloning, dictation, and voice creation workflows.",
+      "triggers": [
+        "Voicebox",
+        "open source voice clone studio",
+        "local voice AI workstation"
+      ],
+      "install_pointer": "See https://github.com/jamiepine/voicebox and https://voicebox.sh for builds and GPU requirements.",
+      "compliance_notes": [
+        "Voice cloning has consent and fraud implications; follow jurisdiction and platform rules."
+      ]
+    },
+    {
+      "id": "voice-chat-ai",
+      "display_name": "voice-chat-ai",
+      "repo": "bigsk1/voice-chat-ai",
+      "section": "Voice, speech & TTS",
+      "artifact_type": "application",
+      "upstream_publishes_skill": false,
+      "summary": "Local voice conversation app with multiple LLM backends and pluggable TTS providers.",
+      "triggers": [
+        "local voice chat AI",
+        "voice-chat-ai",
+        "Ollama voice assistant"
+      ],
+      "install_pointer": "Follow https://github.com/bigsk1/voice-chat-ai for FastAPI/WebRTC stack and provider API keys.",
+      "compliance_notes": [
+        "Microphone and transcript data are sensitive; clarify retention and cloud vs local paths."
+      ]
+    },
+    {
+      "id": "kokoro-fastapi",
+      "display_name": "Kokoro FastAPI",
+      "repo": "remsky/Kokoro-FastAPI",
+      "section": "Voice, speech & TTS",
+      "artifact_type": "service",
+      "upstream_publishes_skill": false,
+      "summary": "Docker-friendly FastAPI wrapper for Kokoro TTS with CPU ONNX and optional GPU PyTorch paths.",
+      "triggers": [
+        "Kokoro TTS API",
+        "Kokoro FastAPI",
+        "self-hosted TTS OpenAI compatible"
+      ],
+      "install_pointer": "Use https://github.com/remsky/Kokoro-FastAPI for Docker compose, voices, and HTTP API shape.",
+      "compliance_notes": []
+    },
+    {
+      "id": "voxtral-tts-c",
+      "display_name": "voxtral-tts.c",
+      "repo": "mudler/voxtral-tts.c",
+      "section": "Voice, speech & TTS",
+      "artifact_type": "library",
+      "upstream_publishes_skill": false,
+      "summary": "Pure C implementation of Voxtral TTS for lightweight embedded or server-side synthesis (per upstream).",
+      "triggers": [
+        "voxtral-tts.c",
+        "C TTS Voxtral",
+        "embedded Voxtral speech"
+      ],
+      "install_pointer": "Build from https://github.com/mudler/voxtral-tts.c — check upstream for model weights and licensing.",
+      "compliance_notes": []
+    }
+  ]
+}

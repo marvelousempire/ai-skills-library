@@ -39,3 +39,11 @@ git push
 ```
 
 For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/project/red-e-play/<name>/` and document in `SKILL-INDEX.md`.
+
+## External GitHub tool → generated bridge skill
+
+1. Add an entry to [`external-tools.manifest.json`](external-tools.manifest.json) (see schema: [`external-tools.manifest.schema.json`](external-tools.manifest.schema.json)).
+2. Run `python3 scripts/generate-external-tool-skills.py` and `python3 scripts/generate-skill-catalogs.py`.
+3. Commit the manifest + all generated files (`docs/related-github-projects.md`, `skills/external/**`).
+4. Optional: `./scripts/link-external-skills-to-claude.sh` on each machine.
+

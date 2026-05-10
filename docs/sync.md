@@ -48,3 +48,14 @@ rsync -a ~/.agents/skills/ ./vendor/agents-skills/
 ```bash
 diff -qr ~/.cursor/skills-cursor/babysit ./skills/ide/cursor/babysit
 ```
+
+### Claude Code: link generated external skills
+
+After cloning this repo:
+
+\`\`\`bash
+./scripts/link-external-skills-to-claude.sh
+\`\`\`
+
+Creates symlinks from \`skills/external/<id>/\` → \`~/.claude/skills/<id>/\`.
+

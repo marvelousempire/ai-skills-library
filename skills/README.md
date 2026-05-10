@@ -1,6 +1,6 @@
-# Skills (vendored)
+# Skills (vendored + generated)
 
-All skills in this folder are **copies** for backup, browsing on GitHub, and syncing other machines.  
+Most folders are **copies** for backup and GitHub browsing. **External bridge skills** are generated from a manifest (not vendored upstream code).  
 **Upstream / licenses:** see [`../THIRD_PARTY.md`](../THIRD_PARTY.md).
 
 ## Taxonomy
@@ -11,11 +11,12 @@ All skills in this folder are **copies** for backup, browsing on GitHub, and syn
 | **Visual → Design** | [`visual/design/ui-ux-pro-max/`](visual/design/ui-ux-pro-max/) | 1 | Design system / UX (`uipro-cli`) |
 | **IDE → Cursor** | [`ide/cursor/`](ide/cursor/) | 13 | babysit, canvas, create-skill, sdk, … — [catalog](ide/cursor/SKILL-CATALOG.md) |
 | **Project → Red-E Play** | [`project/red-e-play/`](project/red-e-play/) | 2 | `verify-ship`, `generate-weather-plates` |
+| **External tools** (bridge) | [`external/`](external/) | 10 | Generated `SKILL.md` per upstream repo — [catalog](external/SKILL-CATALOG.md) · [manifest](../docs/external-tools.manifest.json) |
 
-**Total:** 57 `SKILL.md` files.
+**Total:** 67 `SKILL.md` files (57 vendored + 10 generated bridges).
 
 ## Browse on GitHub
 
-Open any subfolder → GitHub renders `README` / `SKILL.md`.  
 - Marketing (flat): **[marketing/SKILL-CATALOG.md](marketing/SKILL-CATALOG.md)**  
-- Marketing (grouped): **[marketing/CATEGORIES.md](marketing/CATEGORIES.md)**
+- Marketing (grouped): **[marketing/CATEGORIES.md](marketing/CATEGORIES.md)**  
+- External tools (tagged index): **[../docs/related-github-projects.md](../docs/related-github-projects.md)**

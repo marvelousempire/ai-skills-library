@@ -6,7 +6,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **57** vendored `SKILL.md` files under [`skills/`](skills/).
+- **67** total `SKILL.md` files under [`skills/`](skills/).
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
@@ -28,6 +28,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | **statusline** | Cursor | [`skills/ide/cursor/statusline/`](skills/ide/cursor/statusline/) | CLI statusline | “Use **statusline**.” | — |
 | **update-cli-config** | Cursor | [`skills/ide/cursor/update-cli-config/`](skills/ide/cursor/update-cli-config/) | `cli-config.json` | “Use **update-cli-config**.” | update-cursor-settings |
 | **update-cursor-settings** | Cursor | [`skills/ide/cursor/update-cursor-settings/`](skills/ide/cursor/update-cursor-settings/) | `settings.json` | “Use **update-cursor-settings**.” | update-cli-config |
+| **External tools** (generated bridges, 10) | Cursor + Claude | [`skills/external/`](skills/external/) · [catalog](skills/external/SKILL-CATALOG.md) · [index](docs/related-github-projects.md) | Third-party GitHub tools (scraping, voice, MCP, local Claude Code…) | Name the skill id (e.g. **kokoro-fastapi**, **blender-mcp**) or open the index table | varies by tool |
 
 ## Product context (not a skill folder)
 
@@ -39,7 +40,9 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 [`docs/add-skill.md`](docs/add-skill.md) → then `./scripts/vendor-skills-from-home.sh` → commit.
 
-## External repos (not skills)
+## External tools vs vendored skills
 
-Curated links to tools and stacks (scraping, voice, Blender MCP, agent orchestration): [`docs/related-github-projects.md`](docs/related-github-projects.md).
+- **Artifact** = what lives on GitHub (library, app, MCP server, …).
+- **Bridge skill** = generated `skills/external/<id>/SKILL.md` from [`docs/external-tools.manifest.json`](docs/external-tools.manifest.json) — agent playbook only, not the product source.
+- Full table with **Artifact** / **Skill** columns: [`docs/related-github-projects.md`](docs/related-github-projects.md).
 

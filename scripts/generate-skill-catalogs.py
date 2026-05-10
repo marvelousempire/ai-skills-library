@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate SKILL-CATALOG.md under skills/marketing and skills/ide/cursor."""
+"""Regenerate SKILL-CATALOG.md under skills/marketing, skills/ide/cursor, skills/external."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +33,14 @@ def write_catalog(rel: str, title: str, upstream_line: str) -> None:
             "**By category:** [`CATEGORIES.md`](CATEGORIES.md) (SEO, CRO, copy, …)"
         )
         lines.append("")
+    if rel == "external":
+        lines.append(
+            "**Source:** [`../../docs/external-tools.manifest.json`](../../docs/external-tools.manifest.json) — run `python3 scripts/generate-external-tool-skills.py` after edits."
+        )
+        lines.append(
+            "**Human index:** [`../../docs/related-github-projects.md`](../../docs/related-github-projects.md)"
+        )
+        lines.append("")
     (root / "SKILL-CATALOG.md").write_text("\n".join(lines))
 
 
@@ -46,6 +54,11 @@ def main() -> None:
         "ide/cursor",
         "Cursor skills-cursor pack",
         "Vendored from `~/.cursor/skills-cursor/`.",
+    )
+    write_catalog(
+        "external",
+        "External tools — generated bridge skills",
+        "Each `SKILL.md` is **generated** from the manifest (bridge docs; upstream repos are the real products).",
     )
 
 

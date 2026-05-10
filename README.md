@@ -23,7 +23,8 @@ Vendored **Agent Skills** + operating docs: browse on GitHub, sync to any Mac, a
 | **Bottlenecks & checklist** | [`docs/process.md`](docs/process.md) |
 | **Refresh copies from `~/`** | [`scripts/vendor-skills-from-home.sh`](scripts/vendor-skills-from-home.sh) (run after upstream updates) |
 | **Third-party licenses** | [`THIRD_PARTY.md`](THIRD_PARTY.md) |
-| **Related GitHub projects (scraping, voice, agents, …)** | [`docs/related-github-projects.md`](docs/related-github-projects.md) |
+| **Related GitHub projects (tagged table + links)** | [`docs/related-github-projects.md`](docs/related-github-projects.md) |
+| **External tool bridge skills (generated)** | [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) · [`docs/external-tools.manifest.json`](docs/external-tools.manifest.json) |
 
 ---
 
@@ -37,26 +38,25 @@ ai-skills-library/
 ├── context/                  ← product marketing context snapshot
 │   ├── README.md
 │   └── readyplay-product-marketing-context.md
-├── skills/                   ← vendored SKILL.md trees (categorized)
+├── skills/                   ← vendored + generated SKILL.md trees
 │   ├── README.md             ← taxonomy + counts
 │   ├── marketing/            ← 41 skills (Corey Haines pack)
 │   │   ├── SKILL-CATALOG.md
-│   │   └── CATEGORIES.md     ← SEO, CRO, copy, …
-│   ├── visual/
-│   │   └── design/
-│   │       └── ui-ux-pro-max/  ← UI Pro Max (uipro-cli)
-│   ├── ide/
-│   │   └── cursor/           ← 13 Cursor skills-cursor + SKILL-CATALOG.md
-│   └── project/
-│       └── red-e-play/       ← verify-ship, generate-weather-plates
-├── docs/                     ← process, install, sync, browse help, related GitHub projects
+│   │   └── CATEGORIES.md
+│   ├── visual/design/ui-ux-pro-max/
+│   ├── ide/cursor/           ← 13 Cursor skills-cursor + SKILL-CATALOG.md
+│   ├── project/red-e-play/   ← verify-ship, generate-weather-plates
+│   └── external/             ← 10 generated bridge skills + SKILL-CATALOG.md
+├── docs/                     ← manifest, related projects (generated), process
 └── scripts/
-    ├── rescan-skills.sh      ← list unique SKILL.md on a machine
+    ├── rescan-skills.sh
     ├── vendor-skills-from-home.sh
-    └── generate-skill-catalogs.py
+    ├── generate-skill-catalogs.py
+    ├── generate-external-tool-skills.py
+    └── link-external-skills-to-claude.sh
 ```
 
-**Counts:** **57** `SKILL.md` files under `skills/` (regenerate catalogs after vendor).
+**Counts:** **67** `SKILL.md` files under `skills/` (regenerate catalogs after vendor).
 
 ---
 
