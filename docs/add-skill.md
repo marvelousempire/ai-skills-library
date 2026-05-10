@@ -19,3 +19,9 @@
 ```bash
 find ~/.cursor/skills ~/.cursor/skills-cursor ~/.claude/skills -name SKILL.md 2>/dev/null
 ```
+
+## Bulk pack (e.g. marketingskills)
+
+1. Install: `command npx --yes skills add coreyhaines31/marketingskills` from `$HOME`.
+2. Symlink into `~/.cursor/skills/` and `~/.claude/skills/` if tools do not read `~/.agents/skills/` alone.
+3. Document in **`docs/marketingskills.md`** (this repo) and add a **bundle row** in **`SKILL-INDEX.md`**.

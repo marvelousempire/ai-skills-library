@@ -18,6 +18,9 @@ A **catalog + operating manual** for skills installed on your machines. This rep
 | [`docs/overlap-rules.md`](docs/overlap-rules.md) | Precedence when multiple skills fit one prompt |
 | [`docs/add-skill.md`](docs/add-skill.md) | Checklist when installing or authoring a skill |
 | [`docs/machine-paths.md`](docs/machine-paths.md) | Where skills sit on disk (this Mac) |
+| [`docs/process.md`](docs/process.md) | Known bottlenecks + session checklist |
+| [`docs/marketingskills.md`](docs/marketingskills.md) | Marketing bundle install + symlink + skill list |
+| [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) | Print all SKILL.md paths for drift checks |
 
 ## Quick use
 

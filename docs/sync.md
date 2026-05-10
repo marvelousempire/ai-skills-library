@@ -50,3 +50,9 @@ After editing skills in-place under `~/`, diff against vendor:
 diff -qr ~/.cursor/skills-cursor/babysit ./vendor/cursor/skills-cursor/babysit
 ```
 
+
+## Agent Skills root
+
+\`\`\`bash
+rsync -a ~/.agents/skills/ ./vendor/agents-skills/
+\`\`\`

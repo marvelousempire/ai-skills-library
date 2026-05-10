@@ -18,3 +18,9 @@ When more than one skill matches your wording, the model **does not** run a guar
 ## Optional: encode in a repo
 
 In a codebase, add `.cursor/rules/skills-precedence.mdc` with project-specific overrides.
+
+## Marketing bundle (coreyhaines31/marketingskills)
+
+- **Foundation:** `product-marketing-context` — run or refresh before big marketing passes when upstream skills chain context.
+- **Copy vs layout:** **copywriting** / **copy-editing** own words; **page-cro** / **form-cro** own conversion structure; **ui-ux-pro-max** owns visual system / patterns when you want design-database output — say which is primary.
+- **CRO family:** signup-flow-cro vs onboarding-cro vs paywall-upgrade-cro — scope by *funnel stage* in your prompt so one skill leads.

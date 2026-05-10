@@ -8,7 +8,7 @@ This index was built by scanning for **`SKILL.md`** under:
 - `~/.cursor/skills-cursor`
 - `~/.claude/skills`
 
-**Count:** 16 files found = 16 table rows (last full scan 2026-05-10).
+**Count:** After the marketing bundle, run `scripts/rescan-skills.sh` — expect **50+** `SKILL.md` paths across roots (was 16 before 2026-05-10).
 
 **Not indexed here:** skills that exist only in Cursor/Claude **UI** or another machine until a `SKILL.md` appears under those paths. Rows in **Gaps / future skills** are *intentional* placeholders (e.g. copywriting) if you install them later.
 
@@ -22,6 +22,7 @@ Paths are absolute on **your machine**; see [`docs/machine-paths.md`](docs/machi
 
 | Skill | Tool | Install path | Use when | Invoke | Overlap |
 |-------|------|--------------|----------|--------|---------|
+| **Marketing Skills** (41-pack) | Cursor + Claude | `~/.agents/skills/` (+ symlinks in `~/.cursor/skills/`, `~/.claude/skills/`) | CRO, SEO, copy, ads, research, launch, email, ASO, etc. | Start with **`product-marketing-context`**; then name the skill (e.g. **page-cro**, **copywriting**) | ui-ux-pro-max, canvas |
 | **ui-ux-pro-max** | Cursor | `~/.cursor/skills/.cursor/skills/ui-ux-pro-max/` | Design, build, **review**, **improve**, fix UI/UX; design systems; landing pages | “Follow **ui-ux-pro-max**; run the design-system workflow.” | copywriting, canvas |
 | **verify-ship** | Claude Code | `~/.claude/skills/verify-ship/` | “Did it ship?”, merge/deploy state, versions | “Use **verify-ship**.” | shell |
 | **generate-weather-plates** | Claude Code | `~/.claude/skills/generate-weather-plates/` | Red-E Play weather hero plates via gpt-image-1 | “Use **generate-weather-plates**.” | ui-ux-pro-max |

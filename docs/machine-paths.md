@@ -19,3 +19,6 @@ Duplicate this section as `machine-paths-laptop.md` or add a **Machine** column 
 ## Cursor / Claude UI vs disk
 
 The **agent** may list skills that are **bundled or configured** separately from the folders above. This library tracks **files on disk** under the scanned roots. If the product shows a skill that is not in `SKILL-INDEX.md`, run the find in [`add-skill.md`](add-skill.md) and add a row.
+
+| `~/.agents/skills/` | **Agent Skills** standard directory (`npx skills` installs here) |
+| `https://github.com/coreyhaines31/marketingskills` | Upstream marketing bundle source |
