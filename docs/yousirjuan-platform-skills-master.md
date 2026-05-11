@@ -2,256 +2,622 @@
 
 ## Source Of Truth
 
-The master source of truth for the You-Sir Juan platform skills, tools, and repo map lives in:
+Master platform planning, architecture, and feature ownership live in:
 
 ```text
 marvelousempire/yousirjuan
 ```
 
-This repository, `marvelousempire/ai-skills-library`, is the portable copied skills library.
+This repository, `marvelousempire/ai-skills-library`, is the portable copied skills shelf.
 
-Use this repo to browse, install, and reuse skills from one place.
-
----
-
-# Purpose
-
-This document merges the You-Sir Juan AI skills, upstream repos, tools, runtimes, models, media systems, voice systems, and infrastructure systems into the AI Skills Library.
-
-It explains:
-
-- what each skill/tool is
-- what it does
-- why it matters
-- how You-Sir Juan uses it
-- whether it is active, approved, planned, candidate, or reference
+Use this document as a lightweight AI-readable knowledge guide: a poor man's RAG index for tools, skills, repos, and platform roles.
 
 ---
 
-# Platform Skill Categories
+# How AI Should Use This Guide
 
-| Category | Purpose |
+When asked to build, plan, design, deploy, or explain You-Sir Juan, first identify the domain below, then select the correct tool family.
+
+## Selection Rule
+
+| User Intent | Use These Categories First |
 |---|---|
-| Coding Skills | build, refactor, test, and maintain code |
-| Design Skills | improve UI, layout, accessibility, and visual polish |
-| Retrieval Skills | ingest and search documents, images, transcripts, and memory |
-| Browser Skills | automate websites, tests, screenshots, onboarding, and UI checks |
-| Media Skills | generate video, images, avatars, and cinematic assets |
-| Voice Skills | transcription, TTS, voice assistants, and spoken workflows |
-| Evaluation Skills | test model quality, hallucinations, workflows, and output safety |
-| Productivity Skills | connect AI to Gmail, Calendar, Docs, Sheets, and operations |
-| Infrastructure Skills | deploy, monitor, version, and operate the platform |
-| Governance Skills | Git, CI/CD, audit history, runners, artifacts, and operational memory |
+| build or edit code | Coding + Runtime + Git/Governance |
+| improve UI or website | Design + Frontend + Media |
+| ingest documents or memory | Retrieval + Data + Voice if audio |
+| automate browser work | Browser + Web Intelligence + Evaluation |
+| make videos, images, demos | Media + Voice + Design |
+| add speech or assistant voice | Voice + Retrieval + Assistant Runtime |
+| deploy or operate platform | Infrastructure + Network + Governance |
+| test quality | Evaluation + Observability + Browser |
+| connect work apps | Productivity + Retrieval + Governance |
+| map hardware or performance | Compute + Runtime + Models |
 
 ---
 
-# Coding & Developer Intelligence
+# Status Legend
 
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| Claude Code | terminal AI coding and repo editing | builds and modifies platform files, services, docs, and workflows | active |
-| Continue.dev | IDE AI coding assistant | connects local/cloud models to developer workflows | active |
-| Aider | Git-aware coding assistant | makes repo changes with commit-friendly workflows | active |
-| OpenHands | autonomous engineering agent | future autonomous build, test, and repair workflows | candidate |
-| Roo Code | editor-based coding agent | future IDE-native agent workflow layer | candidate |
-| Qwen Coder | coding model | local coding intelligence and repo assistance | approved |
-| DeepSeek Coder | coding model | code reasoning, generation, and debugging | approved |
-| Devstral | coding model | autonomous software engineering workflows | candidate |
-| Codestral | coding model | fast coding workflows | candidate |
+| Status | Meaning |
+|---|---|
+| Core | foundational platform dependency |
+| Active | already used or directly included in current platform direction |
+| Approved | selected for integration |
+| Planned | part of roadmap but not fully implemented |
+| Candidate | under review or useful future option |
+| Reference | pattern, benchmark, or optional outside inspiration |
 
 ---
 
-# Runtime & Local Inference
+# Domain Map
 
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| Ollama | local model runtime | local inference and model hosting | active |
-| vLLM | high-throughput inference server | larger GPU-backed inference | candidate |
-| Open WebUI | local AI interface | user interface for local models and assistants | active |
-| NVIDIA NIM | NVIDIA model-serving stack | DGX Spark model serving path | candidate |
-| TensorRT | NVIDIA inference optimization | optimized DGX Spark workloads | candidate |
-
----
-
-# Retrieval, Memory & RAG
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| RAG Anything | multimodal document ingestion | ingests PDFs, scans, screenshots, images, and transcripts | active |
-| Qdrant | vector database | semantic memory and retrieval | active |
-| LanceDB | local vector database | optional embedded retrieval backend | candidate |
-| ChromaDB | lightweight vector DB | local prototype retrieval | candidate |
-| FAISS | vector search | high-speed local retrieval experiments | candidate |
-| LlamaIndex | retrieval framework | memory pipelines and contextual retrieval | candidate |
-| LangChain | orchestration/RAG framework | tools, retrievers, and chains | candidate |
-| SentenceTransformers | embeddings | local embedding generation | active |
-| bge-large | embedding model | enterprise semantic retrieval | approved |
-| nomic-embed | embedding model | local retrieval and memory | approved |
-| e5-large | embedding model | semantic search | approved |
-
----
-
-# Browser Automation & Web Intelligence
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| Playwright CLI | browser automation and testing | onboarding tests, screenshots, dashboard checks, browser workflows | active |
-| Firecrawl | structured web crawling | turns websites into structured memory and research inputs | active |
-| Browser-use | browser agent framework | autonomous browser workflows | candidate |
-| Selenium | browser automation | fallback browser testing | candidate |
-
----
-
-# Design Intelligence & Frontend Quality
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| UI/UX Pro Max | design reasoning, layout, UX flow, polish | improves admin, marketing, and assistant interfaces | active |
-| AwesomeDesign.md | frontend critique and design rules | reviews and improves AI-generated UI | active |
-| 21st.dev | modern UI blocks and hero inspiration | premium landing sections and UI generation | active |
-| Framer Motion | animation and interaction system | cinematic transitions and motion polish | active |
-| shadcn/ui | reusable UI primitives | admin and marketing component foundation | active |
-| Tailwind CSS | utility styling | design tokens and styling system | active |
-| Magic UI | animated UI sections | premium marketing pages | candidate |
-| Aceternity UI | high-end interaction effects | cinematic product storytelling | candidate |
-| Lucide Icons | clean iconography | consistent app icons | active |
-| Three.js | 3D graphics | infrastructure visuals and cinematic product visuals | active |
-| React Three Fiber | React-based 3D layer | immersive Next.js visuals | active |
-
----
-
-# Media Intelligence
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| Higgsfield | cinematic AI video generation | premium AI videos, demos, feature explainers | candidate |
-| Seedance | AI motion/video generation | cinematic scene and asset workflows | candidate |
-| Runway | AI video workflow reference | high-end video workflow pattern reference | reference |
-| Kling | motion generation reference | cinematic motion reference | reference |
-| ComfyUI | modular diffusion pipeline | local image/video generation orchestration | planned |
-| Flux | image generation | premium visual asset generation | planned |
-| AUTOMATIC1111 | Stable Diffusion UI | local image-generation experiments | candidate |
-| AnimateDiff | animation generation | motion from generated images | candidate |
-| Deforum | cinematic diffusion | AI film sequence generation | candidate |
-| StoryDiffusion | storyboard generation | visual narrative planning | candidate |
-| LivePortrait | talking portraits | avatar and assistant presentation workflows | candidate |
-| FaceFusion | face/media workflow | controlled face/media pipeline | candidate |
-
----
-
-# TTS, Speech & Audio
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| Whisper | speech-to-text | voice notes, meetings, calls, and audio into searchable memory | active |
-| Piper | local TTS | fast private assistant voice output | active |
-| Kokoro | high-quality local TTS | premium local assistant voice | active |
-| ElevenLabs | cloud voice / voice cloning | polished demos and narration when allowed | reference |
-| Coqui TTS | open-source TTS | alternate local voice output | candidate |
-| AudioCraft | audio/music generation | future sound design and AI audio workflows | candidate |
-
----
-
-# Productivity Integrations
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| GWS | Google Workspace integration | Gmail, Calendar, Docs, Sheets integration | active |
-| Gmail integration | communications | summarize, draft, organize emails when authorized | planned |
-| Calendar integration | scheduling | reminders, events, and operational coordination | planned |
-| Docs integration | document memory | document workflows into memory/retrieval | planned |
-| Sheets integration | structured data | ledgers, trackers, analytics, reports | planned |
-
----
-
-# Evaluation & Trust Infrastructure
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| DeepEval | AI evaluation | answer quality, hallucination risk, retrieval quality | candidate |
-| Promptfoo | prompt regression testing | model/prompt comparison and quality drift prevention | candidate |
-| Playwright Tests | UI evaluation | dashboard, onboarding, and browser workflow testing | active |
-| Recharts | analytics UI | displays usage, eval results, and operational metrics | active |
-| Sentry | observability | frontend/backend error tracking | approved |
-
----
-
-# Infrastructure, Network & Governance
-
-| Skill / Tool | What It Does | You-Sir Juan Use | Status |
-|---|---|---|---|
-| Git | version control | operational memory, code history, assistant versions | core |
-| GitLab CE | private Git platform | CI/CD, runners, artifacts, issue tracking, governance | planned |
-| GitHub | repo hosting | current repo hosting and upstream synchronization | active |
-| Gitea | lightweight Git hosting | optional smaller self-hosted Git platform | candidate |
-| Forgejo | community Git forge | optional open-source Git platform | candidate |
-| Docker | containerization | runtime services, databases, queues, and AI interfaces | active |
-| Docker Compose | local orchestration | service startup and coordination | active |
-| PostgreSQL | database | workspaces, namespaces, assistants, jobs, metadata | active schema |
-| Redis | queues | background jobs, orchestration, evals, ingestion | planned |
-| WireGuard | secure networking | connects workstation, runtime server, DGX Spark, Jetson Thor, VPS, storage | active |
-| nginx | reverse proxy | traffic routing and TLS termination | candidate |
-| pm2 | process manager | runtime persistence on servers | candidate |
-| Terraform | infrastructure-as-code | reproducible infrastructure | planned |
-| Ansible | server automation | provisioning and server management | planned |
-| SOPS | secret encryption | encrypted env files and deployment secrets | candidate |
-| Vault | secrets management | central secrets and policy management | candidate |
-
----
-
-# Hardware Skills / Compute Roles
-
-| Hardware | What It Does | You-Sir Juan Use |
+| Domain | Purpose | Primary Output |
 |---|---|---|
-| MacBook Pro M5 Max | main workstation | local inference, coding, orchestration, design, creative work |
-| Mac mini M4 Pro | persistent runtime node | APIs, queues, Qdrant, Open WebUI, ingestion workers |
-| NVIDIA DGX Spark | frontier inference node | CUDA workloads, fine-tuning, large-model serving |
-| NVIDIA Jetson Thor | edge AI node | robotics, vision, voice, camera intelligence, edge inference |
-| Flint 2 | infrastructure gateway | WireGuard gateway and network backbone |
-| Slate AX | travel router | secure remote access into home infrastructure |
-| NAS / DAS / NVMe | storage layer | models, archives, embeddings, datasets, backups |
+| 01 Coding Intelligence | code generation, repo editing, refactoring | working code, commits, tests |
+| 02 Model Runtime | local models and inference servers | model responses, APIs |
+| 03 Retrieval Memory | documents, embeddings, semantic search | memory recall, RAG answers |
+| 04 Browser Web Intelligence | web automation, crawling, UI checks | screenshots, extracted data, tests |
+| 05 Design Frontend | UI quality, components, motion | polished app and landing pages |
+| 06 Media Intelligence | video, image, avatar, cinematic output | demos, visual assets, clips |
+| 07 Voice Speech Audio | STT, TTS, voice assistants | transcripts, voice replies, narration |
+| 08 Productivity Integrations | Gmail, Calendar, Docs, Sheets | operational workflows |
+| 09 Evaluation Observability | quality checks, tracing, monitoring | scores, reports, alerts |
+| 10 Infrastructure Network | deploy, connect, secure services | running platform |
+| 11 Governance GitOps | versioning, CI/CD, artifacts | operational memory |
+| 12 Hardware Compute | workload placement | node strategy |
+
+---
+
+# 01 Coding Intelligence
+
+## Role
+
+Turns the platform into a buildable, maintainable software system.
+
+## Inputs
+
+- repo files
+- issues
+- feature specs
+- PRDs
+- bugs
+- terminal commands
+
+## Outputs
+
+- code changes
+- commits
+- tests
+- refactors
+- implementation plans
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Claude Code | coding agent | terminal AI coding and repo editing | builds and modifies services, docs, configs, and features | Active |
+| Continue.dev | IDE assistant | editor-local AI assistance | connects local/cloud models into coding workflow | Active |
+| Aider | Git-aware coding CLI | commit-aware repo editing | fast AI changes inside Git repos | Active |
+| OpenHands | autonomous engineering | end-to-end coding agent | future autonomous build/test/repair workflows | Candidate |
+| Roo Code | IDE agent | agentic coding in editor | future IDE-native agent workflow | Candidate |
+| Qwen Coder | coding model | code generation and reasoning | local coding model for repo work | Approved |
+| DeepSeek Coder | coding model | code reasoning and debugging | coding and refactor workloads | Approved |
+| Devstral | coding model | agentic software engineering | candidate for autonomous coding workflows | Candidate |
+| Codestral | coding model | fast coding assistance | quick code generation and editing | Candidate |
+
+## AI Routing Note
+
+For code edits, prefer Claude Code, Aider, or Continue.dev. For local model support, route to Qwen Coder or DeepSeek Coder.
+
+---
+
+# 02 Model Runtime & Inference
+
+## Role
+
+Runs AI models locally or on dedicated compute nodes.
+
+## Inputs
+
+- prompts
+- model files
+- API calls
+- embeddings requests
+- agent requests
+
+## Outputs
+
+- generated text
+- code
+- reasoning
+- embeddings
+- model API responses
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Ollama | local runtime | simple local model hosting | local inference for assistants and coding | Active |
+| vLLM | inference server | high-throughput serving | GPU-backed inference on stronger nodes | Candidate |
+| Open WebUI | model interface | web UI for local models | local chat and assistant interface | Active |
+| NVIDIA NIM | model serving | NVIDIA model containers | DGX Spark serving path | Candidate |
+| TensorRT | optimization | NVIDIA inference acceleration | optimized DGX Spark workloads | Candidate |
+
+## AI Routing Note
+
+Use Ollama for simple local runtime. Use vLLM/NIM/TensorRT when the task needs DGX Spark or CUDA acceleration.
+
+---
+
+# 03 Retrieval, Memory & RAG
+
+## Role
+
+Turns files, text, images, transcripts, and records into searchable memory.
+
+## Inputs
+
+- PDFs
+- screenshots
+- images
+- documents
+- markdown
+- transcripts
+- websites
+- repos
+
+## Outputs
+
+- chunks
+- embeddings
+- vector records
+- search results
+- retrieved context
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| RAG Anything | multimodal RAG | ingest multimodal documents | PDFs, scans, images, screenshots, transcripts | Active |
+| Qdrant | vector DB | semantic memory store | core vector retrieval backend | Active |
+| LanceDB | vector DB | embedded/local vectors | optional local retrieval backend | Candidate |
+| ChromaDB | vector DB | lightweight vector DB | prototypes and experiments | Candidate |
+| FAISS | vector search | fast local similarity search | custom retrieval experiments | Candidate |
+| LlamaIndex | retrieval framework | document/query pipelines | structured memory workflows | Candidate |
+| LangChain | orchestration/RAG | chains, tools, retrievers | workflow and tool integration | Candidate |
+| SentenceTransformers | embeddings | local embedding generation | document and memory embeddings | Active |
+| bge-large | embedding model | strong semantic retrieval | enterprise-grade embeddings | Approved |
+| nomic-embed | embedding model | local embedding model | private memory embeddings | Approved |
+| e5-large | embedding model | semantic retrieval | search and recall workflows | Approved |
+
+## AI Routing Note
+
+For memory or knowledge questions, prefer RAG Anything for ingestion, Qdrant for storage, and SentenceTransformers or approved embedding models for indexing.
+
+---
+
+# 04 Browser Automation & Web Intelligence
+
+## Role
+
+Lets agents operate websites, test pages, collect public web data, and validate UI flows.
+
+## Inputs
+
+- URLs
+- browser tasks
+- onboarding flows
+- test cases
+- scraping targets
+
+## Outputs
+
+- screenshots
+- extracted content
+- UI test results
+- crawl outputs
+- automation logs
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Playwright CLI | browser automation | browser control and testing | onboarding tests, screenshots, dashboard checks | Active |
+| Firecrawl | web ingestion | structured crawling/extraction | web-to-memory research pipeline | Active |
+| Browser-use | browser agent | autonomous browser operation | future web-task agent layer | Candidate |
+| Selenium | browser automation | legacy browser testing | fallback automation option | Candidate |
+
+## AI Routing Note
+
+Use Playwright for controlled browser automation and UI testing. Use Firecrawl for extracting website content into memory.
+
+---
+
+# 05 Design Intelligence & Frontend Quality
+
+## Role
+
+Creates polished interfaces, landing pages, dashboards, and visual systems.
+
+## Inputs
+
+- PRDs
+- feature descriptions
+- page goals
+- dashboard needs
+- brand direction
+- UI screenshots
+
+## Outputs
+
+- layouts
+- components
+- pages
+- motion specs
+- design critiques
+- frontend improvements
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| UI/UX Pro Max | design skill | layout, UX flow, polish | improves admin, marketing, assistant interfaces | Active |
+| AwesomeDesign.md | design critique | frontend quality rules | reviews and improves AI-generated UI | Active |
+| 21st.dev | UI inspiration | premium sections and blocks | landing pages and component inspiration | Active |
+| Framer Motion | motion library | animation and interactions | cinematic transitions and polish | Active |
+| shadcn/ui | component library | reusable UI primitives | admin and marketing foundation | Active |
+| Tailwind CSS | styling | utility styles and tokens | design system styling | Active |
+| Magic UI | motion components | animated UI sections | premium marketing page candidates | Candidate |
+| Aceternity UI | visual effects | high-end interactions | cinematic storytelling candidates | Candidate |
+| Lucide Icons | icons | modern icon set | consistent UI iconography | Active |
+| Three.js | 3D engine | 3D graphics | infrastructure visuals and demos | Active |
+| React Three Fiber | React 3D | Three.js in React | immersive Next.js visuals | Active |
+
+## AI Routing Note
+
+For any UI request, combine UI/UX Pro Max, shadcn/ui, Tailwind, and Framer Motion first. Use 21st.dev, Magic UI, and Aceternity for premium page ideas.
+
+---
+
+# 06 Media Intelligence
+
+## Role
+
+Turns features, scripts, assistants, and platform stories into videos, images, avatars, and cinematic assets.
+
+## Inputs
+
+- scripts
+- PRDs
+- feature ledgers
+- images
+- storyboards
+- prompts
+- voice tracks
+
+## Outputs
+
+- product videos
+- demo clips
+- generated images
+- avatars
+- motion sequences
+- marketing assets
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Higgsfield | AI video | cinematic generation | premium demos and feature explainers | Candidate |
+| Seedance | AI video/motion | scene and motion generation | cinematic asset workflows | Candidate |
+| Runway | AI video | high-end video reference | workflow pattern reference | Reference |
+| Kling | AI motion | cinematic motion reference | motion-generation reference | Reference |
+| ComfyUI | node pipeline | modular image/video generation | local media orchestration | Planned |
+| Flux | image generation | premium visuals | marketing and product visuals | Planned |
+| AUTOMATIC1111 | SD UI | local image experiments | image workflow fallback | Candidate |
+| AnimateDiff | animation | motion from stills | animation workflows | Candidate |
+| Deforum | diffusion video | cinematic sequences | AI film experiments | Candidate |
+| StoryDiffusion | storyboard | visual narrative planning | story and demo planning | Candidate |
+| LivePortrait | avatar animation | talking portraits | assistant presentation workflows | Candidate |
+| FaceFusion | face/media workflow | controlled face pipelines | media production candidate | Candidate |
+
+## AI Routing Note
+
+For product storytelling, combine feature PRDs + media tools + TTS. For local pipelines, prioritize ComfyUI, Flux, Whisper, Kokoro/Piper.
+
+---
+
+# 07 Voice, Speech & Audio
+
+## Role
+
+Enables the platform to listen, transcribe, speak, narrate, and turn audio into memory.
+
+## Inputs
+
+- voice notes
+- meetings
+- phone/call recordings
+- scripts
+- assistant responses
+- audio files
+
+## Outputs
+
+- transcripts
+- summaries
+- memory records
+- spoken replies
+- narrated demos
+- audio assets
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Whisper | speech-to-text | transcription | voice notes, meetings, calls into searchable memory | Active |
+| Piper | local TTS | fast speech output | private assistant voice output | Active |
+| Kokoro | local TTS | higher-quality voice | premium local assistant voice | Active |
+| ElevenLabs | cloud voice | premium voice/narration | polished demos when approved | Reference |
+| Coqui TTS | open TTS | alternate local TTS | backup/private voice option | Candidate |
+| AudioCraft | audio generation | music/sound generation | future sound design workflows | Candidate |
+
+## AI Routing Note
+
+Use Whisper to ingest spoken knowledge. Use Piper/Kokoro for local assistant voice. Use ElevenLabs only for approved premium narration.
+
+---
+
+# 08 Productivity Integrations
+
+## Role
+
+Connects the AI system to real work tools and daily operations.
+
+## Inputs
+
+- emails
+- calendar events
+- documents
+- sheets
+- tasks
+- contacts
+
+## Outputs
+
+- drafts
+- summaries
+- reminders
+- documents
+- reports
+- ledger updates
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| GWS | workspace bridge | Google Workspace integration | Gmail, Calendar, Docs, Sheets workflows | Active |
+| Gmail integration | communication | email workflows | summarize, draft, organize with permission | Planned |
+| Calendar integration | scheduling | calendar workflows | events, reminders, coordination | Planned |
+| Docs integration | documents | document workflows | document memory and retrieval | Planned |
+| Sheets integration | data | structured data workflows | ledgers, trackers, analytics | Planned |
+
+## AI Routing Note
+
+For operational work, connect GWS with memory/retrieval so emails, docs, calendars, and sheets become usable context.
+
+---
+
+# 09 Evaluation, Testing & Observability
+
+## Role
+
+Checks quality, catches errors, evaluates outputs, and monitors runtime health.
+
+## Inputs
+
+- prompts
+- responses
+- retrieved context
+- UI flows
+- runtime logs
+- model comparisons
+
+## Outputs
+
+- scores
+- errors
+- regression reports
+- screenshots
+- dashboards
+- alerts
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| DeepEval | AI eval | output and retrieval scoring | hallucination and quality testing | Candidate |
+| Promptfoo | prompt testing | regression testing | model/prompt comparison | Candidate |
+| Playwright Tests | UI testing | browser-based tests | dashboard and onboarding validation | Active |
+| Recharts | analytics UI | charts and dashboards | eval, usage, and system metrics | Active |
+| Sentry | observability | error tracking | frontend/backend monitoring | Approved |
+
+## AI Routing Note
+
+Before shipping features, pair Promptfoo/DeepEval for AI behavior and Playwright for UI behavior.
+
+---
+
+# 10 Infrastructure, Network & Deployment
+
+## Role
+
+Runs, connects, and secures the platform services.
+
+## Inputs
+
+- Docker services
+- env files
+- servers
+- nodes
+- network configs
+- deployment scripts
+
+## Outputs
+
+- running services
+- private network links
+- database runtime
+- queues
+- reverse proxy
+- deployments
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Docker | containerization | isolate services | APIs, DBs, queues, AI UIs | Active |
+| Docker Compose | orchestration | local service startup | dev/home-lab runtime | Active |
+| PostgreSQL | relational DB | structured data | workspaces, namespaces, jobs, metadata | Active schema |
+| Redis | queue system | background jobs | ingestion, evals, orchestration | Planned |
+| WireGuard | VPN/network | encrypted private routing | connects all compute/storage nodes | Active |
+| nginx | reverse proxy | route traffic/TLS | public/private service routing | Candidate |
+| pm2 | process manager | keep services alive | Node service persistence | Candidate |
+| Terraform | IaC | reproducible infra | future deploy automation | Planned |
+| Ansible | automation | server provisioning | setup/hardening scripts | Planned |
+| SOPS | secrets | encrypted env files | secure config management | Candidate |
+| Vault | secrets | central secret store | future policy/secrets engine | Candidate |
+
+## AI Routing Note
+
+Use this category for installation, deployment, service wiring, and secure network design.
+
+---
+
+# 11 Governance, GitOps & Operational Memory
+
+## Role
+
+Tracks changes, versions assistants, runs CI/CD, stores artifacts, and preserves operational history.
+
+## Inputs
+
+- code changes
+- assistant configs
+- namespace configs
+- feature specs
+- pipelines
+- artifacts
+
+## Outputs
+
+- commits
+- releases
+- CI jobs
+- artifacts
+- audit history
+- rollback points
+
+| Tool | Type | Purpose | You-Sir Juan Use | Status |
+|---|---|---|---|---|
+| Git | version control | operational memory | code, assistant versions, infrastructure history | Core |
+| GitHub | repo hosting | current remote hosting | source hosting and upstream sync | Active |
+| GitLab CE | private Git platform | CI/CD, runners, artifacts | private governance platform | Planned |
+| Gitea | Git platform | lightweight self-hosted Git | optional smaller deployment | Candidate |
+| Forgejo | Git platform | community Git forge | optional open-source alternative | Candidate |
+| GitLab Runners | CI execution | pipeline workers | builds, tests, deploys, evals | Planned |
+| GitLab Registry | registry | container/package storage | internal runtime images | Planned |
+| Git LFS | large files | large artifact tracking | models, media, datasets | Candidate |
+
+## AI Routing Note
+
+For platform governance, all durable changes should map back to Git history, issues, PRDs, and release artifacts.
+
+---
+
+# 12 Hardware & Compute Roles
+
+## Role
+
+Places workloads on the correct machines.
+
+## Inputs
+
+- model size
+- runtime type
+- media workload
+- voice workload
+- storage need
+- latency need
+
+## Outputs
+
+- hardware routing plan
+- node responsibility
+- scaling recommendation
+
+| Hardware | Role | Best Workloads | Status |
+|---|---|---|---|
+| MacBook Pro M5 Max | main workstation | coding, local inference, design, orchestration, creative review | Planned/Target |
+| Mac mini M4 Pro | persistent runtime node | APIs, Qdrant, Open WebUI, queues, ingestion workers | Planned/Target |
+| NVIDIA DGX Spark | frontier inference node | CUDA, fine-tuning, large models, media generation | Optional expansion |
+| NVIDIA Jetson Thor | edge AI node | robotics, vision, voice, camera intelligence | Optional expansion |
+| Flint 2 | home gateway | WireGuard server and network backbone | Planned/Target |
+| Slate AX | travel router | secure remote access | Planned/Target |
+| NAS / DAS / NVMe | storage | models, embeddings, datasets, backups, media archives | Planned/Target |
+
+## AI Routing Note
+
+Do not put every workload on one machine. Separate workstation, persistent runtime, frontier inference, edge AI, and storage.
 
 ---
 
 # Master / Copy Rule
 
-Master planning and platform architecture live in:
+| Repo | Role |
+|---|---|
+| `marvelousempire/yousirjuan` | master platform source of truth |
+| `marvelousempire/ai-skills-library` | portable copied skill shelf |
 
-```text
-marvelousempire/yousirjuan
-```
-
-Portable skills, vendored skills, Cursor/Claude skill files, and reusable skill docs live in:
-
-```text
-marvelousempire/ai-skills-library
-```
-
-When You-Sir Juan adds a new skill or upstream tool, this copied library should be refreshed so all skills remain browsable from one place.
+When You-Sir Juan adds a new skill, upstream tool, or feature category, refresh this copied library so agents can browse one clean guide.
 
 ---
 
-# Next Sync Targets
+# Future File Structure
 
-This copied skills library should eventually include:
+Every major tool should eventually have its own skill file:
 
-- individual skill folders for each You-Sir Juan platform skill
-- install notes per skill
-- source URLs
-- license notes
+```text
+skills/platform/yousirjuan/<domain>/<tool>/SKILL.md
+```
+
+Recommended fields:
+
+- name
+- domain
+- status
+- source URL
+- license
+- what it does
+- inputs
+- outputs
+- You-Sir Juan role
+- install notes
 - security notes
 - related feature IDs
 - related PRDs
 - related pain journal entries
-- Cursor skill adapters
-- Claude skill adapters
-- orchestration prompts
+
+---
+
+# AI Retrieval Shortcut
+
+Use this simple matching rule:
+
+```text
+Need to build?       → Coding Intelligence
+Need to run models?  → Model Runtime
+Need memory?         → Retrieval Memory
+Need browser/web?    → Browser Web Intelligence
+Need UI?             → Design Frontend
+Need video/images?   → Media Intelligence
+Need speech?         → Voice Speech Audio
+Need work apps?      → Productivity Integrations
+Need tests?          → Evaluation Observability
+Need deployment?     → Infrastructure Network
+Need governance?     → GitOps Operational Memory
+Need hardware plan?  → Hardware Compute
+```
 
 ---
 
 # Strategic Goal
 
-The AI Skills Library should be the single browsable copy of the platform skills ecosystem.
+This guide should let an AI quickly know:
 
-You-Sir Juan remains the master platform.
-The skills library remains the portable skill shelf.
+- which tool category applies
+- which tool to choose
+- what the tool produces
+- how it fits You-Sir Juan
+- whether it is ready now or later
+
+The goal is a clean, browsable, AI-friendly skills map that acts like a lightweight RAG layer before full retrieval infrastructure is built.
