@@ -5,7 +5,15 @@ import { google, createGoogleGenerativeAI } from '@ai-sdk/google'
 import { perplexity, createPerplexity } from '@ai-sdk/perplexity'
 import type { LanguageModel } from 'ai'
 import type { ProviderName } from '../types.ts'
-import { env } from '../env.ts'
+import { env, longCache } from '../env.ts'
+
+// When SEEME_LONG_CACHE=1, send the beta header that enables the 1h cache TTL
+// in cache_control. Without this header Anthropic rejects ttl: '1h'.
+const anthropicProvider = longCache
+  ? createAnthropic({
+      headers: { 'anthropic-beta': 'extended-cache-ttl-2025-04-11' },
+    })
+  : anthropic
 
 const defaultModels: Record<ProviderName, string> = {
   ollama: 'llama3.1',
@@ -27,7 +35,7 @@ export const resolveModel = (
       return { model: ollama(id), modelId: id, provider }
     }
     case 'anthropic':
-      return { model: anthropic(id), modelId: id, provider }
+      return { model: anthropicProvider(id), modelId: id, provider }
     case 'openai':
       return { model: openai(id), modelId: id, provider }
     case 'gemini':

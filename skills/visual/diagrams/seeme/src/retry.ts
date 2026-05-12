@@ -3,6 +3,7 @@ import type { LanguageModel, CoreMessage, LanguageModelUsage } from 'ai'
 import { extractFencedTextBlock, lint } from './lint/index.ts'
 import { systemPrompt } from './prompt/system.ts'
 import { repairPrompt } from './prompt/repair.ts'
+import { longCache } from './env.ts'
 import type { CacheUsage, LintError, Style } from './types.ts'
 
 interface RunOpts {
@@ -63,20 +64,26 @@ const extractUsage = (
 
 // Build a messages array where the system prompt is marked as cacheable.
 // - Anthropic reads `providerOptions.anthropic.cacheControl` and caches the
-//   ~30KB style spec for 5 minutes — repeat calls hit a ~90% discount.
+//   ~30KB style spec. Default TTL is 5 min; SEEME_LONG_CACHE=1 bumps it to
+//   1h (requires the extended-cache-ttl beta header — wired in providers.ts).
 // - OpenAI auto-caches any prefix ≥ 1024 tokens; the SKILL.md alone crosses
 //   that threshold, so OpenAI caching works without any flag.
 // - Ollama / Gemini / Perplexity ignore the providerOptions field.
-const buildMessages = (system: string, user: string): CoreMessage[] => [
-  {
-    role: 'system',
-    content: system,
-    providerOptions: {
-      anthropic: { cacheControl: { type: 'ephemeral' } },
+const buildMessages = (system: string, user: string): CoreMessage[] => {
+  const cacheControl: Record<string, string> = { type: 'ephemeral' }
+  if (longCache) cacheControl.ttl = '1h'
+
+  return [
+    {
+      role: 'system',
+      content: system,
+      providerOptions: {
+        anthropic: { cacheControl },
+      },
     },
-  },
-  { role: 'user', content: user },
-]
+    { role: 'user', content: user },
+  ]
+}
 
 const callModel = async (
   model: LanguageModel,

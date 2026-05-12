@@ -20,6 +20,10 @@ const Schema = z.object({
     z.enum(['ollama', 'anthropic', 'openai', 'gemini', 'perplexity']).optional(),
   ),
   SEEME_MODEL: presentString,
+  // Opt in to Anthropic's 1-hour prompt cache (requires beta access).
+  // When set to "1" or "true", system-prompt cache_control gets ttl: '1h'
+  // and Anthropic requests include the extended-cache-ttl beta header.
+  SEEME_LONG_CACHE: presentString.pipe(z.string().optional()),
 })
 
 export const env = (() => {
@@ -36,3 +40,5 @@ export const env = (() => {
 
 export const defaultProvider = env.SEEME_PROVIDER as ProviderName | undefined
 export const defaultModel = env.SEEME_MODEL
+export const longCache: boolean =
+  env.SEEME_LONG_CACHE === '1' || env.SEEME_LONG_CACHE === 'true'
