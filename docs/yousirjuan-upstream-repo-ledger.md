@@ -111,6 +111,8 @@ Use this document when deciding:
 | Flux | image generation | premium visual assets | Planned |
 | LivePortrait | talking portraits | avatar and assistant presentation workflows | Candidate |
 | FaceFusion | face/media pipeline | controlled media workflows | Candidate |
+| `https://github.com/Lightricks/LTX-2` | audio-video generative model | synchronized audio-video generation, image/text-to-video, LoRA training, cinematic demos, product explainers, assistant avatar scenes | Candidate |
+| `https://github.com/Lightricks/ComfyUI-LTXVideo/` | ComfyUI integration for LTX video models | node-based local media pipeline integration for LTX workflows | Candidate |
 | `https://github.com/Anil-matcha/Open-Generative-AI` | generative AI collection/reference | broad reference for generative AI pipelines, media workflows, and model/tool discovery | Reference |
 | `https://github.com/ahujasid/blender-mcp` | Blender MCP bridge | 3D scene creation and product visualization | Candidate |
 
@@ -230,6 +232,8 @@ Repos explicitly added from recent user-provided list:
 - `https://github.com/mantvydasb/RedTeaming-Tactics-and-Techniques`
 - `https://github.com/topics/ai-red-team`
 - `https://github.com/ailev/FPF`
+- `https://github.com/Lightricks/LTX-2`
+- `https://github.com/Lightricks/ComfyUI-LTXVideo/`
 
 ---
 
