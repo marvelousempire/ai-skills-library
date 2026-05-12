@@ -1,0 +1,6 @@
+{
+  "id": "ascii-flow-diagrams",
+  "description": "Default to Unicode box-and-arrow diagrams in fenced text blocks whenever the user asks for a visual of a flow, system, or architecture.",
+  "alwaysApply": true,
+  "globs": []
+}
