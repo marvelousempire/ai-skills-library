@@ -13,20 +13,31 @@ seeme "explain how RAG works"
    └──────────┘   └──────────────┘   └──────────────┘   └──────────┘
 ```
 
-Default provider: **Ollama** (local, free, private). Cloud fallback: **Anthropic / OpenAI / Gemini / Perplexity** with an API key.
+Default provider: **Ollama** (local, free, private). Cloud fallback: **Anthropic / OpenAI / Gemini / Perplexity** with an API key. Output follows the [`ascii-flow-diagrams`](../ascii-flow-diagrams/SKILL.md) style spec verbatim.
 
-Output follows the [`ascii-flow-diagrams`](../ascii-flow-diagrams/SKILL.md) style spec verbatim — same style guide loaded as the system prompt on every call, so the tool and the spec stay locked together.
-
-## Install
-
-Requires **Node ≥ 22.6** (uses native TypeScript stripping).
+## Quick start (60 seconds)
 
 ```sh
+# 1. See what the output looks like — no install, no provider needed:
 cd skills/visual/diagrams/seeme
+npm run --silent start example     # prints a fixture diagram
+
+# 2. Install dependencies + link globally:
 npm install
-npm link            # makes `seeme` globally available
-cp .env.example .env
+npm link                            # makes `seeme` and `seeme-mcp` global
+
+# 3. Pick ONE path:
+#    Path A — local + private (recommended):
+brew install ollama && ollama serve &
+ollama pull llama3.1
+seeme "explain how OAuth works"
+
+#    Path B — cloud (need an API key):
+cp .env.example .env                # then edit and add one key
+seeme "explain how OAuth works"
 ```
+
+Once anything works: `seeme config` shows your resolved setup, `seeme providers` shows what's reachable.
 
 ## Use
 
@@ -38,8 +49,9 @@ seeme --model claude-opus-4-7 "..."              # pick a model
 cat notes.md | seeme                             # stdin
 seeme --file plan.md                             # file input
 seeme --copy "..."                               # also clipboard
-seeme providers                                  # who's reachable?
-seeme --help
+seeme --out diagram.svg "..."                    # also write SVG
+seeme --watch plan.md                            # re-render on file change
+seeme --explain "explain RAG"                    # diagram + short prose
 
 # Iterative refinement — edits the last clean diagram, inherits its style:
 seeme --refine "add a redis cache between API and database"
@@ -49,38 +61,14 @@ seeme --refine "split the API into auth + data" --from prev.txt
 seeme "explain OAuth" \
   --then "now add a refresh-token loop" \
   --then "highlight the security boundaries in heavy banners"
+
+# Diagnostics:
+seeme providers      # who's reachable?
+seeme config         # resolved setup (no secrets shown)
+seeme example        # offline demo
+seeme stats          # history summary (requires SEEME_HISTORY=1)
+seeme --help
 ```
-
-## Refine + cache
-
-Every clean diagram is written to `~/.seeme/last.json` with `{diagram, style, provider, model, input, timestamp}`. `seeme --refine "..."` reads it back, inherits the previous style, and applies your edit instruction — same style guide, same provider, just a targeted change. Legacy `~/.seeme/last.txt` from v0.1 still readable. Set `SEEME_NO_CACHE=1` to disable.
-
-## MCP server
-
-`seeme-mcp` is a stdio MCP server that exposes SEEME to Claude Desktop / Cursor / Claude Code. Wire it up in your MCP config:
-
-```json
-{
-  "mcpServers": {
-    "seeme": { "command": "seeme-mcp" }
-  }
-}
-```
-
-Tools:
-- **`list_providers()`** — which providers are reachable. Returns one line per provider with a ● / ○ availability marker.
-- **`generate_diagram(input, style?, provider?, model?)`** — render any input.
-- **`refine_diagram(instruction, previous?, style?, provider?, model?)`** — edit a diagram. `previous` defaults to the user's last cached diagram; style is inherited.
-
-Once registered, the assistant can call SEEME mid-conversation and inline the resulting fenced `text` block.
-
-## Anthropic 1-hour cache
-
-For long sessions, set `SEEME_LONG_CACHE=1` to bump the Anthropic prompt-cache TTL from 5 min to 1 h. Requires beta access (the `extended-cache-ttl-2025-04-11` header is added automatically). Default stays at 5 min so SEEME works for any Anthropic account out of the box.
-
-## Prompt caching
-
-The ~30KB style guide is the system prompt on every call, marked `cache_control: ephemeral`. Anthropic caches it for 5 min, OpenAI auto-caches any prefix ≥ 1024 tokens — repeat calls and refines cost ~90% less than the first one.
 
 ## Styles
 
@@ -102,7 +90,7 @@ The ~30KB style guide is the system prompt on every call, marked `cache_control:
 | Gemini | `GOOGLE_API_KEY` | `gemini-2.0-flash` |
 | Perplexity | `PERPLEXITY_API_KEY` | `sonar-pro` |
 
-Provider resolution order when `--provider` is not passed:
+Resolution order when `--provider` is not passed:
 
 1. `SEEME_PROVIDER` env var if set
 2. Ollama if reachable at `OLLAMA_HOST`
@@ -111,59 +99,101 @@ Provider resolution order when `--provider` is not passed:
 
 ## How the lint loop works
 
-Every model response goes through four checks, in order:
+Every model response goes through five checks, in order:
 
-- **`no-diagram`** — short-circuit if the response has fewer than 3 box-drawing characters. Saves three round-trips when the model returns prose or refusal.
+- **`no-diagram`** — short-circuit if the response has < 3 box-drawing characters. Sub-classifies as `refused` / `wrong-format` / `truncated` / generic so the repair prompt asks for the right correction.
 - **`unicode`** — flags `+---+` ASCII corners, `|...|` ASCII rails, `---` ASCII horizontals.
 - **`width`** — every line must be ≤ 100 columns (target ≤ 80).
 - **`closure`** — `┌/┐/└/┘` and `╔/╗/╚/╝` counts must balance pairwise.
+- **`alignment`** — every `│` must have a vertical neighbor (`│`, corner, tee, banner edge) directly above or below.
 
-A failure → re-prompt with a line-numbered fix list. Up to 3 retries. If retries are exhausted, the best-effort output prints with `⚠ N lint warning(s) remain` on stderr.
+A failure → re-prompt with a line-numbered, rule-specific fix list. Up to 3 retries. If retries exhaust, the best-effort output prints with `⚠ N lint warning(s) remain` on stderr.
 
-## Usage telemetry
+## Refine + cache
 
-After each run, stderr shows:
+Every clean diagram is written to `~/.seeme/last.json` with `{diagram, style, provider, model, input, timestamp}`. `seeme --refine "..."` reads it back, inherits the previous style, and applies your edit instruction. Set `SEEME_NO_CACHE=1` to disable.
 
+## Prompt caching
+
+The ~30KB style guide is sent as a `cache_control: ephemeral` system message. Anthropic caches it for 5 min by default; set `SEEME_LONG_CACHE=1` to extend to 1 h (requires beta access — the `extended-cache-ttl-2025-04-11` header is added automatically). OpenAI auto-caches any prefix ≥ 1024 tokens. Refines and `--then` chains all hit the cached prompt — only the small user-payload delta is charged in full.
+
+## Stats (opt-in)
+
+`SEEME_HISTORY=1` enables a JSONL log at `~/.seeme/history.jsonl` (one line per generate/refine). Then:
+
+```sh
+seeme stats
 ```
-provider: anthropic  model: claude-opus-4-7  attempts: 1
-tokens: 312 in / 184 out  cache: 28041 read / 0 written
-✓ clean on first try
+
+shows total calls, tokens in/out, cache hit rate, and a per-provider breakdown.
+
+## SVG export
+
+`seeme --out diagram.svg "..."` writes a self-contained SVG alongside stdout. Open it in any browser. Convert to PNG with `rsvg-convert` or `inkscape --export-type=png`. Pass `.txt` instead of `.svg` to write the raw text.
+
+## MCP server
+
+`seeme-mcp` is a stdio MCP server that exposes SEEME to Claude Desktop / Cursor / Claude Code. Add to your MCP config:
+
+```json
+{
+  "mcpServers": {
+    "seeme": { "command": "seeme-mcp" }
+  }
+}
 ```
 
-`cache: N read` means N tokens were served from the cached system prompt (Anthropic ephemeral cache, or OpenAI auto-cache). First call within a 5-min window writes; later calls read. Disable the on-disk diagram cache (separate from prompt caching) with `SEEME_NO_CACHE=1`.
+Tools:
+- **`list_providers()`** — reachability + default model per provider.
+- **`generate_diagram(input, style?, provider?, model?)`** — render any input.
+- **`refine_diagram(instruction, previous?, style?, provider?, model?)`** — edit a diagram. `previous` defaults to the cached last diagram; style inherited.
+
+Once registered, the assistant can call SEEME mid-conversation and inline the resulting fenced `text` block.
 
 ## Tests
 
 ```sh
-npm test
+npm test          # 38 unit tests; 1 integration test self-skips if Ollama isn't up
+npm run typecheck # tsc --noEmit
+npm run check     # both
 ```
-
-Runs `node --test` against fixtures in `test/fixtures/{good,broken}/`. Adds a new broken fixture is the right way to teach a new lint rule.
 
 ## Layout
 
 ```
 seeme/
-├── SKILL.md             # how to invoke (Claude Code / agents read this)
-├── README.md            # you are here
-├── bin/seeme            # node shebang → src/cli.ts
+├── SKILL.md              # how to invoke (Claude Code / agents read this)
+├── README.md             # you are here
+├── bin/
+│   ├── seeme             # node shebang → src/cli.ts
+│   └── seeme-mcp         # node shebang → src/mcp.ts (MCP stdio server)
 ├── src/
-│   ├── cli.ts           # cac CLI surface
-│   ├── generate.ts      # public API
-│   ├── retry.ts         # lint → repair → regenerate
-│   ├── env.ts           # dotenv + zod validation
+│   ├── cli.ts            # cac CLI surface (generate, refine, then, watch, explain, out, config, example, stats, providers)
+│   ├── mcp.ts            # MCP server (list_providers, generate_diagram, refine_diagram)
+│   ├── generate.ts       # public API
+│   ├── retry.ts          # lint → repair → regenerate, with usage telemetry
+│   ├── env.ts            # dotenv + zod validation
+│   ├── cache.ts          # ~/.seeme/last.json (single-slot)
+│   ├── history.ts        # ~/.seeme/history.jsonl (opt-in JSONL log)
+│   ├── example.ts        # offline fixture viewer
+│   ├── watch.ts          # --watch <file> file-change re-render
+│   ├── explain.ts        # --explain post-diagram prose
+│   ├── export-svg.ts     # --out diagram.svg
 │   ├── types.ts
 │   ├── prompt/
-│   │   ├── system.ts    # reads ../ascii-flow-diagrams/SKILL.md
-│   │   └── repair.ts
-│   ├── providers/index.ts
-│   └── lint/{extract,unicode,width,closure,index}.ts
+│   │   ├── system.ts     # reads ../ascii-flow-diagrams/SKILL.md (or SEEME_STYLE_SPEC)
+│   │   ├── repair.ts     # targeted fix prompt
+│   │   └── refine.ts     # natural-language edit prompt
+│   ├── providers/index.ts # router + autodetect + listProviders
+│   └── lint/
+│       ├── extract.ts          # pull ```text fenced block
+│       ├── diagram-present.ts  # no-diagram + sub-classify refused/wrong-format/truncated
+│       ├── unicode.ts          # no ASCII +-| as box chars
+│       ├── width.ts            # ≤ 100 col
+│       ├── closure.ts          # ┌/┐/└/┘ balance
+│       ├── alignment.ts        # │ column consistency
+│       └── index.ts            # composer (short-circuits on no-diagram)
 └── test/
-    ├── lint.test.ts
-    ├── extract.test.ts
+    ├── *.test.ts         # 38 unit tests + 1 integration test
     └── fixtures/{good,broken}/*.txt
 ```
-
-## Future
-
-Phase 2 (web preview / MCP server), Phase 3 (Raycast / VS Code) and the rest of the gap audit + elevation list are sketched in `~/.claude/plans/diagrammer-app.md` — not built yet.

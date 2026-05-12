@@ -146,7 +146,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     if (name === 'list_providers') {
       const list = await listProviders()
       const lines = list.map(
-        (p) => `${p.available ? '●' : '○'} ${p.name.padEnd(11)} ${p.reason}`,
+        (p) =>
+          `${p.available ? '●' : '○'} ${p.name.padEnd(11)} default: ${p.defaultModel.padEnd(22)} ${p.reason}`,
       )
       return {
         content: [
@@ -156,6 +157,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
               'Providers:\n' +
               lines.join('\n') +
               '\n\nPick any provider marked ● for generate_diagram / refine_diagram. ' +
+              'You can override the default model per call. ' +
               'If none are available, the user must start Ollama or set a provider key in .env.',
           },
         ],

@@ -40,7 +40,7 @@ export interface LintError {
   line: number
   problem: string
   suggestion: string
-  rule: 'unicode' | 'width' | 'closure' | 'extract' | 'no-diagram'
+  rule: 'unicode' | 'width' | 'closure' | 'extract' | 'no-diagram' | 'alignment'
 }
 
 export interface CacheUsage {

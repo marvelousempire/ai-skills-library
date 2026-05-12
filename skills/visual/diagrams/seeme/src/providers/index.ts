@@ -9,11 +9,31 @@ import { env, longCache } from '../env.ts'
 
 // When SEEME_LONG_CACHE=1, send the beta header that enables the 1h cache TTL
 // in cache_control. Without this header Anthropic rejects ttl: '1h'.
-const anthropicProvider = longCache
-  ? createAnthropic({
-      headers: { 'anthropic-beta': 'extended-cache-ttl-2025-04-11' },
-    })
-  : anthropic
+//
+// Built lazily so tests can flip env at runtime and the next call picks it up.
+// One-time cost; memoized per (longCache, anthropic-beta) state.
+let _anthropicProvider: ReturnType<typeof createAnthropic> | typeof anthropic | undefined
+const getAnthropic = () => {
+  if (_anthropicProvider) return _anthropicProvider
+  _anthropicProvider = longCache
+    ? createAnthropic({
+        headers: { 'anthropic-beta': 'extended-cache-ttl-2025-04-11' },
+      })
+    : anthropic
+  return _anthropicProvider
+}
+
+// Memoize the Ollama client per host string. Building it is cheap but
+// allocating one per call wastes work in library-mode (MCP server, --then).
+const _ollamaCache = new Map<string, ReturnType<typeof createOllama>>()
+const getOllama = (host: string) => {
+  let client = _ollamaCache.get(host)
+  if (!client) {
+    client = createOllama({ baseURL: `${host}/api` })
+    _ollamaCache.set(host, client)
+  }
+  return client
+}
 
 const defaultModels: Record<ProviderName, string> = {
   ollama: 'llama3.1',
@@ -23,6 +43,9 @@ const defaultModels: Record<ProviderName, string> = {
   perplexity: 'sonar-pro',
 }
 
+export const defaultModelFor = (provider: ProviderName): string =>
+  defaultModels[provider]
+
 export const resolveModel = (
   provider: ProviderName,
   model?: string,
@@ -31,11 +54,11 @@ export const resolveModel = (
 
   switch (provider) {
     case 'ollama': {
-      const ollama = createOllama({ baseURL: `${env.OLLAMA_HOST}/api` })
+      const ollama = getOllama(env.OLLAMA_HOST)
       return { model: ollama(id), modelId: id, provider }
     }
     case 'anthropic':
-      return { model: anthropicProvider(id), modelId: id, provider }
+      return { model: getAnthropic()(id), modelId: id, provider }
     case 'openai':
       return { model: openai(id), modelId: id, provider }
     case 'gemini':
@@ -68,35 +91,45 @@ export const autodetectProvider = async (): Promise<ProviderName> => {
   )
 }
 
-export const listProviders = async (): Promise<
-  { name: ProviderName; available: boolean; reason: string }[]
-> => {
+export interface ProviderStatus {
+  name: ProviderName
+  available: boolean
+  reason: string
+  defaultModel: string
+}
+
+export const listProviders = async (): Promise<ProviderStatus[]> => {
   const ollama = await ollamaReachable()
   return [
     {
       name: 'ollama',
       available: ollama,
       reason: ollama ? `reachable at ${env.OLLAMA_HOST}` : `not reachable at ${env.OLLAMA_HOST}`,
+      defaultModel: defaultModels.ollama,
     },
     {
       name: 'anthropic',
       available: !!env.ANTHROPIC_API_KEY,
       reason: env.ANTHROPIC_API_KEY ? 'ANTHROPIC_API_KEY set' : 'no key',
+      defaultModel: defaultModels.anthropic,
     },
     {
       name: 'openai',
       available: !!env.OPENAI_API_KEY,
       reason: env.OPENAI_API_KEY ? 'OPENAI_API_KEY set' : 'no key',
+      defaultModel: defaultModels.openai,
     },
     {
       name: 'gemini',
       available: !!env.GOOGLE_API_KEY,
       reason: env.GOOGLE_API_KEY ? 'GOOGLE_API_KEY set' : 'no key',
+      defaultModel: defaultModels.gemini,
     },
     {
       name: 'perplexity',
       available: !!env.PERPLEXITY_API_KEY,
       reason: env.PERPLEXITY_API_KEY ? 'PERPLEXITY_API_KEY set' : 'no key',
+      defaultModel: defaultModels.perplexity,
     },
   ]
 }

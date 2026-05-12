@@ -21,6 +21,8 @@ export interface CachedDiagram {
   timestamp?: string
 }
 
+// Re-check the env var at call time (not at module load) so tests can flip
+// SEEME_NO_CACHE per-case via process.env mutation.
 const cacheDisabled = (): boolean =>
   process.env.SEEME_NO_CACHE === '1' || process.env.SEEME_NO_CACHE === 'true'
 

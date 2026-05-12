@@ -7,11 +7,19 @@ test('lintDiagramPresent passes when ≥ 3 box-drawing chars are present', () =>
   assert.equal(lintDiagramPresent('┌──┐\n│ A │\n└──┘'), null)
 })
 
-test('lintDiagramPresent fires on plain prose', () => {
-  const err = lintDiagramPresent('I cannot create a diagram for that request.')
+test('lintDiagramPresent fires on plain prose (non-refusal)', () => {
+  // Use prose that doesn't hit the refusal classifier so we land in the
+  // generic branch with the "no diagram detected" message.
+  const err = lintDiagramPresent('Once there was a system with several services that talked to each other.')
   assert.ok(err, 'should flag prose-only output')
   assert.equal(err!.rule, 'no-diagram')
   assert.ok(err!.problem.includes('no diagram detected'))
+})
+
+test('lintDiagramPresent classifies refusals separately', () => {
+  const err = lintDiagramPresent('I cannot create a diagram for that request.')
+  assert.ok(err)
+  assert.ok(err!.problem.includes('refused'))
 })
 
 test('lintDiagramPresent fires on too-few box chars', () => {

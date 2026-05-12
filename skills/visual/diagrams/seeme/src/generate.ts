@@ -2,6 +2,7 @@ import { autodetectProvider, resolveModel } from './providers/index.ts'
 import { generateWithRetry } from './retry.ts'
 import { refinePrompt } from './prompt/refine.ts'
 import { writeLastDiagram } from './cache.ts'
+import { appendHistory } from './history.ts'
 import type { GenerateOptions, GenerateResult } from './types.ts'
 
 export const generate = async (opts: GenerateOptions): Promise<GenerateResult> => {
@@ -35,6 +36,18 @@ export const generate = async (opts: GenerateOptions): Promise<GenerateResult> =
       input: opts.input,
     })
   }
+
+  // Append to opt-in JSONL history (only when SEEME_HISTORY=1).
+  appendHistory({
+    timestamp: new Date().toISOString(),
+    input: opts.input,
+    provider,
+    model: modelId,
+    style,
+    attempts,
+    usage,
+    kind: opts.refineFrom ? 'refine' : 'generate',
+  })
 
   return { diagram, attempts, warnings, provider, model: modelId, usage }
 }

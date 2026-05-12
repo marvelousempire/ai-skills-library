@@ -17,10 +17,12 @@ interface JsonRpcMessage {
 }
 
 // Minimal MCP stdio client: send line-delimited JSON-RPC, read line-delimited
-// JSON-RPC responses. Enough to verify the server registers two tools and
-// rejects malformed calls without spinning up a real model.
+// JSON-RPC responses. Listens until we get back exactly `messages.length`
+// responses, then resolves — no wall-clock race. Ceiling guard prevents a
+// hung server from hanging the test suite forever.
 const runMcp = async (
   messages: JsonRpcMessage[],
+  hardCeilingMs = 15_000,
 ): Promise<JsonRpcMessage[]> => {
   const child = spawn(binPath, [], {
     stdio: ['pipe', 'pipe', 'pipe'],
@@ -48,17 +50,22 @@ const runMcp = async (
     })
   })
 
+  // Send all messages once stdin is writable.
+  child.stdin.cork()
   for (const msg of messages) {
     child.stdin.write(JSON.stringify(msg) + '\n')
   }
+  child.stdin.uncork()
 
-  // Race against a 5s ceiling so a hung server can't hang the test suite.
-  await Promise.race([
-    done,
-    new Promise<void>((r) => setTimeout(r, 5000)),
-  ])
+  const ceiling = new Promise<void>((_, reject) =>
+    setTimeout(() => reject(new Error(`MCP server didn't respond within ${hardCeilingMs}ms`)), hardCeilingMs),
+  )
 
-  child.kill()
+  try {
+    await Promise.race([done, ceiling])
+  } finally {
+    child.kill()
+  }
   return responses
 }
 

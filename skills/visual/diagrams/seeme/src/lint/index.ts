@@ -2,6 +2,7 @@ import type { LintError } from '../types.ts'
 import { lintUnicode } from './unicode.ts'
 import { lintWidth } from './width.ts'
 import { lintClosure } from './closure.ts'
+import { lintAlignment } from './alignment.ts'
 import { lintDiagramPresent } from './diagram-present.ts'
 
 export const lint = (diagram: string): LintError[] => {
@@ -11,7 +12,12 @@ export const lint = (diagram: string): LintError[] => {
   const missing = lintDiagramPresent(diagram)
   if (missing) return [missing]
 
-  return [...lintUnicode(diagram), ...lintWidth(diagram), ...lintClosure(diagram)]
+  return [
+    ...lintUnicode(diagram),
+    ...lintWidth(diagram),
+    ...lintClosure(diagram),
+    ...lintAlignment(diagram),
+  ]
 }
 
 export { extractFencedTextBlock } from './extract.ts'
