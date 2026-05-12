@@ -14,6 +14,7 @@ SEEME reads any input (prose, code, JSON, CSV, meeting notes, a one-line idea) a
 - `seeme --file architecture.md --style merged`
 - `seeme --explain "RAG pipeline"` (diagram + short prose)
 - `seeme --watch plan.md` (live re-render on file change)
+- `seeme serve --open` (interactive split-pane web UI)
 - "Use **seeme** on the auth flow"
 - "Diagram the deployment pipeline with seeme"
 
@@ -42,11 +43,12 @@ seeme "explain OAuth" \
   --then "now add a refresh-token loop" \
   --then "highlight the security boundaries"
 
-# Diagnostics:
-seeme providers   # who's reachable?
-seeme config      # resolved setup
-seeme example     # offline fixture demo
-seeme stats       # history summary (requires SEEME_HISTORY=1)
+# Diagnostics + interactive UI:
+seeme providers      # who's reachable?
+seeme config         # resolved setup
+seeme example        # offline fixture demo
+seeme stats          # history summary (requires SEEME_HISTORY=1)
+seeme serve --open   # web UI at http://127.0.0.1:7777
 ```
 
 ## Providers
