@@ -303,6 +303,20 @@ cli
   })
 
 cli
+  .command('serve', 'Start the SEEME web UI (local HTTP server with live preview)')
+  .option('--port <port>', 'Port to bind (default 7777 or $SEEME_PORT)', { default: 7777 })
+  .option('--host <host>', 'Host to bind (default 127.0.0.1)', { default: '127.0.0.1' })
+  .option('--open', 'Open the UI in your default browser after starting')
+  .action(async (opts) => {
+    const { startServer } = await import('./server.ts')
+    await startServer({
+      port: Number(opts.port),
+      host: String(opts.host),
+      open: !!opts.open,
+    })
+  })
+
+cli
   .command('stats', 'Summarize history (requires SEEME_HISTORY=1): calls, tokens, cache hit rate')
   .action(async () => {
     const { readHistory, historyLocation } = await import('./history.ts')

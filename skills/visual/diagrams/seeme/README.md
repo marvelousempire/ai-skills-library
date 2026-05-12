@@ -39,6 +39,16 @@ seeme "explain how OAuth works"
 
 Once anything works: `seeme config` shows your resolved setup, `seeme providers` shows what's reachable.
 
+## Web UI
+
+For an interactive split-pane interface — type, stream-preview, refine, copy, download SVG — run:
+
+```sh
+seeme serve --open
+```
+
+Opens `http://127.0.0.1:7777/` in your browser. Self-contained: no CDN deps, dark mode, monospace-forward, designed in the same Unicode box-and-arrow style the tool outputs. The page talks to a tiny local HTTP server that wraps the same `generate()` engine the CLI uses — same lint loop, same prompt caching, same provider routing. ⌘+↵ generates, click "Refine last" to iterate.
+
 ## Use
 
 ```sh

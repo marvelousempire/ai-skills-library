@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEEME</title>
+<style>
+  /* ─── design tokens ─────────────────────────────── */
+  :root {
+    --bg: #0a0a0a;
+    --bg-1: #141414;
+    --bg-2: #1c1c1c;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --text-dim: #8a8a8a;
+    --text-faint: #5a5a5a;
+    --cyan: #5ec8e5;
+    --green: #6fcf97;
+    --yellow: #f2c14e;
+    --red: #ef6f6c;
+    --accent: var(--cyan);
+    --mono: 'SF Mono', Menlo, 'Cascadia Mono', Consolas, 'DejaVu Sans Mono', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: hidden;
+  }
+  pre, code, .mono, textarea, input[type=text], select { font-family: var(--mono); }
+
+  /* ─── layout ───────────────────────────────────── */
+  .app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    background: var(--bg-1);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand {
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--cyan);
+  }
+  .brand::before { content: '▣ '; color: var(--accent); }
+  .header-spacer { flex: 1; }
+  .header-controls { display: flex; gap: 8px; align-items: center; }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    overflow: hidden;
+    min-height: 0;
+  }
+  .pane {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .pane-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-1);
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pane-body { flex: 1; overflow: auto; min-height: 0; }
+
+  /* ─── input pane ───────────────────────────────── */
+  textarea#input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: var(--text);
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  textarea#input::placeholder { color: var(--text-faint); }
+
+  /* ─── output pane ──────────────────────────────── */
+  #output-wrap {
+    padding: 16px;
+    overflow: auto;
+    height: 100%;
+  }
+  #output {
+    white-space: pre;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text);
+    min-height: 60px;
+  }
+  #output.streaming { color: var(--text-dim); }
+  #output.empty {
+    color: var(--text-faint);
+    font-style: italic;
+    font-family: var(--sans);
+    white-space: normal;
+  }
+  #warnings {
+    margin-top: 16px;
+    padding: 10px 12px;
+    background: rgba(242,193,78,0.08);
+    border-left: 3px solid var(--yellow);
+    color: var(--yellow);
+    font-size: 12px;
+    font-family: var(--mono);
+    display: none;
+  }
+  #warnings.visible { display: block; }
+  #warnings li { margin-left: 18px; }
+  #explanation {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: var(--bg-1);
+    border-left: 3px solid var(--cyan);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.55;
+    display: none;
+  }
+  #explanation.visible { display: block; }
+
+  /* ─── controls ─────────────────────────────────── */
+  button, select {
+    background: var(--bg-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: var(--mono);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: border-color 120ms, background 120ms, color 120ms;
+  }
+  button:hover, select:hover { border-color: var(--accent); }
+  button.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  button.primary:hover { filter: brightness(1.15); }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.icon { padding: 6px 10px; }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--bg-1);
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .toolbar .spacer { flex: 1; }
+  .toolbar label {
+    color: var(--text-dim);
+    font-size: 12px;
+    font-family: var(--mono);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .toolbar input[type=text] {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 200px;
+    outline: none;
+  }
+  .toolbar input[type=text]:focus { border-color: var(--accent); }
+
+  /* ─── footer ───────────────────────────────────── */
+  footer {
+    padding: 10px 16px;
+    background: var(--bg-1);
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  footer .ok { color: var(--green); }
+  footer .err { color: var(--red); }
+  footer .warn { color: var(--yellow); }
+  footer .dim { color: var(--text-faint); }
+
+  /* ─── provider chip ────────────────────────────── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .chip.available { color: var(--green); border-color: rgba(111,207,151,0.3); }
+  .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* ─── inputs row ───────────────────────────────── */
+  select option { background: var(--bg-1); color: var(--text); }
+
+  /* ─── kbd hints ────────────────────────────────── */
+  kbd {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+  }
+
+  /* ─── responsive ───────────────────────────────── */
+  @media (max-width: 800px) {
+    main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <span class="brand">SEEME</span>
+    <span class="dim">·</span>
+    <span class="dim" style="font-family:var(--mono);font-size:12px;">AI visual interpreter</span>
+    <span class="header-spacer"></span>
+    <div class="header-controls">
+      <label class="dim" style="font-family:var(--mono);font-size:12px;display:flex;gap:6px;align-items:center;">
+        provider
+        <select id="provider"></select>
+      </label>
+      <label class="dim" style="font-family:var(--mono);font-size:12px;display:flex;gap:6px;align-items:center;">
+        style
+        <select id="style">
+          <option value="auto">auto</option>
+          <option value="compact">compact</option>
+          <option value="annotated">annotated</option>
+          <option value="sequence">sequence</option>
+          <option value="merged">merged</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section class="pane">
+      <div class="pane-header">
+        <span>input</span>
+        <span class="spacer" style="flex:1;"></span>
+        <span class="dim" style="text-transform:none;font-family:var(--mono);">
+          <kbd>⌘</kbd>+<kbd>↵</kbd> to generate
+        </span>
+      </div>
+      <div class="pane-body">
+        <textarea id="input" placeholder="Describe what you want to diagram&#10;e.g. &quot;explain how OAuth works&quot;&#10;     &quot;the data flow between client, API, and database&quot;&#10;     &quot;a RAG pipeline with embedding store and reranker&quot;"></textarea>
+      </div>
+      <div class="toolbar">
+        <button id="generate" class="primary">▶  Generate</button>
+        <button id="refine" disabled>↻  Refine last</button>
+        <span class="spacer"></span>
+        <label>
+          model
+          <input type="text" id="model" placeholder="(default)">
+        </label>
+      </div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-header">
+        <span>diagram</span>
+        <span class="spacer" style="flex:1;"></span>
+        <button id="copy" class="icon" disabled>copy</button>
+        <button id="download" class="icon" disabled>SVG</button>
+        <button id="explain" class="icon" disabled>explain</button>
+      </div>
+      <div class="pane-body">
+        <div id="output-wrap">
+          <pre id="output" class="empty">your diagram will appear here</pre>
+          <ul id="warnings"></ul>
+          <div id="explanation"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span id="status" class="dim">ready</span>
+    <span class="spacer" style="flex:1;"></span>
+    <span id="usage" class="dim"></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    input: $('input'),
+    output: $('output'),
+    warnings: $('warnings'),
+    explanation: $('explanation'),
+    provider: $('provider'),
+    style: $('style'),
+    model: $('model'),
+    generate: $('generate'),
+    refine: $('refine'),
+    copy: $('copy'),
+    download: $('download'),
+    explain: $('explain'),
+    status: $('status'),
+    usage: $('usage'),
+  };
+
+  let lastDiagram = null;
+  let lastResult = null;
+  let generating = false;
+
+  // ─── helpers ───────────────────────────────────
+  const setStatus = (text, cls = 'dim') => {
+    els.status.className = cls;
+    els.status.textContent = text;
+  };
+
+  const setOutput = (text, opts = {}) => {
+    els.output.textContent = text;
+    els.output.className = opts.streaming ? 'streaming' : opts.empty ? 'empty' : '';
+  };
+
+  const showWarnings = (warnings) => {
+    els.warnings.innerHTML = '';
+    if (!warnings || warnings.length === 0) {
+      els.warnings.classList.remove('visible');
+      return;
+    }
+    const header = document.createElement('li');
+    header.style.listStyle = 'none';
+    header.style.marginLeft = '0';
+    header.style.marginBottom = '6px';
+    header.style.fontWeight = '600';
+    header.textContent = '⚠ ' + warnings.length + ' lint warning(s) remain:';
+    els.warnings.appendChild(header);
+    for (const w of warnings) {
+      const li = document.createElement('li');
+      li.textContent = 'Line ' + w.line + ' [' + w.rule + ']: ' + w.problem;
+      els.warnings.appendChild(li);
+    }
+    els.warnings.classList.add('visible');
+  };
+
+  const formatUsage = (u, attempts) => {
+    const parts = [];
+    parts.push('attempts: ' + attempts);
+    if (u.promptTokens > 0 || u.completionTokens > 0) {
+      parts.push('tokens: ' + u.promptTokens + ' in / ' + u.completionTokens + ' out');
+    }
+    const cacheBits = [];
+    if (u.cacheReadInputTokens > 0) cacheBits.push(u.cacheReadInputTokens + ' read');
+    if (u.cacheCreationInputTokens > 0) cacheBits.push(u.cacheCreationInputTokens + ' written');
+    if (u.cachedPromptTokens > 0) cacheBits.push(u.cachedPromptTokens + ' cached');
+    if (cacheBits.length > 0) parts.push('cache: ' + cacheBits.join(' / '));
+    return parts.join('  ·  ');
+  };
+
+  // ─── providers ─────────────────────────────────
+  const loadProviders = async () => {
+    try {
+      const res = await fetch('/api/providers');
+      const json = await res.json();
+      els.provider.innerHTML = '';
+      const autoOpt = document.createElement('option');
+      autoOpt.value = '';
+      autoOpt.textContent = 'auto';
+      els.provider.appendChild(autoOpt);
+      for (const p of json.providers) {
+        const opt = document.createElement('option');
+        opt.value = p.name;
+        opt.textContent = (p.available ? '● ' : '○ ') + p.name + ' (' + p.defaultModel + ')';
+        opt.disabled = !p.available;
+        els.provider.appendChild(opt);
+      }
+    } catch (err) {
+      setStatus('failed to load providers: ' + err.message, 'err');
+    }
+  };
+
+  const loadLast = async () => {
+    try {
+      const res = await fetch('/api/last');
+      const json = await res.json();
+      if (json.last) {
+        lastDiagram = json.last.diagram;
+        els.refine.disabled = false;
+        els.refine.title = 'last: ' + (json.last.timestamp || '') + ' · ' + (json.last.provider || '') + '/' + (json.last.model || '');
+      }
+    } catch {}
+  };
+
+  // ─── generate / refine ─────────────────────────
+  const generate = async (refineFrom) => {
+    const input = els.input.value.trim();
+    if (!input) {
+      setStatus('enter a prompt first', 'warn');
+      return;
+    }
+    if (generating) return;
+
+    generating = true;
+    els.generate.disabled = true;
+    els.refine.disabled = true;
+    els.copy.disabled = true;
+    els.download.disabled = true;
+    els.explain.disabled = true;
+    showWarnings([]);
+    els.explanation.classList.remove('visible');
+    els.usage.textContent = '';
+
+    setOutput(refineFrom ? 'refining…' : 'thinking…', { streaming: true });
+    setStatus(refineFrom ? 'refining' : 'generating', 'dim');
+
+    const body = {
+      input,
+      style: els.style.value || 'auto',
+      provider: els.provider.value || undefined,
+      model: els.model.value.trim() || undefined,
+      refineFrom,
+    };
+
+    let streamed = '';
+    let hadFirstChunk = false;
+
+    try {
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok || !res.body) {
+        const text = await res.text();
+        throw new Error(text || ('HTTP ' + res.status));
+      }
+      // Parse SSE.
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const events = buffer.split('\n\n');
+        buffer = events.pop() || '';
+        for (const block of events) {
+          const lines = block.split('\n');
+          let event = 'message';
+          let data = '';
+          for (const line of lines) {
+            if (line.startsWith('event:')) event = line.slice(6).trim();
+            else if (line.startsWith('data:')) data += line.slice(5).trim();
+          }
+          if (!data) continue;
+          let parsed;
+          try { parsed = JSON.parse(data); } catch { continue; }
+          if (event === 'chunk') {
+            streamed += parsed.text;
+            if (!hadFirstChunk) {
+              hadFirstChunk = true;
+              setStatus('streaming…', 'dim');
+            }
+            setOutput(streamed, { streaming: true });
+          } else if (event === 'done') {
+            lastResult = parsed;
+            lastDiagram = parsed.diagram;
+            setOutput(parsed.diagram);
+            showWarnings(parsed.warnings);
+            const note = parsed.warnings && parsed.warnings.length
+              ? '⚠ landed with warnings'
+              : (parsed.attempts > 1 ? '✓ clean after ' + parsed.attempts + ' attempts' : '✓ clean on first try');
+            setStatus(note, parsed.warnings && parsed.warnings.length ? 'warn' : 'ok');
+            els.usage.textContent = parsed.provider + ' / ' + parsed.model + '  ·  ' + formatUsage(parsed.usage, parsed.attempts);
+            els.copy.disabled = false;
+            els.download.disabled = false;
+            els.explain.disabled = false;
+            els.refine.disabled = false;
+          } else if (event === 'error') {
+            throw new Error(parsed.message);
+          }
+        }
+      }
+    } catch (err) {
+      setOutput('✗ ' + err.message, { empty: true });
+      setStatus(err.message, 'err');
+    } finally {
+      generating = false;
+      els.generate.disabled = false;
+    }
+  };
+
+  // ─── actions ───────────────────────────────────
+  els.generate.addEventListener('click', () => generate());
+  els.refine.addEventListener('click', () => {
+    if (lastDiagram) generate(lastDiagram);
+  });
+  els.copy.addEventListener('click', async () => {
+    if (!lastDiagram) return;
+    try {
+      await navigator.clipboard.writeText(lastDiagram);
+      setStatus('copied', 'ok');
+    } catch (err) {
+      setStatus('copy failed: ' + err.message, 'err');
+    }
+  });
+  els.download.addEventListener('click', () => {
+    if (!lastDiagram) return;
+    // Render a simple SVG inline (mirrors src/export-svg.ts but client-side).
+    const lines = lastDiagram.split('\n');
+    const maxCols = lines.reduce((n, l) => Math.max(n, Array.from(l).length), 0);
+    const cellW = 9, cellH = 18, fontSize = 14, pad = 20;
+    const width = maxCols * cellW + pad * 2;
+    const height = lines.length * cellH + pad * 2;
+    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const rows = lines.map((line, i) => {
+      const y = pad + (i + 1) * cellH - cellH * 0.25;
+      return '  <text x="' + pad + '" y="' + y + '" xml:space="preserve">' + esc(line) + '</text>';
+    }).join('\n');
+    const svg = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<svg xmlns="http://www.w3.org/2000/svg" width="' + width + '" height="' + height + '" viewBox="0 0 ' + width + ' ' + height + '">\n' +
+      '  <rect width="' + width + '" height="' + height + '" fill="white"/>\n' +
+      '  <g font-family="' + "'SF Mono', Menlo, 'Cascadia Mono', Consolas, monospace" + '" font-size="' + fontSize + '" fill="#0a0a0a">\n' +
+      rows + '\n' +
+      '  </g>\n</svg>\n';
+    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'diagram.svg';
+    a.click();
+    URL.revokeObjectURL(url);
+    setStatus('downloaded diagram.svg', 'ok');
+  });
+
+  els.explain.addEventListener('click', async () => {
+    if (!lastResult || !lastDiagram) return;
+    // No /api/explain endpoint yet — show a hint.
+    els.explanation.textContent = '(explanation requires the CLI: `seeme --explain "..."`. A server endpoint can be added if you want this inline.)';
+    els.explanation.classList.add('visible');
+  });
+
+  // ─── keyboard ──────────────────────────────────
+  els.input.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+      e.preventDefault();
+      generate();
+    }
+  });
+
+  // ─── init ──────────────────────────────────────
+  loadProviders();
+  loadLast();
+  setStatus('ready');
+})();
+</script>
+</body>
+</html>
