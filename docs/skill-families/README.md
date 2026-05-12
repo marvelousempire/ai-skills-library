@@ -19,6 +19,7 @@ Use this folder as a lightweight routing map before opening deeper skill catalog
 | External Tools | [`external-tools.md`](external-tools.md) | CLIs, APIs, generated bridge skills, external integrations |
 | Project Skills | [`project-skills.md`](project-skills.md) | ReadyPlay, You-Sir Juan, app-specific skill context |
 | You-Sir Juan Platform Skills | [`yousirjuan-platform-skills.md`](yousirjuan-platform-skills.md) | platform tools, AI models, media, voice, infrastructure, hardware |
+| Reasoning, Evaluation & Red-Team Skills | [`reasoning-evaluation-redteam.md`](reasoning-evaluation-redteam.md) | premortems, steelman review, explainability, AI safety, defensive validation, risk review |
 
 ---
 
