@@ -55,6 +55,7 @@ Use this document when deciding:
 | AwesomeDesign.md | design critique system | frontend quality review and improvement doctrine | Active |
 | 21st.dev | UI component inspiration | premium landing pages, hero sections, and modern UI patterns | Active |
 | Framer Motion | motion framework | cinematic interface motion and transitions | Active |
+| `https://github.com/motiondivision/motion` | JavaScript motion/animation library | lightweight, premium animation system for UI motion, landing pages, microinteractions, and cinematic frontend behavior | Candidate |
 | shadcn/ui | component system | admin/dashboard/app UI foundation | Active |
 | Tailwind CSS | styling system | design tokens, spacing, responsive layout | Active |
 | Magic UI | animated components | premium marketing and demo sections | Candidate |
@@ -234,6 +235,7 @@ Repos explicitly added from recent user-provided list:
 - `https://github.com/ailev/FPF`
 - `https://github.com/Lightricks/LTX-2`
 - `https://github.com/Lightricks/ComfyUI-LTXVideo/`
+- `https://github.com/motiondivision/motion`
 
 ---
 
