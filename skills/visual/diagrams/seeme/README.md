@@ -49,6 +49,18 @@ seeme serve --open
 
 Opens `http://127.0.0.1:7777/` in your browser. Self-contained: no CDN deps, dark mode, monospace-forward, designed in the same Unicode box-and-arrow style the tool outputs. The page talks to a tiny local HTTP server that wraps the same `generate()` engine the CLI uses — same lint loop, same prompt caching, same provider routing. ⌘+↵ generates, click "Refine last" to iterate.
 
+## Docker
+
+Run the full stack (SEEME + Ollama + llama3.1 auto-pull) without installing anything on the host:
+
+```sh
+cd skills/visual/diagrams/seeme
+docker compose up -d
+open http://localhost:7777
+```
+
+See [`docker/README.md`](docker/README.md) for the full Docker setup — image details, environment variables, troubleshooting, and how to run just the CLI in a one-shot container.
+
 ## Use
 
 ```sh

@@ -1,0 +1,31 @@
+# Keep the build context tight and don't leak secrets.
+#
+# Note: this file lives in seeme/ but the build context is the parent
+# diagrams/ folder, so paths are relative to that.
+
+# Local installs / build output — re-installed inside the image
+**/node_modules
+**/dist
+**/coverage
+
+# Secrets — never bake an env file into an image
+**/.env
+**/.env.local
+**/.env.*.local
+
+# VCS / editor cruft
+**/.git
+**/.gitignore
+**/.DS_Store
+**/.vscode
+**/.idea
+**/*.log
+
+# Tests aren't needed at runtime (fixtures ARE — they power `seeme example`)
+seeme/test/*.test.ts
+
+# Docker meta itself
+**/Dockerfile
+**/.dockerignore
+**/docker-compose*.yml
+**/docker

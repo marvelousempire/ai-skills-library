@@ -105,6 +105,8 @@ Failure → re-prompt with line-numbered, rule-specific fix list. Max 3 retries.
 
 ## Installation
 
+**Local (Node 24+):**
+
 ```sh
 cd skills/visual/diagrams/seeme
 npm install
@@ -113,6 +115,16 @@ cp .env.example .env               # optional — only needed for cloud provider
 seeme example                      # offline preview
 seeme "explain RAG"                # first real run (needs Ollama or a key)
 ```
+
+**Docker (zero host install):**
+
+```sh
+cd skills/visual/diagrams/seeme
+docker compose up -d               # boots SEEME + Ollama + llama3.1 auto-pull
+open http://localhost:7777
+```
+
+See [`docker/README.md`](./docker/README.md) for full details.
 
 ## MCP server
 

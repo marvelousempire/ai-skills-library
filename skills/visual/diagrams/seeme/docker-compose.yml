@@ -1,0 +1,86 @@
+# SEEME — full stack via Docker Compose.
+#
+# Boots three things:
+#   1. ollama       — local model server, port 11434
+#   2. ollama-init  — one-shot job that pulls llama3.1 (idempotent)
+#   3. seeme        — the web UI, port 7777, talks to ollama by service name
+#
+# Quick start:
+#   cd skills/visual/diagrams/seeme
+#   docker compose up -d
+#   open http://localhost:7777
+#
+# Cloud providers (optional): drop API keys in .env next to this file. They're
+# picked up automatically via the env_file directive.
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: seeme-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  # One-shot init: pulls the default model so the first SEEME call doesn't
+  # block on a several-hundred-MB download. Exits when done; safe to re-run.
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: seeme-ollama-init
+    depends_on:
+      ollama:
+        condition: service_healthy
+    volumes:
+      - ollama-data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "Checking for llama3.1…"
+        if ollama list | grep -q llama3.1; then
+          echo "✓ llama3.1 already present"
+        else
+          echo "Pulling llama3.1 (this is a one-time download, several hundred MB)…"
+          ollama pull llama3.1
+          echo "✓ llama3.1 ready"
+        fi
+    restart: "no"
+
+  seeme:
+    build:
+      # Build context is the parent diagrams/ folder so the Dockerfile can
+      # vendor in ../ascii-flow-diagrams/SKILL.md.
+      context: ..
+      dockerfile: seeme/Dockerfile
+    image: seeme:latest
+    container_name: seeme-ui
+    restart: unless-stopped
+    ports:
+      - "7777:7777"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      # Don't force the provider — let SEEME auto-detect so cloud keys (if
+      # added to .env) take precedence. Override to "ollama" here if you
+      # want to lock to local even when keys are present.
+    # Optional cloud keys. Comment out if no .env file.
+    env_file:
+      - path: .env
+        required: false
+    depends_on:
+      ollama:
+        condition: service_healthy
+    volumes:
+      # Persist refine cache + opt-in history across container restarts.
+      - seeme-data:/home/seeme/.seeme
+
+volumes:
+  ollama-data:
+  seeme-data:
