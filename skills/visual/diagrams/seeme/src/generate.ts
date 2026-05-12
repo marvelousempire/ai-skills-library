@@ -15,18 +15,29 @@ export const generate = async (opts: GenerateOptions): Promise<GenerateResult> =
     ? refinePrompt(opts.refineFrom, opts.input)
     : opts.input
 
+  const style = opts.style ?? 'auto'
+
   const { diagram, attempts, warnings, usage } = await generateWithRetry({
     model,
     input: userPayload,
-    style: opts.style ?? 'auto',
+    style,
     maxRetries: opts.maxRetries ?? 3,
     onStreamChunk: opts.onStreamChunk,
   })
 
-  // Cache the latest clean diagram for the next `--refine` call.
-  if (warnings.length === 0) writeLastDiagram(diagram)
+  // Cache the latest clean diagram + metadata for the next `--refine` call.
+  if (warnings.length === 0) {
+    writeLastDiagram({
+      diagram,
+      style,
+      provider,
+      model: modelId,
+      input: opts.input,
+    })
+  }
 
   return { diagram, attempts, warnings, provider, model: modelId, usage }
 }
 
 export { readLastDiagram, cacheLocation } from './cache.ts'
+export type { CachedDiagram } from './cache.ts'

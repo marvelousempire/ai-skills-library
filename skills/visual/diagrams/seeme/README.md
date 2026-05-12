@@ -41,14 +41,37 @@ seeme --copy "..."                               # also clipboard
 seeme providers                                  # who's reachable?
 seeme --help
 
-# Iterative refinement — edit the last clean diagram:
+# Iterative refinement — edits the last clean diagram, inherits its style:
 seeme --refine "add a redis cache between API and database"
 seeme --refine "split the API into auth + data" --from prev.txt
+
+# Chain a generate + N refines in one call (cached system prompt shared):
+seeme "explain OAuth" \
+  --then "now add a refresh-token loop" \
+  --then "highlight the security boundaries in heavy banners"
 ```
 
 ## Refine + cache
 
-Every clean diagram is written to `~/.seeme/last.txt` so you can chain edits with `seeme --refine "..."` — same style guide, same provider, just a targeted instruction. Set `SEEME_NO_CACHE=1` to disable.
+Every clean diagram is written to `~/.seeme/last.json` with `{diagram, style, provider, model, input, timestamp}`. `seeme --refine "..."` reads it back, inherits the previous style, and applies your edit instruction — same style guide, same provider, just a targeted change. Legacy `~/.seeme/last.txt` from v0.1 still readable. Set `SEEME_NO_CACHE=1` to disable.
+
+## MCP server
+
+`seeme-mcp` is a stdio MCP server that exposes SEEME to Claude Desktop / Cursor / Claude Code. Wire it up in your MCP config:
+
+```json
+{
+  "mcpServers": {
+    "seeme": { "command": "seeme-mcp" }
+  }
+}
+```
+
+Tools:
+- **`generate_diagram(input, style?, provider?, model?)`** — render any input.
+- **`refine_diagram(instruction, previous?, style?, provider?, model?)`** — edit a diagram. `previous` defaults to the user's last cached diagram.
+
+Once registered, the assistant can call SEEME mid-conversation and inline the resulting fenced `text` block.
 
 ## Prompt caching
 

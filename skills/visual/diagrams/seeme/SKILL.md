@@ -27,10 +27,31 @@ seeme --file architecture.md                     # read from file
 seeme --copy "..."                               # also copy to clipboard
 seeme providers                                  # list available + reachable
 
-# Iterative refinement (uses the last clean diagram from ~/.seeme/last.txt):
+# Iterative refinement — inherits the previous diagram's style:
 seeme --refine "add a redis cache between the API and the database"
-seeme --refine "split the API box into auth and data" --from prev.txt
+seeme --refine "split the API into auth + data" --from prev.txt
+
+# Chain a generate + N refines in one call (all share the cached system prompt):
+seeme "explain OAuth" \
+  --then "now add a refresh-token loop" \
+  --then "highlight the security boundaries in heavy banners"
 ```
+
+## MCP server
+
+`seeme-mcp` exposes two tools over stdio so Claude Desktop / Cursor / Claude Code can call SEEME natively mid-conversation:
+
+```json
+{
+  "mcpServers": {
+    "seeme": { "command": "seeme-mcp" }
+  }
+}
+```
+
+Tools:
+- `generate_diagram(input, style?, provider?, model?)` — render any input as a diagram.
+- `refine_diagram(instruction, previous?, style?, provider?, model?)` — edit a diagram in natural language. `previous` is optional; falls back to the user's last clean diagram from `~/.seeme/last.json`.
 
 ## Providers
 

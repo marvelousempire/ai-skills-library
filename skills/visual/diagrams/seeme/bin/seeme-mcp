@@ -1,0 +1,5 @@
+#!/usr/bin/env -S node --experimental-strip-types --no-warnings=ExperimentalWarning
+import('../src/mcp.ts').catch((err) => {
+  console.error(err)
+  process.exit(1)
+})
