@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import type { Style } from '../types.ts'
@@ -6,7 +6,29 @@ import type { Style } from '../types.ts'
 const here = dirname(fileURLToPath(import.meta.url))
 const skillPath = resolve(here, '..', '..', '..', 'ascii-flow-diagrams', 'SKILL.md')
 
-const styleGuide = readFileSync(skillPath, 'utf-8')
+const loadStyleGuide = (): string => {
+  if (!existsSync(skillPath)) {
+    throw new Error(
+      `SEEME cannot find the ascii-flow-diagrams style spec.\n` +
+        `  Expected: ${skillPath}\n` +
+        `  Reason: SEEME reads the neighboring SKILL.md as its system prompt.\n` +
+        `  Fix: ensure skills/visual/diagrams/ascii-flow-diagrams/SKILL.md exists\n` +
+        `       next to skills/visual/diagrams/seeme/, or set the SEEME_STYLE_SPEC env var.`,
+    )
+  }
+  try {
+    return readFileSync(skillPath, 'utf-8')
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    throw new Error(`SEEME failed to read style spec at ${skillPath}: ${msg}`)
+  }
+}
+
+// Allow override via env (useful for tests / vendored installs that bundle
+// the spec separately). Falls back to the neighbor SKILL.md.
+const styleGuide = process.env.SEEME_STYLE_SPEC && existsSync(process.env.SEEME_STYLE_SPEC)
+  ? readFileSync(process.env.SEEME_STYLE_SPEC, 'utf-8')
+  : loadStyleGuide()
 
 const styleHints: Record<Style, string> = {
   compact:
