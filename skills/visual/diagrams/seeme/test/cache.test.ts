@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import { strict as assert } from 'node:assert'
-import { mkdtempSync, rmSync } from 'node:fs'
+import { mkdtempSync, rmSync, writeFileSync, mkdirSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -12,7 +12,6 @@ const withTempHome = async (fn: () => Promise<void> | void) => {
   process.env.HOME = tmp
   try {
     // Import fresh so the module re-reads HOME.
-    delete (globalThis as any).__seemeCacheCached
     const cache = await import(`../src/cache.ts?t=${Date.now()}`)
     await fn.call({ cache, tmp } as any)
   } finally {
@@ -21,11 +20,23 @@ const withTempHome = async (fn: () => Promise<void> | void) => {
   }
 }
 
-test('writeLastDiagram + readLastDiagram round-trip', async () => {
+test('writeLastDiagram + readLastDiagram round-trip with metadata', async () => {
   await withTempHome(async function (this: any) {
     const { writeLastDiagram, readLastDiagram } = this.cache
-    writeLastDiagram('┌──┐\n│ A │\n└──┘')
-    assert.equal(readLastDiagram(), '┌──┐\n│ A │\n└──┘')
+    writeLastDiagram({
+      diagram: '┌──┐\n│ A │\n└──┘',
+      style: 'compact',
+      provider: 'anthropic',
+      model: 'claude-opus-4-7',
+      input: 'show A',
+    })
+    const got = readLastDiagram()
+    assert.equal(got?.diagram, '┌──┐\n│ A │\n└──┘')
+    assert.equal(got?.style, 'compact')
+    assert.equal(got?.provider, 'anthropic')
+    assert.equal(got?.model, 'claude-opus-4-7')
+    assert.equal(got?.input, 'show A')
+    assert.ok(got?.timestamp, 'timestamp should be auto-populated')
   })
 })
 
@@ -42,11 +53,25 @@ test('SEEME_NO_CACHE=1 disables write and read', async () => {
     const prev = process.env.SEEME_NO_CACHE
     process.env.SEEME_NO_CACHE = '1'
     try {
-      writeLastDiagram('should not persist')
+      writeLastDiagram({ diagram: 'should not persist' })
       assert.equal(readLastDiagram(), null)
     } finally {
       if (prev === undefined) delete process.env.SEEME_NO_CACHE
       else process.env.SEEME_NO_CACHE = prev
     }
+  })
+})
+
+test('readLastDiagram falls back to legacy ~/.seeme/last.txt', async () => {
+  await withTempHome(async function (this: any) {
+    // Seed a v0.1-style legacy text file (no JSON).
+    const seemeDir = join(this.tmp, '.seeme')
+    mkdirSync(seemeDir, { recursive: true })
+    writeFileSync(join(seemeDir, 'last.txt'), '┌──┐\n│ B │\n└──┘\n', 'utf-8')
+
+    const { readLastDiagram } = this.cache
+    const got = readLastDiagram()
+    assert.equal(got?.diagram, '┌──┐\n│ B │\n└──┘')
+    assert.equal(got?.style, undefined, 'legacy file has no style metadata')
   })
 })
