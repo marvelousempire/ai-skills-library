@@ -12,7 +12,12 @@
     "test": "node --test --experimental-strip-types test/*.test.ts",
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit",
-    "check": "npm run typecheck && npm run test"
+    "check": "npm run typecheck && npm run test",
+    "docker:build": "docker build -f Dockerfile -t seeme:latest ..",
+    "docker:run": "docker run --rm -it -p 7777:7777 -v seeme-data:/home/seeme/.seeme --env-file .env seeme:latest",
+    "docker:up": "docker compose up -d && echo 'SEEME UI: http://localhost:7777'",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f seeme"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.0.0",
