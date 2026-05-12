@@ -88,7 +88,38 @@ test('seeme-mcp: initialize handshake + listTools returns both tools', async () 
   const tools = (listResp!.result as any)?.tools as { name: string }[]
   assert.ok(Array.isArray(tools), 'tools should be an array')
   const names = tools.map((t) => t.name).sort()
-  assert.deepEqual(names, ['generate_diagram', 'refine_diagram'])
+  assert.deepEqual(names, ['generate_diagram', 'list_providers', 'refine_diagram'])
+})
+
+test('seeme-mcp: list_providers returns reachability info', async () => {
+  const responses = await runMcp([
+    {
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'initialize',
+      params: {
+        protocolVersion: '2024-11-05',
+        capabilities: {},
+        clientInfo: { name: 'test', version: '0.0.0' },
+      },
+    },
+    {
+      jsonrpc: '2.0',
+      id: 2,
+      method: 'tools/call',
+      params: { name: 'list_providers', arguments: {} },
+    },
+  ])
+
+  const callResp = responses.find((r) => r.id === 2)
+  assert.ok(callResp, 'should respond to tools/call')
+  const result = callResp!.result as any
+  const text = (result?.content?.[0]?.text ?? '') as string
+
+  // All five providers should appear by name.
+  for (const name of ['ollama', 'anthropic', 'openai', 'gemini', 'perplexity']) {
+    assert.ok(text.includes(name), `list_providers output should mention ${name}`)
+  }
 })
 
 test('seeme-mcp: refine_diagram without previous + no cache → useful error', async () => {

@@ -68,10 +68,15 @@ Every clean diagram is written to `~/.seeme/last.json` with `{diagram, style, pr
 ```
 
 Tools:
+- **`list_providers()`** — which providers are reachable. Returns one line per provider with a ● / ○ availability marker.
 - **`generate_diagram(input, style?, provider?, model?)`** — render any input.
-- **`refine_diagram(instruction, previous?, style?, provider?, model?)`** — edit a diagram. `previous` defaults to the user's last cached diagram.
+- **`refine_diagram(instruction, previous?, style?, provider?, model?)`** — edit a diagram. `previous` defaults to the user's last cached diagram; style is inherited.
 
 Once registered, the assistant can call SEEME mid-conversation and inline the resulting fenced `text` block.
+
+## Anthropic 1-hour cache
+
+For long sessions, set `SEEME_LONG_CACHE=1` to bump the Anthropic prompt-cache TTL from 5 min to 1 h. Requires beta access (the `extended-cache-ttl-2025-04-11` header is added automatically). Default stays at 5 min so SEEME works for any Anthropic account out of the box.
 
 ## Prompt caching
 

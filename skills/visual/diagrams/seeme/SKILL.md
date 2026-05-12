@@ -50,8 +50,9 @@ seeme "explain OAuth" \
 ```
 
 Tools:
+- `list_providers()` — which providers SEEME can reach (Ollama up? cloud keys set?). Call this **before** generate_diagram if you need to pick a provider; pick any one marked ●.
 - `generate_diagram(input, style?, provider?, model?)` — render any input as a diagram.
-- `refine_diagram(instruction, previous?, style?, provider?, model?)` — edit a diagram in natural language. `previous` is optional; falls back to the user's last clean diagram from `~/.seeme/last.json`.
+- `refine_diagram(instruction, previous?, style?, provider?, model?)` — edit a diagram in natural language. `previous` is optional; falls back to the user's last clean diagram from `~/.seeme/last.json`. Style is inherited from the cached diagram unless explicitly passed.
 
 ## Providers
 
@@ -99,7 +100,7 @@ Lint rules applied to every model response, in this order:
 
 Failure → re-prompt with line-numbered fix list, max 3 attempts.
 
-**Prompt caching.** The full style guide is sent as a `cache_control: ephemeral` system message — Anthropic caches it for 5 min and OpenAI auto-caches any prefix ≥ 1024 tokens. Repeat calls within the window cost ~90% less. Refine calls reuse the same cached system prompt, so iterating on a diagram is cheap.
+**Prompt caching.** The full style guide is sent as a `cache_control: ephemeral` system message — Anthropic caches it for 5 min by default; set `SEEME_LONG_CACHE=1` to extend to 1 h (requires Anthropic beta access — adds the `extended-cache-ttl-2025-04-11` header automatically). OpenAI auto-caches any prefix ≥ 1024 tokens. Repeat calls within the window cost ~90% less; refine and `--then` chains reuse the same cached system prompt, so iterating is cheap.
 
 **Iterative refinement.** Every clean diagram is written to `~/.seeme/last.txt`. `seeme --refine "..."` reads it back, sends the previous diagram + your edit instruction, and renders the update. Set `SEEME_NO_CACHE=1` to disable the cache file.
 

@@ -16,6 +16,7 @@ import {
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js'
 import { generate, readLastDiagram } from './generate.ts'
+import { listProviders } from './providers/index.ts'
 import type { ProviderName, Style } from './types.ts'
 
 const STYLES: Style[] = ['compact', 'annotated', 'sequence', 'merged', 'auto']
@@ -91,6 +92,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
         },
       },
     },
+    {
+      name: 'list_providers',
+      description:
+        'List which LLM providers SEEME can reach. Use this BEFORE generate_diagram if you need to pick a provider — tells you whether Ollama is up locally and which cloud keys are set. Each provider includes an `available` boolean and a short reason ("reachable at …", "ANTHROPIC_API_KEY set", "no key", etc.).',
+      inputSchema: { type: 'object', properties: {} },
+    },
   ],
 }))
 
@@ -134,6 +141,25 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         refineFrom: previous,
       })
       return formatResult(result)
+    }
+
+    if (name === 'list_providers') {
+      const list = await listProviders()
+      const lines = list.map(
+        (p) => `${p.available ? '●' : '○'} ${p.name.padEnd(11)} ${p.reason}`,
+      )
+      return {
+        content: [
+          {
+            type: 'text' as const,
+            text:
+              'Providers:\n' +
+              lines.join('\n') +
+              '\n\nPick any provider marked ● for generate_diagram / refine_diagram. ' +
+              'If none are available, the user must start Ollama or set a provider key in .env.',
+          },
+        ],
+      }
     }
 
     return errorResponse(`Unknown tool: ${name}`)
