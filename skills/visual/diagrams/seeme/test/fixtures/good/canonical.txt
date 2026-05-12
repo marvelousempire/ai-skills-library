@@ -1,0 +1,11 @@
+   ┌──────────────┐                          ┌──────────────┐
+   │  iOS / iPad  │◄──── HTTPS + JWT ───────►│              │
+   ├──────────────┤                          │              │
+   │   Website    │◄──── HTTPS + JWT ───────►│   Backend    │
+   │ (player-web) │                          │     API      │◄──── PostgreSQL
+   ├──────────────┤                          │  (Express)   │     (loopback only)
+   │ Admin panel  │◄──── HTTPS + admin JWT ─►│              │
+   └──────────────┘                          └──────────────┘
+        ▲                                          │
+        │                                          │
+        └────── reads go through the same API ─────┘
