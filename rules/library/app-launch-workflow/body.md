@@ -1,128 +1,154 @@
-# App Launch Workflow — Learn Mappers LLC
+# App Launch Workflow — Learn Mappers LLC / AVERY GOODMAN
 
-Every app we ship follows this exact workflow. When building, scaffolding, or maintaining any app:
-implement this pattern end-to-end without being asked. This is the canonical way we make apps.
-
----
-
-## 1. The one-liner that launches every app
-
-```sh
-git pull && pnpm install && make ui
-```
-
-That's it. It rebuilds, opens the browser automatically, and the terminal tells you everything.
-The same command works on day 1, day 100, after any teammate pulls, and on any machine with pnpm.
-
-```sh
-make ui-network   # same but reachable on Wi-Fi → iPad, phone, other laptop
-```
+Every app we ship follows this workflow. Implement it end-to-end on every project without being asked.
+This document is the single source of truth for how we build, design, and launch apps.
 
 ---
 
-## 2. Build stack
+## The one-liner that launches every app
 
-| Layer | Tool | Notes |
-|---|---|---|
-| Package manager | **pnpm** | workspace mode — never npm or yarn |
-| Monorepo orchestration | **Turbo** | `turbo.json` at repo root |
-| Primary frontend | **Vite + React + TypeScript** | `apps/web/` |
-| Optional second frontend | **Next.js** | `apps/web-next/`, static export |
-| Styling | **Tailwind CSS** | design tokens via HSL CSS custom properties |
-| Animation | **Motion** (`motion/react`) | component-level only — never in AnimatePresence mode="wait" at the panel switch level |
-| Component primitives | **Radix UI** | Dialog, Tooltip, etc. |
-| Backend | **Python stdlib** or **Node** | no pip/npm runtime deps for serving |
-| Icons | **Lucide React** | |
+```sh
+git pull && pnpm install && make ui          # localhost — browser auto-opens
+git pull && pnpm install && make ui-network  # Wi-Fi visible — browser auto-opens
+```
+
+That is the promise. It works on day 1, day 100, and on any machine with pnpm installed.
+
+---
+
+## Part 1 — Design first, always
+
+**This is the step that was missing from every app that felt inconsistent.**
+Run the design system before writing a single component.
+
+### Step 1A — Generate the design system with ui-ux-pro-max
+
+```bash
+python3 skills/visual/design/ui-ux-pro-max/scripts/search.py \
+  "<product_type> <industry> <keywords>" \
+  --design-system --persist -p "Project Name"
+```
+
+This generates and saves:
+- `design-system/MASTER.md` — colors, typography, spacing, motion, component patterns
+- `design-system/pages/` — per-page overrides
+
+**Never start coding without running this.** The design system is the contract the entire UI is built against. If it is skipped, every component drifts and the result looks inconsistent.
+
+For page-specific overrides:
+```bash
+python3 ... --design-system --persist -p "Project Name" --page "dashboard"
+```
+
+Supplement with domain searches as needed:
+
+| Need | Command |
+|---|---|
+| Animation/motion UX | `--domain ux "animation accessibility fluidity"` |
+| Chart/data viz | `--domain chart "real-time dashboard"` |
+| Typography | `--domain typography "clean readable sans"` |
+| Component patterns | `--stack react` or `--stack nextjs` |
+
+### Step 1B — Apply Emil design engineering philosophy
+
+Before any interactive component is built, consult `emil-design-eng`. It governs:
+
+- **Easing**: always `ease-out` or a custom spring for things that enter. `ease-in` feels sluggish. Never `ease-in` for UI elements appearing.
+- **Scale**: never animate from `scale(0)` — nothing in the real world appears from nothing. Use `scale(0.96)` + `opacity: 0`.
+- **Specificity**: never `transition: all 300ms`. Always name the exact property: `transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms`.
+- **Press feedback**: every button must have a `:active` state — `transform: scale(0.97)` — so it feels physically responsive.
+- **Transform origin**: popovers and tooltips must use `transform-origin: var(--radix-popover-content-transform-origin)` so they expand from their trigger, not from a random corner.
+- **Duration**: 150–250ms for UI responses (too slow reads as laggy; too fast reads as broken). 300–500ms for layout shifts and page transitions.
+- **Invisible details compound**: users rarely notice each detail. That is the point. When many invisible details work together, the interface feels calm, fast, and intentional.
+
+---
+
+## Part 2 — Build stack
+
+| Layer | Tool |
+|---|---|
+| Package manager | **pnpm** — workspace mode, always |
+| Monorepo | **Turbo** — `turbo.json` at root |
+| Primary frontend | **Vite + React + TypeScript** at `apps/web/` |
+| Optional second surface | **Next.js static export** at `apps/web-next/` |
+| Styling | **Tailwind CSS** + HSL design tokens |
+| Animation | **Motion** (`motion/react`) — see the Motion rules below |
+| Component primitives | **Radix UI** — Dialog, Tooltip, etc. |
+| Icons | **Lucide React** |
+| Backend | Python stdlib or Node — no runtime deps for serving |
 
 ### Workspace layout
 
 ```
 my-app/
-├── package.json          ← root workspace, devDeps: turbo
-├── pnpm-workspace.yaml   ← packages: ["apps/*"]
-├── turbo.json            ← pipelines: build / dev / typecheck / lint
-├── Makefile              ← canonical make targets
+├── package.json            # root, devDeps: turbo
+├── pnpm-workspace.yaml     # packages: ["apps/*"]
+├── turbo.json              # build / dev / typecheck / lint
+├── Makefile                # all 6 make targets
+├── design-system/          # generated by ui-ux-pro-max
+│   ├── MASTER.md
+│   └── pages/
 ├── apps/
-│   ├── web/              ← @my-app/web  (Vite + React, canonical UI)
-│   └── web-next/         ← @my-app/web-next  (Next.js, optional)
+│   ├── web/                # @my-app/web — Vite app, canonical
+│   └── web-next/           # @my-app/web-next — Next.js, optional
 └── server.py (or server.js)
 ```
 
-### `turbo.json` template
+### turbo.json
 
 ```json
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["src/**", "public/**", "*.config.*", "tsconfig.json", "package.json", "index.html"],
-      "outputs": ["dist/**", "out/**", ".next/**", "!.next/cache/**"]
-    },
+    "build":     { "dependsOn": ["^build"], "inputs": ["src/**","*.config.*","tsconfig.json","index.html"], "outputs": ["dist/**","out/**",".next/**","!.next/cache/**"] },
     "dev":       { "cache": false, "persistent": true },
-    "typecheck": { "dependsOn": ["^typecheck"], "inputs": ["src/**", "*.config.*", "tsconfig.json"] },
-    "lint":      { "inputs": ["src/**", ".eslintrc*", "tsconfig.json"] }
+    "typecheck": { "dependsOn": ["^typecheck"], "inputs": ["src/**","*.config.*","tsconfig.json"] },
+    "lint":      { "inputs": ["src/**",".eslintrc*","tsconfig.json"] }
   }
 }
 ```
 
 ---
 
-## 3. Canonical Makefile targets
+## Part 3 — Canonical Makefile targets
 
-Every app has ALL of these in its Makefile. No exceptions.
+Every app ships with all six. No exceptions.
 
-```makefile
-# --- UI targets -------------------------------------------------------
-ui:          ## Build Vite app (~6s) + serve localhost + auto-open browser
-ui-network:  ## Same but binds 0.0.0.0 — share on Wi-Fi; shows LAN URL
-ui-dev:      ## pnpm turbo run dev  (Vite HMR + Next HMR in parallel)
-ui-all:      ## pnpm turbo run build (Vite + Next) + serve
-ui-legacy:   ## Serve vanilla HTML fallback, no build
-ui-next:     ## Build + serve Next.js static export only
+```
+make ui          Vite build (~6s) + localhost + browser auto-opens
+make ui-network  Same but 0.0.0.0 — shows Local + Network (LAN) URL
+make ui-dev      pnpm turbo run dev (Vite :5174 + Next :5175 in parallel, HMR)
+make ui-all      Full turbo build (Vite + Next) + serve
+make ui-legacy   Serve vanilla HTML fallback — no build required
+make ui-next     Build + serve Next.js static export only
 ```
 
-### `make ui` implementation pattern
+Implementation pattern:
 
 ```makefile
-ui: ## Build Vite app (~6s) + serve localhost + auto-open browser
+ui: ## Vite build (~6s) + serve localhost + browser auto-opens
     @if command -v pnpm >/dev/null 2>&1; then \
-        echo "▶ Building Vite UI (apps/web)…"; \
-        pnpm install --silent && pnpm --filter @$(APP_NAME)/web build \
-          && echo "✓ Built — serving" \
-          || echo "⚠ Build failed — falling back to whatever's on disk."; \
+        echo "▶ Building Vite UI…"; \
+        pnpm install --silent && pnpm --filter @$(APP)/web build \
+          && echo "✓ Built" \
+          || echo "⚠ Build failed — serving stale dist if present."; \
     fi
-    @python3 server.py          # or: node server.js
+    @python3 server.py
 
 ui-network: ## Serve on all interfaces — reachable on Wi-Fi
-    @if command -v pnpm >/dev/null 2>&1; then \
-        pnpm install --silent && pnpm --filter @$(APP_NAME)/web build || true; \
-    fi
+    @pnpm install --silent && pnpm --filter @$(APP)/web build || true
     @XCC_HOST=0.0.0.0 python3 server.py
 ```
 
-**Rule:** `make ui` MUST rebuild the primary frontend before serving. Never just start the server against a stale build — that's how you get "nothing works and I don't know why."
+**Critical rule:** `make ui` must always rebuild before serving. A stale build is invisible bugs waiting to happen.
 
 ---
 
-## 4. Server startup pattern — exact output format
+## Part 4 — Server startup: exact output format
 
-Whatever language the backend is written in, the startup message must follow this format:
+Whatever language serves the backend, the startup output follows this format exactly.
 
-```
-  🧹  App Name
-
-  Local      http://127.0.0.1:PORT
-  Network    http://192.168.X.X:PORT  ← share with devices on your Wi-Fi  (network mode only)
-
-  ⚠  NETWORK MODE: anyone on your Wi-Fi can use this app.           (network mode only)
-     Stop with Ctrl+C when done.
-
-  N features/actions/routes  ·  Press Ctrl+C to stop.
-```
-
-In default localhost mode:
-
+**Default (localhost):**
 ```
   🧹  App Name
 
@@ -132,7 +158,20 @@ In default localhost mode:
   N features  ·  Press Ctrl+C to stop.
 ```
 
-### Server auto-open pattern (Python)
+**Network mode (0.0.0.0):**
+```
+  🧹  App Name
+
+  Local      http://127.0.0.1:PORT
+  Network    http://192.168.X.X:PORT  ← share with devices on your Wi-Fi
+
+  ⚠  NETWORK MODE: anyone on your Wi-Fi can trigger actions in this app.
+     Use on a trusted home network. Stop with Ctrl+C when done.
+
+  N features  ·  Press Ctrl+C to stop.
+```
+
+### Server pattern (Python)
 
 ```python
 import os, socket, threading, webbrowser
@@ -141,7 +180,7 @@ from typing import Optional
 HOST = os.environ.get("APP_HOST", "127.0.0.1")
 
 def _local_ip() -> Optional[str]:
-    """Detect the machine's primary LAN IP via a zero-packet UDP socket."""
+    """Zero-packet UDP trick: OS picks the outbound interface, revealing LAN IP."""
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
@@ -153,21 +192,22 @@ def _local_ip() -> Optional[str]:
         except: pass
 
 def main():
-    # ... bind server ...
+    # ... bind httpd ...
     local_url   = f"http://127.0.0.1:{port}"
-    network_url = f"http://{_local_ip()}:{port}" if HOST == "0.0.0.0" else None
+    lan_ip      = _local_ip() if HOST == "0.0.0.0" else None
+    network_url = f"http://{lan_ip}:{port}" if lan_ip else None
 
     print(f"\n  🧹  {APP_NAME}\n")
     if network_url:
         print(f"  {'Local':9}  {local_url}")
         print(f"  {'Network':9}  \033[1;32m{network_url}\033[0m  ← share with devices on your Wi-Fi")
-        print(f"\n  ⚠  NETWORK MODE: anyone on your Wi-Fi can use this app.")
+        print(f"\n  ⚠  NETWORK MODE: anyone on your Wi-Fi can trigger actions.")
     else:
         print(f"  {'URL':9}  \033[1;36m{local_url}\033[0m")
         print(f"  Access     Localhost only (run 'make ui-network' to expose on Wi-Fi)")
     print(f"\n  {n_features}  ·  Press Ctrl+C to stop.\n")
 
-    # Open browser 400ms after serve_forever() starts — avoids race condition.
+    # Open browser 0.4s after serve_forever() so the socket is ready.
     if not os.environ.get("APP_NO_OPEN"):
         threading.Timer(0.4, lambda: webbrowser.open(local_url)).start()
 
@@ -176,81 +216,160 @@ def main():
 
 ---
 
-## 5. React/Vite UX conventions
+## Part 5 — Motion / animation rules
 
-These apply to every web app we build. Implement them by default.
+These rules prevent the specific bugs that appeared in this app. Follow them on every project.
 
-### Theme toggle (Auto / Light / Dark)
-- Three-state segmented control pinned to the **bottom of the left sidebar**
-- State: `document.documentElement.dataset.theme = "light" | "dark"` (removed = auto)
-- Persists to `localStorage` under `{appId}.theme.v{major}`
-- Pre-paint inline `<script>` in `index.html` applies saved theme before React mounts — **no flash**
-- CSS uses `[data-theme="dark"]` explicit selector + `@media prefers-color-scheme: dark :root:not([data-theme])` for auto
+### What to do
 
-### Modal centering (Radix Dialog)
-- **Always** use `Dialog.Overlay` as the flex container: `className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 backdrop-blur-md"`
-- `Dialog.Content` is a child of the Overlay — it auto-centers
-- **Never** use `fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2` on Dialog.Content — this drifts under Radix's own transform stack
+- Use `motion/react` (`framer-motion`) for all meaningful transitions.
+- Animate `opacity`, `transform` (scale/translate), and `height` for layout shifts.
+- Use `ease-out` or spring for anything that enters: `ease: [0.22, 1, 0.36, 1]`.
+- Keep enter durations at 150–220ms. Exit can be faster (120–180ms).
+- Give every interactive element press feedback: `whileTap={{ scale: 0.97 }}`.
+- Use `AnimatePresence` with `initial={false}` on list items so they don't all animate in on first mount.
+
+### What to never do
+
+| Never | Instead | Why |
+|---|---|---|
+| `<AnimatePresence mode="wait">` wrapping the main panel switch | `<div key={tab}>` (instant) | Motion can freeze the wrapper at `opacity: 0` during initial render; the whole page disappears |
+| `transition: all 300ms` in CSS | `transition: opacity 180ms ease-out, transform 180ms ease-out` | `all` catches properties you didn't intend, causes repaints |
+| `initial={{ scale: 0 }}` | `initial={{ scale: 0.96, opacity: 0 }}` | Nothing in the real world appears from nothing |
+| `ease-in` on a modal or dropdown | `ease-out` or spring | `ease-in` starts slow, reads as laggy on UI elements |
+| `animate={{ opacity: 1 }}` with no `initial` | Set `initial` explicitly | Motion infers initial from the component tree, which can produce unexpected flashes |
+
+### Motion card patterns (use these)
 
 ```tsx
-<Dialog.Overlay asChild>
-  <motion.div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 backdrop-blur-md" ...>
-    <Dialog.Content asChild>
-      <motion.div className="w-full max-w-[560px] rounded-xl border bg-bg-1 shadow-lg overflow-hidden" ...>
-        {/* content */}
-      </motion.div>
-    </Dialog.Content>
-  </motion.div>
-</Dialog.Overlay>
-```
+// Modal entrance
+initial={{ opacity: 0, scale: 0.96, y: 6 }}
+animate={{ opacity: 1, scale: 1, y: 0 }}
+exit={{ opacity: 0, scale: 0.96, y: 6 }}
+transition={{ duration: 0.22, ease: [0.34, 1.56, 0.64, 1] }}
 
-### Activity terminal / output pane
-- Always a **fixed max-height** (320px) with `overflow-y: auto` — never grows with content
-- Auto-scrolls to the latest line
-- Idle state: italic gray placeholder text
-- Toolbar: filter input (Ctrl+F / Cmd+F) + Clear button above the terminal body
+// List item stagger
+initial={{ opacity: 0, y: 4 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ delay: index * 0.025, duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
 
-### Panel switch (AnimatePresence)
-- **Do not** use `<AnimatePresence mode="wait"><motion.div key={tab}>` as the outer panel switch wrapper — it can freeze at opacity:0 under certain Motion + React conditions
-- Instead use a plain `<div key={tab}>` for the panel switch; animate INSIDE individual panels that know when they mount
+// Sidebar panel tab switch (instant — no AnimatePresence wrapper)
+<div key={activeTab}>…</div>
 
-### Sidebar layout
-- Left nav: sticky, `sticky top-5 self-start`
-- Tab buttons: teal left-border + teal accent when active
-- Per-tab GB stat: shows `safe + opt-in + caution` (total footprint, NOT just cleanable)
-- Mini-donuts next to GB stat: green / amber / red stroke arcs per tier
-- Theme toggle: below tabs, separated by a border-top
-
-### Responsive breakpoints
-```
-< md (768px)    → 1 column (sidebar stacks on top)
-md to lg        → 2 columns (sidebar + main)   ← do NOT skip this
-lg+ (1024px+)   → 2 or 3 columns (+ right sidebar when subcategories exist)
+// Button press
+whileTap={{ scale: 0.97 }}
+transition={{ duration: 0.1 }}
 ```
 
 ---
 
-## 6. Design tokens
+## Part 6 — UX layout rules
 
-Use HSL CSS custom properties so light/dark/theme-override all "just work":
+These are non-negotiable. Every one of them was learned from a real bug in production.
+
+### Modals — always centered
+
+Use `Dialog.Overlay` as the flex container. Never position `Dialog.Content` with `fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2` — that pattern drifts under Radix's own transform stack.
+
+```tsx
+// ✅ Correct — Overlay is the flex container
+<Dialog.Overlay className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 backdrop-blur-md" style={{ background: "hsl(240 5% 4% / 0.55)" }}>
+  <Dialog.Content className="w-full max-w-[520px] rounded-xl border border-border/20 bg-bg-1 shadow-lg overflow-hidden">
+    {/* content */}
+  </Dialog.Content>
+</Dialog.Overlay>
+
+// ❌ Wrong — Content positions itself; drifts under Radix transforms
+<Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ...">
+```
+
+Apply this to every modal in every app: confirm dialogs, changelog, settings, alerts — all of them.
+
+### Responsive layout — three breakpoints, never two
+
+```
+< md (768px)     → 1 column: sidebar stacks above main, scrolls normally
+md to lg         → 2 columns: sidebar left, main fills right  ← NEVER SKIP THIS
+lg+ (1024px+)    → 2 or 3 columns: add right sidebar when subcategories exist
+```
+
+In Tailwind:
+```tsx
+className={cn(
+  "grid items-start gap-4",
+  "md:grid-cols-[220px_1fr]",       // ← 768px+ gets sidebar + main
+  hasSub && "lg:grid-cols-[220px_1fr_220px]",
+)}
+```
+
+Skipping the `md:` breakpoint causes the sidebar to take the full viewport width below 1024px, making the main panel invisible below the fold. This is the exact bug that appeared in this app.
+
+### Terminal / output pane — always fixed height
+
+Output panes must never grow with their content. Set a hard cap and let them scroll internally.
+
+```tsx
+// React
+<div className="overflow-y-auto font-mono text-[12px]" style={{ maxHeight: 320, minHeight: 180 }}>
+
+// CSS
+.terminal-body { max-height: 320px; overflow-y: auto; min-height: 180px; }
+```
+
+### Theme toggle — bottom of left sidebar
+
+Three-state segmented control (Auto / Light / Dark) pinned below the nav list.
+
+- Applies `document.documentElement.dataset.theme = "light" | "dark"` (removed = Auto)
+- Persists to `localStorage.{appId}.theme.v{major}`
+- Pre-paint inline `<script>` in `index.html` applies the saved theme before React mounts — no flash
+
+```html
+<script>
+  (function() {
+    try {
+      var v = localStorage.getItem("{appId}.theme.v1");
+      if (v === "light" || v === "dark") document.documentElement.setAttribute("data-theme", v);
+    } catch(e) {}
+  })();
+</script>
+```
+
+### Sidebar GB stats — show total footprint
+
+Each sidebar tab shows `safe + opt-in + caution` (total footprint), not just `cleanable` (safe + opt-in). Tabs with heavy caution-tier content (e.g. Docker.raw) would otherwise show blank — which looks broken even when the data is there.
+
+---
+
+## Part 7 — Design tokens
+
+Define these as HSL CSS custom properties so light, dark, and any future theme override all "just work" without touching component code.
 
 ```css
 :root {
-  --bg-1: 0 0% 100%;    --bg-2: 0 0% 98%;    --bg-3: 0 0% 95%;
-  --fg: 240 6% 10%;     --fg-dim: 240 4% 35%; --fg-faint: 240 4% 55%;
+  /* Surfaces */
+  --bg-1: 0 0% 100%;        --bg-2: 0 0% 98%;         --bg-3: 0 0% 95%;
+  /* Text */
+  --fg: 240 6% 10%;         --fg-dim: 240 4% 35%;     --fg-faint: 240 4% 55%;
+  /* Structure */
   --border: 240 6% 88%;
-  --accent: 175 60% 40%;   --accent-strong: 175 65% 32%;
-  --safe: 152 50% 38%;     --warn: 43 96% 56%;    --danger: 0 84% 60%;
+  /* Brand accent — teal by default */
+  --accent: 175 60% 40%;    --accent-strong: 175 65% 32%;   --accent-soft: 175 50% 92%;
+  /* Semantic tiers */
+  --safe: 152 50% 38%;      --warn: 43 96% 56%;       --danger: 0 84% 60%;
 }
+
 [data-theme="dark"] {
-  --bg-1: 240 5% 4%;    --bg-2: 240 4% 9%;   --bg-3: 240 4% 14%;
-  --fg: 60 9% 95%;      --fg-dim: 240 5% 62%; --fg-faint: 240 4% 42%;
-  --accent: 173 80% 50%;
-  /* safe / warn / danger shift to their dark-mode versions */
+  --bg-1: 240 5% 4%;        --bg-2: 240 4% 9%;        --bg-3: 240 4% 14%;
+  --fg: 60 9% 95%;          --fg-dim: 240 5% 62%;     --fg-faint: 240 4% 42%;
+  --border: 240 5% 22%;
+  --accent: 173 80% 50%;    --accent-strong: 173 75% 65%;
+  --safe: 142 71% 45%;      --warn: 43 96% 56%;       --danger: 0 84% 60%;
 }
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not([data-theme="dark"]) {
-    /* mirror the [data-theme="dark"] block here */
+    /* mirror the [data-theme="dark"] block */
   }
 }
 ```
@@ -267,65 +386,65 @@ colors: {
 
 ---
 
-## 7. Copyright footer
+## Part 8 — The "done" definition
 
-Every app ships with this exact footer line (per the `learn-mappers-copyright` rule):
+A feature or screen is not done until it passes all of these:
 
-```
-© 2026 Learn Mappers LLC DBA AVERY GOODMAN · All rights reserved · Intellectual property · UCC 1-308
-```
-
----
-
-## 8. Versioning + release tagging
-
-- Patch fixes: `v0.X.Y` — single PR, auto-release-tagged on merge
-- Features: minor bump `v0.(X+1).0`
-- CHANGELOG: header format `## [0.X.Y] — YYYY-MM-DD HH:MM:SS Eastern · *short summary*`
-- Every merge auto-tags + auto-publishes a GitHub release (via workflow)
-- `kVersion` (or equivalent) in the server matches the CHANGELOG top entry
+- [ ] Modals open centered — horizontally and vertically — at every viewport width
+- [ ] Sidebar shows on the left at ≥ 768px; stacks on top only below 768px
+- [ ] Output/terminal panes have a fixed max-height and scroll internally
+- [ ] Theme toggle (Auto/Light/Dark) is present, persistent, and flash-free
+- [ ] Browser auto-opens when `make ui` runs
+- [ ] `make ui-network` exposes on Wi-Fi and prints the LAN URL
+- [ ] All animations use `ease-out` or spring curves; nothing uses `ease-in` for UI entry
+- [ ] No component freezes at `opacity: 0` — test by observing the page after load
+- [ ] Copyright footer: `© 2026 Learn Mappers LLC DBA AVERY GOODMAN · All rights reserved · Intellectual property · UCC 1-308`
+- [ ] TypeScript strict-mode passes (`pnpm typecheck`) with no errors
+- [ ] `make ui` and `make ui-network` both work from a cold clone
 
 ---
 
-## 9. .gitignore entries every project needs
-
-```gitignore
-node_modules/
-apps/*/node_modules/
-apps/*/dist/
-apps/*/out/
-apps/*/.next/
-.turbo/
-*.local
-.env
-```
-
----
-
-## 10. How to scaffold a new app using this workflow
+## Part 9 — Scaffolding a new app from scratch
 
 1. `mkdir my-app && cd my-app && git init`
-2. Create root `package.json` (name, private:true, scripts: build/dev/typecheck, devDeps: turbo)
-3. Create `pnpm-workspace.yaml` (packages: `["apps/*"]`)
-4. Create `turbo.json` from the template above
-5. `mkdir apps && pnpm create vite apps/web -- --template react-ts`
-6. Rename package in `apps/web/package.json` to `@my-app/web`
-7. Wire Tailwind + the design tokens
-8. Write `server.py` (or `server.js`) using the startup pattern above
-9. Write `Makefile` with all the canonical targets
-10. Add `.gitignore` entries
-11. `pnpm install && make ui` — browser opens, server shows the clean startup message
-12. Done. Every future `git pull && pnpm install && make ui` works identically.
+2. Create `package.json` (name, private: true, devDeps: turbo, scripts: build/dev/typecheck)
+3. Create `pnpm-workspace.yaml` (`packages: ["apps/*"]`)
+4. Create `turbo.json` from the template in Part 2
+5. **Run ui-ux-pro-max** to generate `design-system/MASTER.md` before touching any component
+6. `pnpm create vite apps/web -- --template react-ts`
+7. Rename package to `@my-app/web`, wire Tailwind + the design tokens from Part 7
+8. Write `server.py` using the startup pattern from Part 4
+9. Write `Makefile` with all 6 targets from Part 3
+10. Add pre-paint theme script to `apps/web/index.html`
+11. Implement theme toggle, modal centering pattern, sidebar responsive grid, terminal max-height
+12. `pnpm install && make ui` — browser opens, startup message appears, dashboard is ready
+13. Verify against the "done" checklist in Part 8 before calling it shipped
 
 ---
 
-## Do not
+## Part 10 — What not to do
 
-- Use `create-react-app` (dead), `yarn`, or `npm` (use pnpm)
-- Use `fixed left-1/2 top-1/2` centering on Radix Dialog.Content
-- Use `AnimatePresence mode="wait"` wrapping the main panel switch
-- Let the terminal / output pane grow unbounded (always set `max-height: 320px`)
-- Skip the `make ui-network` target
-- Hardcode localhost in the LAN IP display — always detect dynamically
-- Commit `node_modules/`, `dist/`, `out/`, `.next/`
+- `yarn` or `npm` — use pnpm
+- `AnimatePresence mode="wait"` wrapping the main panel switch — use `<div key={tab}>`
+- `fixed left-1/2 top-1/2` on Radix Dialog.Content — use a flex-centered Overlay
+- `transition: all` in CSS — name exact properties
+- `ease-in` for UI elements entering — use ease-out
+- `maxHeight: undefined` on output panes — always set a hard cap
+- Starting to code before running ui-ux-pro-max — design system comes first
+- Skipping the `md:grid-cols-[sidebar_1fr]` breakpoint — always include 768px
+- Committing `node_modules/`, `dist/`, `out/`, `.next/`, `.turbo/`
 
+---
+
+## References
+
+- **ui-ux-pro-max** — design system generator, color/typography/motion recommendations  
+  `skills/visual/design/ui-ux-pro-max/`
+- **emil-design-eng** — animation philosophy and interaction quality  
+  `skills/visual/design/emil-design-eng/`
+- **learn-mappers-copyright** — copyright footer wording (AVERY GOODMAN all-caps, UCC 1-308)  
+  `rules/library/learn-mappers-copyright/`
+- **changelog-and-versioning** — version numbering, CHANGELOG format, auto-release tagging  
+  `rules/library/changelog-and-versioning/`
+- **dev-discipline** — session opener/closer, what to check before first edit  
+  `rules/library/dev-discipline/`
