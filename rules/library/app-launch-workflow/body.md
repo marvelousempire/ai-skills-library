@@ -440,129 +440,119 @@ colors: {
 
 ---
 
-## Part 8 — Database tier guide (pick by app type)
+## Part 8 — Database: the binary rule
 
-Some apps need persistent state. Some don't. Dustpan doesn't (it's stateless except for what it scans). Apps that do — pick the right tier and the user's `make ui` keeps working out of the box.
+> **Supersedes** the v0.19.5 four-tier decision tree. One rule, one canonical pattern.
 
-### The decision tree
+### The rule, in one line
 
-| App type | Database | Why |
+```
+Needs state? → Docker (claude-chat-reader pattern).  No state? → no Docker.
+```
+
+That's it. No SQLite fallback, no Homebrew Postgres detour, no `embedded-postgres` exception. If your app needs to persist *anything* — user accounts, content, uploads, embeddings, sessions — it ships the Docker stack. If it doesn't, it stays stateless (Dustpan-style: plain Python + Vite + `make ui`).
+
+### Why this is the right default
+
+- **`app + db + caddy` is the minimum that scales.** Any real app eventually wants a real database. Pick that on day one and you never migrate later.
+- **Caddy gives HTTPS for free** — one-time `caddy trust` on localhost, automatic Let's Encrypt in production. Same Caddyfile both places.
+- **`pgvector/pgvector:pg16` is regular Postgres + vectors.** Use it as plain Postgres day one; the moment you want embeddings/RAG, you already have pgvector. No image swap, no migration.
+- **One canonical pattern across every project.** Every DB-needing app looks the same on disk. New collaborators (human or AI) know exactly where everything lives.
+- **Production-shaped from day one.** The same compose file you run locally is essentially what runs on Linode/Hetzner/Fly. No dev/prod divergence.
+
+The reference implementation is [`marvelousempire/claude-chat-reader`](https://github.com/marvelousempire/claude-chat-reader). The reusable template lives in this skill: [`templates/docker-stack/`](./templates/docker-stack/).
+
+### The canonical stack — what ships at the repo root
+
+```
+my-app/
+├── docker-compose.yml      # services: app, db, caddy (+ optional patterns)
+├── Dockerfile              # multi-stage: deps → builder → runner [→ watcher]
+├── Caddyfile               # HTTPS reverse proxy + security headers
+├── .env.example            # variables (copied → .env on first ./go)
+├── go                      # one-line bootstrap
+└── Makefile                # go, docker-up/down/logs, backup/restore/reset/export
+```
+
+### Service inventory
+
+**Required (every DB-needing app):**
+
+| Service | Image | Port (host:cont) | Purpose |
+|---|---|---|---|
+| `app` | built (`Dockerfile:runner`) | internal — Caddy proxies | the application |
+| `db` | `pgvector/pgvector:pg16` | `5433:5432` (for host CLI tools) | Postgres + pgvector |
+| `caddy` | `caddy:2-alpine` | `80:80`, `443:443` (TCP+UDP/HTTP3) | HTTPS reverse proxy |
+
+**Optional (add when needed):**
+
+| Service | Image | When |
 |---|---|---|
-| **Personal local tools** — single user, one Mac (a dashboard, a journaling app, a personal tool) | **SQLite** | Zero install. Single file. `cp` is the backup story. The simplest possible UX. |
-| **Multi-user / shared / production-shaped** (team CRM, customer-facing site) | **Postgres via Docker Compose** | Real database, identical on every Mac, identical in production. Docker Desktop is a one-time install. |
-| **AI / RAG / vector-heavy** (embeddings, semantic search, agent memory) | **Postgres + pgvector via Docker** | pgvector is mature; sqlite-vec works but is less battle-tested. |
-| **"Postgres without Docker"** (rare — Docker Desktop is a dealbreaker for the user) | **`embedded-postgres` npm package** | Downloads a Postgres binary on first run. Process-local. Smaller ecosystem but viable. |
+| `watcher` | built (`Dockerfile:watcher`) | file-drop auto-ingest from `./data/incoming/` |
+| `metabase` | `metabase/metabase:v0.51.12` | SQL/BI dashboards over your data |
+| `<name>-db` | `pgvector/pgvector:pg16` | a sub-system needs its own Postgres with independent lifecycle |
 
-**Rule:** the UX promise is `git pull && pnpm install && make ui`. Whatever tier you pick, `make ui` handles the setup behind the scenes. The user never has to type `docker compose up` or `brew services start` — those are wrapped inside `make ui`.
+### Bootstrap a new app
 
-### Required `make` targets for any app with state
-
-Every app that has a database ships these four targets, regardless of tier. User-facing API is identical:
-
-```
-make backup    Dump database → ./data/backups/backup-YYYYMMDD-HHMMSS.{sql.gz | sqlite}
-make restore   Load the most recent backup
-make reset     Wipe and start fresh (with a confirm prompt — opt-in destruction only)
-make export    Dump → ~/Downloads/<app>-export-YYYYMMDD.zip (CSV + JSON for humans)
+```sh
+mkdir my-new-app && cd my-new-app
+cp -r ~/Developer/ai-skills-library/rules/library/app-launch-workflow/templates/docker-stack/* .
+# rename app + db user/pass in docker-compose.yml + .env.example
+./go
 ```
 
-### Tier 1 — SQLite template (default for personal local tools)
+`./go` does, in order: verify Docker → copy `.env.example` → `.env` if missing → create `./data/`, `./data/incoming/`, `./data/backups/` → stamp `GIT_SHA`/`BUILT_AT` → `docker compose up -d --build --wait` → poll the app's `/health` → `open https://localhost` → tail `app + caddy` logs.
 
-```makefile
-APP_NAME    := my-app
-DB          := $(HOME)/Library/Application Support/$(APP_NAME)/data.sqlite
-BACKUP_DIR  := ./data/backups
+Same vibe as Dustpan's stateless `make ui`: one command, no fuss.
 
-ui: ## Build + serve (no DB setup needed — SQLite is just a file)
-	@mkdir -p "$(dir $(DB))" $(BACKUP_DIR)
-	@pnpm install --silent && pnpm --filter @$(APP_NAME)/web build
-	@XCC_HOST=0.0.0.0 python3 server.py
+### HTTPS — one-time localhost setup
 
-backup: ## Snapshot SQLite → ./data/backups/
-	@mkdir -p $(BACKUP_DIR)
-	@cp "$(DB)" "$(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sqlite"
-	@echo "✓ Backed up to $(BACKUP_DIR)/"
-
-restore: ## Restore from the most recent backup
-	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sqlite 2>/dev/null | head -1) && 	  [ -n "$$LATEST" ] && cp "$$LATEST" "$(DB)" && echo "✓ Restored from $$LATEST"
-
-reset: ## Wipe and start fresh (with confirmation)
-	@printf "Wipe $(DB)? [y/N] "; read ans; 	  [ "$$ans" = "y" ] && rm -f "$(DB)" && echo "✓ Reset" || echo "Cancelled."
+```sh
+docker compose run --rm caddy caddy trust   # installs Caddy's root CA into macOS Keychain
 ```
 
-### Tier 2 — Docker Compose Postgres template (default for multi-user / production-shaped / RAG)
+After that: `https://localhost` works in every browser with no warnings. In production: point a real domain at the box, set `CADDY_HOST=myapp.example.com` in `.env`, restart Caddy — Let's Encrypt auto-fetches the cert.
 
-```makefile
-APP_NAME    := my-app
-BACKUP_DIR  := ./data/backups
+Security headers are on by default in the shipped `Caddyfile`: HSTS, `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin`.
 
-ui: ## Bring up the Docker stack, build the frontend, open the browser
-	@if ! docker info >/dev/null 2>&1; then 	  echo "⚠ Docker Desktop is not running. Open it and try again."; exit 1; fi
-	@docker compose up -d --build --wait
-	@pnpm install --silent && pnpm --filter @$(APP_NAME)/web build
-	@(sleep 2 && open http://127.0.0.1:8765) &
-	@docker compose logs -f app
+### Required `make` targets
 
-backup: ## Dump Postgres → ./data/backups/
-	@mkdir -p $(BACKUP_DIR)
-	@docker compose exec -T db pg_dump -U app app | gzip > $(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sql.gz
-	@echo "✓ Backed up"
-
-restore: ## Restore from the most recent backup
-	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sql.gz 2>/dev/null | head -1) && 	  [ -n "$$LATEST" ] && gunzip -c "$$LATEST" | docker compose exec -T db psql -U app app && echo "✓ Restored from $$LATEST"
-
-reset: ## Wipe all Docker volumes — destroys ALL local data (with confirmation)
-	@printf "Wipe all Docker volumes for $(APP_NAME)? [y/N] "; read ans; 	  [ "$$ans" = "y" ] && docker compose down -v && echo "✓ Reset" || echo "Cancelled."
+```
+make go            ./go (the one-shot bootstrap)
+make docker-up     docker compose up -d --build --wait
+make docker-down   docker compose down (keeps volumes)
+make docker-logs   tail logs for app + caddy
+make backup        Dump Postgres → ./data/backups/backup-YYYYMMDD-HHMMSS.sql.gz
+make restore       Load the most recent backup
+make reset         docker compose down -v (with confirm — destroys all local data)
+make export        Dump → ~/Downloads/<app>-export-YYYYMMDD.zip (CSV + JSON)
 ```
 
-### Tier 3 — Homebrew Postgres template (least recommended; for users who refuse Docker)
+These are pre-baked in [`templates/docker-stack/Makefile.docker.snippet`](./templates/docker-stack/Makefile.docker.snippet) — paste into your project's Makefile.
 
-```makefile
-APP_NAME    := my-app
-BACKUP_DIR  := ./data/backups
+### API surface
 
-ui: ## Build + serve (assumes Postgres running via `brew services start postgresql@16`)
-	@if ! pg_isready -q; then 	  echo "⚠ Postgres is not running. Run: brew services start postgresql@16"; exit 1; fi
-	@pnpm install --silent && pnpm --filter @$(APP_NAME)/web build
-	@XCC_HOST=0.0.0.0 python3 server.py
+The `app` service exposes routes at `https://localhost/api/*` (or `https://yourdomain.com/api/*` in prod). Caddy proxies them. Framework-agnostic: Next.js App Router, Express, FastAPI — same pattern, identical from the outside.
 
-backup: ## Dump Postgres → ./data/backups/
-	@mkdir -p $(BACKUP_DIR)
-	@pg_dump $(APP_NAME) | gzip > $(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sql.gz
+### Data persistence
 
-restore: ## Restore from the most recent backup
-	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sql.gz 2>/dev/null | head -1) && 	  [ -n "$$LATEST" ] && gunzip -c "$$LATEST" | psql $(APP_NAME) && echo "✓ Restored"
-
-reset: ## Drop + recreate the database
-	@printf "Drop database $(APP_NAME)? [y/N] "; read ans; 	  [ "$$ans" = "y" ] && dropdb $(APP_NAME) && createdb $(APP_NAME) && echo "✓ Reset"
-```
-
-### Data location convention
-
-| Tier | Where user data lives | How to back up manually |
+| Named volume | Holds | Survives `down`? |
 |---|---|---|
-| SQLite | `~/Library/Application Support/<APP_NAME>/data.sqlite` | `cp` the file |
-| Docker | Docker named volume (e.g. `<app>_db_data`) | `docker compose exec db pg_dump` |
-| Homebrew | `/opt/homebrew/var/postgresql@16/` (ARM) or `/usr/local/var/postgresql@16/` (Intel) | `pg_dump <app>` |
+| `<app>_db_data` | Postgres data | Yes, until `down -v` |
+| `<app>_caddy_data` | auto-generated certs | Yes |
+| `<app>_caddy_config` | Caddy runtime config | Yes |
+| `./data/` (host bind) | app data, backups, uploads | Yes (host folder) |
 
-All apps store `./data/backups/` inside the project folder so the user can sync that to iCloud/Dropbox if they want offsite backups.
+`make reset` is the only path that nukes volumes — explicit confirmation prompt, opt-in destruction only.
 
 ### Required README "Data" section for any DB-needing app
 
 Every app's README documents:
-1. Which tier this app uses and why (e.g. *"This is a personal tool — SQLite. Single file. Zero install."*)
-2. Where data lives on disk
+1. The stack (`app + db + caddy`, HTTPS via Caddy, Postgres+pgvector)
+2. Where data lives (`./data/` + named volumes)
 3. `make backup` / `make restore` / `make reset` / `make export` — what each does
-4. How to export to human-readable formats (`make export` → CSV + JSON zip)
+4. How to export to human-readable formats (CSV + JSON zip)
 
-### Why this matters
-
-The user UX promise is **one line gets you running**. That promise breaks the moment a user has to `brew install postgresql && createdb foo && psql -c "CREATE EXTENSION pgvector;" && …`. Two solves:
-
-1. **Pick SQLite when possible** — there's no setup. Done.
-2. **Wrap Docker behind `make ui`** when SQLite isn't enough — install Docker Desktop once, and from then on every app the user clones uses the same `make ui` pattern. They never type `docker compose up` themselves.
-
----
 
 ## Part 9 — The "done" definition
 
