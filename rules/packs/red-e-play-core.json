@@ -6,6 +6,10 @@
     "dev-discipline",
     "changelog-and-versioning",
     "go-live-path",
-    "parallel-surfaces-from-day-one"
+    "parallel-surfaces-from-day-one",
+    "pbxproj-conflict",
+    "migration-race-guard",
+    "swift-codable-guard",
+    "shared-util-extraction"
   ]
 }
