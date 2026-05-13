@@ -6,7 +6,7 @@
 #   ./scripts/install-repo-skills-to-cursor-project.sh [TARGET_DIR]
 # Default TARGET_DIR is the current working directory.
 #
-# Packs merged (order matters for collision messages): marketing → ide/cursor →
+# Packs merged (order matters for collision messages): marketing → engineering →
 # ui-ux-pro-max → red-e-play project skills → external (generated bridges).
 set -euo pipefail
 
@@ -51,7 +51,7 @@ echo "# Install repo skills → ${SKILL_ROOT}"
 mkdir -p "$SKILL_ROOT"
 
 # Multi-skill packs: every immediate child dir containing SKILL.md
-for pack_rel in skills/marketing "skills/ide/cursor" skills/external "skills/project/red-e-play"; do
+for pack_rel in skills/marketing "skills/engineering" skills/external "skills/project/red-e-play"; do
   pack_dir="${ROOT}/${pack_rel}"
   [[ -d "$pack_dir" ]] || continue
   label="${pack_rel#skills/}"
