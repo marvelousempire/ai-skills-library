@@ -1,0 +1,6 @@
+{
+  "id": "plans-folder-convention",
+  "description": "Every substantive change starts as a numbered plan committed to the repo's plans/ folder. Plans get lost in chat and ~/.claude/plans/; the repo folder is the source of truth for *why* a change happened.",
+  "alwaysApply": true,
+  "globs": []
+}
