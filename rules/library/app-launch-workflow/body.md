@@ -440,7 +440,131 @@ colors: {
 
 ---
 
-## Part 8 — The "done" definition
+## Part 8 — Database tier guide (pick by app type)
+
+Some apps need persistent state. Some don't. Dustpan doesn't (it's stateless except for what it scans). Apps that do — pick the right tier and the user's `make ui` keeps working out of the box.
+
+### The decision tree
+
+| App type | Database | Why |
+|---|---|---|
+| **Personal local tools** — single user, one Mac (a dashboard, a journaling app, a personal tool) | **SQLite** | Zero install. Single file. `cp` is the backup story. The simplest possible UX. |
+| **Multi-user / shared / production-shaped** (team CRM, customer-facing site) | **Postgres via Docker Compose** | Real database, identical on every Mac, identical in production. Docker Desktop is a one-time install. |
+| **AI / RAG / vector-heavy** (embeddings, semantic search, agent memory) | **Postgres + pgvector via Docker** | pgvector is mature; sqlite-vec works but is less battle-tested. |
+| **"Postgres without Docker"** (rare — Docker Desktop is a dealbreaker for the user) | **`embedded-postgres` npm package** | Downloads a Postgres binary on first run. Process-local. Smaller ecosystem but viable. |
+
+**Rule:** the UX promise is `git pull && pnpm install && make ui`. Whatever tier you pick, `make ui` handles the setup behind the scenes. The user never has to type `docker compose up` or `brew services start` — those are wrapped inside `make ui`.
+
+### Required `make` targets for any app with state
+
+Every app that has a database ships these four targets, regardless of tier. User-facing API is identical:
+
+```
+make backup    Dump database → ./data/backups/backup-YYYYMMDD-HHMMSS.{sql.gz | sqlite}
+make restore   Load the most recent backup
+make reset     Wipe and start fresh (with a confirm prompt — opt-in destruction only)
+make export    Dump → ~/Downloads/<app>-export-YYYYMMDD.zip (CSV + JSON for humans)
+```
+
+### Tier 1 — SQLite template (default for personal local tools)
+
+```makefile
+APP_NAME    := my-app
+DB          := $(HOME)/Library/Application Support/$(APP_NAME)/data.sqlite
+BACKUP_DIR  := ./data/backups
+
+ui: ## Build + serve (no DB setup needed — SQLite is just a file)
+	@mkdir -p "$(dir $(DB))" $(BACKUP_DIR)
+	@pnpm install --silent && pnpm --filter @$(APP_NAME)/web build
+	@XCC_HOST=0.0.0.0 python3 server.py
+
+backup: ## Snapshot SQLite → ./data/backups/
+	@mkdir -p $(BACKUP_DIR)
+	@cp "$(DB)" "$(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sqlite"
+	@echo "✓ Backed up to $(BACKUP_DIR)/"
+
+restore: ## Restore from the most recent backup
+	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sqlite 2>/dev/null | head -1) && 	  [ -n "$$LATEST" ] && cp "$$LATEST" "$(DB)" && echo "✓ Restored from $$LATEST"
+
+reset: ## Wipe and start fresh (with confirmation)
+	@printf "Wipe $(DB)? [y/N] "; read ans; 	  [ "$$ans" = "y" ] && rm -f "$(DB)" && echo "✓ Reset" || echo "Cancelled."
+```
+
+### Tier 2 — Docker Compose Postgres template (default for multi-user / production-shaped / RAG)
+
+```makefile
+APP_NAME    := my-app
+BACKUP_DIR  := ./data/backups
+
+ui: ## Bring up the Docker stack, build the frontend, open the browser
+	@if ! docker info >/dev/null 2>&1; then 	  echo "⚠ Docker Desktop is not running. Open it and try again."; exit 1; fi
+	@docker compose up -d --build --wait
+	@pnpm install --silent && pnpm --filter @$(APP_NAME)/web build
+	@(sleep 2 && open http://127.0.0.1:8765) &
+	@docker compose logs -f app
+
+backup: ## Dump Postgres → ./data/backups/
+	@mkdir -p $(BACKUP_DIR)
+	@docker compose exec -T db pg_dump -U app app | gzip > $(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sql.gz
+	@echo "✓ Backed up"
+
+restore: ## Restore from the most recent backup
+	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sql.gz 2>/dev/null | head -1) && 	  [ -n "$$LATEST" ] && gunzip -c "$$LATEST" | docker compose exec -T db psql -U app app && echo "✓ Restored from $$LATEST"
+
+reset: ## Wipe all Docker volumes — destroys ALL local data (with confirmation)
+	@printf "Wipe all Docker volumes for $(APP_NAME)? [y/N] "; read ans; 	  [ "$$ans" = "y" ] && docker compose down -v && echo "✓ Reset" || echo "Cancelled."
+```
+
+### Tier 3 — Homebrew Postgres template (least recommended; for users who refuse Docker)
+
+```makefile
+APP_NAME    := my-app
+BACKUP_DIR  := ./data/backups
+
+ui: ## Build + serve (assumes Postgres running via `brew services start postgresql@16`)
+	@if ! pg_isready -q; then 	  echo "⚠ Postgres is not running. Run: brew services start postgresql@16"; exit 1; fi
+	@pnpm install --silent && pnpm --filter @$(APP_NAME)/web build
+	@XCC_HOST=0.0.0.0 python3 server.py
+
+backup: ## Dump Postgres → ./data/backups/
+	@mkdir -p $(BACKUP_DIR)
+	@pg_dump $(APP_NAME) | gzip > $(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sql.gz
+
+restore: ## Restore from the most recent backup
+	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sql.gz 2>/dev/null | head -1) && 	  [ -n "$$LATEST" ] && gunzip -c "$$LATEST" | psql $(APP_NAME) && echo "✓ Restored"
+
+reset: ## Drop + recreate the database
+	@printf "Drop database $(APP_NAME)? [y/N] "; read ans; 	  [ "$$ans" = "y" ] && dropdb $(APP_NAME) && createdb $(APP_NAME) && echo "✓ Reset"
+```
+
+### Data location convention
+
+| Tier | Where user data lives | How to back up manually |
+|---|---|---|
+| SQLite | `~/Library/Application Support/<APP_NAME>/data.sqlite` | `cp` the file |
+| Docker | Docker named volume (e.g. `<app>_db_data`) | `docker compose exec db pg_dump` |
+| Homebrew | `/opt/homebrew/var/postgresql@16/` (ARM) or `/usr/local/var/postgresql@16/` (Intel) | `pg_dump <app>` |
+
+All apps store `./data/backups/` inside the project folder so the user can sync that to iCloud/Dropbox if they want offsite backups.
+
+### Required README "Data" section for any DB-needing app
+
+Every app's README documents:
+1. Which tier this app uses and why (e.g. *"This is a personal tool — SQLite. Single file. Zero install."*)
+2. Where data lives on disk
+3. `make backup` / `make restore` / `make reset` / `make export` — what each does
+4. How to export to human-readable formats (`make export` → CSV + JSON zip)
+
+### Why this matters
+
+The user UX promise is **one line gets you running**. That promise breaks the moment a user has to `brew install postgresql && createdb foo && psql -c "CREATE EXTENSION pgvector;" && …`. Two solves:
+
+1. **Pick SQLite when possible** — there's no setup. Done.
+2. **Wrap Docker behind `make ui`** when SQLite isn't enough — install Docker Desktop once, and from then on every app the user clones uses the same `make ui` pattern. They never type `docker compose up` themselves.
+
+---
+
+## Part 9 — The "done" definition
 
 A feature or screen is not done until it passes all of these:
 
@@ -458,7 +582,7 @@ A feature or screen is not done until it passes all of these:
 
 ---
 
-## Part 9 — Scaffolding a new app from scratch
+## Part 10 — Scaffolding a new app from scratch
 
 1. `mkdir my-app && cd my-app && git init`
 2. Create `package.json` (name, private: true, devDeps: turbo, scripts: build/dev/typecheck)
@@ -474,11 +598,11 @@ A feature or screen is not done until it passes all of these:
 12. Add pre-paint theme script to `apps/web/index.html`
 13. Implement theme toggle, modal centering pattern, sidebar responsive grid, terminal max-height
 14. `pnpm install && make ui` — browser opens, startup message appears, dashboard is ready
-15. Verify against the "done" checklist in Part 8 before calling it shipped
+15. Verify against the "done" checklist in Part 9 before calling it shipped
 
 ---
 
-## Part 10 — What not to do
+## Part 11 — What not to do
 
 - `yarn` or `npm` — use pnpm
 - `AnimatePresence mode="wait"` wrapping the main panel switch — use `<div key={tab}>`
