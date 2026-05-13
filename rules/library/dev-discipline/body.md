@@ -173,3 +173,68 @@ SESSION CLOSER (before push)
 [ ] Before `gh pr merge --delete-branch`: cd to main checkout, never inside the merging worktree
 [ ] For marketing/** PRs: cd marketing && pnpm build BEFORE pushing (skip only for trivial label/order changes)
 ```
+
+---
+
+## Symlink path traps in monorepos
+
+Some directories in a monorepo are symlinks to sibling directories. Writing
+to a symlinked path writes to the real path, which may be tracked by git
+under a *different name*. This causes two failure modes:
+
+1. `git add path/to/symlinked/file` fails with **"pathspec is beyond a
+   symbolic link"** — git refuses to stage through a symlink.
+2. You stage the file via its real path and git shows it modified under
+   a path you didn't expect, confusing diff review.
+
+**How to detect before it bites you:**
+
+```bash
+ls -la <directory>
+# A `->` in the output means it's a symlink
+```
+
+**Real example:** `player-web/lib` → `../marketing/lib`. Writing to
+`player-web/lib/auth.ts` actually modifies `marketing/lib/auth.ts`.
+Stage it as `git add marketing/lib/auth.ts`, not the symlinked path.
+
+**Rule:** whenever a Write tool call targets a path inside a directory
+you haven't explicitly created in this session, run `ls -la` on the
+parent directory first to confirm it isn't a symlink.
+
+---
+
+## Re-check migration numbers and feature IDs right before writing
+
+See [`migration-race-guard.mdc`](migration-race-guard.mdc). Planning-time
+numbers are never reliable. Run `ls backend/src/db/migrations/ | tail -3`
+and `bash scripts/either-host/next-feature-id.sh` in the same action that
+creates the migration file — never minutes or hours earlier.
+
+---
+
+## Quick checklist (updated)
+
+Pin this somewhere visible during dev work:
+
+```
+SESSION OPENER
+[ ] git worktree list, cd to correct worktree, pwd
+[ ] git fetch, git status, git log origin/main..HEAD
+[ ] Skim last 3-5 Issue-Log entries
+
+SESSION CLOSER (before push)
+[ ] Stage files by explicit path (no git add -A)
+[ ] Confirm no staged file is reaching through a symlink (ls -la parent dir)
+[ ] Migration/feature-ID numbers confirmed right before file creation
+[ ] After rebase touching *.pbxproj: run pbxproj-conflict auto-resolution
+[ ] After rebase touching Codable Swift models: run swift-codable-guard check
+[ ] CHANGELOG.md entry with Eastern timestamp
+[ ] Feature Ledger.md row updated if status changed
+[ ] Issue-Log.md entry if there was a near-miss or lesson
+[ ] gh pr create (real or --draft) — never push without a PR
+[ ] When reporting "done": name the pipeline stage (committed / pushed / PR'd / merged / deployed)
+[ ] Before `gh pr merge --delete-branch`: cd to main checkout, never inside the merging worktree
+[ ] For marketing/** PRs: cd marketing && pnpm build BEFORE pushing (skip only for trivial label/order changes)
+[ ] Pure function used in 2+ files? Extract to lib/ — see shared-util-extraction.mdc
+```

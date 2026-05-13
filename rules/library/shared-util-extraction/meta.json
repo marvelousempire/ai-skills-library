@@ -1,0 +1,6 @@
+{
+  "id": "shared-util-extraction",
+  "description": "Pure functions used in more than one route or module belong in lib/, never copy-pasted inline",
+  "alwaysApply": true,
+  "globs": ["**/routes/*.js", "**/routes/*.ts", "**/*.swift"]
+}
