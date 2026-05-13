@@ -1,0 +1,6 @@
+{
+  "id": "pbxproj-conflict",
+  "description": "Auto-resolve project.pbxproj rebase/merge conflicts by always keeping HEAD version numbers — never manually edit",
+  "alwaysApply": true,
+  "globs": ["**/*.pbxproj"]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "migration-race-guard",
+  "description": "Check migration numbers at write time, not planning time — parallel sessions race to claim the same number",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*.sql"]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "swift-codable-guard",
+  "description": "After any rebase touching a Swift Codable model, verify both init(from:) and encode(to:) declarations are present and bounded",
+  "alwaysApply": false,
+  "globs": ["**/*.swift"]
+}
