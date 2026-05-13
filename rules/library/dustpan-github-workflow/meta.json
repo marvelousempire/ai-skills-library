@@ -1,0 +1,6 @@
+{
+  "id": "dustpan-github-workflow",
+  "description": "Complete GitHub ship discipline for marvelousempire/xcode-cleanup-shortcut (Dustpan). Covers plans/ convention, kVersion, CHANGELOG format, branch→PR→squash-merge→auto-release, and the no-ship-without-plan rule.",
+  "alwaysApply": false,
+  "globs": ["**/xcode-cleanup-shortcut/**"]
+}
