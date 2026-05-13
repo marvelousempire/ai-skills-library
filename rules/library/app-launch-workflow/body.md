@@ -49,7 +49,61 @@ Supplement with domain searches as needed:
 | Typography | `--domain typography "clean readable sans"` |
 | Component patterns | `--stack react` or `--stack nextjs` |
 
-### Step 1B — Apply Emil design engineering philosophy
+### Step 1B — Source pre-built components from 21st.dev
+
+**21st.dev** is the component library that should be the first stop whenever you need a UI piece.
+It offers a community gallery of production-ready React/Next.js components (heroes, navbars, cards,
+animations, AI chat UIs, pricing sections, testimonials, data tables, and more) that you can copy
+directly into any project and restyle with your Tailwind tokens.
+
+**Community gallery** — browse and copy:
+- [21st.dev/community](https://21st.dev/community) — all published components
+- [21st.dev/community/components/s/hero](https://21st.dev/community/components/s/hero) — hero sections
+- Filter by category, style, framework, and popularity
+
+**Magic MCP — generate custom components inside your editor:**
+Magic is 21st.dev's AI-powered component generator that runs as an MCP server inside Cursor,
+Windsurf, and VS Code (Cline). Install once, then describe what you need and get multiple
+production-ready styled variants to choose from — TypeScript props, responsive Tailwind, Motion
+animations included. No licensing restrictions on anything generated.
+
+Install:
+```bash
+npx @21st-dev/magic@latest
+# then add to Cursor: Settings → MCP → Add server → paste the npx command
+```
+
+In Cursor chat:
+```
+/ui Create a sidebar nav with icons, a GB stat next to each tab, and a theme toggle at the bottom
+```
+
+You get 2–4 variants. Pick one, paste it into your project, apply your design tokens.
+
+**How 21st.dev + ui-ux-pro-max + Motion work together:**
+
+The three tools form a pipeline. Use them in this order on every feature:
+
+1. **ui-ux-pro-max** → run `--design-system --persist` → produces `design-system/MASTER.md`
+   with your accent color, border radius, shadow scale, type scale, and motion curves.
+
+2. **21st.dev** → browse the community gallery or use `/ui` in Cursor to find a component
+   that matches your layout need. Copy it into your project.
+
+3. **Apply your design tokens** → replace the component's placeholder colors, radii, and
+   shadows with your CSS custom property tokens (`hsl(var(--accent))`, `var(--r-lg)`, etc.).
+
+4. **Emil's motion review** → before shipping any interactive component, run it through
+   the emil-design-eng checklist: ease-out enters, scale(0.96) not scale(0), named transition
+   properties, 0.97 press feedback on buttons, correct transform-origin on popovers.
+
+Result: a polished, on-brand, well-animated component in minutes instead of hours.
+
+**Rule:** always check 21st.dev before building any component from scratch. Good match → copy
+and adapt. No match → build using design-system + Emil principles from the start. Never
+build from nothing without checking first.
+
+### Step 1C — Apply Emil design engineering philosophy
 
 Before any interactive component is built, consult `emil-design-eng`. It governs:
 
@@ -410,15 +464,17 @@ A feature or screen is not done until it passes all of these:
 2. Create `package.json` (name, private: true, devDeps: turbo, scripts: build/dev/typecheck)
 3. Create `pnpm-workspace.yaml` (`packages: ["apps/*"]`)
 4. Create `turbo.json` from the template in Part 2
-5. **Run ui-ux-pro-max** to generate `design-system/MASTER.md` before touching any component
-6. `pnpm create vite apps/web -- --template react-ts`
-7. Rename package to `@my-app/web`, wire Tailwind + the design tokens from Part 7
-8. Write `server.py` using the startup pattern from Part 4
-9. Write `Makefile` with all 6 targets from Part 3
-10. Add pre-paint theme script to `apps/web/index.html`
-11. Implement theme toggle, modal centering pattern, sidebar responsive grid, terminal max-height
-12. `pnpm install && make ui` — browser opens, startup message appears, dashboard is ready
-13. Verify against the "done" checklist in Part 8 before calling it shipped
+5. **Run ui-ux-pro-max** → `--design-system --persist` → `design-system/MASTER.md`
+6. **Install Magic MCP** (`npx @21st-dev/magic@latest`) in Cursor — ready for `/ui` prompts
+7. `pnpm create vite apps/web -- --template react-ts`
+8. Rename package to `@my-app/web`, wire Tailwind + the design tokens from Part 7
+9. Build components: check 21st.dev first, copy + adapt, then apply design tokens + Emil checklist
+10. Write `server.py` using the startup pattern from Part 4
+11. Write `Makefile` with all 6 targets from Part 3
+12. Add pre-paint theme script to `apps/web/index.html`
+13. Implement theme toggle, modal centering pattern, sidebar responsive grid, terminal max-height
+14. `pnpm install && make ui` — browser opens, startup message appears, dashboard is ready
+15. Verify against the "done" checklist in Part 8 before calling it shipped
 
 ---
 
@@ -438,13 +494,27 @@ A feature or screen is not done until it passes all of these:
 
 ## References
 
-- **ui-ux-pro-max** — design system generator, color/typography/motion recommendations  
+### Design tools (use all three on every feature — in this order)
+
+- **ui-ux-pro-max** — design system generator, colors/typography/spacing/motion  
+  Run `--design-system --persist` before any component. Produces `design-system/MASTER.md`.  
   `skills/visual/design/ui-ux-pro-max/`
-- **emil-design-eng** — animation philosophy and interaction quality  
+
+- **21st.dev** — community component library + Magic MCP component generator  
+  Browse: https://21st.dev/community  
+  Hero sections: https://21st.dev/community/components/s/hero  
+  Magic MCP (Cursor/Windsurf/VSCode): `npx @21st-dev/magic@latest` then `/ui describe what you need`  
+  Check here before building any component from scratch.
+
+- **emil-design-eng** — animation and interaction quality (ease-out, scale(0.96), press feedback)  
+  Run through this checklist before shipping any interactive component.  
   `skills/visual/design/emil-design-eng/`
-- **learn-mappers-copyright** — copyright footer wording (AVERY GOODMAN all-caps, UCC 1-308)  
+
+### Project rules
+
+- **learn-mappers-copyright** — copyright footer (AVERY GOODMAN all-caps, UCC 1-308)  
   `rules/library/learn-mappers-copyright/`
 - **changelog-and-versioning** — version numbering, CHANGELOG format, auto-release tagging  
   `rules/library/changelog-and-versioning/`
-- **dev-discipline** — session opener/closer, what to check before first edit  
+- **dev-discipline** — session opener/closer, git discipline  
   `rules/library/dev-discipline/`
