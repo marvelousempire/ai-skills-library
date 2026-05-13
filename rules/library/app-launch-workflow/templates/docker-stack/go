@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+# ────────────────────────────────────────────────────────────────────────────
+# go — the one-line bootstrap. Cloned from marvelousempire/claude-chat-reader.
+#
+# What it does, in order:
+#   1. Verify Docker Desktop is running.
+#   2. Copy .env.example → .env on first run.
+#   3. Create ./data/, ./data/incoming/, ./data/backups/ if missing.
+#   4. Stamp GIT_SHA / GIT_BRANCH / BUILT_AT for the app's /health endpoint.
+#   5. `docker compose up -d --build --wait`.
+#   6. Poll the app's health endpoint until ready.
+#   7. Open https://localhost in the default browser.
+#   8. Tail logs so the user sees what's happening.
+#
+# Same UX as Dustpan's `make ui` — one command, no fuss. Just type `./go`.
+# ────────────────────────────────────────────────────────────────────────────
+set -euo pipefail
+cd "$(dirname "$0")"
+
+bold=$(tput bold 2>/dev/null || echo "")
+dim=$(tput dim 2>/dev/null || echo "")
+reset=$(tput sgr0 2>/dev/null || echo "")
+
+echo
+echo "${bold}🚀  Bootstrapping the stack…${reset}"
+echo
+
+# ─── 1. Docker Desktop check ───────────────────────────────────────────────
+if ! docker info >/dev/null 2>&1; then
+  echo "❌  Docker Desktop is not running."
+  echo "    Open Docker Desktop, wait for it to start, then run \`./go\` again."
+  echo "    (Don't have Docker Desktop? Install it from https://docker.com)"
+  exit 1
+fi
+
+# ─── 2. .env on first run ──────────────────────────────────────────────────
+if [ ! -f .env ]; then
+  echo "${dim}▶  Creating .env from .env.example…${reset}"
+  cp .env.example .env
+fi
+
+# ─── 3. data directories ───────────────────────────────────────────────────
+mkdir -p data data/incoming data/backups
+
+# ─── 4. build args ────────────────────────────────────────────────────────
+export GIT_SHA="$(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
+export GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
+export BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# ─── 5. up + build + wait ──────────────────────────────────────────────────
+echo "${dim}▶  Building + bringing up the stack…${reset}"
+docker compose up -d --build --wait
+
+# ─── 6. health poll ────────────────────────────────────────────────────────
+echo "${dim}▶  Waiting for the app to respond…${reset}"
+for _ in $(seq 1 60); do
+  if curl -fsk https://localhost/health >/dev/null 2>&1; then
+    echo "${dim}✓  Healthy.${reset}"
+    break
+  fi
+  sleep 1
+done
+
+# ─── 7. open browser ──────────────────────────────────────────────────────
+URL="https://${CADDY_HOST:-localhost}"
+echo
+echo "  🧹  ${bold}App ready${reset}"
+echo
+echo "  URL        ${bold}${URL}${reset}"
+echo "  Logs       ${dim}docker compose logs -f app caddy${reset}"
+echo "  Stop       ${dim}docker compose down${reset}"
+echo
+case "$(uname -s)" in
+  Darwin) open "$URL" 2>/dev/null || true ;;
+  Linux)  xdg-open "$URL" 2>/dev/null || true ;;
+esac
+
+# ─── 8. tail logs ──────────────────────────────────────────────────────────
+exec docker compose logs -f app caddy

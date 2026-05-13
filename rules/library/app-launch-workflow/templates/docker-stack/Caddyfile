@@ -1,0 +1,64 @@
+# Canonical Caddyfile — HTTPS reverse proxy with security headers.
+# Cloned from marvelousempire/claude-chat-reader.
+#
+# Dev: uses Caddy's internal TLS. One-time setup:
+#   docker compose run --rm caddy caddy trust
+# (installs Caddy's local root CA into macOS Keychain. After that,
+# https://localhost works with no browser warnings.)
+#
+# Prod: set CADDY_HOST=yourdomain.com in .env. Caddy auto-fetches
+# Let's Encrypt certs on first request.
+
+{
+    # Email used by Let's Encrypt for cert expiry notices.
+    # email ops@yourdomain.com
+    auto_https disable_redirects   # remove this in prod
+}
+
+# ──────────────────────────────────────────────────────────────────────
+# The main app — https://localhost or https://yourdomain.com
+# ──────────────────────────────────────────────────────────────────────
+{$CADDY_HOST:localhost} {
+    encode gzip zstd
+
+    # Security headers — applied to every response.
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options    "nosniff"
+        X-Frame-Options           "SAMEORIGIN"
+        Referrer-Policy           "strict-origin-when-cross-origin"
+        # Tighten Permissions-Policy per app's actual feature needs.
+        Permissions-Policy        "geolocation=(), microphone=(), camera=()"
+        # Remove the Server header for a touch of obscurity.
+        -Server
+    }
+
+    # Reverse-proxy everything to the app container.
+    # `app:3000` is the Docker service hostname + port.
+    reverse_proxy app:3000 {
+        # Standard headers for the upstream app.
+        header_up Host           {host}
+        header_up X-Real-IP      {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Static asset caching — long-lived for hashed/versioned filenames.
+    # Adjust the matcher to match your app's actual asset paths.
+    @assets path /assets/* /_next/static/*
+    header @assets Cache-Control "public, max-age=31536000, immutable"
+
+    log {
+        output stdout
+        format console
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────
+# OPTIONAL — Metabase analytics (uncomment if `metabase` service is enabled
+# in docker-compose.yml).
+# Reach it at https://localhost:3001 or https://metabase.yourdomain.com
+# ──────────────────────────────────────────────────────────────────────
+# :3001 {
+#     reverse_proxy metabase:3000
+# }

@@ -1,0 +1,43 @@
+# ─── Docker stack ─────────────────────────────────────────────────────────
+# Paste these into your project's Makefile. Replace APP_NAME with your app id.
+
+APP_NAME    := my-app
+BACKUP_DIR  := ./data/backups
+
+.PHONY: go docker-up docker-down docker-logs docker-build backup restore reset export
+
+go: ## One-shot bootstrap — same UX as Dustpan's `make ui`
+	@./go
+
+docker-up: ## Build + bring up the whole stack (foreground waits for healthy)
+	@docker compose up -d --build --wait
+
+docker-down: ## Stop everything (keeps named volumes — data survives)
+	@docker compose down
+
+docker-logs: ## Tail app + caddy logs (Ctrl+C to stop watching)
+	@docker compose logs -f app caddy
+
+docker-build: ## Rebuild images without bringing the stack up
+	@docker compose build
+
+backup: ## Dump Postgres → ./data/backups/backup-YYYYMMDD-HHMMSS.sql.gz
+	@mkdir -p $(BACKUP_DIR)
+	@docker compose exec -T db pg_dump -U $${POSTGRES_USER:-app} $${POSTGRES_DB:-app} | gzip > $(BACKUP_DIR)/backup-$(shell date +%Y%m%d-%H%M%S).sql.gz
+	@echo "✓ Backed up to $(BACKUP_DIR)/"
+
+restore: ## Load the most recent backup
+	@LATEST=$$(ls -t $(BACKUP_DIR)/*.sql.gz 2>/dev/null | head -1); \
+	  if [ -z "$$LATEST" ]; then echo "⚠ No backups found in $(BACKUP_DIR)/"; exit 1; fi; \
+	  gunzip -c "$$LATEST" | docker compose exec -T db psql -U $${POSTGRES_USER:-app} $${POSTGRES_DB:-app}; \
+	  echo "✓ Restored from $$LATEST"
+
+reset: ## Wipe all Docker volumes — destroys ALL local data (with confirmation)
+	@printf "Wipe all Docker volumes for $(APP_NAME)? This deletes everything. [y/N] "; read ans; \
+	  if [ "$$ans" = "y" ]; then docker compose down -v && echo "✓ Reset"; else echo "Cancelled."; fi
+
+export: ## Human-readable export → ~/Downloads/$(APP_NAME)-export-YYYYMMDD.zip (CSV + JSON)
+	@TS=$$(date +%Y%m%d); TMP=$$(mktemp -d); \
+	  docker compose exec -T db psql -U $${POSTGRES_USER:-app} $${POSTGRES_DB:-app} -c "\copy (SELECT * FROM your_table) TO STDOUT WITH CSV HEADER" > $$TMP/data.csv; \
+	  cd $$TMP && zip -q ~/Downloads/$(APP_NAME)-export-$$TS.zip data.csv; \
+	  echo "✓ Exported to ~/Downloads/$(APP_NAME)-export-$$TS.zip"
