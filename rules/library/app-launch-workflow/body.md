@@ -8,8 +8,8 @@ This document is the single source of truth for how we build, design, and launch
 ## The one-liner that launches every app
 
 ```sh
-git pull && pnpm install && make ui          # localhost — browser auto-opens
-git pull && pnpm install && make ui-network  # Wi-Fi visible — browser auto-opens
+git pull && pnpm install && make ui          # localhost AND Wi-Fi — browser auto-opens (default)
+git pull && pnpm install && make ui-local    # localhost only (opt-out of Wi-Fi visibility)
 ```
 
 That is the promise. It works on day 1, day 100, and on any machine with pnpm installed.
@@ -169,8 +169,8 @@ my-app/
 Every app ships with all six. No exceptions.
 
 ```
-make ui          Vite build (~6s) + localhost + browser auto-opens
-make ui-network  Same but 0.0.0.0 — shows Local + Network (LAN) URL
+make ui          Vite build (~6s) + localhost AND Wi-Fi + browser auto-opens (XCC_HOST=0.0.0.0 by default)
+make ui-local    Same build, localhost-only (XCC_HOST=127.0.0.1) — for when you do NOT want Wi-Fi visibility
 make ui-dev      pnpm turbo run dev (Vite :5174 + Next :5175 in parallel, HMR)
 make ui-all      Full turbo build (Vite + Next) + serve
 make ui-legacy   Serve vanilla HTML fallback — no build required
@@ -180,18 +180,18 @@ make ui-next     Build + serve Next.js static export only
 Implementation pattern:
 
 ```makefile
-ui: ## Vite build (~6s) + serve localhost + browser auto-opens
+ui: ## Vite build (~6s) + serve BOTH localhost AND Wi-Fi + browser auto-opens
     @if command -v pnpm >/dev/null 2>&1; then \
         echo "▶ Building Vite UI…"; \
         pnpm install --silent && pnpm --filter @$(APP)/web build \
           && echo "✓ Built" \
           || echo "⚠ Build failed — serving stale dist if present."; \
     fi
-    @python3 server.py
-
-ui-network: ## Serve on all interfaces — reachable on Wi-Fi
-    @pnpm install --silent && pnpm --filter @$(APP)/web build || true
     @XCC_HOST=0.0.0.0 python3 server.py
+
+ui-local: ## Localhost-only mode (opt-out of Wi-Fi visibility)
+    @pnpm install --silent && pnpm --filter @$(APP)/web build || true
+    @XCC_HOST=127.0.0.1 python3 server.py
 ```
 
 **Critical rule:** `make ui` must always rebuild before serving. A stale build is invisible bugs waiting to happen.
@@ -202,24 +202,24 @@ ui-network: ## Serve on all interfaces — reachable on Wi-Fi
 
 Whatever language serves the backend, the startup output follows this format exactly.
 
-**Default (localhost):**
+**With `make ui-local` (localhost-only opt-out):**
 ```
   🧹  App Name
 
   URL        http://127.0.0.1:PORT
-  Access     Localhost only (run 'make ui-network' to expose on Wi-Fi)
+  Access     Localhost only (run `make ui` to expose on Wi-Fi too)
 
   N features  ·  Press Ctrl+C to stop.
 ```
 
-**Network mode (0.0.0.0):**
+**Default (`make ui` — both localhost + Wi-Fi):**
 ```
   🧹  App Name
 
   Local      http://127.0.0.1:PORT
   Network    http://192.168.X.X:PORT  ← share with devices on your Wi-Fi
 
-  ⚠  NETWORK MODE: anyone on your Wi-Fi can trigger actions in this app.
+  ⚠  Anyone on your Wi-Fi can reach this URL and trigger actions in this app.
      Use on a trusted home network. Stop with Ctrl+C when done.
 
   N features  ·  Press Ctrl+C to stop.
