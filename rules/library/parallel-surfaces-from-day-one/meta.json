@@ -1,0 +1,6 @@
+{
+  "id": "parallel-surfaces-from-day-one",
+  "description": "When building any app — native iOS + user web + marketing site + admin dashboard + backend / API all exist from day one. Never single-surface bootstraps that need painful retrofits later.",
+  "alwaysApply": true,
+  "globs": []
+}

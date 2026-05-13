@@ -5,6 +5,7 @@
   "rules": [
     "dev-discipline",
     "changelog-and-versioning",
-    "go-live-path"
+    "go-live-path",
+    "parallel-surfaces-from-day-one"
   ]
 }
