@@ -1,0 +1,9 @@
+{
+  "id": "ios-build",
+  "description": "iOS build discipline: pbxproj conflict resolution and Swift Codable structural guard",
+  "profile": "ios-xcode-monorepo",
+  "rules": [
+    "pbxproj-conflict",
+    "swift-codable-guard"
+  ]
+}

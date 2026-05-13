@@ -1,0 +1,9 @@
+{
+  "id": "backend-discipline",
+  "description": "Backend engineering discipline: migration race guard and shared utility extraction",
+  "profile": "default-monorepo",
+  "rules": [
+    "migration-race-guard",
+    "shared-util-extraction"
+  ]
+}
