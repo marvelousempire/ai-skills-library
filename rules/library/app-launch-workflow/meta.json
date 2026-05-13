@@ -1,0 +1,6 @@
+{
+  "id": "app-launch-workflow",
+  "description": "Canonical build stack, make targets, server startup pattern, and UX conventions for every Learn Mappers LLC app. Ensures `git pull && pnpm install && make ui` always works the same way, browser auto-opens, network mode is one command, and the startup output is clean and consistent.",
+  "alwaysApply": true,
+  "globs": []
+}
