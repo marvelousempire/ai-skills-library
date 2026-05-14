@@ -187,6 +187,10 @@ Do not use them for unauthorized access, malware, credential theft, evasion, exp
 | GitLab CE | private Git platform | CI/CD, runners, artifacts, private governance | Skill ready ([self-hosted-git](../skills/infra/self-hosted-git/)) |
 | Docker | containerization | local runtime services | Active |
 | Docker Compose | service orchestration | dev/home-lab service startup | Active |
+| Colima | Docker engine | Apple-Silicon-native daemon | Active ([dockyard skill](../skills/infra/dockyard/)) |
+| OrbStack | Docker engine | paid alternative engine | Alternative |
+| Docker Desktop | Docker engine | legacy bundled engine + GUI | Legacy (migration: [`switching-from-docker-desktop.md`](../skills/infra/dockyard/references/switching-from-docker-desktop.md)) |
+| Dockyard | Docker UI | container manager UI; replaces Docker Desktop's GUI | Skill ready ([dockyard](../skills/infra/dockyard/)) |
 | PostgreSQL | database | structured platform data | Planned |
 | Redis | queue system | jobs, evals, ingestion, orchestration | Planned |
 | WireGuard | secure networking | encrypted private routing across nodes | Active |

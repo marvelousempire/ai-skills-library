@@ -159,3 +159,4 @@ Tools:
 - **Spec**: [`ascii-flow-diagrams`](../ascii-flow-diagrams/SKILL.md) — the style guide SEEME reads as its system prompt. Editing it changes SEEME's output without any code change.
 - **Rule**: [`rules/library/ascii-flow-diagrams/`](../../../../rules/library/ascii-flow-diagrams/) — keeps the style applied by all agents in the repo.
 - **Design feel** (future web preview, if any): [`emil-design-eng`](../../design/emil-design-eng/SKILL.md) + [`ui-ux-pro-max`](../../design/ui-ux-pro-max/SKILL.md).
+- **Docker UI**: [`dockyard`](../../../infra/dockyard/SKILL.md) — every SEEME container ships the full `ai-skills-library.*` label schema so Dockyard's Compose view renders SEEME + Ollama + the init job with proper names, roles, and per-service URLs.

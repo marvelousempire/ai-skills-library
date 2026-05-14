@@ -55,6 +55,15 @@ services:
       retries: 10
       start_period: 180s     # GitLab cold start takes a while
     shm_size: 256m
+    # Self-describing labels for Dockyard's Compose view.
+    # See skills/infra/dockyard/templates/labels-reference.md for the schema.
+    labels:
+      org.opencontainers.image.title: "GitLab CE"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "Private GitLab CE — git + issues + MRs + CI + container registry"
+      ai-skills-library.skill: "self-hosted-git"
+      ai-skills-library.surface: "git-platform"
+      ai-skills-library.url: "https://${GITLAB_HOSTNAME}"
 
   caddy:
     image: caddy:2
@@ -71,6 +80,13 @@ services:
       - ./data/caddy-data:/data
     depends_on:
       - gitlab
+    labels:
+      org.opencontainers.image.title: "Caddy (GitLab reverse proxy)"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "Caddy 2 auto-HTTPS reverse proxy in front of GitLab + container registry"
+      ai-skills-library.skill: "self-hosted-git"
+      ai-skills-library.surface: "reverse-proxy"
+      ai-skills-library.url: "https://${GITLAB_HOSTNAME}"
 
   runner:
     image: gitlab/gitlab-runner:latest
@@ -84,3 +100,9 @@ services:
         condition: service_healthy
     # Runner registration is a one-time manual step — see runner-setup.md.
     # Once registered, the runner config persists in ./data/runner/.
+    labels:
+      org.opencontainers.image.title: "GitLab Runner"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "Docker-executor CI runner — picks up .gitlab-ci.yml workflows"
+      ai-skills-library.skill: "self-hosted-git"
+      ai-skills-library.surface: "ci-runner"

@@ -1,0 +1,47 @@
+# Standalone Dockyard — boot Dockyard on its own (no claude-chat-reader checkout needed).
+#
+# Builds from the upstream Dockerfile in the local clone if present; otherwise
+# falls back to the prebuilt image (when it's published). Talks the host's
+# Docker socket so it can see every container — including the SEEME + GitLab
+# stacks in this library.
+#
+# Run:
+#   DOCKYARD_PORT=4321 docker compose -f standalone-compose.yml up -d
+#
+# Or via the installer:
+#   bash skills/infra/dockyard/templates/install.sh --compose
+#
+# Stop:
+#   docker compose -f standalone-compose.yml down
+#
+# This file deliberately keeps the upstream Dockyard config + container name
+# stable so Dockyard's own self-detection logic works seamlessly.
+
+services:
+  dockyard:
+    # Two build paths — use whichever clone is present. The installer prefers
+    # the local clone (no rebuild needed if it's already built upstream).
+    image: dockyard:latest
+    container_name: dockyard
+    restart: unless-stopped
+    ports:
+      - "${DOCKYARD_PORT:-4321}:4321"
+    environment:
+      DOCKYARD_PORT: "4321"
+    volumes:
+      # Talk the host Docker socket.
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Allow the user to drop a config override next to this compose file.
+      - ./dockyard.config.json:/app/dockyard/dockyard.config.json:ro
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:4321/api/config', timeout=2)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      org.opencontainers.image.title: "Dockyard"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/claude-chat-reader/tree/main/dockyard"
+      org.opencontainers.image.description: "Lightweight Docker manager UI — replaces Docker Desktop's GUI"
+      ai-skills-library.skill: "dockyard"
+      ai-skills-library.surface: "dock-ui"
+      ai-skills-library.url: "http://localhost:${DOCKYARD_PORT:-4321}"

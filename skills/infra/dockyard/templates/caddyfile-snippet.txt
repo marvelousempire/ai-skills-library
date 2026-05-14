@@ -1,0 +1,48 @@
+# Caddyfile snippet — front-door Dockyard + the ai-skills-library stacks behind
+# auto-HTTPS. Mirrors the upstream Dockyard pattern at
+# claude-chat-reader/Caddyfile so a single Caddy can sit in front of multiple
+# Compose projects.
+#
+# Drop this into your Caddyfile (or merge with an existing one) and reload:
+#   docker compose exec caddy caddy reload --config /etc/caddy/Caddyfile
+#
+# Assumes Caddy can resolve the container names by DNS (i.e. it's on the same
+# Docker network as the targets). If Caddy lives in a different Compose project,
+# point at the host instead — `host.docker.internal:7777` etc.
+
+# ─── Dockyard ──────────────────────────────────────────────────────────────
+dockyard.{$DOMAIN} {
+	reverse_proxy dockyard:4321
+	encode gzip
+}
+
+# ─── SEEME UI ──────────────────────────────────────────────────────────────
+seeme.{$DOMAIN} {
+	reverse_proxy seeme-ui:7777
+	encode gzip
+}
+
+# ─── Homelab Console ───────────────────────────────────────────────────────
+console.{$DOMAIN} {
+	# The console runs as a host process by default, not a container. If you
+	# put it behind Caddy, run it bound to 0.0.0.0 and use host.docker.internal:
+	reverse_proxy host.docker.internal:7779
+	encode gzip
+}
+
+# ─── CI dashboard ──────────────────────────────────────────────────────────
+ci.{$DOMAIN} {
+	reverse_proxy host.docker.internal:7778
+	encode gzip
+}
+
+# ─── GitLab CE (already has its own Caddyfile in the gitlab-compose stack —
+# this block is only relevant if you want a single Caddy fronting BOTH stacks
+# from one config). See skills/infra/self-hosted-git/templates/Caddyfile.
+# ──────────────────────────────────────────────────────────────────────────
+# git.{$DOMAIN} {
+#	reverse_proxy gitlab:80
+# }
+# registry.{$DOMAIN} {
+#	reverse_proxy gitlab:5000
+# }

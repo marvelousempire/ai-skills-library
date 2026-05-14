@@ -117,5 +117,6 @@ Five separate dashboards add up to context-switching tax. One unified surface, o
 - **SEEME** ([`../../visual/diagrams/seeme/`](../../visual/diagrams/seeme/)) — the diagram tool the console probes + links to
 - **self-hosted-git** ([`../self-hosted-git/`](../self-hosted-git/)) — the GitLab CE stack the console polls
 - **CI dashboard** ([`../self-hosted-git/dashboard/`](../self-hosted-git/dashboard/)) — the deep-dive pipeline view
+- **Dockyard** ([`../dockyard/`](../dockyard/)) — Docker manager UI; console probes it at `:4321`, shows engine badge + container count, deep-links into Dockyard's Compose view
 
 Anchors back to the [yousirjuan platform plan](../../../docs/yousirjuan-platform-skills-master.md) — Categories 10 (Infrastructure) and 11 (Governance) made legible.
