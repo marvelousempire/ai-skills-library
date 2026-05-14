@@ -1,7 +1,2 @@
 # Question Intake
-
-Add raw questions here — one per line. Every line gets decomposed and logged automatically when you push.
-
----
-
-<!-- Add questions below this line -->
+Add questions here (one per line). They will be decomposed and logged automatically.

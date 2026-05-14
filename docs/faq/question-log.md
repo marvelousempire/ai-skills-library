@@ -17,3 +17,33 @@ Format:
 ---
 
 <!-- Entries appended below this line by the decomposer -->
+
+## Q-0001 | 2026-05-14 | handle-request
+**Raw:** intake-batch Add raw questions here — one per line. Every line gets decomposed and logged automatically when you push.
+**Concise:** Intake-batch Add raw questions one per line. Every line gets decomposed logged automatically when push
+**Function:** handle-request → SK-0137 (catchall-processor)
+**Session:** intake-batch
+**Routed to:** ?
+**Outcome:** pending
+
+---
+
+## Q-0002 | 2026-05-14 | handle-request
+**Raw:** intake-batch
+**Concise:** Intake-batch
+**Function:** handle-request → SK-0137 (catchall-processor)
+**Session:** intake-batch
+**Routed to:** ?
+**Outcome:** pending
+
+---
+
+## Q-0003 | 2026-05-14 | handle-request
+**Raw:** intake-batch <!-- Add questions below this line -->
+**Concise:** Intake-batch <!-- Add questions below line -->
+**Function:** handle-request → SK-0137 (catchall-processor)
+**Session:** intake-batch
+**Routed to:** ?
+**Outcome:** pending
+
+---
