@@ -1,0 +1,89 @@
+name: Catchall Queue Processor
+
+on:
+  push:
+    paths:
+      - 'docs/catchall/queue.md'   # fires whenever a new item is added to the queue
+  schedule:
+    - cron: '0 * * * *'            # also runs hourly to catch anything missed
+  workflow_dispatch:               # manual trigger via GitHub Actions UI
+
+permissions:
+  contents: write                  # allow the workflow to commit updated queue status
+
+jobs:
+  process-catchall:
+    name: Process unmatched requests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check for pending items
+        id: check
+        run: |
+          if grep -q "**Status:** pending" docs/catchall/queue.md 2>/dev/null; then
+            echo "has_pending=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_pending=false" >> $GITHUB_OUTPUT
+            echo "No pending items in queue — skipping."
+          fi
+
+      - name: Process catchall queue
+        if: steps.check.outputs.has_pending == 'true'
+        run: python3 scripts/process-catchall.py
+
+      - name: Commit updated queue and proposals
+        if: steps.check.outputs.has_pending == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            catchall: processed queue items [skip ci]
+            
+            Updated status on matched/unmatched requests.
+            Skill proposals filed for gaps.
+            Co-Authored-By: Catchall Processor <noreply@github.com>
+          file_pattern: 'docs/catchall/queue.md docs/proposals/catchall-proposals.md'
+          skip_dirty_check: false
+
+      - name: Open GitHub Issues for needs-human items
+        if: steps.check.outputs.has_pending == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - << 'PY'
+          import re, os, subprocess
+
+          queue = open("docs/catchall/queue.md").read()
+          # Find all items that moved to needs-human in this run
+          pattern = r"## (.+?)\n.*?\*\*Status:\*\* needs-human\n\*\*Resolution:\*\* (.+?)(?=\n##|\Z)"
+          for m in re.finditer(pattern, queue, re.DOTALL):
+              title, resolution = m.group(1).strip(), m.group(2).strip()
+              body = f"""## Catchall item requires human review
+
+**Title:** {title}
+
+**Resolution note:** {resolution}
+
+**Next steps:**
+- [ ] Review the closest matching skill in the resolution note
+- [ ] If the match is correct, invoke that skill and close this issue
+- [ ] If no skill fits, accept the skill proposal in `docs/proposals/catchall-proposals.md`
+- [ ] Update `docs/catchall/queue.md` status to `handled` or `dismissed`
+
+*Filed automatically by the catchall processor workflow.*
+"""
+              subprocess.run([
+                  "gh", "issue", "create",
+                  "--title", f"[Catchall] {title}",
+                  "--body", body,
+                  "--label", "catchall,needs-human"
+              ], capture_output=True)
+          PY
