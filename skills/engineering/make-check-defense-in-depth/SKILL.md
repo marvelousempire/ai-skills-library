@@ -1,5 +1,7 @@
 ---
 name: make-check-defense-in-depth
+id: SK-0025
+keywords: [check, defense, depth]
 description: >-
   Extend `make check` (or any CI gate) so it catches silent-regression bugs
   beyond just "does the code parse." Verify every file referenced by docs/

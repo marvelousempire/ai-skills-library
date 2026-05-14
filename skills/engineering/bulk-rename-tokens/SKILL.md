@@ -1,5 +1,7 @@
 ---
 name: bulk-rename-tokens
+id: SK-0014
+keywords: [bulk, rename, tokens]
 description: >-
   Mass-rename a token across N files using a Python script written to /tmp via Bash heredoc. Avoids the zsh/bash escape pitfalls of inline Python heredocs. Use for feature ID renumbering, slug rename, version bump cascade.
 trigger: >-

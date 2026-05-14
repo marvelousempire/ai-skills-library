@@ -1,620 +1,285 @@
 # AI Skills Library
+**managed by the duty and order of AVERY GOODMAN**
 
-**Private repo** — `marvelousempire/ai-skills-library`
-
-This repository is the portable AI skills shelf for agent skills, Cursor/Claude rules, marketing skills, design skills, project skills, external tool bridge skills, and the copied You-Sir Juan platform skills map.
-
-Master platform planning lives in:
-
-```text
-marvelousempire/yousirjuan
-```
-
-This repo is where the reusable skill copies live.
+> The master product catalog, study system, training system, improvement system, and filing system for all AI-powered work. Every lesson learned becomes a product. Every product has an ID, a name, a description, and keywords. Every session ends by growing the library.
 
 ---
 
-# What This Repo Is For
+## What a "Product" Is
 
-Use this repo to:
+Everything in this library is a **product** — a discrete, shippable, identifiable unit of intelligence. Products are not files. Products are not folders. Products are the things the library manufactures and delivers: behaviors, processes, patterns, standards, checklists, templates, and agents.
 
-- browse available AI skills
-- install skills into Cursor projects
-- keep Claude/Cursor rules in sync
-- reuse marketing and design skills
-- document platform-specific skills
-- track external tools and repo integrations
-- act as a lightweight AI-readable skills guide
-
-Think of it as:
-
-> a poor-man's RAG shelf for AI skills, tools, and operating rules.
+| Product Type | Prefix | Where It Lives | What It Does |
+|---|---|---|---|
+| **Skill** | `SK-` | `skills/<category>/<name>/SKILL.md` | An invocable process. AI runs it when the trigger fires or it's called by name. |
+| **Rule** | `RL-` | `rules/library/<name>/body.md` | An always-on policy. Fires automatically when the condition applies, without being invoked. |
+| **Agent** | `AG-` | `agents/<name>/AGENT.md` | An autonomous actor with its own loop, tools, and responsibilities. |
+| **Template** | `TM-` | `templates/<category>/<name>/` | A starter structure. Drop-in files with the right shape already in place. |
+| **Doc** | `DK-` | `docs/<name>.md` | Reference material. Not invokable — read by humans and AI for context. |
+| **Checklist** | `CK-` | `docs/checklists/<name>.md` | A binary verification list. Every item is Yes/No before something ships. |
 
 ---
 
-# The five systems
+## The Canonical Product Schema
 
-As of the 2026-05-14 master-repo-evolution commit, this repo operates as five systems in one Git history. Read [`docs/master-plans/2026-05-14-master-repo-evolution.md`](docs/master-plans/2026-05-14-master-repo-evolution.md) for the full plan.
-
-```text
-   ┌────────────────────────────────────────────────────────────────────┐
-   │  📋 master report system    docs/reports/       every session       │
-   │  📚 study system            docs/study/         curriculum (11 docs)│
-   │  🏋️ training system          docs/training/      8 drills            │
-   │  🔄 improvement system      docs/improvement/   audits + gaps + wins│
-   │  🗂️ filing system            docs/standards/ + checklists/ + …      │
-   └────────────────────────────────────────────────────────────────────┘
-```
-
-Start at [`docs/study/00-orientation.md`](docs/study/00-orientation.md).
-
----
-
-# Fast Navigation
-
-| Need | Open |
-|---|---|
-| **🚀 Start here — orientation + curriculum** | [`docs/study/00-orientation.md`](docs/study/00-orientation.md) |
-| **📋 Master plan + session reports** | [`docs/master-plans/`](docs/master-plans/) · [`docs/reports/`](docs/reports/) |
-| **🗂️ Standards / Checklists / Templates / Workflows** | [`docs/standards/`](docs/standards/) · [`docs/checklists/`](docs/checklists/) · [`docs/templates/`](docs/templates/) · [`docs/workflows/`](docs/workflows/) |
-| **🔄 Open gaps + deferred elevations + audits** | [`docs/improvement/`](docs/improvement/) |
-| **🏋️ Drills (training)** | [`docs/training/drills/`](docs/training/drills/) |
-| **🧠 Methodology skills (12)** | [`skills/methodology/`](skills/methodology/) |
-| **🤖 Operational agents (6)** | [`agents/`](agents/) |
-| Full You-Sir Juan platform skills taxonomy | [`docs/yousirjuan-platform-skills-master.md`](docs/yousirjuan-platform-skills-master.md) |
-| Every skill file and pack | [`skills/README.md`](skills/README.md) |
-| Quick all-skill index | [`SKILL-INDEX.md`](SKILL-INDEX.md) |
-| Marketing skills catalog | [`skills/marketing/SKILL-CATALOG.md`](skills/marketing/SKILL-CATALOG.md) |
-| Marketing skills by category | [`skills/marketing/CATEGORIES.md`](skills/marketing/CATEGORIES.md) |
-| Cursor skills catalog | [`skills/ide/cursor/SKILL-CATALOG.md`](skills/ide/cursor/SKILL-CATALOG.md) |
-| UI/UX Pro Max skill | [`skills/visual/design/ui-ux-pro-max/SKILL.md`](skills/visual/design/ui-ux-pro-max/SKILL.md) |
-| **SEEME** — AI diagram generator | [`skills/visual/diagrams/seeme/SKILL.md`](skills/visual/diagrams/seeme/SKILL.md) · [`README`](skills/visual/diagrams/seeme/README.md) |
-| **Self-hosted Git** (GitLab CE + CI) | [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) · [`README`](skills/infra/self-hosted-git/README.md) |
-| **Homelab Console** (unified UI + Makefile) | [`skills/infra/console/SKILL.md`](skills/infra/console/SKILL.md) · [`README`](skills/infra/console/README.md) |
-| **Dockyard** (Docker UI + label schema) | [`skills/infra/dockyard/SKILL.md`](skills/infra/dockyard/SKILL.md) · [`README`](skills/infra/dockyard/README.md) |
-| Red-E Play project skills | [`skills/project/red-e-play/README.md`](skills/project/red-e-play/README.md) |
-| ReadyPlay context | [`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md) |
-| External tool bridge skills | [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) |
-| Rules pipeline | [`rules/README.md`](rules/README.md) · [`docs/rules-pipeline.md`](docs/rules-pipeline.md) |
-| Install into another repo | [`docs/cursor-project-skills.md`](docs/cursor-project-skills.md) |
-| Related GitHub projects | [`docs/related-github-projects.md`](docs/related-github-projects.md) |
-| Third-party licenses | [`THIRD_PARTY.md`](THIRD_PARTY.md) |
-| **Repo structure map** | [`STRUCTURE.md`](STRUCTURE.md) |
-| **Templates** (scaffolds for plans, migrations, skills) | [`templates/`](templates/) |
-| **Checklists** (pre-commit, pre-merge, smoke, etc.) | [`checklists/`](checklists/) |
-| **Agents** (subagent specifications) | [`AGENTS.md`](AGENTS.md) |
-| **Master Reports** (per-session retrospectives) | [`docs/master-reports/`](docs/master-reports/) |
-| **Pain Journal** (per-incident write-ups) | [`docs/pain-journal/`](docs/pain-journal/) |
-| **Playbooks** (step-by-step ops guides) | [`docs/playbooks/`](docs/playbooks/) |
-| **Learning systems** (how the library grows itself) | [`docs/learning-systems/`](docs/learning-systems/) |
-
----
-
-# AI Skill Families
-
-## 01 — Marketing Skills
-
-**Purpose:** turn product ideas, pages, campaigns, offers, and positioning into clearer sales and growth assets.
-
-**Use when:** the task involves landing pages, SEO, CRO, messaging, positioning, product launch, copy, funnels, or audience research.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/marketing/SKILL-CATALOG.md`](skills/marketing/SKILL-CATALOG.md) | full marketing skill catalog |
-| [`skills/marketing/CATEGORIES.md`](skills/marketing/CATEGORIES.md) | marketing skills grouped by category |
-
-Outputs:
-
-- landing page copy
-- SEO content
-- positioning
-- campaign angles
-- CRO notes
-- product messaging
-- launch assets
-
----
-
-## 02 — Design & UI Skills
-
-**Purpose:** improve visual quality, UI structure, layout, hierarchy, components, and premium polish.
-
-**Use when:** the task involves interface design, website sections, dashboards, app screens, user experience, or frontend polish.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/visual/design/ui-ux-pro-max/SKILL.md`](skills/visual/design/ui-ux-pro-max/SKILL.md) | UI/UX Pro Max skill for premium layout and UX guidance |
-| [`docs/yousirjuan-platform-skills-master.md`](docs/yousirjuan-platform-skills-master.md) | broader design stack: AwesomeDesign, 21st.dev, Framer Motion, shadcn/ui, Tailwind, Magic UI, Aceternity |
-
-Outputs:
-
-- polished UI screens
-- visual hierarchy guidance
-- component recommendations
-- dashboard layouts
-- landing page structure
-- motion and interaction direction
-
----
-
-## 03 — Cursor & IDE Skills
-
-**Purpose:** make the coding environment smarter and more repeatable.
-
-**Use when:** the task involves Cursor, repo setup, codegen, babysitting tasks, canvas workflows, project skill installs, or IDE automation.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/ide/cursor/SKILL-CATALOG.md`](skills/ide/cursor/SKILL-CATALOG.md) | Cursor skill pack catalog |
-| [`docs/cursor-project-skills.md`](docs/cursor-project-skills.md) | install repo skills into a Cursor project |
-| [`scripts/install-repo-skills-to-cursor-project.sh`](scripts/install-repo-skills-to-cursor-project.sh) | copies this library into another repo's `.cursor/skills/` |
-
-Outputs:
-
-- project-local Cursor skills
-- repeatable IDE workflows
-- repo-specific AI tooling
-- coding task helpers
-
----
-
-## 04 — Claude / Agent Rules
-
-**Purpose:** keep AI agent behavior consistent across Claude, Cursor, and project environments.
-
-**Use when:** the task involves rules, agent behavior, coding style, repo discipline, or syncing instructions.
-
-| Resource | What It Covers |
-|---|---|
-| [`rules/README.md`](rules/README.md) | canonical rules library |
-| [`docs/rules-pipeline.md`](docs/rules-pipeline.md) | how rules are generated and synced |
-| [`scripts/generate-agent-rules.py`](scripts/generate-agent-rules.py) | generates agent rules |
-| [`scripts/sync-rules-into-repo.sh`](scripts/sync-rules-into-repo.sh) | syncs rules into a repo |
-
-Outputs:
-
-- Cursor `.mdc` rules
-- Claude-readable rules
-- consistent agent behavior
-- reusable operating guidance
-
----
-
-## 05 — Project Skills
-
-**Purpose:** hold project-specific skills and context for private apps or products.
-
-**Use when:** the task involves ReadyPlay, You-Sir Juan, or another project that needs custom AI behavior.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/project/red-e-play/README.md`](skills/project/red-e-play/README.md) | Red-E Play project skills |
-| [`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md) | ReadyPlay positioning and product context |
-| [`docs/yousirjuan-platform-skills-master.md`](docs/yousirjuan-platform-skills-master.md) | You-Sir Juan platform skills master copy |
-
-Outputs:
-
-- project-aware behavior
-- project marketing alignment
-- app-specific skill usage
-- feature/platform context
-
----
-
-## 06 — External Tool Bridge Skills
-
-**Purpose:** document and expose external tools in a way agents can understand.
-
-**Use when:** the task involves connecting skills to outside tools, CLIs, APIs, or generated bridge manifests.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) | generated external bridge skills |
-| [`docs/external-tools.manifest.json`](docs/external-tools.manifest.json) | machine-readable external tool manifest |
-| [`scripts/generate-external-tool-skills.py`](scripts/generate-external-tool-skills.py) | generates bridge skills |
-| [`scripts/link-external-skills-to-claude.sh`](scripts/link-external-skills-to-claude.sh) | links bridge skills to Claude workflows |
-
-Outputs:
-
-- external tool descriptions
-- bridge skill files
-- tool manifests
-- AI-readable integration references
-
----
-
-## 07 — You-Sir Juan Platform Skills
-
-**Purpose:** mirror the You-Sir Juan ecosystem map into this library so AI agents can browse one clean skill guide.
-
-**Use when:** the task involves You-Sir Juan architecture, AI tools, media systems, voice systems, infrastructure, hardware, repo integrations, or platform planning.
-
-| Resource | What It Covers |
-|---|---|
-| [`docs/yousirjuan-platform-skills-master.md`](docs/yousirjuan-platform-skills-master.md) | clean domain taxonomy for all You-Sir Juan tools and skills |
-
-Domains inside that guide:
-
-| Domain | Purpose |
-|---|---|
-| Coding Intelligence | Claude Code, Continue.dev, Aider, OpenHands, coding models |
-| Model Runtime | Ollama, vLLM, Open WebUI, NVIDIA NIM, TensorRT |
-| Retrieval & Memory | RAG Anything, Qdrant, embeddings, vector databases |
-| Browser & Web | Playwright CLI, Firecrawl, Browser-use |
-| Design & Frontend | UI/UX Pro Max, AwesomeDesign, 21st.dev, Framer Motion |
-| Media Intelligence | Higgsfield, Seedance, ComfyUI, Flux, LivePortrait |
-| Voice & Speech | Whisper, Piper, Kokoro, ElevenLabs, Coqui TTS |
-| Productivity | GWS, Gmail, Calendar, Docs, Sheets |
-| Evaluation | DeepEval, Promptfoo, Playwright Tests, Sentry |
-| Infrastructure | Docker, PostgreSQL, Redis, WireGuard, nginx, Caddy, Terraform |
-| Governance | Git, GitHub, **GitLab CE (skill ready: [`self-hosted-git`](skills/infra/self-hosted-git/))**, runners, artifacts |
-| Hardware | MacBook Pro M5 Max, Mac mini M4 Pro, DGX Spark, Jetson Thor |
-
-Outputs:
-
-- platform planning
-- AI-readable skill routing
-- tool selection guidance
-- repo integration map
-- model/hardware routing guidance
-
----
-
-## 08 — Visual Diagrams (SEEME)
-
-**Purpose:** turn any text — prose, code, JSON, meeting notes, a one-line idea — into a clean Unicode box-and-arrow diagram, automatically.
-
-**Use when:** the task involves "diagram this," "explain visually," "show me how X talks to Y," generating architecture pictures, flowcharts, sequence diagrams, or teaching diagrams that copy-paste cleanly into Notion / GitHub / docs.
-
-```text
-   ┌──────────────┐   ┌──────────────────┐   ┌──────────────┐   ┌──────────┐
-   │   input      │──►│   provider       │──►│  lint loop   │──►│ diagram  │
-   │  prompt/CLI/ │   │  Ollama default  │   │  ≤ 3 retries │   │ stdout   │
-   │  MCP/UI      │   │  + cloud APIs    │   │  5 rules     │   │ + SVG    │
-   └──────────────┘   └──────────────────┘   └──────────────┘   └──────────┘
-                              │                      ▲
-                              │ system prompt        │ targeted fix prompt
-                              ▼                      │ on lint failure
-                      ┌──────────────────────────────┴─┐
-                      │  ascii-flow-diagrams style spec│
-                      │  (the SKILL.md, verbatim)      │
-                      └────────────────────────────────┘
-```
-
-**Two paired skills:**
-
-1. **`ascii-flow-diagrams`** — the **style spec**. Defines the Unicode box-and-arrow format (┌ ┐ └ ┘ │ ─ ▲ ▼ ◄ ►) with 8 worked examples (compact topology, annotated decision-flow, sequence, merged). Auto-applied by Claude + Cursor via an `alwaysApply` rule.
-2. **`seeme`** — the **AI tool** that reads the style spec verbatim as its system prompt and renders diagrams from any input. Provider-agnostic: Ollama-default (local, free, private), with OpenAI / Anthropic / Google Gemini / Perplexity as bring-your-own-key fallbacks. Ships **six surfaces** for the same engine:
-
-| Surface | Command | What it does |
-|---|---|---|
-| CLI | `seeme "explain RAG"` | one-shot diagram from a prompt / stdin / file |
-| Refine | `seeme --refine "add a redis cache"` | edits the last cached diagram, inherits style |
-| Chain | `seeme "X" --then "Y" --then "Z"` | one call, N refines, all share the cached system prompt |
-| Web UI | `seeme serve --open` | split-pane streaming preview, copy + SVG export, refine button |
-| MCP server | `seeme-mcp` | exposes `generate_diagram` / `refine_diagram` / `list_providers` to Claude Desktop / Cursor / Claude Code |
-| Docker | `docker compose up -d` | full stack — SEEME UI + Ollama + llama3.1 auto-pull |
-
-**Engine highlights:** 5-rule lint loop (no-diagram → unicode → width → closure → alignment), no-diagram sub-classifier (refused / wrong-format / truncated), Anthropic prompt caching (5-min default, 1-h opt-in), OpenAI auto-cache, file-watch mode, `--explain` prose alongside the diagram, opt-in JSONL history + stats dashboard. 42 unit tests + 1 live-Ollama integration test.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/visual/diagrams/ascii-flow-diagrams/SKILL.md`](skills/visual/diagrams/ascii-flow-diagrams/SKILL.md) | the canonical style spec |
-| [`skills/visual/diagrams/seeme/SKILL.md`](skills/visual/diagrams/seeme/SKILL.md) | tool playbook + invocation |
-| [`skills/visual/diagrams/seeme/README.md`](skills/visual/diagrams/seeme/README.md) | full README with install + quick-start |
-
----
-
-## 09 — Infrastructure (self-hosted Git + private CI)
-
-**Purpose:** stand up sovereign infrastructure for the You-Sir Juan stack — your own Git server, your own CI runners, your own container registry, all on your own hardware.
-
-**Use when:** the task involves "self-host Git," "private GitLab," "replace GitHub Actions," "private CI/CD," "GitLab on Mac mini," "private container registry," or migrating off GitHub.
-
-```text
-   ┌─────────────────┐   tunnel    ┌────────────────────────────┐
-   │  laptop / phone │◄────────────┤   Caddy (auto-HTTPS)       │
-   │  anywhere       │             │   git + registry on :443   │
-   └─────────────────┘             └──────────────┬─────────────┘
-                                                  │
-                                                  ▼
-                                   ┌────────────────────────────┐
-                                   │   GitLab CE (Omnibus)      │
-                                   │   web UI + git + registry  │
-                                   │   + runners + packages     │
-                                   └─────────┬──────────────────┘
-                                             │
-                                             ▼
-                                   ┌────────────────────────────┐
-                                   │   GitLab Runner            │
-                                   │   GitHub-Actions-equivalent│
-                                   │   .gitlab-ci.yml workflows │
-                                   └────────────────────────────┘
-```
-
-**One skill, six layers:**
-
-| Layer | Resource |
-|---|---|
-| Docker Compose stack | [`templates/gitlab-compose.yml`](skills/infra/self-hosted-git/templates/gitlab-compose.yml) — GitLab CE + Runner + Caddy reverse proxy |
-| HTTPS | [`templates/Caddyfile`](skills/infra/self-hosted-git/templates/Caddyfile) — Let's Encrypt automatic |
-| Two network paths | [`tailscale-quickstart.md`](skills/infra/self-hosted-git/templates/tailscale-quickstart.md) (Path A — today) · [`wireguard-quickstart.md`](skills/infra/self-hosted-git/templates/wireguard-quickstart.md) (Path B — Mac mini + Flint 2 target) |
-| CI/CD templates | [`templates/ci/`](skills/infra/self-hosted-git/templates/ci/) — five ready-to-use `.gitlab-ci.yml` patterns + a [10-minute tutorial](skills/infra/self-hosted-git/templates/ci/TUTORIAL.md) |
-| CI overview dashboard | [`dashboard/`](skills/infra/self-hosted-git/dashboard/) — self-contained UI, polls every 15s, shows pipeline status across every project |
-| Day-2 ops | [`backup.sh`](skills/infra/self-hosted-git/templates/backup.sh) (to Backblaze B2) · [`upgrade-checklist.md`](skills/infra/self-hosted-git/templates/upgrade-checklist.md) · [`migrate-from-github.sh`](skills/infra/self-hosted-git/templates/migrate-from-github.sh) · [`runner-setup.md`](skills/infra/self-hosted-git/templates/runner-setup.md) |
-
-**Cost when complete:** ~$0/month recurring (one-time hardware + ~$0.05/mo Backblaze B2 backups). Yours. Private. Reachable from anywhere via the WireGuard tunnel.
-
-**Aligns with yousirjuan plan:** operationalizes Category 11 (Governance, GitOps & Operational Memory) — GitLab CE / Runners / Registry move from "Planned" to "Skill ready." Decision record vs Forgejo lives in [`references/gitlab-vs-forgejo.md`](skills/infra/self-hosted-git/references/gitlab-vs-forgejo.md).
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) | the full playbook |
-| [`skills/infra/self-hosted-git/README.md`](skills/infra/self-hosted-git/README.md) | human-readable README |
-| [`skills/infra/README.md`](skills/infra/README.md) | infrastructure-skills index |
-
-**The unified surface — Homelab Console.** [`skills/infra/console/`](skills/infra/console/) is the operational entry point for the whole stack: one web UI showing the status of SEEME + GitLab + CI + Ollama side-by-side, plus a `Makefile` with `make start` / `make stop` / `make doctor` / `make logs` targets that orchestrate every service together. Skip ahead to family **10** below for details.
-
----
-
-## 10 — Homelab Console (unified UI + Makefile)
-
-**Purpose:** ship a single web UI + Makefile that boots, monitors, and stops every service in the sovereign stack from one place.
-
-**Use when:** the task involves "show me what's running," "boot everything," `make start`, "homelab dashboard," "unified console," or just "open the console." This is the operational entry point.
-
-```text
-   ┌─────────────────────────────────────────────────────────────────────┐
-   │  ▣ HOMELAB CONSOLE                  yousirjuan · sovereign stack     │
-   ├─────────────────────────────────────────────────────────────────────┤
-   │  services                                                            │
-   │  ┌────────────────────┐  ┌────────────────────┐  ┌────────────────┐ │
-   │  │ SEEME       ● up   │  │ GitLab CE   ● up   │  │ Ollama   ● up  │ │
-   │  │ 2/5 providers      │  │ v17.5 · 3 proj · 1 │  │ v0.4 · 2 models│ │
-   │  └────────────────────┘  └────────────────────┘  └────────────────┘ │
-   │                                                                     │
-   │  recent pipelines (live, polled every 15s)                          │
-   │  ● running    ai-skills-library  main   be12ab0   now               │
-   │  ● success    seeme              main   a7b2fd5   2m ago            │
-   │                                                                     │
-   │  quick launch:  [SEEME ↗]  [GitLab ↗]  [CI dashboard ↗]  [Ollama ↗] │
-   └─────────────────────────────────────────────────────────────────────┘
-```
-
-**Two surfaces in one folder:**
-
-1. **Web UI** — `make start` boots Node :7779 + every service it monitors. The page polls each service in parallel, shows up/down status, surfaces the 5 most-recent pipelines across all GitLab projects, and offers click-through links to every other UI.
-2. **Makefile** — full lifecycle control:
-
-| Target | What it does |
-|---|---|
-| **`make ui`** | **THE one command — boot whatever's down + open it in your browser. Idempotent.** |
-| `make stop` | stop everything (volumes preserved) |
-| `make status` | container list + process state |
-| `make doctor` | health probes (disk, docker, every service) |
-| `make logs` | tail logs across the stack |
-| `make engine-info` | which Docker engine is in use (Colima / OrbStack / DD) |
-| `make ui-console` | start ONLY the console (services already running) |
-| `make open` | open http://localhost:7779 in browser |
-
-Re-running `make ui` is the standard workflow — it's safe and idempotent. Set `OPEN_ALL=1 make ui` to open every UI in its own tab instead of just the Console.
-
-| Resource | What It Covers |
-|---|---|
-| [`skills/infra/console/SKILL.md`](skills/infra/console/SKILL.md) | the playbook |
-| [`skills/infra/console/README.md`](skills/infra/console/README.md) | full README + architecture |
-| [`skills/infra/console/Makefile`](skills/infra/console/Makefile) | the lifecycle commands |
-
----
-
-## 11 — Dockyard (sovereign Docker UI integration)
-
-**Purpose:** wire every library container into [Dockyard](https://github.com/marvelousempire/claude-chat-reader/tree/main/dockyard) — the user's Python-stdlib Docker manager UI built to replace Docker Desktop. Defines the canonical label schema, ships an installer + standalone-compose template + Caddyfile snippet, and includes a Docker-Desktop-to-Colima migration guide for the Apple-Silicon + macOS Tahoe regressions Docker Desktop has been hitting.
-
-**Use when:** the task involves "set up Dockyard," "Docker UI without Docker Desktop," "Colima," "OrbStack," "labels for Dockyard," "switch off Docker Desktop," or just "use Dockyard on my library stacks."
-
-```text
-   ┌────────────────────────────────────────────────────────────────────┐
-   │  Dockyard :4321 — Compose-project view                              │
-   ├────────────────────────────────────────────────────────────────────┤
-   │  📦 seeme              (skill: seeme)                                │
-   │     ● seeme-ui         web-ui     http://localhost:7777             │
-   │     ● seeme-ollama     engine     http://localhost:11434            │
-   │     ○ seeme-ollama-init init      (exited cleanly)                  │
-   │                                                                    │
-   │  📦 self-hosted-git    (skill: self-hosted-git)                      │
-   │     ● gitlab           git-platform  https://git.your.tld           │
-   │     ● gitlab-caddy     reverse-proxy https://git.your.tld           │
-   │     ● gitlab-runner    ci-runner                                    │
-   │                                                                    │
-   │  Engine: ● colima (v0.7.0)        Disk: 47 GB / 60 GB               │
-   └────────────────────────────────────────────────────────────────────┘
-```
-
-**What this skill ships:**
-
-| File | Purpose |
-|---|---|
-| `templates/install.sh` | one-line installer — detects local Dockyard clone, falls back to standalone-compose |
-| `templates/standalone-compose.yml` | run Dockyard as a sidecar in any Compose project |
-| `templates/caddyfile-snippet.txt` | HTTPS front-door entries for Dockyard + every other UI in the library |
-| `templates/labels-reference.md` | **the canonical label schema** — every library container's contract |
-| `references/integration-checklist.md` | per-stack compliance snapshot |
-| `references/engines-compared.md` | Colima vs OrbStack vs Docker Desktop decision matrix |
-| `references/switching-from-docker-desktop.md` | Docker Desktop → Colima migration, no data loss |
-
-**Label schema (the contract):**
+Every product has the same frontmatter shape. This is what every AI reads to route, match, display, and deliver a product.
 
 ```yaml
-labels:
-  org.opencontainers.image.title: "<display name>"
-  org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
-  org.opencontainers.image.description: "<one-line role>"
-  ai-skills-library.skill: "<skill-slug>"            # seeme, self-hosted-git, dockyard, …
-  ai-skills-library.surface: "<role>"                # web-ui / engine / reverse-proxy / ci-runner / init / dock-ui / db / queue
-  ai-skills-library.url: "<localhost-url>"           # omit for surface=engine|init|ci-runner
+---
+name: product-name-kebab-case    # Machine ID. Kebab-case. Unique within its type.
+id: SK-0042                      # Global unique ID. Type prefix + zero-padded integer.
+description: >-                  # What it does. When it triggers. What it produces.
+  One paragraph. Includes 4–6 specific trigger phrases — the exact words a
+  user or AI would say that should load this product. Narrow enough not to
+  fire on every task. Rich enough for the router to match confidently.
+keywords: [keyword1, keyword2, keyword3]  # Max 3. Lowercase. Domain tags.
+---
 ```
 
-The SEEME stack (3 containers) and self-hosted-git stack (3 containers) both ship this schema today — see [`integration-checklist.md`](skills/infra/dockyard/references/integration-checklist.md).
+### The `id` field — global unique product identifier
 
-**Console integration:** Dockyard appears as a fifth service card in the [Homelab Console](skills/infra/console/), the footer shows `engine: colima ●` / `orbstack ●` / `docker-desktop ●` sourced from Dockyard's authoritative `/api/version`, and `make engine-info` prints the engine readout from any terminal.
+Format: `{TYPE_PREFIX}-{NNNN}` where `NNNN` is zero-padded to 4 digits.
 
-| Resource | What It Covers |
+| Type | Prefix | Example |
+|---|---|---|
+| Skill | `SK-` | `SK-0042` |
+| Rule | `RL-` | `RL-0017` |
+| Agent | `AG-` | `AG-0003` |
+| Template | `TM-` | `TM-0008` |
+| Doc | `DK-` | `DK-0001` |
+| Checklist | `CK-` | `CK-0005` |
+
+IDs are **append-only** — never reused, never renumbered. When a product is retired, its ID is retired with it.
+
+Run `scripts/stamp-product-ids.py` to auto-assign IDs and keywords to all products in the library.
+
+### The `keywords` field — domain routing tags
+
+**Max 3 keywords.** Lowercase. No spaces (use hyphens for compound terms).
+
+Keywords describe the **domain** of the product — not what it does (the description covers that), but what world it lives in. They're used by the router to narrow candidates when multiple products match a trigger.
+
+Good keywords:
+- `failure-proof-audit` → `audit, boolean, accountability`
+- `product-repo-architecture` → `git, architecture, github`
+- `cost-annotation-discipline` → `safety, annotations, ux`
+- `ai-proposal-review-inbox` → `ai-agent, proposals, curation`
+- `applescript-native-ui` → `applescript, macOS, native-ui`
+
+Bad keywords:
+- Generic: `tool`, `process`, `method`, `skill`, `guide` — too broad, no routing value
+- Verbs: `build`, `create`, `improve` — keywords are domains, not actions
+- Repeating the name: `product` for `product-repo-architecture` — redundant
+
+---
+
+## The Distribution Model
+
+This is how the AI Skills Library routes a user request, applies policies, invokes the right product, and delivers a structured output.
+
+```
+╔═══════════════════════════════════════════════════════════════════════╗
+║               AI SKILLS LIBRARY — DISTRIBUTION MODEL                 ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  INPUT — user request, task, question, or condition              │
+  │  "audit this repo before we ship"                                │
+  └──────────────────────────────┬───────────────────────────────────┘
+                                 │
+                                 ▼
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  ROUTER — reads all product metadata                             │
+  │                                                                  │
+  │  For every product (SK, RL, AG, TM, DK, CK):                    │
+  │    reads: id · name · description · keywords                    │
+  │                                                                  │
+  │  Matches by:                                                     │
+  │    1. Explicit invocation ("use failure-proof-audit")            │
+  │    2. Trigger phrase match (description field)                   │
+  │    3. Keyword domain match (keywords field)                      │
+  │    4. Category/type filter (SK vs RL vs AG)                      │
+  │                                                                  │
+  │  Returns: [applicable rules] + [matched skills]                  │
+  └─────────┬────────────────────────────────┬────────────────────────┘
+            │                                │
+            ▼                                ▼
+  ┌─────────────────────┐        ┌──────────────────────────────────┐
+  │  RULE LAYER         │        │  SKILL LAYER                     │
+  │  (fires first,      │        │  (fires when matched)            │
+  │   always-on)        │        │                                  │
+  │                     │        │  ┌──────────────────────────┐    │
+  │  RL-0032 applies?   │        │  │  SK-0042                 │    │
+  │  → plan-first-for   │        │  │  failure-proof-audit     │    │
+  │    substantive      │        │  │  keywords: audit,        │    │
+  │                     │        │  │  boolean, accountability │    │
+  │  RL-0043 applies?   │        │  └──────────────────────────┘    │
+  │  → verification-    │        │                                  │
+  │    before-ship      │        │  Skill's 4 audit passes          │
+  │                     │        │  + Boolean lead sheet            │
+  │  Constraints added  │        │  + Chain of command review       │
+  │  to execution ctx   │        └──────────────────────────────────┘
+  └─────────┬───────────┘                        │
+            │        Rules constrain             │
+            │        HOW skills execute          │
+            └──────────────┬─────────────────────┘
+                           │
+                           ▼
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  EXECUTION                                                        │
+  │                                                                  │
+  │  Skill runs with rule constraints active in context.             │
+  │  Rules inject pre-conditions, shape the output format,          │
+  │  and run post-conditions before delivery.                        │
+  │                                                                  │
+  │  Example:                                                        │
+  │    Rule RL-0043 (verify-before-ship) requires a Boolean         │
+  │    checklist in the output → failure-proof-audit already        │
+  │    produces one → rules and skills are compatible.              │
+  └──────────────────────────────┬───────────────────────────────────┘
+                                 │
+                                 ▼
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  DELIVERY — structured output + metadata package                 │
+  │                                                                  │
+  │  ┌────────────────────────────────────────────────────────────┐  │
+  │  │  PRODUCT CARD                                              │  │
+  │  │  ─────────────────────────────────────────────────────    │  │
+  │  │  id:          SK-0042                                      │  │
+  │  │  name:        failure-proof-audit                         │  │
+  │  │  keywords:    audit · boolean · accountability            │  │
+  │  │  description: Multi-pass audit methodology for any        │  │
+  │  │               repo or system...                           │  │
+  │  │  result:      [full audit output from skill execution]    │  │
+  │  │  rules-applied: RL-0032, RL-0043                          │  │
+  │  └────────────────────────────────────────────────────────────┘  │
+  │                                                                  │
+  │  → Product display  → Teaser card  → Presentation slide         │
+  │  → System integration  → API response  → UI component           │
+  └──────────────────────────────────────────────────────────────────┘
+```
+
+### How rules and skills interact
+
+**Rules** are policies. They fire based on conditions (scope of a change, type of task, presence of a certain file). Rules shape the execution context — they don't produce outputs themselves, they constrain and augment what skills produce.
+
+**Skills** are procedures. They are called (explicitly or by trigger match) and produce outputs. Skills are unaware of which rules are active — that's the router's job.
+
+**The router** is the mediator. It checks all rules first (do any apply here?), then finds the matching skill, merges the rule constraints into the execution context, and runs the skill. The skill sees the constraint context; the user sees the combined output.
+
+**Example flow:**
+```
+User: "audit this repo before we ship"
+
+Router reads:
+  RL-0043 (verification-before-ship) → applies (user said "before ship")
+  RL-0032 (plan-first-for-substantive) → not applicable (this is a review task)
+  SK-0042 (failure-proof-audit) → matches "audit" + keywords [audit, boolean]
+
+Execution:
+  RL-0043 constraint: output must include a Boolean checklist
+  SK-0042 runs: 4-pass audit + Boolean lead sheet + chain-of-command
+  Both requirements already satisfied → no conflict
+
+Delivery:
+  Product card with id=SK-0042, keywords=[audit, boolean, accountability]
+  + Full audit output
+  + RL-0043 compliance confirmed
+```
+
+---
+
+## Folder Taxonomy (where products live)
+
+```
+skills/
+├── engineering/             Engineering patterns and tools
+│   ├── architecture/        Structural system decisions (bones, load-bearing patterns)
+│   └── [flat]               Implementation skills, workflow skills, tooling skills
+├── visual/
+│   └── design/
+│       ├── architecture/    Visual system structure (design systems, token hierarchy)
+│       ├── ux/              Mood + method (flows, psychology, how it feels)
+│       ├── ui/              Cosmetic interface layer (what it looks like)
+│       └── paint/           Pure decoration (color, branding, surface identity)
+├── methodology/             Thinking and process frameworks
+├── marketing/               Copy, SEO, CRO, launch, research
+├── infra/                   Infrastructure and self-hosting
+├── mobile/                  iOS, Android, mobile-specific patterns
+├── ide/cursor/              Cursor IDE skills and hooks
+├── project/                 Project-specific skills (not globally applicable)
+└── external/                Generated bridges to third-party tools
+
+rules/library/               Always-on policies, one folder per rule
+agents/                      Autonomous actors with their own loops
+templates/                   Starter files with the right structure
+docs/                        Reference material, master plans, checklists
+```
+
+---
+
+## The Product Schema in Full
+
+Every SKILL.md and body.md must have all four frontmatter fields. Use the template at `templates/engineering/skill-md/SKILL.template.md`.
+
+```yaml
+---
+name: product-name-kebab-case
+id: SK-0042
+description: >-
+  [Purpose in plain language. Specific trigger phrases the router uses to match
+  this product. 4–6 specific phrases. Narrow enough not to steal every task.]
+keywords: [keyword1, keyword2, keyword3]
+---
+
+# [Title] — [one-line tagline]
+
+[One sentence: the failure mode this product prevents or the friction it removes.]
+
+## When to use this product
+## [The mechanism / workflow / pattern]
+## What this is NOT for
+## Anti-patterns
+## Invocation
+## Reference implementation
+```
+
+---
+
+## How to Add a New Product
+
+1. **Assign the type.** Is it a skill (invocable), rule (always-on), agent (autonomous), template, doc, or checklist?
+
+2. **Create the folder and file** using the correct location from the taxonomy above.
+
+3. **Write the frontmatter** with all four fields:
+   - `name`: kebab-case, unique within type
+   - `id`: run `scripts/stamp-product-ids.py` — it auto-assigns the next available ID
+   - `description`: what it does + 4–6 trigger phrases
+   - `keywords`: max 3, domain tags (not actions, not generic words)
+
+4. **Write the body** using the eight-section template.
+
+5. **Validate:** `python3 scripts/validate-skill-frontmatter.py` → OK
+
+6. **Update the index:** `./scripts/finalize-skills-index.sh`
+
+7. **Run the stamper:** `python3 scripts/stamp-product-ids.py` to ensure IDs/keywords are correct.
+
+---
+
+## Quick Reference
+
+| Want to… | Do this |
 |---|---|
-| [`skills/infra/dockyard/SKILL.md`](skills/infra/dockyard/SKILL.md) | the playbook + MCP tool list |
-| [`skills/infra/dockyard/README.md`](skills/infra/dockyard/README.md) | human-readable README |
-| [`skills/infra/dockyard/templates/labels-reference.md`](skills/infra/dockyard/templates/labels-reference.md) | the canonical label schema every future skill must follow |
+| Find a product by ID | `grep -r "id: SK-0042" skills/` |
+| Find all products by keyword | `grep -r "keywords:.*audit" skills/ rules/` |
+| Find all rules that apply to git work | `grep -r "keywords:.*git" rules/` |
+| Add IDs/keywords to new products | `python3 scripts/stamp-product-ids.py` |
+| Validate all frontmatter | `python3 scripts/validate-skill-frontmatter.py` |
+| Sync SKILL-INDEX.md count | `./scripts/finalize-skills-index.sh` |
+| Add the pre-push hook | `./scripts/install-hooks.sh` |
 
 ---
 
-# AI Routing Cheat Sheet
-
-| Task Type | First Place To Look |
-|---|---|
-| Marketing copy or growth strategy | `skills/marketing/` |
-| UI, app, dashboard, or page design | `skills/visual/design/` + You-Sir Juan design domain |
-| **Generate a diagram / flow / architecture picture** | **`skills/visual/diagrams/seeme/` — or just run `seeme "..."`** |
-| **Self-host Git or replace GitHub Actions** | **`skills/infra/self-hosted-git/`** |
-| **Boot / monitor the whole homelab stack** | **`skills/infra/console/` — `make ui` (one command, idempotent)** |
-| **Docker UI / replace Docker Desktop / Colima setup** | **`skills/infra/dockyard/`** |
-| Cursor project skills | `skills/ide/cursor/` |
-| Agent rules | `rules/` |
-| ReadyPlay context | `context/readyplay-product-marketing-context.md` |
-| You-Sir Juan tool choice | `docs/yousirjuan-platform-skills-master.md` |
-| External APIs/tools | `skills/external/` |
-| Installing skills into a repo | `docs/cursor-project-skills.md` |
-| License / attribution review | `THIRD_PARTY.md` |
-
----
-
-# Repo Structure
-
-```text
-ai-skills-library/
-├── README.md
-├── SKILL-INDEX.md
-├── THIRD_PARTY.md
-├── context/
-│   ├── README.md
-│   └── readyplay-product-marketing-context.md
-├── skills/
-│   ├── README.md
-│   ├── marketing/
-│   │   ├── SKILL-CATALOG.md
-│   │   └── CATEGORIES.md
-│   ├── visual/
-│   │   ├── design/ui-ux-pro-max/
-│   │   └── diagrams/
-│   │       ├── ascii-flow-diagrams/    # the style spec (system prompt)
-│   │       └── seeme/                  # the AI tool: CLI + MCP + Web UI + Docker
-│   ├── infra/
-│   │   ├── self-hosted-git/            # GitLab CE + CI + dashboard
-│   │   ├── console/                    # unified UI + Makefile (entry point)
-│   │   └── dockyard/                   # Docker UI integration + label schema
-│   ├── ide/cursor/
-│   ├── project/red-e-play/
-│   └── external/
-├── rules/
-├── docs/
-│   ├── yousirjuan-platform-skills-master.md
-│   ├── yousirjuan-upstream-repo-ledger.md
-│   ├── related-github-projects.md
-│   ├── cursor-project-skills.md
-│   ├── marketingskills.md
-│   ├── process.md
-│   └── rules-pipeline.md
-└── scripts/
-    ├── rescan-skills.sh
-    ├── vendor-skills-from-home.sh
-    ├── install-repo-skills-to-cursor-project.sh
-    ├── validate-skill-frontmatter.py
-    ├── generate-skill-catalogs.py
-    ├── generate-external-tool-skills.py
-    ├── generate-agent-rules.py
-    ├── link-external-skills-to-claude.sh
-    └── sync-rules-into-repo.sh
-```
-
----
-
-# Counts
-
-Current known count:
-
-```text
-110 SKILL.md files under skills/
-```
-
-Regenerate catalogs after vendoring or editing skills.
-
----
-
-# Quick Use For Agents
-
-1. Identify the user request domain.
-2. Open the matching category above.
-3. Use the linked catalog or skill file.
-4. Prefer the most specific skill over a general skill.
-5. For You-Sir Juan work, open `docs/yousirjuan-platform-skills-master.md` first.
-6. For project-specific work, check `skills/project/` and `context/`.
-7. For repeated behavior, update `rules/`.
-
----
-
-# Install Into Another Repo
-
-```bash
-./scripts/install-repo-skills-to-cursor-project.sh /path/to/repo
-```
-
-This copies the skills into:
-
-```text
-<repo>/.cursor/skills/
-```
-
-Reference:
-
-```text
-docs/cursor-project-skills.md
-```
-
----
-
-# Refresh Skills From Local Machine
-
-```bash
-cd ~/Developer/ai-skills-library
-./scripts/vendor-skills-from-home.sh
-git add -A skills/ context/ docs/
-git commit -m "chore: refresh vendored skills"
-git push
-```
-
----
-
-# Master / Copy Rule
-
-| Repo | Role |
-|---|---|
-| `marvelousempire/yousirjuan` | master platform source of truth |
-| `marvelousempire/ai-skills-library` | reusable skill shelf and portable copy |
-
-When You-Sir Juan adds new skills, tools, repos, models, or hardware roles, refresh this repo so the skill shelf stays current.
-
----
-
-# Maintenance Rule
-
-Every new skill family should be documented with:
-
-- what it does
-- when to use it
-- inputs
-- outputs
-- related files
-- platform role
-- install/sync path
-- status
-
-This README should stay simple enough for a human to browse and structured enough for an AI agent to route tasks correctly.
+*This library grows every session. Run `conversation-retrospective-extraction` (SK-0017) after every significant session. Filter with `skill-nutrients-decanter` (SK-0120) — only nutrients get filed.*

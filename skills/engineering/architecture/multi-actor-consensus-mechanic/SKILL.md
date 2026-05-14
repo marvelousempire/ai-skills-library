@@ -1,5 +1,7 @@
 ---
 name: multi-actor-consensus-mechanic
+id: SK-0005
+keywords: [multi, actor, consensus]
 description: >-
   Designs an anti-fraud trust signal from N independent actors. Bakes in: distinct actors (by id), distinct organizations (by business_tax_id or equivalent), cooldown between attempts, rolling time window, cohesion gate (median +/- band). Generalizes Sound Score; applies to any signal you want to make hard to fake.
 trigger: >-

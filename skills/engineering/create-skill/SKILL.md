@@ -1,5 +1,7 @@
 ---
 name: create-skill
+id: SK-0021
+keywords: [create, skill]
 description: >-
   Create Cursor Agent Skills. Use when authoring a new skill or asking about
   SKILL.md structure.

@@ -1,3 +1,9 @@
+---
+name: quality-bar-do-it-right
+id: RL-0035
+keywords: [quality, bar, right]
+---
+
 # Quality bar — do it right the first time
 
 When a problem has a "right way" and a "quick hack," do the right way. **Never ship a hack that has visible side-effects to paper over a symptom.** If the right fix is too complex for the current scope, **say so out loud and propose deferring** — don't ship a worse alternative and call it shipped.

@@ -1,5 +1,7 @@
 ---
 name: babysit
+id: SK-0013
+keywords: [babysit]
 description: >-
   Keep a PR merge-ready by triaging comments, resolving clear conflicts, and
   fixing CI in a loop.

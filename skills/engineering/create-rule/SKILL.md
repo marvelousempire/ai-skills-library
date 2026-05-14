@@ -1,5 +1,7 @@
 ---
 name: create-rule
+id: SK-0020
+keywords: [create, rule]
 description: >-
   Create Cursor rules for persistent AI guidance. Use when you want to create a
   rule, add coding standards, set up project conventions, configure

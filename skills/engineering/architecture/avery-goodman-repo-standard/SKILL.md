@@ -1,5 +1,7 @@
 ---
 name: avery-goodman-repo-standard
+id: SK-0003
+keywords: [avery, goodman, repo]
 description: >-
   The branded git repo schema for every project under AVERY GOODMAN. Works on
   any git platform (GitHub, GitLab, Gitea, Bitbucket) — the README blueprint,

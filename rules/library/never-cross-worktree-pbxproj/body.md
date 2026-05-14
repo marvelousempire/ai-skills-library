@@ -1,3 +1,9 @@
+---
+name: never-cross-worktree-pbxproj
+id: RL-0027
+keywords: [never, cross, worktree]
+---
+
 # Never write project.pbxproj via cross-worktree bypass
 
 `project.pbxproj` is the most fragile file in any Xcode repo. A single

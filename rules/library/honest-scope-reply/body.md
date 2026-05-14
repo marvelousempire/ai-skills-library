@@ -1,3 +1,9 @@
+---
+name: honest-scope-reply
+id: RL-0019
+keywords: [honest, scope, reply]
+---
+
 # Honest scope reply — when the ask exceeds capacity
 
 When a user says "do this whole thing now, 100% delivered, leave no gaps," and the realistic in-session capacity is less than the asked scope at quality bar, the agent must reply HONESTLY before doing any work:

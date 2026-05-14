@@ -1,5 +1,7 @@
 ---
 name: conversation-retrospective-extraction
+id: SK-0017
+keywords: [conversation, retrospective, extraction]
 description: >-
   After any substantive Claude conversation — a build session, a design
   sprint, a debugging arc — read the full conversation backward, extract

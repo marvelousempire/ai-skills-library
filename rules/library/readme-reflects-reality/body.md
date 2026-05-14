@@ -1,3 +1,9 @@
+---
+name: readme-reflects-reality
+id: RL-0036
+keywords: [readme, reflects, reality]
+---
+
 # README Reflects Reality
 
 Every README in the repo must describe the current built state, not an aspirational or historical state. A README that documents the wrong port, wrong member names, or lists deferred work as "not done yet" when it's already built is an active liability — it misleads every future agent, developer, and installer.

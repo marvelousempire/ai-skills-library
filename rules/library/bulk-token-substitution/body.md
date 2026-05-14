@@ -1,3 +1,9 @@
+---
+name: bulk-token-substitution
+id: RL-0007
+keywords: [bulk, token, substitution]
+---
+
 # Bulk token substitution — Python-in-Bash beats N Edit calls
 
 When you need to rewrite the same token across 3+ files (feature ID renumber, slug rename, version bump in many places), the fast + safe pattern is a Python heredoc in Bash. Write the script to a temp file via Bash heredoc, then invoke `python3` against it — this avoids zsh/bash double-escape issues that arise when embedding Python directly via `<<PYEOF`.

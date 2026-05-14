@@ -1,5 +1,7 @@
 ---
 name: cost-annotation-discipline
+id: SK-0018
+keywords: [cost, annotation, discipline]
 description: >-
   Every destructive action (delete, clean, reset, migrate, prune, archive,
   format, revoke) must declare its plain-English cost to the user BEFORE the

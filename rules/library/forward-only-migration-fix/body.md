@@ -1,3 +1,9 @@
+---
+name: forward-only-migration-fix
+id: RL-0015
+keywords: [forward, only, migration]
+---
+
 # Forward-only fix for failed atomic migrations
 
 When a migration wrapped in `BEGIN; ... COMMIT;` fails partway through, PostgreSQL rolls back the entire block atomically. **Zero schema state from that migration persists on prod** (except statements that ran outside the BEGIN/COMMIT — typically only `ALTER TYPE`).

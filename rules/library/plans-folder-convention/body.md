@@ -1,3 +1,9 @@
+---
+name: plans-folder-convention
+id: RL-0033
+keywords: [plans, folder, convention]
+---
+
 # Plans Folder Convention — every repo, every substantive change
 
 Every substantive change to any project we ship starts with a plan that is

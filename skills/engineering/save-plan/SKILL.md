@@ -1,5 +1,7 @@
 ---
 name: save-plan
+id: SK-0040
+keywords: [save, plan]
 description: >
   Save the current session's plan to docs/Plan-<Name>.md and verify ledger
   alignment. Use after shipping any new plan. Ensures every plan has a

@@ -1,5 +1,7 @@
 ---
 name: gap-audit-and-elevation
+id: SK-0113
+keywords: [gap, audit, elevation]
 description: After every meaningful ship, run the gap audit (specific incomplete items, named) + elevation pass (ambitious extensions). File the audit at `docs/improvement/audits/<date>-<scope>.md` and append open items to `gaps-open.md` / `elevations-deferred.md`. Triggers on "audit the gaps", "after-ship audit", "what's left to close", "propose elevations". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/workflows/audit-and-elevate.md`.
 ---
 

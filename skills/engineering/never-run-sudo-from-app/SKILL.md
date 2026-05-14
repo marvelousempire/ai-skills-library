@@ -1,5 +1,7 @@
 ---
 name: never-run-sudo-from-app
+id: SK-0029
+keywords: [never, sudo, app]
 description: >-
   Security + UX boundary — when a tool needs elevated privileges (sudo,
   ownership transfer, system file modification, password unlock), it MUST NOT

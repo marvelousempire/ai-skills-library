@@ -1,5 +1,7 @@
 ---
 name: product-repo-architecture
+id: SK-0007
+keywords: [product, repo, architecture]
 description: >-
   The opinionated git repo structure, Makefile interface, GitHub Actions
   auto-release workflow, version-tracking pattern, git branch and PR naming

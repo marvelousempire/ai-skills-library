@@ -1,5 +1,7 @@
 ---
 name: quality-bar-honest
+id: SK-0035
+keywords: [quality, bar, honest]
 description: >-
   When a user demands "100% delivery" or "ship everything now" on scope that exceeds session capacity at quality bar, reply with the honest-scope framing: explicit what-I-can-ship vs what's-deferred. Cite the quality-bar rule. Don't ship hacks.
 trigger: >-

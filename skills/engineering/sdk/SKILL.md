@@ -1,5 +1,7 @@
 ---
 name: sdk
+id: SK-0041
+keywords: [sdk]
 description: >-
   Guide users building apps, scripts, CI pipelines, or automations on top of the
   Cursor TypeScript SDK (`@cursor/sdk`). Use when the user mentions integrating,

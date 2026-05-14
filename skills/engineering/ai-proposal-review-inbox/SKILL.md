@@ -1,5 +1,7 @@
 ---
 name: ai-proposal-review-inbox
+id: SK-0001
+keywords: [proposal, review, inbox]
 description: >-
   Pattern for letting an AI agent "grow" a hand-curated source file (cleaners,
   rules, fixtures, prompts, library entries) without ever auto-mutating it.

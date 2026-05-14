@@ -1,5 +1,7 @@
 ---
 name: doctor-script-pattern
+id: SK-0111
+keywords: [doctor, script, pattern]
 description: Every infra skill ships a doctor (`make doctor` or `scripts/doctor.sh`) that runs read-only health probes with color-coded output. Disk + Docker + engine + per-service. Exit codes: 0 green, 1 red, 2 yellow. Triggers on "doctor script", "health probes", "is the stack healthy". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/doctor-script.md` and `docs/templates/doctor.sh.template`.
 ---
 

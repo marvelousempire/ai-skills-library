@@ -1,5 +1,7 @@
 ---
 name: applescript-native-ui
+id: SK-0002
+keywords: [applescript, native]
 description: >-
   Author AppleScripts that use native macOS UI (display alert, display dialog,
   progress block, display notification, choose from list, set the clipboard)

@@ -1,3 +1,9 @@
+---
+name: changelog-and-versioning
+id: RL-0008
+keywords: [changelog, versioning]
+---
+
 # Changelog and version discipline
 
 After **any significant product or user-visible change** (features, notable fixes, UX/copy that ships, dependency or capability shifts), update **`docs/CHANGELOG.md`** in the **same change** (or immediately in a follow-up commit if split).

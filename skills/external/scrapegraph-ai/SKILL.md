@@ -1,5 +1,7 @@
 ---
 name: scrapegraph-ai
+id: SK-0057
+keywords: [scrapegraph]
 description: "ScrapeGraph AI \u2014 Python AI-assisted web scraping and structured extraction for LLM/RAG pipelines. Use when the user mentions or needs: ScrapeGraph; AI web scraping; LLM scraping pipeline; structured data from websites."
 ---
 

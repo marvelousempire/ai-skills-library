@@ -1,3 +1,9 @@
+---
+name: askuserquestion-fallback
+id: RL-0005
+keywords: [askuserquestion, fallback]
+---
+
 # AskUserQuestion fallback — pick defaults + flag for review
 
 `AskUserQuestion` can fail mid-flight with `Tool permission stream closed before response received` or similar errors. When it does, the agent must NOT stall.

@@ -1,3 +1,9 @@
+---
+name: pbxproj-conflict
+id: RL-0030
+keywords: [pbxproj, conflict]
+---
+
 # project.pbxproj — rebase and merge conflict resolution
 
 `project.pbxproj` conflicts are the single most common friction point in any

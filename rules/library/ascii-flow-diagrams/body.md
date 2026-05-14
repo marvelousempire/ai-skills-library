@@ -1,3 +1,9 @@
+---
+name: ascii-flow-diagrams
+id: RL-0004
+keywords: [ascii, flow, diagrams]
+---
+
 # ASCII flow diagrams — default visualization style
 
 When the user asks for a **visual** of a flow, system, architecture, request lifecycle, or how parts of something connect — render a **Unicode box-and-arrow diagram inside a fenced `text` block**. Don't reach for prose, Mermaid, or ASCII `+---+`.

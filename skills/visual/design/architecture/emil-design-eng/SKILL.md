@@ -1,5 +1,7 @@
 ---
 name: emil-design-eng
+id: SK-0131
+keywords: [emil, design, eng]
 description: Encodes Emil Kowalski's design engineering philosophy for UI polish, component design, animation decisions, and invisible details that make software feel great.
 ---
 

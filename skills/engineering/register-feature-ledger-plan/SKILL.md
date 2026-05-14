@@ -1,5 +1,7 @@
 ---
 name: register-feature-ledger-plan
+id: SK-0038
+keywords: [register, feature, ledger]
 description: >-
   Register a new plan + N features atomically in a database-backed admin ledger. Emits the seed migration, the long-form Plan-X.md doc, and the Feature Ledger.md mirror update — all idempotent, all in one PR. The canonical "every feature is a product" registration unit.
 trigger: >-

@@ -1,3 +1,9 @@
+---
+name: smoke-test-after-deploy
+id: RL-0040
+keywords: [smoke, test, after]
+---
+
 # Smoke test after every deploy
 
 CI green != live working. Smoke testing is the final mile: `curl` the live endpoint, click the live page, `psql` the live row count. It catches the gaps CI can't:

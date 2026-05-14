@@ -1,5 +1,7 @@
 ---
 name: graceful-degradation
+id: SK-0114
+keywords: [graceful, degradation]
 description: When a service is down, show a red pill, not a crash. When a build fails, report it and keep going. When `.env` is missing, skip with a warning. Every component degrades gracefully so the whole system never wedges on one bad link. Triggers on "graceful degradation", "fail soft", "don't crash on missing X". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: Implicit in `skills/infra/console/server.ts` and the Makefile patterns.
 ---
 

@@ -1,3 +1,9 @@
+---
+name: marketing-doc-per-feature
+id: RL-0024
+keywords: [marketing, doc, feature]
+---
+
 # Marketing Doc Per Feature
 
 Every shipped feature gets its own markdown file in `docs/marketing/`. This is the single source of truth for how that feature is described everywhere — website, App Store, pitch deck, sales calls.

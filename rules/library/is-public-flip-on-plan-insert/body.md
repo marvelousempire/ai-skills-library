@@ -1,3 +1,9 @@
+---
+name: is-public-flip-on-plan-insert
+id: RL-0021
+keywords: [public, flip, plan]
+---
+
 # plans.is_public must be explicitly flipped on plan registration
 
 Migration 0093 added `is_public BOOLEAN NOT NULL DEFAULT FALSE` to the `plans` table. New plans inserted without setting this column are stored in the database but **silently invisible** to:

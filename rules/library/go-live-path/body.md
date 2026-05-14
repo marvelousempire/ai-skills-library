@@ -1,3 +1,9 @@
+---
+name: go-live-path
+id: RL-0017
+keywords: [live, path]
+---
+
 # Go live path — never defer
 
 When this repo’s work **ships** (code, migrations, config that affects production), you **must** treat **“what you need to do to see it live”** as part of the **same deliverable** as the implementation—not a follow-up chat, not “documentation later.”

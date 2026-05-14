@@ -1,3 +1,9 @@
+---
+name: feature-id-race-guard
+id: RL-0012
+keywords: [feature, race, guard]
+---
+
 # Feature-ID race guard — check IDs at write time, not at planning time
 
 Feature IDs in a database-backed ledger are first-come, first-served, exactly the way migration numbers are (see [`migration-race-guard`](../migration-race-guard/body.md)). When you decide to use IDs 530–547 during planning and another agent's PR claims 530 four hours later, your `INSERT INTO features VALUES ('530', ...)` silently gets `ON CONFLICT DO NOTHING`'d at deploy time — and your row is lost.

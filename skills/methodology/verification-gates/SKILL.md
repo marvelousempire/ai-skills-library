@@ -1,5 +1,7 @@
 ---
 name: verification-gates
+id: SK-0120
+keywords: [verification, gates]
 description: Run every green-check before any commit hits main: SKILL count consistency, frontmatter lint, compose label parse, script syntax, link sanity, branch state, origin sync. Triggers on "verify before ship", "green checks", "don't merge yet". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/verification-gates.md` and `docs/checklists/ship.md`.
 ---
 

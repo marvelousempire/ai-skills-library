@@ -1,5 +1,7 @@
 ---
 name: console
+id: SK-0061
+keywords: [console]
 description: Homelab console — single unified UI + Makefile-driven control plane for the entire sovereign stack (SEEME, GitLab CE, GitLab Runners, Ollama, CI dashboard). Polls every service in parallel, shows up/down status, recent pipelines across all projects, and quick-launch links. One-page operational view of yousirjuan Category 11 + 12 in motion. Triggers on "homelab dashboard", "console UI", "unified UI", "stack overview", "make start everything", "show me what's running", "homelab status".
 ---
 

@@ -1,3 +1,9 @@
+---
+name: fk-target-type-check
+id: RL-0014
+keywords: [target, type, check]
+---
+
 # FK target type check — never guess the parent column's type
 
 When you write `child_col <TYPE> REFERENCES parent_table(id)` in a migration, the `<TYPE>` MUST exactly match `parent_table.id`'s declared type. PostgreSQL refuses the constraint with:

@@ -1,5 +1,7 @@
 ---
 name: open-generative-ai
+id: SK-0055
+keywords: [open, generative]
 description: "Open Generative AI \u2014 Self-hosted generative image and video studio aggregating many third-party models (see upstream for list and terms). Use when the user mentions or needs: self-hosted AI video studio; Open Generative AI; local image video generation stack."
 ---
 

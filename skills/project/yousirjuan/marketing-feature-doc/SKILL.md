@@ -1,5 +1,7 @@
 ---
 name: marketing-feature-doc
+id: SK-0129
+keywords: [marketing, feature, doc]
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

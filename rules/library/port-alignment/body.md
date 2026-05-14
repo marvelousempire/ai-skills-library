@@ -1,3 +1,9 @@
+---
+name: port-alignment
+id: RL-0034
+keywords: [port, alignment]
+---
+
 # Port Alignment
 
 Every port number in the stack must be defined once and read everywhere. Port numbers hardcoded in two or more places will drift.

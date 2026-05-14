@@ -1,3 +1,9 @@
+---
+name: app-launch-workflow
+id: RL-0003
+keywords: [app, launch, workflow]
+---
+
 # App Launch Workflow — Learn Mappers LLC / AVERY GOODMAN
 
 Every app we ship follows this workflow. Implement it end-to-end on every project without being asked.

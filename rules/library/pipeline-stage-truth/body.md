@@ -1,3 +1,9 @@
+---
+name: pipeline-stage-truth
+id: RL-0031
+keywords: [pipeline, stage, truth]
+---
+
 # Pipeline-stage truth — name the stage, don't generalize
 
 Work moves through 6 distinct stages. Each is a different status. "Done" without a stage is a story, not a status.

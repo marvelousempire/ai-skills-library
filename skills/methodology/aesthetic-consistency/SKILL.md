@@ -1,5 +1,7 @@
 ---
 name: aesthetic-consistency
+id: SK-0107
+keywords: [aesthetic, consistency]
 description: Same dark-mode + monospace + ascii-flow-diagram language across every UI shipped from this library. Result: 5 surfaces feel like one product. Use the canonical CSS variables + status pill primitive + footer engine badge pattern. Triggers on "design language", "aesthetic consistency", "dark mode + mono", "new UI starter". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/aesthetic-language.md` and `docs/templates/single-page-ui.html.template`.
 ---
 

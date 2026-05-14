@@ -1,5 +1,7 @@
 ---
 name: update-cli-config
+id: SK-0048
+keywords: [update, cli, config]
 description: >-
   View and modify Cursor CLI configuration settings in
   ~/.cursor/cli-config.json. Use when the user wants to change CLI settings,

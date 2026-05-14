@@ -1,5 +1,7 @@
 ---
 name: failure-proof-audit
+id: SK-0112
+keywords: [failure, proof, audit]
 description: >-
   A multi-pass audit methodology for any repo, project, workflow, prompt, or
   system. Run it as if the system already shipped six months ago and failed —

@@ -1,5 +1,7 @@
 ---
 name: migrate-to-skills
+id: SK-0027
+keywords: [migrate, skills]
 description: >-
   Convert 'Applied intelligently' Cursor rules (.cursor/rules/*.mdc) and slash
   commands (.cursor/commands/*.md) to Agent Skills format (.cursor/skills/). Use

@@ -1,5 +1,7 @@
 ---
 name: multi-surface-design
+id: SK-0117
+keywords: [multi, surface, design]
 description: One engine, many faces. Build the core (`generate()`) once and expose it as CLI + MCP + Web UI + Docker so every user/agent finds the right entry point. Changes propagate; tests cover everything. Triggers on "multi-surface", "one engine many faces", "CLI + MCP + Web UI", "expose this for agents". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/workflows/multi-surface-build.md`.
 ---
 

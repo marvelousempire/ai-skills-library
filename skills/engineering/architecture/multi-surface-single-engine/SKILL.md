@@ -1,5 +1,7 @@
 ---
 name: multi-surface-single-engine
+id: SK-0006
+keywords: [multi, surface, single]
 description: >-
   One core engine — a shell script, AppleScript, API, or binary — wrapped by
   multiple UX surfaces that each reach different users: a web dashboard, a CLI

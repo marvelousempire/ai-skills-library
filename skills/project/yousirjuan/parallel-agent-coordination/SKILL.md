@@ -1,5 +1,7 @@
 ---
 name: parallel-agent-coordination
+id: SK-0130
+keywords: [parallel, agent, coordination]
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

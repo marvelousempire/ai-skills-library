@@ -1,3 +1,9 @@
+---
+name: plan-first-for-substantive
+id: RL-0032
+keywords: [plan, first, substantive]
+---
+
 # Plan first for substantive changes
 
 ## When this fires

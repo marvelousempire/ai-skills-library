@@ -1,3 +1,9 @@
+---
+name: dustpan-github-workflow
+id: RL-0011
+keywords: [dustpan, github, workflow]
+---
+
 # Dustpan GitHub workflow — ship discipline
 
 Repository: `marvelousempire/xcode-cleanup-shortcut`  

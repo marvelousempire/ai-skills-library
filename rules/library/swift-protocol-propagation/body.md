@@ -1,3 +1,9 @@
+---
+name: swift-protocol-propagation
+id: RL-0042
+keywords: [swift, protocol, propagation]
+---
+
 # Swift protocol propagation — propagate every API change to all consumers
 
 When you change a Swift API surface, every consumer must be updated in the

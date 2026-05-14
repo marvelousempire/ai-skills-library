@@ -1,5 +1,7 @@
 ---
 name: associate-agent-system
+id: SK-0125
+keywords: [associate, agent, system]
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

@@ -1,3 +1,9 @@
+---
+name: parallel-pr-rebase-tax
+id: RL-0028
+keywords: [parallel, rebase, tax]
+---
+
 # Parallel-PR rebase tax — count rebases per PR
 
 In a 60+ worktree, 20-PRs-per-day monorepo, every dependent PR opened in a single session pays a rebase tax:

@@ -1,5 +1,7 @@
 ---
 name: update-cursor-settings
+id: SK-0049
+keywords: [update, cursor, settings]
 description: >-
   Modify Cursor/VSCode user settings in settings.json. Use when you want to
   change editor settings, preferences, configuration, themes, font size, tab

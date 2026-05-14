@@ -1,3 +1,9 @@
+---
+name: feature-ledger-first
+id: RL-0013
+keywords: [feature, ledger, first]
+---
+
 # Feature-ledger first — every feature is a product
 
 Every named piece of work — feature, gap, elevation — registers in the admin ledger BEFORE coding starts. Registration is one seed migration + one row in `features` + N rows in `feature_surfaces` + 1 row in `plan_features` (if attached to a plan).

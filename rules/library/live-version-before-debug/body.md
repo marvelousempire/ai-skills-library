@@ -1,3 +1,9 @@
+---
+name: live-version-before-debug
+id: RL-0023
+keywords: [live, version, before]
+---
+
 # Live version before debug
 
 ## The rule
