@@ -1,0 +1,6 @@
+{
+  "id": "pipeline-stage-truth",
+  "description": "Every 'done' reply names the pipeline stage: committed / pushed / PR'd / merged / deployed / live. Saying 'shipped' without a stage is a story, not a status.",
+  "alwaysApply": true,
+  "globs": []
+}

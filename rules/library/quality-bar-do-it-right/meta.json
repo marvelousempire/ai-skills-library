@@ -1,0 +1,6 @@
+{
+  "id": "quality-bar-do-it-right",
+  "description": "Never ship a hack that has visible side-effects to paper over a symptom. If the right fix is too complex for the current scope, say so out loud and propose deferring.",
+  "alwaysApply": true,
+  "globs": []
+}

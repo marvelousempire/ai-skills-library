@@ -1,0 +1,6 @@
+{
+  "id": "alter-type-outside-transaction",
+  "description": "ALTER TYPE ADD VALUE goes OUTSIDE the migration's BEGIN/COMMIT block — pg11 outright rejects it inside, pg12+ allows it but you can't use the new value in the same transaction.",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*.sql"]
+}

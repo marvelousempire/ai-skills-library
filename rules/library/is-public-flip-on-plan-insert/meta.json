@@ -1,0 +1,6 @@
+{
+  "id": "is-public-flip-on-plan-insert",
+  "description": "After INSERT INTO plans, explicitly set is_public=TRUE. The column defaults FALSE (set by migration 0093), so new plans are silently hidden from /public/plans until flipped.",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*seed*plan*.sql", "**/migrations/*plan*seed*.sql"]
+}

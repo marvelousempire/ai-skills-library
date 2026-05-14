@@ -1,0 +1,6 @@
+{
+  "id": "askuserquestion-fallback",
+  "description": "AskUserQuestion can fail mid-flight. Fallback: pick the (Recommended) option for each question, flag the assumption in the response, continue.",
+  "alwaysApply": true,
+  "globs": []
+}

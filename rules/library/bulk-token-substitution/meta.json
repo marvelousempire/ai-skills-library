@@ -1,0 +1,6 @@
+{
+  "id": "bulk-token-substitution",
+  "description": "For deterministic token rewrites across 3+ files (feature ID renumber, slug rename), use a Python heredoc in Bash. N sequential Edit calls is slower AND riskier.",
+  "alwaysApply": false,
+  "globs": []
+}

@@ -1,0 +1,6 @@
+{
+  "id": "smoke-test-after-deploy",
+  "description": "Every deploy ends with a live curl/click/psql verification. Catches schema defaults you forgot, env gaps, and routes that load but return wrong shape.",
+  "alwaysApply": true,
+  "globs": []
+}

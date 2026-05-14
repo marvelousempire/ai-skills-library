@@ -1,0 +1,6 @@
+{
+  "id": "feature-ledger-first",
+  "description": "Every feature is a product — log it in the admin ledger BEFORE coding. Portable rule for any monorepo with a feature/plan ledger table.",
+  "alwaysApply": true,
+  "globs": ["**/db/migrations/*.sql"]
+}

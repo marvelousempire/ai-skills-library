@@ -1,0 +1,6 @@
+{
+  "id": "honest-scope-reply",
+  "description": "When a user's ask exceeds session capacity at quality bar, propose explicit deferral with a clear filed-as table. Don't silently scope-creep, don't ship hacks, don't promise '100%' when it's not.",
+  "alwaysApply": true,
+  "globs": []
+}

@@ -14,6 +14,19 @@
     "framer-motion-transform-guard",
     "multi-surface-auth-redirect",
     "live-version-before-debug",
-    "root-cause-not-symptom"
+    "root-cause-not-symptom",
+    "feature-id-race-guard",
+    "fk-target-type-check",
+    "alter-type-outside-transaction",
+    "is-public-flip-on-plan-insert",
+    "forward-only-migration-fix",
+    "honest-scope-reply",
+    "parallel-pr-rebase-tax",
+    "feature-ledger-first",
+    "bulk-token-substitution",
+    "smoke-test-after-deploy",
+    "askuserquestion-fallback",
+    "quality-bar-do-it-right",
+    "pipeline-stage-truth"
   ]
 }

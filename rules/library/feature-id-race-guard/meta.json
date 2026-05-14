@@ -1,0 +1,6 @@
+{
+  "id": "feature-id-race-guard",
+  "description": "Feature IDs race the same way migration numbers do — re-run next-feature-id.sh right before Write, not at planning time. Sister rule to migration-race-guard.",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*seed*.sql", "**/db/migrations/*features*.sql"]
+}
