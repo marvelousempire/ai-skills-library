@@ -1,0 +1,8 @@
+{
+  "id": "add-agent-to-skills-library",
+  "alwaysApply": true,
+  "globs": ["agents/**", "docs/external-tools.manifest.json", "skills/external/**"],
+  "category": "registry-discipline",
+  "owner": "ai-skills-library",
+  "version": "0.1.0"
+}
