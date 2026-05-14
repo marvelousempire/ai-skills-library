@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homelab Console</title>
+<style>
+  /* ─── design tokens (match SEEME + CI dashboard) ─────────── */
+  :root {
+    --bg: #0a0a0a;
+    --bg-1: #141414;
+    --bg-2: #1c1c1c;
+    --bg-3: #232323;
+    --border: #2a2a2a;
+    --border-bright: #3a3a3a;
+    --text: #e8e8e8;
+    --text-dim: #8a8a8a;
+    --text-faint: #5a5a5a;
+    --cyan: #5ec8e5;
+    --green: #6fcf97;
+    --yellow: #f2c14e;
+    --red: #ef6f6c;
+    --blue: #7baaf7;
+    --purple: #b58ce5;
+    --mono: 'SF Mono', Menlo, 'Cascadia Mono', Consolas, 'DejaVu Sans Mono', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  pre, code, .mono { font-family: var(--mono); }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ─── header ─────────────────────────────────────────────── */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 24px;
+    background: var(--bg-1);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    color: var(--cyan);
+    font-size: 16px;
+  }
+  .brand::before { content: '▣ '; }
+  .tagline {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .header-spacer { flex: 1; }
+  .header-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  button {
+    background: var(--bg-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-family: var(--mono);
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  button:hover { border-color: var(--cyan); }
+
+  /* ─── main grid ──────────────────────────────────────────── */
+  main { padding: 24px; max-width: 1300px; margin: 0 auto; }
+  h2 {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    margin: 28px 0 12px;
+    font-weight: 600;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  /* ─── service cards ──────────────────────────────────────── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .service {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .service-name {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    flex: 1;
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .status-pill::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .status-pill.up {
+    color: var(--green);
+    border-color: rgba(111,207,151,0.3);
+  }
+  .status-pill.up::before {
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+  }
+  .status-pill.down {
+    color: var(--red);
+    border-color: rgba(239,111,108,0.3);
+  }
+  .status-pill.down::before { background: var(--red); }
+  .service-detail {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  .service-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  .pill-link {
+    padding: 4px 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+  }
+  .pill-link:hover {
+    border-color: var(--cyan);
+    text-decoration: none;
+  }
+  .pill-link.disabled {
+    color: var(--text-faint);
+    pointer-events: none;
+  }
+
+  /* ─── pipelines ──────────────────────────────────────────── */
+  .pipelines-card {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .pipelines-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+  }
+  .pipelines-card-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex: 1;
+  }
+  .pipeline-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px 80px 90px;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .pipeline-row:first-of-type { border-top: none; }
+  .pipeline-row:hover { background: var(--bg-2); }
+  .pipeline-row .project { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pipeline-row .ref { color: var(--text-dim); }
+  .pipeline-row .sha { color: var(--text-faint); }
+  .pipeline-row .when { text-align: right; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-decoration: none;
+  }
+  .badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .badge.success { color: var(--green); border-color: rgba(111,207,151,0.3); }
+  .badge.success::before { background: var(--green); }
+  .badge.failed { color: var(--red); border-color: rgba(239,111,108,0.3); }
+  .badge.failed::before { background: var(--red); }
+  .badge.running, .badge.preparing, .badge.pending {
+    color: var(--yellow);
+    border-color: rgba(242,193,78,0.3);
+  }
+  .badge.running::before, .badge.preparing::before, .badge.pending::before {
+    background: var(--yellow);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  .badge.manual { color: var(--blue); border-color: rgba(123,170,247,0.3); }
+  .badge.manual::before { background: var(--blue); }
+  .badge.canceled, .badge.skipped { color: var(--text-dim); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .empty, .error {
+    padding: 14px 18px;
+    color: var(--text-faint);
+    font-family: var(--sans);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  .error { color: var(--red); }
+
+  /* ─── quick launch row ───────────────────────────────────── */
+  .launch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .launch {
+    display: block;
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .launch:hover {
+    border-color: var(--cyan);
+    text-decoration: none;
+    background: var(--bg-2);
+  }
+  .launch-title {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .launch-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .launch-arrow {
+    float: right;
+    color: var(--cyan);
+    font-family: var(--mono);
+  }
+
+  /* ─── footer / commands ──────────────────────────────────── */
+  footer {
+    margin-top: 32px;
+    padding: 16px 24px;
+    background: var(--bg-1);
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  footer code {
+    background: var(--bg-2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--text);
+  }
+  .cmd-row { margin-bottom: 4px; }
+
+  .loading {
+    text-align: center;
+    padding: 48px;
+    color: var(--text-faint);
+    font-family: var(--mono);
+  }
+
+  /* ─── responsive ─────────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .pipeline-row { grid-template-columns: 80px 1fr 100px; }
+    .pipeline-row .sha, .pipeline-row .when { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand">HOMELAB CONSOLE</div>
+    <div class="tagline">yousirjuan · sovereign stack overview</div>
+  </div>
+  <span class="header-spacer"></span>
+  <span class="header-meta">
+    <span id="updated">never updated</span>
+    <button id="refresh">refresh</button>
+  </span>
+</header>
+
+<main>
+
+  <h2>services</h2>
+  <div id="services" class="services-grid">
+    <div class="loading">probing services…</div>
+  </div>
+
+  <h2>recent pipelines</h2>
+  <div id="pipelines" class="pipelines-card">
+    <div class="empty">no GitLab connection — set GITLAB_URL + GITLAB_TOKEN in .env</div>
+  </div>
+
+  <h2>quick launch</h2>
+  <div class="launch-grid">
+    <a class="launch" id="link-seeme" href="#" target="_blank" rel="noopener">
+      <span class="launch-arrow">↗</span>
+      <div class="launch-title">SEEME</div>
+      <div class="launch-sub">AI diagram generator</div>
+    </a>
+    <a class="launch" id="link-gitlab" href="#" target="_blank" rel="noopener">
+      <span class="launch-arrow">↗</span>
+      <div class="launch-title">GitLab CE</div>
+      <div class="launch-sub">private git + CI + registry</div>
+    </a>
+    <a class="launch" id="link-ci-dashboard" href="#" target="_blank" rel="noopener">
+      <span class="launch-arrow">↗</span>
+      <div class="launch-title">CI Dashboard</div>
+      <div class="launch-sub">cross-project pipeline overview</div>
+    </a>
+    <a class="launch" id="link-ollama" href="#" target="_blank" rel="noopener">
+      <span class="launch-arrow">↗</span>
+      <div class="launch-title">Ollama</div>
+      <div class="launch-sub">local LLM runtime</div>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="cmd-row"><strong>make targets</strong> — run from <code>skills/infra/console/</code>:</div>
+  <div class="cmd-row"><code>make start</code> · boot SEEME + GitLab + this console</div>
+  <div class="cmd-row"><code>make stop</code> · stop all stacks</div>
+  <div class="cmd-row"><code>make status</code> · service health + container list</div>
+  <div class="cmd-row"><code>make doctor</code> · run health checks across the stack</div>
+  <div class="cmd-row"><code>make logs</code> · tail logs from every container</div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    services: $('services'),
+    pipelines: $('pipelines'),
+    updated: $('updated'),
+    refresh: $('refresh'),
+    linkSeeme: $('link-seeme'),
+    linkGitlab: $('link-gitlab'),
+    linkCiDashboard: $('link-ci-dashboard'),
+    linkOllama: $('link-ollama'),
+  };
+
+  let timer = null;
+
+  const fmtAgo = (iso) => {
+    if (!iso) return '—';
+    const ms = Date.now() - new Date(iso).getTime();
+    const sec = Math.floor(ms / 1000);
+    if (sec < 60) return sec + 's ago';
+    if (sec < 3600) return Math.floor(sec / 60) + 'm ago';
+    if (sec < 86400) return Math.floor(sec / 3600) + 'h ago';
+    return Math.floor(sec / 86400) + 'd ago';
+  };
+
+  const fmtDuration = (s) => {
+    if (s == null) return '—';
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return m > 0 ? m + 'm ' + sec + 's' : sec + 's';
+  };
+
+  const escapeHtml = (s) =>
+    String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  const renderServices = (services) => {
+    els.services.innerHTML = '';
+    els.services.className = 'services-grid';
+    for (const svc of services) {
+      const div = document.createElement('div');
+      div.className = 'service';
+      const links = (svc.links || []).map(
+        (l) => `<a class="pill-link" href="${escapeHtml(l.href)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`,
+      ).join('');
+      div.innerHTML = `
+        <div class="service-header">
+          <div class="service-name">${escapeHtml(svc.name)}</div>
+          <span class="status-pill ${svc.available ? 'up' : 'down'}">${svc.available ? 'up' : 'down'}</span>
+        </div>
+        <div class="service-detail">${escapeHtml(svc.detail)}</div>
+        <div class="service-actions">${links || ''}</div>
+      `;
+      els.services.appendChild(div);
+    }
+  };
+
+  const renderPipelines = (gitlabData, gitlabUrl) => {
+    const pipelines = gitlabData?.recentPipelines ?? [];
+    els.pipelines.innerHTML = `
+      <div class="pipelines-card-header">
+        <div class="pipelines-card-title">latest across all projects</div>
+        ${gitlabUrl ? `<a class="pill-link" href="${escapeHtml(gitlabUrl)}/-/pipelines" target="_blank" rel="noopener">all pipelines ↗</a>` : ''}
+      </div>
+    `;
+    if (pipelines.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = gitlabUrl
+        ? 'No pipelines yet. Push a .gitlab-ci.yml in any project to trigger one.'
+        : 'No GitLab connection — set GITLAB_URL + GITLAB_TOKEN in .env.';
+      els.pipelines.appendChild(empty);
+      return;
+    }
+    for (const p of pipelines) {
+      const row = document.createElement('div');
+      row.className = 'pipeline-row';
+      const pipelineUrl = gitlabUrl + '/' + p.project.path_with_namespace + '/-/pipelines/' + p.id;
+      row.innerHTML = `
+        <a class="badge ${escapeHtml(p.status)}" href="${escapeHtml(pipelineUrl)}" target="_blank" rel="noopener">${escapeHtml(p.status)}</a>
+        <span class="project">${escapeHtml(p.project.path_with_namespace)}</span>
+        <span class="ref">${escapeHtml(p.ref || '—')}</span>
+        <span class="sha">${escapeHtml((p.sha || '').slice(0, 8))}</span>
+        <span class="when">${fmtAgo(p.updated_at || p.created_at)}</span>
+      `;
+      els.pipelines.appendChild(row);
+    }
+  };
+
+  const refresh = async () => {
+    try {
+      const res = await fetch('/api/status');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+
+      renderServices(data.services);
+
+      const gitlabService = data.services.find((s) => s.name === 'GitLab CE');
+      renderPipelines(gitlabService?.data, data.links.gitlab);
+
+      // Wire quick-launch links.
+      els.linkSeeme.href = data.links.seeme;
+      els.linkGitlab.href = data.links.gitlab || '#';
+      if (!data.links.gitlab) els.linkGitlab.classList.add('disabled');
+      else els.linkGitlab.classList.remove('disabled');
+      els.linkCiDashboard.href = data.links.ciDashboard;
+      els.linkOllama.href = data.links.ollama;
+
+      els.updated.textContent = 'updated ' + new Date().toLocaleTimeString();
+    } catch (err) {
+      els.services.innerHTML = '';
+      const e = document.createElement('div');
+      e.className = 'error';
+      e.textContent = '✗ ' + err.message;
+      els.services.appendChild(e);
+      els.updated.textContent = 'last refresh failed';
+    }
+  };
+
+  els.refresh.addEventListener('click', refresh);
+  refresh();
+  timer = setInterval(refresh, 15_000);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (timer) { clearInterval(timer); timer = null; }
+    } else if (!timer) {
+      refresh();
+      timer = setInterval(refresh, 15_000);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

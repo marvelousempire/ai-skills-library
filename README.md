@@ -45,6 +45,7 @@ Think of it as:
 | UI/UX Pro Max skill | [`skills/visual/design/ui-ux-pro-max/SKILL.md`](skills/visual/design/ui-ux-pro-max/SKILL.md) |
 | **SEEME** — AI diagram generator | [`skills/visual/diagrams/seeme/SKILL.md`](skills/visual/diagrams/seeme/SKILL.md) · [`README`](skills/visual/diagrams/seeme/README.md) |
 | **Self-hosted Git** (GitLab CE + CI) | [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) · [`README`](skills/infra/self-hosted-git/README.md) |
+| **Homelab Console** (unified UI + Makefile) | [`skills/infra/console/SKILL.md`](skills/infra/console/SKILL.md) · [`README`](skills/infra/console/README.md) |
 | Red-E Play project skills | [`skills/project/red-e-play/README.md`](skills/project/red-e-play/README.md) |
 | ReadyPlay context | [`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md) |
 | External tool bridge skills | [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) |
@@ -316,7 +317,56 @@ Outputs:
 |---|---|
 | [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) | the full playbook |
 | [`skills/infra/self-hosted-git/README.md`](skills/infra/self-hosted-git/README.md) | human-readable README |
-| [`skills/infra/README.md`](skills/infra/README.md) | infrastructure-skills index (future packs land here) |
+| [`skills/infra/README.md`](skills/infra/README.md) | infrastructure-skills index |
+
+**The unified surface — Homelab Console.** [`skills/infra/console/`](skills/infra/console/) is the operational entry point for the whole stack: one web UI showing the status of SEEME + GitLab + CI + Ollama side-by-side, plus a `Makefile` with `make start` / `make stop` / `make doctor` / `make logs` targets that orchestrate every service together. Skip ahead to family **10** below for details.
+
+---
+
+## 10 — Homelab Console (unified UI + Makefile)
+
+**Purpose:** ship a single web UI + Makefile that boots, monitors, and stops every service in the sovereign stack from one place.
+
+**Use when:** the task involves "show me what's running," "boot everything," `make start`, "homelab dashboard," "unified console," or just "open the console." This is the operational entry point.
+
+```text
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  ▣ HOMELAB CONSOLE                  yousirjuan · sovereign stack     │
+   ├─────────────────────────────────────────────────────────────────────┤
+   │  services                                                            │
+   │  ┌────────────────────┐  ┌────────────────────┐  ┌────────────────┐ │
+   │  │ SEEME       ● up   │  │ GitLab CE   ● up   │  │ Ollama   ● up  │ │
+   │  │ 2/5 providers      │  │ v17.5 · 3 proj · 1 │  │ v0.4 · 2 models│ │
+   │  └────────────────────┘  └────────────────────┘  └────────────────┘ │
+   │                                                                     │
+   │  recent pipelines (live, polled every 15s)                          │
+   │  ● running    ai-skills-library  main   be12ab0   now               │
+   │  ● success    seeme              main   a7b2fd5   2m ago            │
+   │                                                                     │
+   │  quick launch:  [SEEME ↗]  [GitLab ↗]  [CI dashboard ↗]  [Ollama ↗] │
+   └─────────────────────────────────────────────────────────────────────┘
+```
+
+**Two surfaces in one folder:**
+
+1. **Web UI** — `make start` boots Node :7779 + every service it monitors. The page polls each service in parallel, shows up/down status, surfaces the 5 most-recent pipelines across all GitLab projects, and offers click-through links to every other UI.
+2. **Makefile** — full lifecycle control:
+
+| Target | What it does |
+|---|---|
+| `make start` | boot SEEME + GitLab + CI dashboard + this console |
+| `make stop` | stop everything (volumes preserved) |
+| `make status` | container list + process state |
+| `make doctor` | health probes (disk, docker, every service) |
+| `make logs` | tail logs across the stack |
+| `make ui` | start only this console |
+| `make open` | open http://localhost:7779 in browser |
+
+| Resource | What It Covers |
+|---|---|
+| [`skills/infra/console/SKILL.md`](skills/infra/console/SKILL.md) | the playbook |
+| [`skills/infra/console/README.md`](skills/infra/console/README.md) | full README + architecture |
+| [`skills/infra/console/Makefile`](skills/infra/console/Makefile) | the lifecycle commands |
 
 ---
 
@@ -328,6 +378,7 @@ Outputs:
 | UI, app, dashboard, or page design | `skills/visual/design/` + You-Sir Juan design domain |
 | **Generate a diagram / flow / architecture picture** | **`skills/visual/diagrams/seeme/` — or just run `seeme "..."`** |
 | **Self-host Git or replace GitHub Actions** | **`skills/infra/self-hosted-git/`** |
+| **Boot / monitor the whole homelab stack** | **`skills/infra/console/` — `make start`** |
 | Cursor project skills | `skills/ide/cursor/` |
 | Agent rules | `rules/` |
 | ReadyPlay context | `context/readyplay-product-marketing-context.md` |
@@ -359,7 +410,8 @@ ai-skills-library/
 │   │       ├── ascii-flow-diagrams/    # the style spec (system prompt)
 │   │       └── seeme/                  # the AI tool: CLI + MCP + Web UI + Docker
 │   ├── infra/
-│   │   └── self-hosted-git/            # GitLab CE + CI + dashboard
+│   │   ├── self-hosted-git/            # GitLab CE + CI + dashboard
+│   │   └── console/                    # unified UI + Makefile (entry point)
 │   ├── ide/cursor/
 │   ├── project/red-e-play/
 │   └── external/
@@ -391,7 +443,7 @@ ai-skills-library/
 Current known count:
 
 ```text
-71 SKILL.md files under skills/
+72 SKILL.md files under skills/
 ```
 
 Regenerate catalogs after vendoring or editing skills.
