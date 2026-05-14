@@ -184,7 +184,7 @@ Do not use them for unauthorized access, malware, credential theft, evasion, exp
 |---|---|---|---|
 | Git | version control | operational memory and code history | Core |
 | GitHub | repo hosting | current remote hosting and upstream sync | Active |
-| GitLab CE | private Git platform | CI/CD, runners, artifacts, private governance | Planned |
+| GitLab CE | private Git platform | CI/CD, runners, artifacts, private governance | Skill ready ([self-hosted-git](../skills/infra/self-hosted-git/)) |
 | Docker | containerization | local runtime services | Active |
 | Docker Compose | service orchestration | dev/home-lab service startup | Active |
 | PostgreSQL | database | structured platform data | Planned |

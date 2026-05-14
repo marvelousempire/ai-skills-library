@@ -501,11 +501,11 @@ Tracks changes, versions assistants, runs CI/CD, stores artifacts, and preserves
 |---|---|---|---|---|
 | Git | version control | operational memory | code, assistant versions, infrastructure history | Core |
 | GitHub | repo hosting | current remote hosting | source hosting and upstream sync | Active |
-| GitLab CE | private Git platform | CI/CD, runners, artifacts | private governance platform | Planned |
-| Gitea | Git platform | lightweight self-hosted Git | optional smaller deployment | Candidate |
-| Forgejo | Git platform | community Git forge | optional open-source alternative | Candidate |
-| GitLab Runners | CI execution | pipeline workers | builds, tests, deploys, evals | Planned |
-| GitLab Registry | registry | container/package storage | internal runtime images | Planned |
+| GitLab CE | private Git platform | CI/CD, runners, artifacts | private governance platform | Skill ready ([self-hosted-git](../skills/infra/self-hosted-git/)) |
+| Gitea | Git platform | lightweight self-hosted Git | optional smaller deployment | Alternative (not selected — see [decision](../skills/infra/self-hosted-git/references/gitlab-vs-forgejo.md)) |
+| Forgejo | Git platform | community Git forge | optional open-source alternative | Alternative (not selected — see [decision](../skills/infra/self-hosted-git/references/gitlab-vs-forgejo.md)) |
+| GitLab Runners | CI execution | pipeline workers | builds, tests, deploys, evals | Skill ready (auto-registered by [self-hosted-git](../skills/infra/self-hosted-git/)) |
+| GitLab Registry | registry | container/package storage | internal runtime images | Skill ready (enabled in [self-hosted-git](../skills/infra/self-hosted-git/) Compose) |
 | Git LFS | large files | large artifact tracking | models, media, datasets | Candidate |
 
 ## AI Routing Note

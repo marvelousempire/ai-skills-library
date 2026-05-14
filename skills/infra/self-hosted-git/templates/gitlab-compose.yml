@@ -1,0 +1,86 @@
+# GitLab CE + GitLab Runner + Caddy reverse proxy.
+#
+# Boot:
+#   export GITLAB_HOSTNAME=git.your.tld
+#   export GITLAB_ROOT_PASSWORD="change-me-on-first-login"
+#   mkdir -p ./data/{config,logs,data,caddy-config,caddy-data,runner}
+#   docker compose -f templates/gitlab-compose.yml up -d
+#
+# First boot takes 1–3 minutes (Puma + Sidekiq + Postgres + Redis + Gitaly all
+# start in series). Tail `gitlab` logs and wait for "GitLab is now ready".
+
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    restart: unless-stopped
+    hostname: ${GITLAB_HOSTNAME:?GITLAB_HOSTNAME env var must be set}
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://${GITLAB_HOSTNAME}'
+        # Caddy terminates TLS in front; tell GitLab it's already-https.
+        nginx['listen_port'] = 80
+        nginx['listen_https'] = false
+
+        # Container registry on a subdomain. Caddy proxies it too.
+        registry_external_url 'https://registry.${GITLAB_HOSTNAME}'
+        registry_nginx['listen_port'] = 5000
+        registry_nginx['listen_https'] = false
+
+        # Smaller defaults so we fit comfortably on a Mac mini.
+        puma['worker_processes'] = 2
+        sidekiq['max_concurrency'] = 10
+        postgresql['shared_buffers'] = '256MB'
+        prometheus_monitoring['enable'] = false
+
+        # Initial root password (only honored on first boot).
+        gitlab_rails['initial_root_password'] = '${GITLAB_ROOT_PASSWORD:?set GITLAB_ROOT_PASSWORD on first boot}'
+
+        # SSH on port 2222 inside the container, mapped to host 2222 by default.
+        # Remap to 22 if this is the only thing on the host.
+        gitlab_rails['gitlab_shell_ssh_port'] = 2222
+    ports:
+      - "2222:22"     # git over SSH
+    expose:
+      - "80"          # HTTP — Caddy proxies this
+      - "5000"        # registry HTTP — Caddy proxies this
+    volumes:
+      - ./data/config:/etc/gitlab
+      - ./data/logs:/var/log/gitlab
+      - ./data/data:/var/opt/gitlab
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost/-/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 180s     # GitLab cold start takes a while
+    shm_size: 256m
+
+  caddy:
+    image: caddy:2
+    container_name: gitlab-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      GITLAB_HOSTNAME: ${GITLAB_HOSTNAME}
+    volumes:
+      - ./templates/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data/caddy-config:/config
+      - ./data/caddy-data:/data
+    depends_on:
+      - gitlab
+
+  runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: gitlab-runner
+    restart: unless-stopped
+    volumes:
+      - ./data/runner:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      gitlab:
+        condition: service_healthy
+    # Runner registration is a one-time manual step — see runner-setup.md.
+    # Once registered, the runner config persists in ./data/runner/.

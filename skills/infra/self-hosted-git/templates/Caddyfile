@@ -1,0 +1,44 @@
+# Caddy v2 reverse proxy for GitLab CE + container registry.
+#
+# Reads $GITLAB_HOSTNAME from the environment. Caddy handles Let's Encrypt
+# automatically as long as DNS for both hostnames points at this host AND
+# ports 80/443 are reachable from the internet.
+#
+# For Tailscale Funnel: Caddy doesn't manage certs (Funnel does). Use the
+# alternative block at the bottom of this file instead.
+
+{$GITLAB_HOSTNAME} {
+	reverse_proxy gitlab:80 {
+		# Keep client-IP info so GitLab's rate limits + audit logs are accurate.
+		header_up X-Forwarded-Proto https
+		header_up X-Forwarded-Ssl on
+	}
+	encode gzip
+	# Large repo pushes need generous timeouts and body sizes.
+	request_body {
+		max_size 10GB
+	}
+}
+
+registry.{$GITLAB_HOSTNAME} {
+	reverse_proxy gitlab:5000 {
+		header_up X-Forwarded-Proto https
+		header_up X-Forwarded-Ssl on
+	}
+	encode gzip
+	request_body {
+		max_size 10GB
+	}
+}
+
+# ── ALTERNATIVE: Tailscale Funnel ────────────────────────────────────────────
+# If GITLAB_HOSTNAME is a *.ts.net name, Tailscale terminates TLS and Caddy
+# only needs to forward HTTP locally. Use this instead of the blocks above:
+#
+# :80 {
+#     reverse_proxy gitlab:80
+# }
+#
+# Then run:
+#   sudo tailscale serve --bg --https=443 http://localhost:80
+#   sudo tailscale funnel --bg 443
