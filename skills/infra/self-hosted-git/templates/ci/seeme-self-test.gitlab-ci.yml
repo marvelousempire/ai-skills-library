@@ -1,0 +1,62 @@
+# SEEME's own CI — reference template for "how do I CI a Node 24 project
+# that uses --experimental-strip-types and runs a tiny HTTP server in tests?"
+#
+# Drop this at the root of the SEEME repo (or any structurally similar Node
+# 24 package). It runs typecheck + the full 42-test suite.
+
+image: node:24-slim
+
+stages:
+  - install
+  - check
+
+variables:
+  # Use pnpm (matches local dev). Cached across pipelines.
+  PNPM_HOME: /root/.local/share/pnpm
+  PATH: "/root/.local/share/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+cache:
+  key:
+    files:
+      - pnpm-lock.yaml
+  paths:
+    - node_modules/
+    - .pnpm-store/
+
+install:
+  stage: install
+  tags: [docker]
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@10 --activate
+  script:
+    - pnpm config set store-dir .pnpm-store
+    - pnpm install --frozen-lockfile
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+
+typecheck:
+  stage: check
+  tags: [docker]
+  needs: [install]
+  script:
+    - ./node_modules/.bin/tsc --noEmit
+
+test:
+  stage: check
+  tags: [docker]
+  needs: [install]
+  variables:
+    # Skip the live-Ollama integration test in CI (no model server here).
+    OLLAMA_HOST: "http://127.0.0.1:1"   # unreachable on purpose → test self-skips
+    # No diagram cache writes during CI.
+    SEEME_NO_CACHE: "1"
+  script:
+    - node --test --experimental-strip-types test/*.test.ts
+  artifacts:
+    when: always
+    reports:
+      junit: junit.xml
+    expire_in: 1 week

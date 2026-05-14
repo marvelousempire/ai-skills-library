@@ -1,0 +1,62 @@
+# Build a static site and deploy it via rsync to a target host (default: the
+# Mac mini running Caddy). Caddy serves it under its configured site root.
+#
+# Required CI/CD variables (Project → Settings → CI/CD → Variables):
+#   DEPLOY_TARGET_HOST   — hostname or IP of the deploy target (e.g. mac-mini.tailnet)
+#   DEPLOY_TARGET_USER   — SSH user on the target (e.g. nivram)
+#   DEPLOY_TARGET_PATH   — destination directory (e.g. /srv/sites/my-site)
+#   DEPLOY_SSH_KEY       — type: File, holds the deploy SSH private key
+#                          (generate a separate keypair just for CI; add the
+#                          public key to ~/.ssh/authorized_keys on the target)
+#
+# Optional:
+#   DEPLOY_SSH_KNOWN_HOSTS — type: File, holds the target's host key (run
+#                            `ssh-keyscan -H $DEPLOY_TARGET_HOST` to produce)
+
+stages:
+  - build
+  - deploy
+
+build-site:
+  stage: build
+  image: node:24-slim
+  tags: [docker]
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+  script:
+    # Adapt this to your generator: Astro, Eleventy, Next.js export, etc.
+    - npm run build
+  artifacts:
+    paths:
+      - dist/         # adjust to public/ or out/ if your generator differs
+    expire_in: 1 week
+
+deploy-rsync:
+  stage: deploy
+  image: alpine:latest
+  tags: [docker]
+  needs: [build-site]
+  before_script:
+    - apk add --no-cache openssh-client rsync
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - cp "$DEPLOY_SSH_KEY" ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+    - |
+      if [ -n "$DEPLOY_SSH_KNOWN_HOSTS" ]; then
+        cp "$DEPLOY_SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
+      else
+        ssh-keyscan -H "$DEPLOY_TARGET_HOST" >> ~/.ssh/known_hosts
+      fi
+  script:
+    # --delete removes files on target that aren't in source. Safer with a
+    # specific path target than rsync'ing the entire site root.
+    - rsync -avz --delete --human-readable
+        -e "ssh -i ~/.ssh/id_ed25519"
+        ./dist/
+        "${DEPLOY_TARGET_USER}@${DEPLOY_TARGET_HOST}:${DEPLOY_TARGET_PATH}/"
+    - echo "✓ deployed $(git rev-parse --short HEAD) to ${DEPLOY_TARGET_HOST}:${DEPLOY_TARGET_PATH}"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  environment:
+    # Tracks deployments in GitLab UI under Operate → Environments.
+    name: production
+    url: https://$DEPLOY_TARGET_HOST/   # adapt to your real public URL

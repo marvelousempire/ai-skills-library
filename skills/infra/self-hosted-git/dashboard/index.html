@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CI overview — self-hosted GitLab</title>
+<style>
+  /* ─── design tokens (match SEEME) ─────────────────────── */
+  :root {
+    --bg: #0a0a0a;
+    --bg-1: #141414;
+    --bg-2: #1c1c1c;
+    --bg-3: #232323;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --text-dim: #8a8a8a;
+    --text-faint: #5a5a5a;
+    --cyan: #5ec8e5;
+    --green: #6fcf97;
+    --yellow: #f2c14e;
+    --red: #ef6f6c;
+    --blue: #7baaf7;
+    --purple: #b58ce5;
+    --accent: var(--cyan);
+    --mono: 'SF Mono', Menlo, 'Cascadia Mono', Consolas, 'DejaVu Sans Mono', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  pre, code, .mono { font-family: var(--mono); }
+
+  /* ─── layout ──────────────────────────────────────────── */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    background: var(--bg-1);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--cyan);
+  }
+  .brand::before { content: '▣ '; }
+  .header-spacer { flex: 1; }
+  .header-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  main { padding: 24px 16px; max-width: 1200px; margin: 0 auto; }
+
+  /* ─── project rows ───────────────────────────────────── */
+  .project {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .project-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .project-header:hover { background: var(--bg-3); }
+  .project-name {
+    font-family: var(--mono);
+    font-weight: 600;
+    flex: 1;
+  }
+  .project-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .project-link {
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+  .project-link:hover { text-decoration: underline; }
+
+  .pipelines {
+    padding: 0;
+    list-style: none;
+  }
+  .pipeline {
+    display: grid;
+    grid-template-columns: 120px 1fr 110px 100px 110px;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .pipeline:first-child { border-top: none; }
+  .pipeline .ref {
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pipeline .sha {
+    color: var(--text-faint);
+  }
+  .pipeline .when {
+    text-align: right;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+    text-transform: lowercase;
+    text-decoration: none;
+  }
+  .badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .badge.success { color: var(--green); border-color: rgba(111,207,151,0.3); }
+  .badge.success::before { background: var(--green); }
+  .badge.failed { color: var(--red); border-color: rgba(239,111,108,0.3); }
+  .badge.failed::before { background: var(--red); }
+  .badge.running, .badge.preparing, .badge.pending {
+    color: var(--yellow);
+    border-color: rgba(242,193,78,0.3);
+  }
+  .badge.running::before, .badge.preparing::before, .badge.pending::before {
+    background: var(--yellow);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  .badge.canceled, .badge.skipped {
+    color: var(--text-dim);
+    border-color: var(--border);
+  }
+  .badge.manual {
+    color: var(--blue);
+    border-color: rgba(123,170,247,0.3);
+  }
+  .badge.manual::before { background: var(--blue); }
+  .badge.scheduled {
+    color: var(--purple);
+    border-color: rgba(181,140,229,0.3);
+  }
+  .badge.scheduled::before { background: var(--purple); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .empty, .error {
+    padding: 14px 16px;
+    color: var(--text-faint);
+    font-family: var(--sans);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  .error { color: var(--red); }
+
+  .loading {
+    text-align: center;
+    padding: 48px;
+    color: var(--text-faint);
+    font-family: var(--mono);
+  }
+
+  button {
+    background: var(--bg-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: var(--mono);
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  button:hover { border-color: var(--accent); }
+
+  /* ─── summary bar ────────────────────────────────────── */
+  .summary {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .summary-card {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    flex: 1;
+    min-width: 120px;
+  }
+  .summary-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .summary-value {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .summary-value.success { color: var(--green); }
+  .summary-value.failed { color: var(--red); }
+  .summary-value.running { color: var(--yellow); }
+
+  /* ─── responsive ─────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .pipeline {
+      grid-template-columns: 80px 1fr 100px;
+    }
+    .pipeline .sha, .pipeline .when { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">CI · self-hosted</span>
+  <span class="header-spacer"></span>
+  <span class="header-meta">
+    <span id="instance" class="dim">…</span>
+    <span id="updated" class="dim">never updated</span>
+    <button id="refresh">refresh</button>
+  </span>
+</header>
+
+<main>
+  <div class="summary">
+    <div class="summary-card">
+      <div class="summary-label">projects</div>
+      <div class="summary-value" id="count-projects">—</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">success (last)</div>
+      <div class="summary-value success" id="count-success">—</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">failed (last)</div>
+      <div class="summary-value failed" id="count-failed">—</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">running</div>
+      <div class="summary-value running" id="count-running">—</div>
+    </div>
+  </div>
+
+  <div id="projects" class="loading">loading projects…</div>
+</main>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    projects: $('projects'),
+    instance: $('instance'),
+    updated: $('updated'),
+    refresh: $('refresh'),
+    cProjects: $('count-projects'),
+    cSuccess: $('count-success'),
+    cFailed: $('count-failed'),
+    cRunning: $('count-running'),
+  };
+
+  let gitlabUrl = '';
+  let timer = null;
+
+  const fmtAgo = (iso) => {
+    if (!iso) return '—';
+    const ms = Date.now() - new Date(iso).getTime();
+    const sec = Math.floor(ms / 1000);
+    if (sec < 60) return sec + 's ago';
+    if (sec < 3600) return Math.floor(sec / 60) + 'm ago';
+    if (sec < 86400) return Math.floor(sec / 3600) + 'h ago';
+    return Math.floor(sec / 86400) + 'd ago';
+  };
+
+  const fmtDuration = (s) => {
+    if (s == null) return '—';
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return m > 0 ? m + 'm ' + sec + 's' : sec + 's';
+  };
+
+  const escapeHtml = (s) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  const fetchJson = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + (await res.text()));
+    return res.json();
+  };
+
+  const renderProject = (project, pipelines) => {
+    const div = document.createElement('div');
+    div.className = 'project';
+
+    const last = pipelines[0];
+    const repoUrl = gitlabUrl + '/' + project.path_with_namespace;
+
+    div.innerHTML = `
+      <div class="project-header">
+        <div class="project-name">${escapeHtml(project.path_with_namespace)}</div>
+        <div class="project-meta">${pipelines.length} recent pipeline${pipelines.length === 1 ? '' : 's'}</div>
+        <a class="project-link" href="${repoUrl}" target="_blank" rel="noopener">open ↗</a>
+      </div>
+    `;
+
+    if (pipelines.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = 'No pipelines yet. Push a .gitlab-ci.yml to trigger the first one.';
+      div.appendChild(empty);
+    } else {
+      const ul = document.createElement('ul');
+      ul.className = 'pipelines';
+      for (const p of pipelines.slice(0, 5)) {
+        const li = document.createElement('li');
+        li.className = 'pipeline';
+        const pipelineUrl = gitlabUrl + '/' + project.path_with_namespace + '/-/pipelines/' + p.id;
+        li.innerHTML = `
+          <a class="badge ${escapeHtml(p.status)}" href="${pipelineUrl}" target="_blank" rel="noopener">${escapeHtml(p.status)}</a>
+          <span class="ref">${escapeHtml(p.ref || '—')}</span>
+          <span class="sha">${escapeHtml((p.sha || '').slice(0, 8))}</span>
+          <span class="duration">${fmtDuration(p.duration)}</span>
+          <span class="when">${fmtAgo(p.updated_at || p.created_at)}</span>
+        `;
+        ul.appendChild(li);
+      }
+      div.appendChild(ul);
+    }
+
+    return div;
+  };
+
+  const refresh = async () => {
+    try {
+      const cfg = await fetchJson('/api/config');
+      gitlabUrl = cfg.gitlabUrl;
+      els.instance.textContent = gitlabUrl.replace(/^https?:\/\//, '');
+
+      const projects = await fetchJson('/api/projects');
+
+      // Fetch pipelines for each project in parallel.
+      const projectsWithPipelines = await Promise.all(
+        projects.map(async (proj) => {
+          try {
+            const pipelines = await fetchJson('/api/projects/' + proj.id + '/pipelines');
+            return { proj, pipelines };
+          } catch (err) {
+            return { proj, pipelines: [], error: err.message };
+          }
+        }),
+      );
+
+      // Sort: projects with most-recent activity first.
+      projectsWithPipelines.sort((a, b) => {
+        const aT = a.pipelines[0]?.updated_at ?? a.proj.last_activity_at ?? '';
+        const bT = b.pipelines[0]?.updated_at ?? b.proj.last_activity_at ?? '';
+        return bT.localeCompare(aT);
+      });
+
+      // Summary counts (based on most-recent pipeline per project).
+      let success = 0, failed = 0, running = 0;
+      for (const { pipelines } of projectsWithPipelines) {
+        const last = pipelines[0];
+        if (!last) continue;
+        if (last.status === 'success') success++;
+        else if (last.status === 'failed') failed++;
+        else if (last.status === 'running' || last.status === 'pending' || last.status === 'preparing') running++;
+      }
+      els.cProjects.textContent = projectsWithPipelines.length;
+      els.cSuccess.textContent = success;
+      els.cFailed.textContent = failed;
+      els.cRunning.textContent = running;
+
+      // Render.
+      els.projects.innerHTML = '';
+      els.projects.className = '';
+      if (projectsWithPipelines.length === 0) {
+        els.projects.className = 'loading';
+        els.projects.textContent = 'No projects found. Create one in GitLab to see it here.';
+      } else {
+        for (const { proj, pipelines } of projectsWithPipelines) {
+          els.projects.appendChild(renderProject(proj, pipelines));
+        }
+      }
+
+      els.updated.textContent = 'updated ' + new Date().toLocaleTimeString();
+    } catch (err) {
+      els.projects.className = 'error';
+      els.projects.textContent = '✗ ' + err.message;
+      els.updated.textContent = 'last attempt failed';
+    }
+  };
+
+  els.refresh.addEventListener('click', refresh);
+
+  // Initial + every 15s.
+  refresh();
+  timer = setInterval(refresh, 15_000);
+
+  // Pause polling when the tab is hidden, resume when visible.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (timer) { clearInterval(timer); timer = null; }
+    } else if (!timer) {
+      refresh();
+      timer = setInterval(refresh, 15_000);
+    }
+  });
+})();
+</script>
+</body>
+</html>

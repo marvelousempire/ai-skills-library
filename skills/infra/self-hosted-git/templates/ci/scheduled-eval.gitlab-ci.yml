@@ -1,0 +1,48 @@
+# Scheduled pipeline — runs on a cron, not on git push.
+#
+# Use this for:
+#   - Daily evaluations / regression tests against a deployed system
+#   - Ingestion jobs that pull data on a schedule
+#   - Health audits (e.g. lint all SEEME diagrams in this repo daily)
+#   - Backup verifications, link-rot checks, dependency-update scans
+#
+# Set the schedule in GitLab UI: Project → Build → Pipeline schedules → New.
+# Example cron: "0 4 * * *" = daily at 04:00 UTC.
+
+# Only run on a schedule — never on git push.
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+
+stages:
+  - run
+
+daily-eval:
+  stage: run
+  image: node:24-slim
+  tags: [docker]
+  variables:
+    # Set CRON_RUN_LABEL in the schedule UI to distinguish runs in artifacts.
+    RUN_LABEL: "${CRON_RUN_LABEL:-default}"
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+  script:
+    # Replace with your real eval / audit / ingestion command:
+    - echo "scheduled run: $RUN_LABEL @ $(date -u +%FT%TZ)"
+    - npm run eval        # or: python scripts/run_eval.py, etc.
+  artifacts:
+    name: "eval-${RUN_LABEL}-${CI_PIPELINE_ID}"
+    when: always          # keep artifacts even on failure for postmortem
+    paths:
+      - eval-results/
+      - logs/
+    reports:
+      # JUnit format pretty-prints in the GitLab UI's "Tests" tab.
+      junit: eval-results/junit.xml
+    expire_in: 90 days
+  retry:
+    # Network blips happen. Retry once on transient failure.
+    max: 1
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
