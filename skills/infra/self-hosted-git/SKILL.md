@@ -1,6 +1,6 @@
 ---
 name: self-hosted-git
-description: Stand up a private GitLab CE Git server on a Mac mini (or any spare box) with Docker Compose, Caddy auto-HTTPS, and a Tailscale-or-WireGuard tunnel for remote access. Includes runner registration for CI/CD, container registry, GitHub migration, daily backups to Backblaze B2, and an upgrade-stepping checklist. Anchors in the yousirjuan platform Category 11 (Governance, GitOps & Operational Memory). Triggers on "set up private git", "self-host git", "GitLab on Mac mini", "private git server", "private repo hosting", "migrate from GitHub".
+description: Stand up a private GitLab CE Git server on a Mac mini (or any spare box) with Docker Compose, Caddy auto-HTTPS, and a Tailscale-or-WireGuard tunnel for remote access. Includes GitHub-Actions-equivalent CI/CD via GitLab Runners (5 ready-to-use .gitlab-ci.yml templates + a tutorial), a self-contained CI overview dashboard, container registry, GitHub repo migration, daily backups to Backblaze B2, and an upgrade-stepping checklist. Anchors in the yousirjuan platform Category 11 (Governance, GitOps & Operational Memory). Triggers on "set up private git", "self-host git", "GitLab on Mac mini", "private git server", "private repo hosting", "migrate from GitHub", "self-hosted GitHub Actions", "private CI/CD", "GitLab CI", "replace GitHub Actions".
 ---
 
 # self-hosted-git — private GitLab CE playbook
@@ -124,6 +124,32 @@ WireGuard / Flint 2 target setup: [`templates/wireguard-quickstart.md`](template
 
 A 24-GB Mac mini M4 Pro runs this comfortably with room left for Open WebUI, Qdrant, PostgreSQL, and Ollama (per the [yousirjuan platform plan](../../../docs/yousirjuan-platform-skills-master.md#10-infrastructure--deployment)).
 
+## CI/CD — your private GitHub Actions
+
+GitLab CE includes a full CI/CD system (`.gitlab-ci.yml` + Runners). One runner auto-registers when you boot the stack. Five ready-to-use workflow templates ship in [`templates/ci/`](templates/ci/):
+
+| Template | What it does |
+|---|---|
+| [`node-test-and-build.gitlab-ci.yml`](templates/ci/node-test-and-build.gitlab-ci.yml) | install → typecheck → test → bundle, with pnpm/npm cache |
+| [`docker-build-and-push.gitlab-ci.yml`](templates/ci/docker-build-and-push.gitlab-ci.yml) | build image, push to your private container registry |
+| [`static-site-deploy.gitlab-ci.yml`](templates/ci/static-site-deploy.gitlab-ci.yml) | build + rsync-deploy to Caddy on the Mac mini |
+| [`scheduled-eval.gitlab-ci.yml`](templates/ci/scheduled-eval.gitlab-ci.yml) | cron-triggered evals, with JUnit reports + 90-day artifacts |
+| [`seeme-self-test.gitlab-ci.yml`](templates/ci/seeme-self-test.gitlab-ci.yml) | reference: Node 24 + `--experimental-strip-types` + 42-test suite |
+
+10-minute tutorial: [`templates/ci/TUTORIAL.md`](templates/ci/TUTORIAL.md) — your first pipeline running in ~10 lines of YAML.
+
+## CI overview dashboard
+
+Self-contained "what's green and what's red right now" page across every project. Live status, calm aesthetic (matches SEEME). Runs locally, polls the GitLab API every 15 seconds:
+
+```sh
+cd dashboard
+cp .env.example .env       # add GITLAB_URL + GITLAB_TOKEN (read_api scope)
+./serve.sh                 # → http://127.0.0.1:7778/
+```
+
+Full setup: [`dashboard/README.md`](dashboard/README.md).
+
 ## Day-2 operations
 
 | Task | How |
@@ -133,6 +159,7 @@ A 24-GB Mac mini M4 Pro runs this comfortably with room left for Open WebUI, Qdr
 | Add a runner on another box | [`templates/runner-setup.md`](templates/runner-setup.md) |
 | Migrate repos out of GitHub | [`templates/migrate-from-github.sh`](templates/migrate-from-github.sh) — uses GitLab's built-in importer |
 | Restore from backup | step-by-step in [`templates/upgrade-checklist.md`](templates/upgrade-checklist.md#disaster-recovery) |
+| Watch all pipelines at a glance | [`dashboard/`](dashboard/) — local CI overview |
 
 ## Pairing
 

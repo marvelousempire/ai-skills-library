@@ -46,10 +46,45 @@ self-hosted-git/
 │   ├── runner-setup.md                   # how to register more runners on more boxes
 │   ├── migrate-from-github.sh            # bulk-import via GitLab's built-in importer
 │   ├── backup.sh                         # daily gitlab-backup → Backblaze B2
-│   └── upgrade-checklist.md              # major-version stepping + disaster recovery
+│   ├── upgrade-checklist.md              # major-version stepping + disaster recovery
+│   └── ci/                               # GitHub-Actions-equivalent workflow templates
+│       ├── README.md                     # what each template does
+│       ├── TUTORIAL.md                   # your first pipeline in 10 minutes
+│       ├── node-test-and-build.gitlab-ci.yml
+│       ├── docker-build-and-push.gitlab-ci.yml
+│       ├── static-site-deploy.gitlab-ci.yml
+│       ├── scheduled-eval.gitlab-ci.yml
+│       └── seeme-self-test.gitlab-ci.yml
+├── dashboard/                            # CI overview UI (live pipeline status)
+│   ├── README.md
+│   ├── server.ts                         # Node stdlib http server + GitLab API proxy
+│   ├── serve.sh                          # one-line launcher
+│   ├── index.html                        # self-contained UI (matches SEEME aesthetic)
+│   └── .env.example                      # GITLAB_URL + GITLAB_TOKEN
 └── references/
     ├── gitlab-vs-forgejo.md              # decision record (why GitLab, not Forgejo)
     └── yousirjuan-context.md             # connection to the broader platform vision
+```
+
+## CI/CD — drop-in GitHub Actions replacement
+
+GitLab CE ships its own CI/CD system, fully equivalent to GitHub Actions for most workflows. Drop a `.gitlab-ci.yml` file at the root of any repo and the runner picks it up. Pick a template from [`templates/ci/`](templates/ci/) and you're running in minutes:
+
+```sh
+# Your first pipeline (in any cloned repo):
+cp ../../infra/self-hosted-git/templates/ci/node-test-and-build.gitlab-ci.yml .gitlab-ci.yml
+git add .gitlab-ci.yml && git commit -m "ci: drop-in pipeline" && git push
+# → pipeline appears in GitLab UI within seconds
+```
+
+Full 10-minute walkthrough: [`templates/ci/TUTORIAL.md`](templates/ci/TUTORIAL.md).
+
+For cross-project "what's green / what's red right now" visibility:
+
+```sh
+cd dashboard
+cp .env.example .env  # add GITLAB_URL + read_api token
+./serve.sh            # → http://127.0.0.1:7778/
 ```
 
 ## Two paths, one Compose file

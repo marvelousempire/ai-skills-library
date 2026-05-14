@@ -43,6 +43,8 @@ Think of it as:
 | Marketing skills by category | [`skills/marketing/CATEGORIES.md`](skills/marketing/CATEGORIES.md) |
 | Cursor skills catalog | [`skills/ide/cursor/SKILL-CATALOG.md`](skills/ide/cursor/SKILL-CATALOG.md) |
 | UI/UX Pro Max skill | [`skills/visual/design/ui-ux-pro-max/SKILL.md`](skills/visual/design/ui-ux-pro-max/SKILL.md) |
+| **SEEME** — AI diagram generator | [`skills/visual/diagrams/seeme/SKILL.md`](skills/visual/diagrams/seeme/SKILL.md) · [`README`](skills/visual/diagrams/seeme/README.md) |
+| **Self-hosted Git** (GitLab CE + CI) | [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) · [`README`](skills/infra/self-hosted-git/README.md) |
 | Red-E Play project skills | [`skills/project/red-e-play/README.md`](skills/project/red-e-play/README.md) |
 | ReadyPlay context | [`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md) |
 | External tool bridge skills | [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) |
@@ -209,8 +211,8 @@ Domains inside that guide:
 | Voice & Speech | Whisper, Piper, Kokoro, ElevenLabs, Coqui TTS |
 | Productivity | GWS, Gmail, Calendar, Docs, Sheets |
 | Evaluation | DeepEval, Promptfoo, Playwright Tests, Sentry |
-| Infrastructure | Docker, PostgreSQL, Redis, WireGuard, nginx, Terraform |
-| Governance | Git, GitHub, GitLab CE, runners, artifacts |
+| Infrastructure | Docker, PostgreSQL, Redis, WireGuard, nginx, Caddy, Terraform |
+| Governance | Git, GitHub, **GitLab CE (skill ready: [`self-hosted-git`](skills/infra/self-hosted-git/))**, runners, artifacts |
 | Hardware | MacBook Pro M5 Max, Mac mini M4 Pro, DGX Spark, Jetson Thor |
 
 Outputs:
@@ -223,12 +225,109 @@ Outputs:
 
 ---
 
+## 08 — Visual Diagrams (SEEME)
+
+**Purpose:** turn any text — prose, code, JSON, meeting notes, a one-line idea — into a clean Unicode box-and-arrow diagram, automatically.
+
+**Use when:** the task involves "diagram this," "explain visually," "show me how X talks to Y," generating architecture pictures, flowcharts, sequence diagrams, or teaching diagrams that copy-paste cleanly into Notion / GitHub / docs.
+
+```text
+   ┌──────────────┐   ┌──────────────────┐   ┌──────────────┐   ┌──────────┐
+   │   input      │──►│   provider       │──►│  lint loop   │──►│ diagram  │
+   │  prompt/CLI/ │   │  Ollama default  │   │  ≤ 3 retries │   │ stdout   │
+   │  MCP/UI      │   │  + cloud APIs    │   │  5 rules     │   │ + SVG    │
+   └──────────────┘   └──────────────────┘   └──────────────┘   └──────────┘
+                              │                      ▲
+                              │ system prompt        │ targeted fix prompt
+                              ▼                      │ on lint failure
+                      ┌──────────────────────────────┴─┐
+                      │  ascii-flow-diagrams style spec│
+                      │  (the SKILL.md, verbatim)      │
+                      └────────────────────────────────┘
+```
+
+**Two paired skills:**
+
+1. **`ascii-flow-diagrams`** — the **style spec**. Defines the Unicode box-and-arrow format (┌ ┐ └ ┘ │ ─ ▲ ▼ ◄ ►) with 8 worked examples (compact topology, annotated decision-flow, sequence, merged). Auto-applied by Claude + Cursor via an `alwaysApply` rule.
+2. **`seeme`** — the **AI tool** that reads the style spec verbatim as its system prompt and renders diagrams from any input. Provider-agnostic: Ollama-default (local, free, private), with OpenAI / Anthropic / Google Gemini / Perplexity as bring-your-own-key fallbacks. Ships **six surfaces** for the same engine:
+
+| Surface | Command | What it does |
+|---|---|---|
+| CLI | `seeme "explain RAG"` | one-shot diagram from a prompt / stdin / file |
+| Refine | `seeme --refine "add a redis cache"` | edits the last cached diagram, inherits style |
+| Chain | `seeme "X" --then "Y" --then "Z"` | one call, N refines, all share the cached system prompt |
+| Web UI | `seeme serve --open` | split-pane streaming preview, copy + SVG export, refine button |
+| MCP server | `seeme-mcp` | exposes `generate_diagram` / `refine_diagram` / `list_providers` to Claude Desktop / Cursor / Claude Code |
+| Docker | `docker compose up -d` | full stack — SEEME UI + Ollama + llama3.1 auto-pull |
+
+**Engine highlights:** 5-rule lint loop (no-diagram → unicode → width → closure → alignment), no-diagram sub-classifier (refused / wrong-format / truncated), Anthropic prompt caching (5-min default, 1-h opt-in), OpenAI auto-cache, file-watch mode, `--explain` prose alongside the diagram, opt-in JSONL history + stats dashboard. 42 unit tests + 1 live-Ollama integration test.
+
+| Resource | What It Covers |
+|---|---|
+| [`skills/visual/diagrams/ascii-flow-diagrams/SKILL.md`](skills/visual/diagrams/ascii-flow-diagrams/SKILL.md) | the canonical style spec |
+| [`skills/visual/diagrams/seeme/SKILL.md`](skills/visual/diagrams/seeme/SKILL.md) | tool playbook + invocation |
+| [`skills/visual/diagrams/seeme/README.md`](skills/visual/diagrams/seeme/README.md) | full README with install + quick-start |
+
+---
+
+## 09 — Infrastructure (self-hosted Git + private CI)
+
+**Purpose:** stand up sovereign infrastructure for the You-Sir Juan stack — your own Git server, your own CI runners, your own container registry, all on your own hardware.
+
+**Use when:** the task involves "self-host Git," "private GitLab," "replace GitHub Actions," "private CI/CD," "GitLab on Mac mini," "private container registry," or migrating off GitHub.
+
+```text
+   ┌─────────────────┐   tunnel    ┌────────────────────────────┐
+   │  laptop / phone │◄────────────┤   Caddy (auto-HTTPS)       │
+   │  anywhere       │             │   git + registry on :443   │
+   └─────────────────┘             └──────────────┬─────────────┘
+                                                  │
+                                                  ▼
+                                   ┌────────────────────────────┐
+                                   │   GitLab CE (Omnibus)      │
+                                   │   web UI + git + registry  │
+                                   │   + runners + packages     │
+                                   └─────────┬──────────────────┘
+                                             │
+                                             ▼
+                                   ┌────────────────────────────┐
+                                   │   GitLab Runner            │
+                                   │   GitHub-Actions-equivalent│
+                                   │   .gitlab-ci.yml workflows │
+                                   └────────────────────────────┘
+```
+
+**One skill, six layers:**
+
+| Layer | Resource |
+|---|---|
+| Docker Compose stack | [`templates/gitlab-compose.yml`](skills/infra/self-hosted-git/templates/gitlab-compose.yml) — GitLab CE + Runner + Caddy reverse proxy |
+| HTTPS | [`templates/Caddyfile`](skills/infra/self-hosted-git/templates/Caddyfile) — Let's Encrypt automatic |
+| Two network paths | [`tailscale-quickstart.md`](skills/infra/self-hosted-git/templates/tailscale-quickstart.md) (Path A — today) · [`wireguard-quickstart.md`](skills/infra/self-hosted-git/templates/wireguard-quickstart.md) (Path B — Mac mini + Flint 2 target) |
+| CI/CD templates | [`templates/ci/`](skills/infra/self-hosted-git/templates/ci/) — five ready-to-use `.gitlab-ci.yml` patterns + a [10-minute tutorial](skills/infra/self-hosted-git/templates/ci/TUTORIAL.md) |
+| CI overview dashboard | [`dashboard/`](skills/infra/self-hosted-git/dashboard/) — self-contained UI, polls every 15s, shows pipeline status across every project |
+| Day-2 ops | [`backup.sh`](skills/infra/self-hosted-git/templates/backup.sh) (to Backblaze B2) · [`upgrade-checklist.md`](skills/infra/self-hosted-git/templates/upgrade-checklist.md) · [`migrate-from-github.sh`](skills/infra/self-hosted-git/templates/migrate-from-github.sh) · [`runner-setup.md`](skills/infra/self-hosted-git/templates/runner-setup.md) |
+
+**Cost when complete:** ~$0/month recurring (one-time hardware + ~$0.05/mo Backblaze B2 backups). Yours. Private. Reachable from anywhere via the WireGuard tunnel.
+
+**Aligns with yousirjuan plan:** operationalizes Category 11 (Governance, GitOps & Operational Memory) — GitLab CE / Runners / Registry move from "Planned" to "Skill ready." Decision record vs Forgejo lives in [`references/gitlab-vs-forgejo.md`](skills/infra/self-hosted-git/references/gitlab-vs-forgejo.md).
+
+| Resource | What It Covers |
+|---|---|
+| [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) | the full playbook |
+| [`skills/infra/self-hosted-git/README.md`](skills/infra/self-hosted-git/README.md) | human-readable README |
+| [`skills/infra/README.md`](skills/infra/README.md) | infrastructure-skills index (future packs land here) |
+
+---
+
 # AI Routing Cheat Sheet
 
 | Task Type | First Place To Look |
 |---|---|
 | Marketing copy or growth strategy | `skills/marketing/` |
 | UI, app, dashboard, or page design | `skills/visual/design/` + You-Sir Juan design domain |
+| **Generate a diagram / flow / architecture picture** | **`skills/visual/diagrams/seeme/` — or just run `seeme "..."`** |
+| **Self-host Git or replace GitHub Actions** | **`skills/infra/self-hosted-git/`** |
 | Cursor project skills | `skills/ide/cursor/` |
 | Agent rules | `rules/` |
 | ReadyPlay context | `context/readyplay-product-marketing-context.md` |
@@ -254,13 +353,20 @@ ai-skills-library/
 │   ├── marketing/
 │   │   ├── SKILL-CATALOG.md
 │   │   └── CATEGORIES.md
-│   ├── visual/design/ui-ux-pro-max/
+│   ├── visual/
+│   │   ├── design/ui-ux-pro-max/
+│   │   └── diagrams/
+│   │       ├── ascii-flow-diagrams/    # the style spec (system prompt)
+│   │       └── seeme/                  # the AI tool: CLI + MCP + Web UI + Docker
+│   ├── infra/
+│   │   └── self-hosted-git/            # GitLab CE + CI + dashboard
 │   ├── ide/cursor/
 │   ├── project/red-e-play/
 │   └── external/
 ├── rules/
 ├── docs/
 │   ├── yousirjuan-platform-skills-master.md
+│   ├── yousirjuan-upstream-repo-ledger.md
 │   ├── related-github-projects.md
 │   ├── cursor-project-skills.md
 │   ├── marketingskills.md
@@ -285,7 +391,7 @@ ai-skills-library/
 Current known count:
 
 ```text
-68 SKILL.md files under skills/
+71 SKILL.md files under skills/
 ```
 
 Regenerate catalogs after vendoring or editing skills.
