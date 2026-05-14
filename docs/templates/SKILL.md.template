@@ -1,0 +1,60 @@
+---
+name: <skill-slug>
+description: <One paragraph: what the skill does, when it applies, and trigger phrases. Must include "Triggers on" or "Use when" with concrete example phrases the user might say. See docs/standards/frontmatter.md.>
+---
+
+# <skill-slug> — <descriptive subtitle>
+
+<One-paragraph elevator: what this skill is and the problem it solves. Link related skills.>
+
+## When to use
+
+- "<trigger phrase>"
+- "<trigger phrase>"
+- "<trigger phrase>"
+- "Use **<skill-slug>**."
+
+## How it works
+
+```text
+   ┌────────────────────────────────────────────────────────────────┐
+   │  <ascii diagram per the ascii-flow-diagrams style>             │
+   └────────────────────────────────────────────────────────────────┘
+```
+
+## Invocation
+
+```sh
+# CLI form (if applicable)
+<command> <args>
+
+# Or, in a Claude/Cursor message:
+Use <skill-slug> on <input>
+```
+
+## What you get
+
+| Surface | URL / Command | Notes |
+|---|---|---|
+| <surface name> | <how to reach it> | <one-line> |
+
+## Verification
+
+```sh
+# How to confirm the skill is working:
+<command>
+# Expected output: <…>
+```
+
+## Pairing
+
+- **<Related skill name>**: [`<path>`](<path>) — <why it pairs>
+- **<Standard or doc>**: [`<path>`](<path>) — <why>
+
+## yousirjuan alignment
+
+Operationalizes Category <N> ([`<…>`](../../../docs/yousirjuan-platform-skills-master.md)). <One sentence on how this skill maps to the platform plan.>
+
+---
+
+**Anatomy:** [`docs/standards/skill-anatomy.md`](../../../docs/standards/skill-anatomy.md) · **Checklist:** [`docs/checklists/new-skill.md`](../../../docs/checklists/new-skill.md)

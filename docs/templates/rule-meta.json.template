@@ -1,0 +1,8 @@
+{
+  "id": "<slug>",
+  "alwaysApply": true,
+  "globs": ["**/*"],
+  "category": "global-communication | repo-discipline | infra | content-quality",
+  "owner": "ai-skills-library",
+  "version": "0.1.0"
+}

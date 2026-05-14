@@ -1,0 +1,35 @@
+# <skill-slug> — compose stack with the canonical ai-skills-library label schema.
+#
+# Every service carries OCI + ai-skills-library.* labels so Dockyard, the
+# Homelab Console, and future tooling can render the stack with names,
+# roles, and per-service URLs.
+#
+# See docs/standards/container-labels.md.
+
+services:
+  <service-name>:
+    image: <image>:<tag>
+    container_name: <skill-slug>-<service-role>
+    restart: unless-stopped
+    ports:
+      - "<host-port>:<container-port>"
+    volumes:
+      - <skill-slug>-data:/path
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:<port>/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    # ─── REQUIRED LABELS ────────────────────────────────────────────
+    # See docs/standards/container-labels.md for the contract.
+    labels:
+      org.opencontainers.image.title:       "<Display name>"
+      org.opencontainers.image.source:      "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "<one-line role>"
+      ai-skills-library.skill:              "<skill-slug>"
+      ai-skills-library.surface:            "<web-ui|engine|reverse-proxy|ci-runner|init|dock-ui|db|queue>"
+      ai-skills-library.url:                "http://localhost:<host-port>"   # omit for engine|init|ci-runner
+
+volumes:
+  <skill-slug>-data:

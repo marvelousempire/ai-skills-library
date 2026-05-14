@@ -1,0 +1,106 @@
+# <skill-slug> Makefile — the `make ui` one-command pattern.
+#
+# Replace <skill-slug>, <port>, and service-specific bits as needed.
+# Modeled on skills/infra/console/Makefile.
+
+SHELL := /bin/bash
+.SHELLFLAGS := -eu -o pipefail -c
+.ONESHELL:
+.DELETE_ON_ERROR:
+
+# ─── ports + paths ────────────────────────────────────────────────────────
+PORT     ?= <default-port>
+HOST     ?= 127.0.0.1
+
+# ─── colors ───────────────────────────────────────────────────────────────
+CYAN   := \033[36m
+GREEN  := \033[32m
+YELLOW := \033[33m
+RED    := \033[31m
+DIM    := \033[2m
+RESET  := \033[0m
+
+# ─── default + help ───────────────────────────────────────────────────────
+.DEFAULT_GOAL := help
+
+.PHONY: help
+help: ## Show this help
+	@echo ""
+	@printf "  $(CYAN)<skill-slug>$(RESET) commands\n"
+	@echo ""
+	@printf "  $(GREEN)ONE COMMAND:$(RESET)\n"
+	@printf "    $(CYAN)make ui$(RESET)    boot everything + open browser (idempotent)\n"
+	@echo ""
+	@printf "  $(YELLOW)Everything else:$(RESET)\n"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+		| grep -v '^ui:' \
+		| awk 'BEGIN {FS = ":.*?## "}; {printf "  $(GREEN)%-14s$(RESET) %s\n", $$1, $$2}'
+	@echo ""
+
+# ─── the one command ──────────────────────────────────────────────────────
+.PHONY: ui
+ui: _check-docker start _wait _open ## ONE COMMAND. Idempotent. Same every time.
+	@echo ""
+	@printf "$(GREEN)✓ up at http://$(HOST):$(PORT)$(RESET)\n"
+
+# ─── lifecycle ────────────────────────────────────────────────────────────
+.PHONY: start
+start: ## Boot the service(s)
+	@printf "$(CYAN)→$(RESET) starting <skill-slug>...\n"
+	@docker compose up -d 2>&1 | tail -5
+
+.PHONY: stop
+stop: ## Stop the service(s)
+	@printf "$(CYAN)→$(RESET) stopping <skill-slug>...\n"
+	@docker compose down 2>&1 | tail -3
+
+.PHONY: restart
+restart: stop start ## Stop and start
+
+# ─── inspection ───────────────────────────────────────────────────────────
+.PHONY: status
+status: ## Show what's running
+	@docker ps --filter 'label=ai-skills-library.skill=<skill-slug>' \
+		--format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'
+
+.PHONY: doctor
+doctor: ## Health probes
+	@printf "$(CYAN)── <skill-slug> doctor ──$(RESET)\n"
+	@printf "Docker daemon:   "
+	@if docker info >/dev/null 2>&1; then printf "$(GREEN)● up$(RESET)\n"; else printf "$(RED)○ down$(RESET)\n"; fi
+	@printf "Service :$(PORT):    "
+	@if curl -sf --max-time 2 http://$(HOST):$(PORT)/health >/dev/null; then \
+		printf "$(GREEN)● up$(RESET)\n"; \
+	else \
+		printf "$(RED)○ down$(RESET)\n"; \
+	fi
+
+.PHONY: logs
+logs: ## Follow logs
+	@docker compose logs -f --tail=20
+
+# ─── internal ─────────────────────────────────────────────────────────────
+.PHONY: _check-docker
+_check-docker:
+	@if ! docker info >/dev/null 2>&1; then \
+		printf "$(RED)✗ Docker daemon is not running.$(RESET)\n"; \
+		printf "  Start one: $(CYAN)colima start$(RESET) | $(CYAN)open -a OrbStack$(RESET) | $(CYAN)open -a Docker$(RESET)\n"; \
+		exit 1; \
+	fi
+
+.PHONY: _wait
+_wait:
+	@printf "$(CYAN)→$(RESET) waiting"
+	@i=0; while [ $$i -lt 15 ]; do \
+		if curl -sf --max-time 1 http://$(HOST):$(PORT)/health >/dev/null 2>&1; then \
+			printf " $(GREEN)ready$(RESET)\n"; exit 0; \
+		fi; \
+		printf "."; sleep 1; i=$$((i+1)); \
+	done; \
+	printf " $(YELLOW)timeout$(RESET) (proceeding)\n"
+
+.PHONY: _open
+_open:
+	@open http://$(HOST):$(PORT)/ 2>/dev/null || \
+		xdg-open http://$(HOST):$(PORT)/ 2>/dev/null || \
+		echo "  open http://$(HOST):$(PORT)/ manually"

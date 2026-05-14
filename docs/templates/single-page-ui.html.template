@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><!-- TODO: page title --></title>
+<style>
+  /* Match docs/standards/aesthetic-language.md. */
+  :root {
+    --bg: #0a0a0a;
+    --bg-1: #141414;
+    --bg-2: #1c1c1c;
+    --bg-3: #232323;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --text-dim: #8a8a8a;
+    --text-faint: #5a5a5a;
+    --cyan: #5ec8e5;
+    --green: #6fcf97;
+    --yellow: #f2c14e;
+    --red: #ef6f6c;
+    --blue: #7baaf7;
+    --purple: #b58ce5;
+    --mono: 'SF Mono', Menlo, 'Cascadia Mono', Consolas, 'DejaVu Sans Mono', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  pre, code, .mono { font-family: var(--mono); }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 24px;
+    background: var(--bg-1);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    color: var(--cyan);
+    font-size: 16px;
+  }
+  .brand::before { content: '▣ '; }
+  .header-spacer { flex: 1; }
+
+  main { padding: 24px; max-width: 1300px; margin: 0 auto; }
+
+  /* Status pill primitive — re-use across surfaces. */
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .status-pill::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .status-pill.up { color: var(--green); border-color: rgba(111,207,151,0.3); }
+  .status-pill.up::before { background: var(--green); }
+  .status-pill.down { color: var(--red); border-color: rgba(239,111,108,0.3); }
+  .status-pill.down::before { background: var(--red); }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand"><!-- TODO: brand --></div>
+  </div>
+  <span class="header-spacer"></span>
+</header>
+
+<main>
+  <h2><!-- TODO: section --></h2>
+  <!-- TODO: content -->
+</main>
+
+<script>
+(() => {
+  // TODO: polling logic, event handlers, etc.
+})();
+</script>
+
+</body>
+</html>

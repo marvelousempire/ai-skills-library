@@ -32,10 +32,35 @@ Think of it as:
 
 ---
 
+# The five systems
+
+As of the 2026-05-14 master-repo-evolution commit, this repo operates as five systems in one Git history. Read [`docs/master-plans/2026-05-14-master-repo-evolution.md`](docs/master-plans/2026-05-14-master-repo-evolution.md) for the full plan.
+
+```text
+   ┌────────────────────────────────────────────────────────────────────┐
+   │  📋 master report system    docs/reports/       every session       │
+   │  📚 study system            docs/study/         curriculum (11 docs)│
+   │  🏋️ training system          docs/training/      8 drills            │
+   │  🔄 improvement system      docs/improvement/   audits + gaps + wins│
+   │  🗂️ filing system            docs/standards/ + checklists/ + …      │
+   └────────────────────────────────────────────────────────────────────┘
+```
+
+Start at [`docs/study/00-orientation.md`](docs/study/00-orientation.md).
+
+---
+
 # Fast Navigation
 
 | Need | Open |
 |---|---|
+| **🚀 Start here — orientation + curriculum** | [`docs/study/00-orientation.md`](docs/study/00-orientation.md) |
+| **📋 Master plan + session reports** | [`docs/master-plans/`](docs/master-plans/) · [`docs/reports/`](docs/reports/) |
+| **🗂️ Standards / Checklists / Templates / Workflows** | [`docs/standards/`](docs/standards/) · [`docs/checklists/`](docs/checklists/) · [`docs/templates/`](docs/templates/) · [`docs/workflows/`](docs/workflows/) |
+| **🔄 Open gaps + deferred elevations + audits** | [`docs/improvement/`](docs/improvement/) |
+| **🏋️ Drills (training)** | [`docs/training/drills/`](docs/training/drills/) |
+| **🧠 Methodology skills (12)** | [`skills/methodology/`](skills/methodology/) |
+| **🤖 Operational agents (6)** | [`agents/`](agents/) |
 | Full You-Sir Juan platform skills taxonomy | [`docs/yousirjuan-platform-skills-master.md`](docs/yousirjuan-platform-skills-master.md) |
 | Every skill file and pack | [`skills/README.md`](skills/README.md) |
 | Quick all-skill index | [`SKILL-INDEX.md`](SKILL-INDEX.md) |
@@ -509,7 +534,7 @@ ai-skills-library/
 Current known count:
 
 ```text
-78 SKILL.md files under skills/
+90 SKILL.md files under skills/
 ```
 
 Regenerate catalogs after vendoring or editing skills.
