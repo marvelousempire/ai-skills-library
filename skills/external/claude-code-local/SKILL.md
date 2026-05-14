@@ -1,7 +1,12 @@
 ---
 name: claude-code-local
 id: SK-0051
-keywords: [claude, code, local]
+keywords: [integrate-claude, check-code, build-local]
+hash: bf8cd9b
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "Claude Code Local \u2014 Run Claude Code against local models on Apple Silicon using an MLX-oriented, Anthropic-API-compatible server; offline-oriented. Use when the user mentions or needs: Claude Code offline; local Claude Code Apple Silicon; MLX Claude API compatible server; airgap Claude Code."
 ---
 

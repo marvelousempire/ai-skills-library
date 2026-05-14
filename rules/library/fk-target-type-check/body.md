@@ -1,7 +1,12 @@
 ---
 name: fk-target-type-check
 id: RL-0014
-keywords: [target, type, check]
+keywords: [enforce-target, check-type, build-check]
+hash: d8550fd
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # FK target type check — never guess the parent column's type

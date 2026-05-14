@@ -1,7 +1,12 @@
 ---
 name: migration-shipping
 id: SK-0028
-keywords: [migration, shipping]
+keywords: [ship-migration, run-migration, verify-schema]
+hash: 0cb5665
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Full safety checklist for shipping a new migration file. Bundles fk-target-type-check, alter-type-outside-transaction, is-public-flip-on-plan-insert, migration-race-guard, feature-id-race-guard, smoke-test-after-deploy. The one-stop migration-shipping safety net.
 trigger: >-

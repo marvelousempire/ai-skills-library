@@ -1,7 +1,12 @@
 ---
 name: session-retrospective
 id: SK-0042
-keywords: [session, retrospective]
+keywords: [extract-lessons, file-skill, update-library]
+hash: 6f5034e
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "Run a structured retrospective on a completed work session to extract rules, skills, docs, context files, and workflow improvements that should be filed into the AI skills library. Use when the user asks to 'read backward through the conversation,' 'what did we learn,' 'file everything we learned,' 'what can we extract from this session,' 'grow the skills library from this,' 'add to the library from our work,' or 'what rules or skills did this session produce.' Use proactively at the end of any session that hit a meaningful bug, made a non-obvious architectural decision, introduced new vocabulary or copy standards, or had to navigate a multi-step debugging arc. This is the meta-skill that keeps the library growing — every session that doesn't produce at least one library artifact is a session whose lessons evaporate."
 metadata:
   version: 1.0.0

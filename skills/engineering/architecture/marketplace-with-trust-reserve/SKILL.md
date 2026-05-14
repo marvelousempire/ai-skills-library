@@ -1,7 +1,12 @@
 ---
 name: marketplace-with-trust-reserve
 id: SK-0004
-keywords: [marketplace, trust, reserve]
+keywords: [setup-marketplace, configure-trust, reserve-funds]
+hash: 3ab8d29
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Design a two-sided marketplace with anti-fraud designed in from day one. Players spend → escrow → split: 15% platform / 3% processor / 2% trust-safety reserve / 80% supplier payout. The 20% retained is not pure margin — it funds the audit machinery that makes the marketplace credible.
 trigger: >-

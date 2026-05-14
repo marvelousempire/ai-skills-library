@@ -1,7 +1,12 @@
 ---
 name: verification-before-ship
 id: RL-0043
-keywords: [verification, before, ship]
+keywords: [enforce-verification, check-before, build-ship]
+hash: c515cbe
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Run verification gates before any commit to main

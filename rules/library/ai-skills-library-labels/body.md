@@ -1,7 +1,12 @@
 ---
 name: ai-skills-library-labels
 id: RL-0001
-keywords: [skills, library, labels]
+keywords: [enforce-skills, check-library, build-labels]
+hash: 1eb870d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Every container ships the ai-skills-library label schema

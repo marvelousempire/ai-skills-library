@@ -1,7 +1,12 @@
 ---
 name: make-update-make-doctor
 id: SK-0026
-keywords: [update, doctor]
+keywords: [pull-latest, diagnose-install, check-version]
+hash: ae623a7
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Every developer-facing tool that ships via `git clone + make` needs two
   safety-net Makefile targets: `make update` (safely pull latest from main no

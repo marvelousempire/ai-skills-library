@@ -1,7 +1,12 @@
 ---
 name: post-ship-audit-elevation
 id: SK-0032
-keywords: [ship, audit, elevation]
+keywords: [audit-ship, elevate-output, file-findings]
+hash: e61afbb
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   After every substantive PR merges, run a 2-pass audit: (1) Gap pass — what's incomplete, deferred, fragile, untested in what just shipped; (2) Elevation pass — what would the most ambitious version of this feature look like. Present as numbered lists; wait for user pick before implementing.
 trigger: >-

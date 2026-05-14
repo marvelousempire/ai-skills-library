@@ -1,7 +1,12 @@
 ---
 name: dustpan-github-workflow
 id: RL-0011
-keywords: [dustpan, github, workflow]
+keywords: [enforce-dustpan, check-github, build-workflow]
+hash: afbcffa
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Dustpan GitHub workflow — ship discipline

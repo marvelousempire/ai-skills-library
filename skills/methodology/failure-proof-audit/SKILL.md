@@ -1,7 +1,12 @@
 ---
 name: failure-proof-audit
 id: SK-0112
-keywords: [failure, proof, audit]
+keywords: [run-audit, check-gaps, build-leadsheet]
+hash: c9e9f47
+relations: [conversation-retrospective-extraction, post-ship-elevation-pass]
+before: [gap-audit-and-elevation, plan-first-substantive-changes]
+governed_by: [RL-0039, RL-0044, RL-0043]
+meta: dynamic
 description: >-
   A multi-pass audit methodology for any repo, project, workflow, prompt, or
   system. Run it as if the system already shipped six months ago and failed —

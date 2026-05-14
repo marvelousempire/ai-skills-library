@@ -1,7 +1,12 @@
 ---
 name: decision-records
 id: SK-0110
-keywords: [decision, records]
+keywords: [record-decision, document-why, log-decision]
+hash: f7f6fcd
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: When picking A over B (Forgejo vs GitLab CE, Colima vs Docker Desktop, etc.), write a decision record at `skills/<family>/<slug>/references/<X-vs-Y>.md` with options, pros/cons, decision, rationale, trigger for revisiting, cost of being wrong. Index in `decision-records/INDEX.md`. Triggers on "pick A or B", "why this not that", "decision record". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/templates/decision-record.md.template`.
 ---
 

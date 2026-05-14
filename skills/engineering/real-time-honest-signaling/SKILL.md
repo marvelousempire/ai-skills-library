@@ -1,7 +1,12 @@
 ---
 name: real-time-honest-signaling
 id: SK-0036
-keywords: [real, time, honest]
+keywords: [wire-event, track-freed, report-completion]
+hash: ed5b43c
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Never fake completion, progress, or measurement. Wire every UI signal to the
   real event source — the kernel-reported freed-GB after a subprocess exits,

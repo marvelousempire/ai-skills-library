@@ -1,7 +1,12 @@
 ---
 name: verify-ship
 id: SK-0124
-keywords: [verify, ship]
+keywords: [verify-ship, check-deploy, confirm-release]
+hash: f850b2d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: Audit whether work has actually shipped — committed, pushed, merged, deployed. Use when the user asks variants of "did it ship", "is it on origin", "are we backed up", "did we merge", "is this in main yet", "is the build live", "is the redesign deployed", "show me the state". Returns a concrete table of git state + PR state + version on each surface so the user can confirm at a glance instead of getting piecemeal answers.
 ---
 

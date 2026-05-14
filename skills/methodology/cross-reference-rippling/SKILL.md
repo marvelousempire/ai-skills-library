@@ -1,7 +1,12 @@
 ---
 name: cross-reference-rippling
 id: SK-0109
-keywords: [cross, reference, rippling]
+keywords: [ripple-update, sync-reference, propagate-change]
+hash: b8e6dbb
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: When adding any artifact (skill, rule, family, container, template), update every dependent index in lockstep: SKILL-INDEX, root README, family README, yousirjuan docs, integration checklists. Triggers on "cross-reference", "ripple updates", "don't forget the index". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/cross-references.md` and `docs/checklists/cross-reference.md`.
 ---
 

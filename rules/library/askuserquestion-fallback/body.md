@@ -1,7 +1,12 @@
 ---
 name: askuserquestion-fallback
 id: RL-0005
-keywords: [askuserquestion, fallback]
+keywords: [enforce-askuserquestion, check-fallback, file-askuserquestion]
+hash: 2955aa4
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # AskUserQuestion fallback — pick defaults + flag for review

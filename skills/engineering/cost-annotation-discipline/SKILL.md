@@ -1,7 +1,12 @@
 ---
 name: cost-annotation-discipline
 id: SK-0018
-keywords: [cost, annotation, discipline]
+keywords: [annotate-cost, classify-tier, label-action]
+hash: 2ecc801
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Every destructive action (delete, clean, reset, migrate, prune, archive,
   format, revoke) must declare its plain-English cost to the user BEFORE the

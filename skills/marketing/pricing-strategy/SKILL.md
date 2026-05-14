@@ -1,7 +1,12 @@
 ---
 name: pricing-strategy
 id: SK-0095
-keywords: [pricing, strategy]
+keywords: [write-pricing, check-strategy, file-pricing]
+hash: ba2c534
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' or 'should I offer a free plan.' Use this whenever someone is figuring out what to charge or how to structure their plans. For in-app upgrade screens, see paywall-upgrade-cro."
 metadata:
   version: 1.1.0

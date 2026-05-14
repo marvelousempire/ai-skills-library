@@ -1,7 +1,12 @@
 ---
 name: ui-ux-pro-max
 id: SK-0132
-keywords: []
+keywords: [design-ui, review-ux, apply-guidelines]
+hash: 1e75ad9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: Comprehensive design guide for web and mobile applications. Covers styles, color palettes, font pairings, UX guidelines, and chart types across multiple stacks; searchable priority-based recommendations. Use when improving UI/UX, design systems, visual design, or when the user mentions ui-ux-pro-max, uipro-cli, or design review workflows.
 ---
 

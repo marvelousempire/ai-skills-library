@@ -1,7 +1,12 @@
 ---
 name: canvas
 id: SK-0015
-keywords: [canvas]
+keywords: [open-canvas, analyze-data, display-table]
+hash: cbe53e3
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   A Cursor Canvas is a live React app that the user can open beside the chat.
   You MUST use a canvas when the agent produces a standalone analytical artifact

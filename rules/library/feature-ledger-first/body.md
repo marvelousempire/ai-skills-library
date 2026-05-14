@@ -1,7 +1,12 @@
 ---
 name: feature-ledger-first
 id: RL-0013
-keywords: [feature, ledger, first]
+keywords: [enforce-feature, check-ledger, build-first]
+hash: 947f6d0
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Feature-ledger first — every feature is a product

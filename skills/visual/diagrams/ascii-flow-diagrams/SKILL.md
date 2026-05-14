@@ -1,7 +1,12 @@
 ---
 name: ascii-flow-diagrams
 id: SK-0133
-keywords: [ascii, flow, diagrams]
+keywords: [draw-diagram, map-flow, visualize-architecture]
+hash: b02ed88
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: When the user asks for a visual of a flow, system, architecture, request lifecycle, or how parts talk to each other — render a Unicode box-and-arrow diagram in a fenced text block. Triggers on phrases like "show me a visual", "draw the flow", "diagram this", "how does X talk to Y", "what does the architecture look like".
 ---
 

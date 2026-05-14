@@ -1,7 +1,12 @@
 ---
 name: statusline
 id: SK-0046
-keywords: [statusline]
+keywords: [show-status, configure-bar, display-info]
+hash: 8b21fbc
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Configure a custom status line in the CLI. Use when the user mentions status
   line, statusline, statusLine, CLI status bar, prompt footer customization, or

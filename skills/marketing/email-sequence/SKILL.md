@@ -1,7 +1,12 @@
 ---
 name: email-sequence
 id: SK-0081
-keywords: [email, sequence]
+keywords: [write-email, check-sequence, file-email]
+hash: fd8a64d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails," "email automation," "lifecycle emails," "trigger-based emails," "email funnel," "email workflow," "what emails should I send," "welcome series," or "email cadence." Use this for any multi-email automated flow. For cold outreach emails, see cold-email. For in-app onboarding, see onboarding-cro.
 metadata:
   version: 1.1.0

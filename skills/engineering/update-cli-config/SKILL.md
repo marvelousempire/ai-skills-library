@@ -1,7 +1,12 @@
 ---
 name: update-cli-config
 id: SK-0048
-keywords: [update, cli, config]
+keywords: [update-config, configure-cli, set-option]
+hash: b3888e1
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   View and modify Cursor CLI configuration settings in
   ~/.cursor/cli-config.json. Use when the user wants to change CLI settings,

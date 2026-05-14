@@ -1,7 +1,12 @@
 ---
 name: swift-protocol-propagation
 id: RL-0042
-keywords: [swift, protocol, propagation]
+keywords: [enforce-swift, check-protocol, build-propagation]
+hash: 8698320
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Swift protocol propagation — propagate every API change to all consumers

@@ -1,7 +1,12 @@
 ---
 name: ltx-2
 id: SK-0054
-keywords: [ltx]
+keywords: [integrate-ltx]
+hash: e695683
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "LTX-2 \u2014 Official Python inference and LoRA trainer package for the LTX-2 audio-video generative model (Lightricks). Use when the user mentions or needs: LTX-2; Lightricks LTX; LTX-2 inference; LTX-2 LoRA training; audio-video generative model Python."
 ---
 

@@ -1,7 +1,12 @@
 ---
 name: plan-mode-runbook
 id: SK-0031
-keywords: [plan, mode, runbook]
+keywords: [run-plan, execute-steps, verify-output]
+hash: 8416391
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Run plan mode end-to-end: Phase 1 (parallel Explore agents), Phase 2 (Plan agent for design), Phase 3 (AskUserQuestion for clarifications), Phase 4 (write plan file), Phase 5 (ExitPlanMode). Includes the AskUserQuestion-failure fallback.
 trigger: >-

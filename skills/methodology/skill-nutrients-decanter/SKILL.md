@@ -1,7 +1,12 @@
 ---
 name: skill-nutrients-decanter
 id: SK-0119
-keywords: [skill, nutrients, decanter]
+keywords: [filter-nutrients, extract-lessons, compound-learning]
+hash: dbf1517
+relations: [conversation-retrospective-extraction, create-skill]
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   A "Skill Nutrient" is a learning moment that is critically vital and net
   positive — a plus, not a minus or zero. The Decanter is the process that

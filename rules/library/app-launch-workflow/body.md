@@ -1,7 +1,12 @@
 ---
 name: app-launch-workflow
 id: RL-0003
-keywords: [app, launch, workflow]
+keywords: [enforce-app, check-launch, build-workflow]
+hash: fa731e3
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # App Launch Workflow — Learn Mappers LLC / AVERY GOODMAN

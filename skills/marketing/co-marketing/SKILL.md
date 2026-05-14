@@ -1,7 +1,12 @@
 ---
 name: co-marketing
 id: SK-0070
-keywords: [marketing]
+keywords: [write-marketing]
+hash: 68e1477
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with another company,' 'partnership ideas,' or 'co-brand.' For customer referral programs, see referral-program. For launch-specific partnerships, see launch-strategy."
 metadata:
   version: 1.0.0

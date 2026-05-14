@@ -1,7 +1,12 @@
 ---
 name: schema-fk-typecheck
 id: SK-0008
-keywords: [schema, typecheck]
+keywords: [check-schema, validate-fk, verify-types]
+hash: 115ec03
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Before writing a CREATE TABLE column with a REFERENCES clause, look up the parent table's column type so the FK declaration matches. Catches BIGINT vs UUID, SERIAL vs BIGSERIAL, INTEGER vs TEXT mismatches at write time — not at production deploy.
 trigger: >-

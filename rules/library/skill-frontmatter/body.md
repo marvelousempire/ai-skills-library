@@ -1,7 +1,12 @@
 ---
 name: skill-frontmatter
 id: RL-0039
-keywords: [skill, schema, product]
+keywords: [validate-schema, enforce-fields, check-frontmatter]
+hash: e121d8f
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Every product in this library follows the canonical schema

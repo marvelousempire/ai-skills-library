@@ -1,7 +1,12 @@
 ---
 name: marketing-psychology
 id: SK-0089
-keywords: [marketing, psychology]
+keywords: [write-marketing, check-psychology, file-marketing]
+hash: fbfa240
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavior,' 'anchoring,' 'social proof,' 'scarcity,' 'loss aversion,' 'framing,' or 'nudge.' Use this whenever someone wants to understand or leverage how people think and make decisions in a marketing context."
 metadata:
   version: 1.1.0

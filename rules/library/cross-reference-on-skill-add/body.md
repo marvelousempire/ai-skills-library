@@ -1,7 +1,12 @@
 ---
 name: cross-reference-on-skill-add
 id: RL-0009
-keywords: [cross, reference, skill]
+keywords: [update-index, ripple-references, sync-catalog]
+hash: 999c8b9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # When adding a skill, ripple every dependent index

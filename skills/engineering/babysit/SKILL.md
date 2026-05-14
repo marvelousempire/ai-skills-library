@@ -1,7 +1,12 @@
 ---
 name: babysit
 id: SK-0013
-keywords: [babysit]
+keywords: [review-pr, fix-ci, merge-ready]
+hash: 4493b1c
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Keep a PR merge-ready by triaging comments, resolving clear conflicts, and
   fixing CI in a loop.

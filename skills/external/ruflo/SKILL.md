@@ -1,7 +1,12 @@
 ---
 name: ruflo
 id: SK-0056
-keywords: [ruflo]
+keywords: [integrate-ruflo]
+hash: be41bce
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "Ruflo \u2014 Agent orchestration platform: multi-agent swarms, workflows, RAG; Claude Code / Codex integration (per upstream). Use when the user mentions or needs: Ruflo; agent swarm orchestration; multi-agent Claude workflows."
 ---
 

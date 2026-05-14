@@ -1,7 +1,12 @@
 ---
 name: marketing-feature-doc
 id: SK-0129
-keywords: [marketing, feature, doc]
+keywords: [write-marketing, check-feature, build-doc]
+hash: 1aa97d5
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

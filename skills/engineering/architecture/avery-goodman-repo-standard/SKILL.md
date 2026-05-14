@@ -1,7 +1,12 @@
 ---
 name: avery-goodman-repo-standard
 id: SK-0003
-keywords: [avery, goodman, repo]
+keywords: [brand-repo, label-folder, write-readme]
+hash: daba578
+relations: []
+before: [product-repo-architecture]
+governed_by: [global]
+meta: dynamic
 description: >-
   The branded git repo schema for every project under AVERY GOODMAN. Works on
   any git platform (GitHub, GitLab, Gitea, Bitbucket) — the README blueprint,

@@ -1,7 +1,12 @@
 ---
 name: is-public-flip-on-plan-insert
 id: RL-0021
-keywords: [public, flip, plan]
+keywords: [enforce-public, check-flip, build-plan]
+hash: 5f6b662
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # plans.is_public must be explicitly flipped on plan registration

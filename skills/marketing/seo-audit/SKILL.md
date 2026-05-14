@@ -1,7 +1,12 @@
 ---
 name: seo-audit
 id: SK-0102
-keywords: [seo, audit]
+keywords: [write-seo, check-audit, file-seo]
+hash: 40ed022
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," or "indexing issues." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO" — start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup. For AI search optimization, see ai-seo.
 metadata:
   version: 1.2.0

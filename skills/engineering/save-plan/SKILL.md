@@ -1,7 +1,12 @@
 ---
 name: save-plan
 id: SK-0040
-keywords: [save, plan]
+keywords: [save-plan, write-plan, file-decision]
+hash: 6432331
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >
   Save the current session's plan to docs/Plan-<Name>.md and verify ledger
   alignment. Use after shipping any new plan. Ensures every plan has a

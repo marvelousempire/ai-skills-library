@@ -1,7 +1,12 @@
 ---
 name: dev-discipline
 id: RL-0010
-keywords: [dev, discipline]
+keywords: [enforce-dev, check-discipline, file-dev]
+hash: b6b150b
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Dev discipline — session opener + closer

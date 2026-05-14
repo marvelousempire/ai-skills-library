@@ -1,7 +1,12 @@
 ---
 name: framer-motion-transform-guard
 id: RL-0016
-keywords: [framer, motion, transform]
+keywords: [enforce-framer, check-motion, build-transform]
+hash: fe55f32
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # framer-motion transform guard

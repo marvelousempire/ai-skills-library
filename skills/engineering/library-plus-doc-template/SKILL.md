@@ -1,7 +1,12 @@
 ---
 name: library-plus-doc-template
 id: SK-0024
-keywords: [library, plus, doc]
+keywords: [write-doc, capture-moment, pair-with-artifact]
+hash: 5e5bf4c
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Any curated library (code scripts, cleaners, rules, prompts, fixtures,
   examples) must pair each entry with a companion doc that captures: what it

@@ -1,7 +1,12 @@
 ---
 name: post-sse-via-fetch-readablestream
 id: SK-0034
-keywords: [sse, fetch, readablestream]
+keywords: [stream-post, parse-sse, handle-events]
+hash: 507a320
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   EventSource (the standard SSE client) is GET-only. When your streaming
   endpoint requires a POST body (e.g. sending conversation history to an AI

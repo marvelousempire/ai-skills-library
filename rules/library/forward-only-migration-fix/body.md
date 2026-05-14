@@ -1,7 +1,12 @@
 ---
 name: forward-only-migration-fix
 id: RL-0015
-keywords: [forward, only, migration]
+keywords: [enforce-forward, check-only, build-migration]
+hash: 50bdd38
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Forward-only fix for failed atomic migrations

@@ -1,7 +1,12 @@
 ---
 name: shared-util-extraction
 id: RL-0038
-keywords: [shared, util, extraction]
+keywords: [enforce-shared, check-util, build-extraction]
+hash: 10df4f2
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Shared utilities — extract to lib/, never copy-paste

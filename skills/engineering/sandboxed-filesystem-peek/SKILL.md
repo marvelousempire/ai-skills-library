@@ -1,7 +1,12 @@
 ---
 name: sandboxed-filesystem-peek
 id: SK-0039
-keywords: [sandboxed, filesystem, peek]
+keywords: [read-path, measure-size, list-directory]
+hash: 331b625
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Give an AI agent or third-party tool read-only filesystem access via a
   strict allowlist + hard-deny + symlink-resolution validator. Path-traversal

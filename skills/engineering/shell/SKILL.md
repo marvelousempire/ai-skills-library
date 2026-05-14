@@ -1,7 +1,12 @@
 ---
 name: shell
 id: SK-0043
-keywords: [shell]
+keywords: [run-command, execute-script, parse-output]
+hash: 3ca6907
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Runs the rest of a /shell request as a literal shell command. Use only when
   the user explicitly invokes /shell and wants the following text executed
