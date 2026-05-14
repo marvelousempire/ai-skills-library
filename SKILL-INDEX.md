@@ -6,7 +6,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **139** total `SKILL.md` files under [`skills/`](skills/).
+- **142** total `SKILL.md` files under [`skills/`](skills/).)
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
@@ -23,6 +23,9 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | **Methodology** (12) | Standards-as-skills | [`skills/methodology/`](skills/methodology/) | The patterns that produce clean shipments — plan-first, gap-audit-and-elevation, idempotent-commands, cross-reference-rippling, verification-gates, multi-surface-design, decision-records, compliance-matrix, aesthetic-consistency, graceful-degradation, migration-guide-format, doctor-script-pattern | "Use **methodology/<slug>**." or follow `docs/study/` curriculum | docs/standards/, docs/templates/ |
 | **verify-ship** | Claude Code | [`skills/project/red-e-play/verify-ship/`](skills/project/red-e-play/verify-ship/) | Ship state: merged? deployed? | “Use **verify-ship**.” | shell |
 | **generate-weather-plates** | Claude Code | [`skills/project/red-e-play/generate-weather-plates/`](skills/project/red-e-play/generate-weather-plates/) | Red-E Play weather hero plates | “Use **generate-weather-plates**.” | ui-ux-pro-max |
+| **launcher-makefile-shim** | Claude Code | [`skills/project/brokerage-prototype/launcher-makefile-shim/`](skills/project/brokerage-prototype/launcher-makefile-shim/) | Add `make` verb shim over `./go`-style launcher | "Use **launcher-makefile-shim**." | — |
+| **colima-docker-swap** | Claude Code | [`skills/project/brokerage-prototype/colima-docker-swap/`](skills/project/brokerage-prototype/colima-docker-swap/) | Swap wedged Docker Desktop for Colima on macOS Tahoe + Apple Silicon | "Use **colima-docker-swap**." or "Docker is broken." | self-hosted-git |
+| **port-drift-detector** | Claude Code | [`skills/project/brokerage-prototype/port-drift-detector/`](skills/project/brokerage-prototype/port-drift-detector/) | Cross-repo drift detection between paired implementations (bash+awk, no LLM) | "Use **port-drift-detector**." | — |
 | **babysit** | Cursor | [`skills/ide/cursor/babysit/`](skills/ide/cursor/babysit/) | PR merge-ready loop | “Use **babysit**.” | split-to-prs |
 | **canvas** | Cursor | [`skills/ide/cursor/canvas/`](skills/ide/cursor/canvas/) | Data-heavy / analytical UI beside chat | “Use **canvas**.” | ui-ux-pro-max |
 | **create-hook** | Cursor | [`skills/ide/cursor/create-hook/`](skills/ide/cursor/create-hook/) | Cursor hooks | “Use **create-hook**.” | create-rule |
