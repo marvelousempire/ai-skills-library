@@ -2,6 +2,7 @@
 name: register-feature-ledger-plan
 id: SK-0038
 keywords: [register-feature, log-plan, track-ledger]
+goal: Deliver register feature ledger plan output correctly and completely.
 hash: e172751
 relations: []
 before: []

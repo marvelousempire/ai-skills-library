@@ -2,6 +2,7 @@
 name: create-hook
 id: SK-0019
 keywords: [create-hook, configure-trigger, wire-event]
+goal: Deliver create hook output correctly and completely.
 hash: 20ddce2
 relations: []
 before: []

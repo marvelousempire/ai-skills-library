@@ -2,6 +2,7 @@
 name: plan-first
 id: SK-0118
 keywords: [write-plan, define-scope, get-approval]
+goal: Deliver plan first output correctly and completely.
 hash: 1084833
 relations: []
 before: []

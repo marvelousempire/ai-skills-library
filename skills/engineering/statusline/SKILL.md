@@ -2,6 +2,7 @@
 name: statusline
 id: SK-0046
 keywords: [show-status, configure-bar, display-info]
+goal: Deliver statusline output correctly and completely.
 hash: 8b21fbc
 relations: []
 before: []

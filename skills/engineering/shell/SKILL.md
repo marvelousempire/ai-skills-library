@@ -2,6 +2,7 @@
 name: shell
 id: SK-0043
 keywords: [run-command, execute-script, parse-output]
+goal: Deliver shell output correctly and completely.
 hash: 3ca6907
 relations: []
 before: []

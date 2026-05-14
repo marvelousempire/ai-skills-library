@@ -2,6 +2,7 @@
 name: cross-reference-rippling
 id: SK-0109
 keywords: [ripple-update, sync-reference, propagate-change]
+goal: Deliver cross reference rippling output correctly and completely.
 hash: b8e6dbb
 relations: []
 before: []

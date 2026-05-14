@@ -2,6 +2,7 @@
 name: idempotent-commands
 id: SK-0115
 keywords: [run-idempotent, check-state, skip-if-done]
+goal: Deliver idempotent commands output correctly and completely.
 hash: 4e8ec9e
 relations: []
 before: []

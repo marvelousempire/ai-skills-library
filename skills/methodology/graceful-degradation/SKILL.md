@@ -2,6 +2,7 @@
 name: graceful-degradation
 id: SK-0114
 keywords: [degrade-gracefully, handle-failure, fallback-safely]
+goal: Deliver graceful degradation output correctly and completely.
 hash: 75e9eca
 relations: []
 before: []

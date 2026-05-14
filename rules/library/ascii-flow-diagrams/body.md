@@ -2,6 +2,7 @@
 name: ascii-flow-diagrams
 id: RL-0004
 keywords: [draw-diagram, map-flow, visualize-architecture]
+goal: Deliver ascii flow diagrams output correctly and completely.
 hash: 98a9aa9
 relations: []
 before: []

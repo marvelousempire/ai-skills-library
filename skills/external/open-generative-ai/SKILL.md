@@ -1,6 +1,7 @@
 ---
 name: open-generative-ai
 keywords: [integrate-open, check-generative, file-open]
+goal: Deliver open generative ai output correctly and completely.
 hash: 1d8820b
 relations: []
 before: []

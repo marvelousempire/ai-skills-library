@@ -2,6 +2,7 @@
 name: plans-folder-convention
 id: RL-0033
 keywords: [enforce-plans, check-folder, build-convention]
+goal: Deliver plans folder convention output correctly and completely.
 hash: 3188ef5
 relations: []
 before: []

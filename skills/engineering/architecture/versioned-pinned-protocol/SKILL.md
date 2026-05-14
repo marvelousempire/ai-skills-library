@@ -2,6 +2,7 @@
 name: versioned-pinned-protocol
 id: SK-0012
 keywords: [pin-version, lock-dependency, set-version]
+goal: Deliver versioned pinned protocol output correctly and completely.
 hash: 83c44a0
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: social-content
 id: SK-0105
 keywords: [write-social, check-content, file-social]
+goal: Deliver social content output correctly and completely.
 hash: 20d660d
 relations: []
 before: []

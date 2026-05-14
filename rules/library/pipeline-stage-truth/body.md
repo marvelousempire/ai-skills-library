@@ -2,6 +2,7 @@
 name: pipeline-stage-truth
 id: RL-0031
 keywords: [enforce-pipeline, check-stage, build-truth]
+goal: Deliver pipeline stage truth output correctly and completely.
 hash: de37655
 relations: []
 before: []

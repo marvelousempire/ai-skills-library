@@ -2,6 +2,7 @@
 name: make-update-make-doctor
 id: SK-0026
 keywords: [pull-latest, diagnose-install, check-version]
+goal: Any user can safely update and diagnose a git-clone-and-make tool regardless of branch state.
 hash: ae623a7
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: pbxproj-conflict
 id: RL-0030
 keywords: [enforce-pbxproj, check-conflict, file-pbxproj]
+goal: Deliver pbxproj conflict output correctly and completely.
 hash: d0f74c9
 relations: []
 before: []

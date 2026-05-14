@@ -2,6 +2,7 @@
 name: decision-records
 id: SK-0110
 keywords: [record-decision, document-why, log-decision]
+goal: Deliver decision records output correctly and completely.
 hash: f7f6fcd
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: create-subagent
 id: SK-0022
 keywords: [create-agent, define-role, configure-subagent]
+goal: Deliver create subagent output correctly and completely.
 hash: 2f43527
 relations: []
 before: []

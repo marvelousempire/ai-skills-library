@@ -2,6 +2,7 @@
 name: gap-audit-and-elevation
 id: SK-0113
 keywords: [audit-gaps, propose-elevations, file-audit]
+goal: Every ship is followed by a named gap list and an ambitious elevation proposal.
 hash: e3563ad
 relations: [post-ship-elevation-pass, failure-proof-audit]
 before: []

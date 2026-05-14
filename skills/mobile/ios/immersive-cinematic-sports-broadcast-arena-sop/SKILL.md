@@ -2,6 +2,7 @@
 name: immersive-cinematic-sports-broadcast-arena-sop
 id: SK-0122
 keywords: [build-immersive, check-cinematic, build-sports]
+goal: Deliver immersive cinematic sports broadcast arena sop output correctly and completely.
 hash: 57bc3fc
 relations: []
 before: []

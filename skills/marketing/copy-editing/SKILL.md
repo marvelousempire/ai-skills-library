@@ -2,6 +2,7 @@
 name: copy-editing
 id: SK-0076
 keywords: [write-copy, check-editing, file-copy]
+goal: Deliver copy editing output correctly and completely.
 hash: 041be62
 relations: []
 before: []

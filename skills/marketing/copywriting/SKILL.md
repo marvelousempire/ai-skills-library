@@ -2,6 +2,7 @@
 name: copywriting
 id: SK-0078
 keywords: [write-copywriting]
+goal: Deliver copywriting output correctly and completely.
 hash: 69ad93b
 relations: []
 before: []

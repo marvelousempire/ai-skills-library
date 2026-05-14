@@ -2,6 +2,7 @@
 name: emil-design-eng
 id: SK-0131
 keywords: [apply-design, enforce-polish, review-detail]
+goal: Deliver emil design eng output correctly and completely.
 hash: 5bd136e
 relations: []
 before: []

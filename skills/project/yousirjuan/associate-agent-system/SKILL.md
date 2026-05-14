@@ -2,6 +2,7 @@
 name: associate-agent-system
 id: SK-0125
 keywords: [run-associate, check-agent, build-system]
+goal: Deliver associate agent system output correctly and completely.
 hash: 749b06e
 relations: []
 before: []

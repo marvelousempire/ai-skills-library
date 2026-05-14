@@ -1,6 +1,7 @@
 ---
 name: scrapegraph-ai
 keywords: [integrate-scrapegraph]
+goal: Deliver scrapegraph ai output correctly and completely.
 hash: 88bcb44
 relations: []
 before: []

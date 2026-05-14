@@ -2,6 +2,7 @@
 name: skill-nutrients-decanter
 id: SK-0119
 keywords: [filter-nutrients, extract-lessons, compound-learning]
+goal: Only net-positive lessons — nutrients — make it into the library; noise is filtered out.
 hash: dbf1517
 relations: [conversation-retrospective-extraction, create-skill]
 before: []

@@ -2,6 +2,7 @@
 name: marketing-doc-per-feature
 id: RL-0024
 keywords: [enforce-marketing, check-doc, build-feature]
+goal: Deliver marketing doc per feature output correctly and completely.
 hash: cd52004
 relations: []
 before: []

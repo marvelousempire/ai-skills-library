@@ -2,6 +2,7 @@
 name: marketing-psychology
 id: SK-0089
 keywords: [write-marketing, check-psychology, file-marketing]
+goal: Deliver marketing psychology output correctly and completely.
 hash: fbfa240
 relations: []
 before: []

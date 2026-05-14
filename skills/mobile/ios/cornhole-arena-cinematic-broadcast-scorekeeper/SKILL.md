@@ -2,6 +2,7 @@
 name: cornhole-arena-cinematic-broadcast-scorekeeper
 id: SK-0121
 keywords: [build-cornhole, check-arena, build-cinematic]
+goal: Deliver cornhole arena cinematic broadcast scorekeeper output correctly and completely.
 hash: 30dd96f
 relations: []
 before: []

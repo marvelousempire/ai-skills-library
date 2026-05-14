@@ -2,6 +2,7 @@
 name: aesthetic-consistency
 id: SK-0107
 keywords: [check-style, enforce-aesthetic, align-design]
+goal: Deliver aesthetic consistency output correctly and completely.
 hash: 985199b
 relations: []
 before: []

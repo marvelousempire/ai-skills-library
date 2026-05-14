@@ -2,6 +2,7 @@
 name: feature-ledger-first
 id: RL-0013
 keywords: [enforce-feature, check-ledger, build-first]
+goal: Deliver feature ledger first output correctly and completely.
 hash: 947f6d0
 relations: []
 before: []

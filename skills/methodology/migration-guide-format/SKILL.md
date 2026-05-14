@@ -2,6 +2,7 @@
 name: migration-guide-format
 id: SK-0116
 keywords: [write-migration, document-steps, format-guide]
+goal: Deliver migration guide format output correctly and completely.
 hash: 5690e57
 relations: []
 before: []

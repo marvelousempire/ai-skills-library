@@ -2,6 +2,7 @@
 name: make-check-defense-in-depth
 id: SK-0025
 keywords: [run-check, verify-references, catch-regression]
+goal: No renamed string or broken reference ships undetected — CI catches the whole regression class.
 hash: 8dd3416
 relations: [confirm-ship-clearly, make-update-make-doctor]
 before: [plan-first-substantive-changes]

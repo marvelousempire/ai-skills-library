@@ -2,6 +2,7 @@
 name: quality-bar-honest
 id: SK-0035
 keywords: [set-quality, enforce-bar, reject-shortcut]
+goal: Deliver quality bar honest output correctly and completely.
 hash: 14500b3
 relations: []
 before: []

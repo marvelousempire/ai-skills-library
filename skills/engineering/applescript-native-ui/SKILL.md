@@ -2,6 +2,7 @@
 name: applescript-native-ui
 id: SK-0002
 keywords: [write-applescript, show-dialog, send-notification]
+goal: Deliver applescript native ui output correctly and completely.
 hash: a9299ae
 relations: []
 before: []

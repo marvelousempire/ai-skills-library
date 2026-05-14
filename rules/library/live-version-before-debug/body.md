@@ -2,6 +2,7 @@
 name: live-version-before-debug
 id: RL-0023
 keywords: [enforce-live, check-version, build-before]
+goal: Deliver live version before debug output correctly and completely.
 hash: 0b12291
 relations: []
 before: []

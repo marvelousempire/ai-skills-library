@@ -2,6 +2,7 @@
 name: doctor-script-pattern
 id: SK-0111
 keywords: [run-doctor, diagnose-system, report-health]
+goal: Deliver doctor script pattern output correctly and completely.
 hash: 2341917
 relations: []
 before: []

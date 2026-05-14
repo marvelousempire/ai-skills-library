@@ -2,6 +2,7 @@
 name: ai-seo
 id: SK-0066
 keywords: [write-seo]
+goal: Deliver ai seo output correctly and completely.
 hash: bffcb72
 relations: []
 before: []

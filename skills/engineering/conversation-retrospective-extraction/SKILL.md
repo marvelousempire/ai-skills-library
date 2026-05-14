@@ -2,6 +2,7 @@
 name: conversation-retrospective-extraction
 id: SK-0017
 keywords: [read-conversation, classify-finding, file-skill]
+goal: Every significant session produces permanent library improvements that make the next session smarter.
 hash: 2717e37
 relations: [create-skill, failure-proof-audit, gap-audit-and-elevation]
 before: [skill-nutrients-decanter]

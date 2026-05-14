@@ -2,6 +2,7 @@
 name: popup-cro
 id: SK-0094
 keywords: [write-popup, check-cro, file-popup]
+goal: Deliver popup cro output correctly and completely.
 hash: f4c105f
 relations: []
 before: []

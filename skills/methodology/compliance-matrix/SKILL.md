@@ -2,6 +2,7 @@
 name: compliance-matrix
 id: SK-0108
 keywords: [build-matrix, track-compliance, verify-rule]
+goal: Deliver compliance matrix output correctly and completely.
 hash: e4f9500
 relations: []
 before: []

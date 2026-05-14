@@ -2,6 +2,7 @@
 name: referral-program
 id: SK-0098
 keywords: [write-referral, check-program, file-referral]
+goal: Deliver referral program output correctly and completely.
 hash: 8efad7c
 relations: []
 before: []

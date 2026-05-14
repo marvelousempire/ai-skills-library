@@ -2,6 +2,7 @@
 name: product-repo-architecture
 id: SK-0007
 keywords: [setup-repo, configure-release, name-branch]
+goal: Every git repo starts with the right structure from the first commit so no architectural debt accumulates.
 hash: 8e05ad7
 relations: [avery-goodman-repo-standard, make-check-defense-in-depth]
 before: []

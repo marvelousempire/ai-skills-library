@@ -2,6 +2,7 @@
 name: go-live-path
 id: RL-0017
 keywords: [enforce-live, check-path, file-live]
+goal: Deliver go live path output correctly and completely.
 hash: 9d57415
 relations: []
 before: []

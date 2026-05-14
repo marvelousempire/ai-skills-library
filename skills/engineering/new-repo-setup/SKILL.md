@@ -3,6 +3,7 @@ name: new-repo-setup
 id: SK-0135
 hash: f2a7c3d
 keywords: [setup-repo, scaffold-structure, initialize-standard]
+goal: Every new repo is correctly typed, structured, and committed on the first try with no structural debt.
 relations: [avery-goodman-repo-standard, product-repo-architecture, make-check-defense-in-depth]
 before: [plan-first-substantive-changes]
 governed_by: [RL-0039, RL-0045, global]

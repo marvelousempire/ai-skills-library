@@ -2,6 +2,7 @@
 name: port-alignment
 id: RL-0034
 keywords: [enforce-port, check-alignment, file-port]
+goal: Deliver port alignment output correctly and completely.
 hash: 5cc4264
 relations: []
 before: []

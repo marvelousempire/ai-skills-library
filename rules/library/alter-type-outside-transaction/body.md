@@ -2,6 +2,7 @@
 name: alter-type-outside-transaction
 id: RL-0002
 keywords: [enforce-alter, check-type, build-outside]
+goal: Deliver alter type outside transaction output correctly and completely.
 hash: 2308a41
 relations: []
 before: []

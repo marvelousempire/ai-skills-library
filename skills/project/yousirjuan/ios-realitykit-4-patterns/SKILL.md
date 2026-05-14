@@ -2,6 +2,7 @@
 name: ios-realitykit-4-patterns
 id: SK-0128
 keywords: [run-ios, check-realitykit, build-patterns]
+goal: Deliver ios realitykit 4 patterns output correctly and completely.
 hash: 65d0e0b
 relations: []
 before: []

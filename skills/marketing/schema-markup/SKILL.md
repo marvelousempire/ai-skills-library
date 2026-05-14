@@ -2,6 +2,7 @@
 name: schema-markup
 id: SK-0101
 keywords: [write-schema, check-markup, file-schema]
+goal: Deliver schema markup output correctly and completely.
 hash: 4ed8ac7
 relations: []
 before: []

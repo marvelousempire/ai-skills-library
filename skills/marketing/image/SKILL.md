@@ -2,6 +2,7 @@
 name: image
 id: SK-0085
 keywords: [write-image]
+goal: Deliver image output correctly and completely.
 hash: 9df05be
 relations: []
 before: []

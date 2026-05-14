@@ -1,6 +1,7 @@
 ---
 name: voxtral-tts-c
 keywords: [integrate-voxtral, check-tts, file-voxtral]
+goal: Deliver voxtral tts c output correctly and completely.
 hash: a930885
 relations: []
 before: []

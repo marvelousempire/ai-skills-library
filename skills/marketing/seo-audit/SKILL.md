@@ -2,6 +2,7 @@
 name: seo-audit
 id: SK-0102
 keywords: [write-seo, check-audit, file-seo]
+goal: Deliver seo audit output correctly and completely.
 hash: 40ed022
 relations: []
 before: []

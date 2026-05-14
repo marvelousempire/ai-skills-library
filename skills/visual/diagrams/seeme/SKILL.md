@@ -2,6 +2,7 @@
 name: seeme
 id: SK-0134
 keywords: [generate-diagram, visualize-idea, draw-flow]
+goal: Deliver seeme output correctly and completely.
 hash: 33e0bea
 relations: []
 before: []

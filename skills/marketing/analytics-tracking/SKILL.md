@@ -2,6 +2,7 @@
 name: analytics-tracking
 id: SK-0067
 keywords: [write-analytics, check-tracking, file-analytics]
+goal: Deliver analytics tracking output correctly and completely.
 hash: c376d5d
 relations: []
 before: []

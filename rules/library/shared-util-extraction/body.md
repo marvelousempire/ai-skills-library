@@ -2,6 +2,7 @@
 name: shared-util-extraction
 id: RL-0038
 keywords: [enforce-shared, check-util, build-extraction]
+goal: Deliver shared util extraction output correctly and completely.
 hash: 10df4f2
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: lead-magnets
 id: SK-0087
 keywords: [write-lead, check-magnets, file-lead]
+goal: Deliver lead magnets output correctly and completely.
 hash: a02a33e
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: parallel-surfaces-from-day-one
 id: RL-0029
 keywords: [enforce-parallel, check-surfaces, build-day]
+goal: Deliver parallel surfaces from day one output correctly and completely.
 hash: 2c38fd3
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: canvas
 id: SK-0015
 keywords: [open-canvas, analyze-data, display-table]
+goal: Deliver canvas output correctly and completely.
 hash: cbe53e3
 relations: []
 before: []

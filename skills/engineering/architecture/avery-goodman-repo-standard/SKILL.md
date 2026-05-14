@@ -2,6 +2,7 @@
 name: avery-goodman-repo-standard
 id: SK-0003
 keywords: [brand-repo, label-folder, write-readme]
+goal: Every AVERY GOODMAN repo is immediately recognizable — branded, labeled, and structured identically.
 hash: daba578
 relations: []
 before: [product-repo-architecture]

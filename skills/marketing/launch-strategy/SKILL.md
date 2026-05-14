@@ -2,6 +2,7 @@
 name: launch-strategy
 id: SK-0086
 keywords: [write-launch, check-strategy, file-launch]
+goal: Deliver launch strategy output correctly and completely.
 hash: 63bb5d0
 relations: []
 before: []

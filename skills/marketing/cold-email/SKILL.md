@@ -2,6 +2,7 @@
 name: cold-email
 id: SK-0071
 keywords: [write-cold, check-email, file-cold]
+goal: Deliver cold email output correctly and completely.
 hash: bd0f65e
 relations: []
 before: []

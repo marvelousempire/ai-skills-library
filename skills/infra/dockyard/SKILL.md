@@ -2,6 +2,7 @@
 name: dockyard
 id: SK-0062
 keywords: [setup-dockyard]
+goal: Deliver dockyard output correctly and completely.
 hash: 7f4ab7a
 relations: []
 before: []

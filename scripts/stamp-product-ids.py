@@ -136,6 +136,42 @@ BEFORE = {
     "avery-goodman-repo-standard":           ["product-repo-architecture"],
 }
 
+# ── Goal lookup — curated one-line achievement statements ─────────────────────
+# What does this product achieve when it runs successfully?
+# Distinct from description (triggers/routing) — this is the outcome.
+GOALS = {
+    "create-skill":                          "Every new product is correctly structured, voiced, and ready to route before it enters the library.",
+    "skill-writing-voice":                   "Every product is written with CLI clarity — no vague language, no open paths, no hallucination routes.",
+    "skill-frontmatter":                     "Every product file has valid, complete frontmatter before it is committed.",
+    "product-schema-standard":               "Every product carries the full 8-field schema with action keywords and living metadata.",
+    "failure-proof-audit":                   "Every system is hardened against the failure modes that six months of real-world use would expose.",
+    "gap-audit-and-elevation":               "Every ship is followed by a named gap list and an ambitious elevation proposal.",
+    "post-ship-elevation-pass":              "Every shipped feature is immediately audited for gaps and extended with its most ambitious version.",
+    "conversation-retrospective-extraction": "Every significant session produces permanent library improvements that make the next session smarter.",
+    "skill-nutrients-decanter":              "Only net-positive lessons — nutrients — make it into the library; noise is filtered out.",
+    "product-repo-architecture":             "Every git repo starts with the right structure from the first commit so no architectural debt accumulates.",
+    "avery-goodman-repo-standard":           "Every AVERY GOODMAN repo is immediately recognizable — branded, labeled, and structured identically.",
+    "new-repo-setup":                        "Every new repo is correctly typed, structured, and committed on the first try with no structural debt.",
+    "existing-repo-alignment":               "Any existing repo can be reshaped to the AVERY GOODMAN standard without destroying what is already there.",
+    "cost-annotation-discipline":            "Every destructive action tells the user exactly what they will lose before they click.",
+    "ai-proposal-review-inbox":              "AI agents can grow curated source files through a review inbox without ever auto-mutating the source.",
+    "never-run-sudo-from-app":               "No app ever asks for a Mac password — the OS password prompt is always the consent gate.",
+    "make-check-defense-in-depth":           "No renamed string or broken reference ships undetected — CI catches the whole regression class.",
+    "sandboxed-filesystem-peek":             "AI agents can read the filesystem safely without becoming a data-exfiltration vector.",
+    "tool-calling-approval-reentry":         "AI agents with destructive tools always pause for human approval before running, then resume cleanly.",
+    "make-update-make-doctor":               "Any user can safely update and diagnose a git-clone-and-make tool regardless of branch state.",
+    "real-time-honest-signaling":            "Every UI signal reflects what the system actually reports — no faked completion, no estimated measurements.",
+    "library-plus-doc-template":             "Every library entry has a companion doc that captures what it does and the moment that prompted it.",
+    "three-tier-safety-classification":      "No auto-clean ever reaches irreplaceable data — the safety tier is a structural code guarantee.",
+    "streaming-sse-event-vocabulary":        "Every AI agent stream uses the same named events so any frontend can consume any agent.",
+    "multi-surface-single-engine":           "One engine powers every surface — the logic is never duplicated across CLI, web, Shortcut, or launchd.",
+    "post-sse-via-fetch-readablestream":     "POST endpoints can stream SSE without EventSource — any AI chat backend works with any frontend.",
+    "confirm-ship-clearly":                  "Every ship is confirmed with four receipts — tag, PR state, commit, and version — before declaring done.",
+    "emergency-auto-navigate-on-condition":  "The UI takes the user to the right surface automatically when a system crosses a critical threshold.",
+    "feature-marketing-md":                  "Every shipped feature has a self-contained marketing brief ready to power any launch on any channel.",
+    "plan-first-substantive-changes":        "Every substantive change is planned, approved, and documented before a single line of code is written.",
+}
+
 CATEGORY_VERB = {
     "engineering/architecture": "design",
     "engineering":              "run",
@@ -193,6 +229,15 @@ def derive_action_keywords(name, path):
 
 def make_hash(name, pid):
     return hashlib.sha1(f"{name}{pid}".encode()).hexdigest()[:7]
+
+
+def derive_goal(name, path):
+    """One-sentence goal: what this product achieves when it runs successfully."""
+    if name in GOALS:
+        return GOALS[name]
+    # Fallback: construct from the product name
+    label = name.replace("-", " ").replace("_", " ")
+    return f"Deliver {label} output correctly and completely."
 
 
 def has_field(content, field):
@@ -277,13 +322,15 @@ def stamp(path, pid, dry_run=False):
     gov  = GOVERNED_BY.get(name, ["global"])
     rels = RELATIONS.get(name, [])
     bef  = BEFORE.get(name, [])
+    goal = derive_goal(name, path)
     acts = []
 
     if not content.startswith("---"):
         kw_str = ", ".join(kws)
         fm = (f"---\nname: {name}\nid: {pid}\nhash: {h}\n"
               f"keywords: [{kw_str}]\nrelations: {fmt(rels)}\nbefore: {fmt(bef)}\n"
-              f"governed_by: {fmt(gov)}\nmeta: dynamic\n---\n\n")
+              f"governed_by: {fmt(gov)}\nmeta: dynamic\n"
+              f"goal: {goal}\n---\n\n")
         new = fm + content
         acts.append("add-frontmatter")
     else:
@@ -307,6 +354,8 @@ def stamp(path, pid, dry_run=False):
             extra += f"governed_by: {fmt(gov)}\n"; acts.append("+governed_by")
         if not has_field(new, "meta"):
             extra += "meta: dynamic\n"; acts.append("+meta")
+        if not has_field(new, "goal"):
+            extra += f"goal: {goal}\n"; acts.append("+goal")
         if extra:
             new = insert_after(new, "keywords:", extra)
 
@@ -352,7 +401,8 @@ def stamp_dustpan(dustpan_root, dry_run=False):
                 new = replace_keywords(new, kws); acts.append(f"kw=[{','.join(kws)}]")
             extra = ""
             for f, v in [("hash", f"{h}"), ("relations", "[]"), ("before", "[]"),
-                         ("governed_by", "[global]"), ("meta", "dynamic")]:
+                         ("governed_by", "[global]"), ("meta", "dynamic"),
+                     ("goal", f"Deliver {stem} output correctly and completely.")]:
                 if not has_field(new, f):
                     extra += f"{f}: {v}\n"; acts.append(f"+{f}")
             if extra:

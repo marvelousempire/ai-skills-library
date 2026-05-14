@@ -2,6 +2,7 @@
 name: bash-installer-oneliners
 id: SK-0126
 keywords: [run-bash, check-installer, build-oneliners]
+goal: Deliver bash installer oneliners output correctly and completely.
 hash: d09cc4f
 relations: []
 before: []

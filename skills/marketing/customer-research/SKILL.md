@@ -2,6 +2,7 @@
 name: customer-research
 id: SK-0079
 keywords: [write-customer, check-research, file-customer]
+goal: Deliver customer research output correctly and completely.
 hash: 4e841b3
 relations: []
 before: []

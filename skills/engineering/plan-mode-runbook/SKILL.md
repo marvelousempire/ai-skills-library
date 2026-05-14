@@ -2,6 +2,7 @@
 name: plan-mode-runbook
 id: SK-0031
 keywords: [run-plan, execute-steps, verify-output]
+goal: Deliver plan mode runbook output correctly and completely.
 hash: 8416391
 relations: []
 before: []

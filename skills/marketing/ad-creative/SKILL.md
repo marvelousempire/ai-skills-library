@@ -2,6 +2,7 @@
 name: ad-creative
 id: SK-0065
 keywords: [write-creative]
+goal: Deliver ad creative output correctly and completely.
 hash: 5bd39a2
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: verification-gates
 id: SK-0120
 keywords: [run-gate, verify-output, check-completion]
+goal: Deliver verification gates output correctly and completely.
 hash: 3692542
 relations: []
 before: []

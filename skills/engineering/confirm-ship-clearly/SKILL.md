@@ -2,6 +2,7 @@
 name: confirm-ship-clearly
 id: SK-0016
 keywords: [check-tag, verify-merge, show-receipts]
+goal: Every ship is confirmed with four receipts — tag, PR state, commit, and version — before declaring done.
 hash: 93fd5bd
 relations: []
 before: []

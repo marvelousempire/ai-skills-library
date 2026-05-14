@@ -2,6 +2,7 @@
 name: email-sequence
 id: SK-0081
 keywords: [write-email, check-sequence, file-email]
+goal: Deliver email sequence output correctly and completely.
 hash: fd8a64d
 relations: []
 before: []

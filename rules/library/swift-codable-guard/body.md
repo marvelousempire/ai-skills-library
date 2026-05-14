@@ -2,6 +2,7 @@
 name: swift-codable-guard
 id: RL-0041
 keywords: [enforce-swift, check-codable, build-guard]
+goal: Deliver swift codable guard output correctly and completely.
 hash: bc894a2
 relations: []
 before: []

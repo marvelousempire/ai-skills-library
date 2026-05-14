@@ -2,6 +2,7 @@
 name: smoke-test-after-deploy
 id: RL-0040
 keywords: [enforce-smoke, check-test, build-after]
+goal: Deliver smoke test after deploy output correctly and completely.
 hash: 3f025e1
 relations: []
 before: []

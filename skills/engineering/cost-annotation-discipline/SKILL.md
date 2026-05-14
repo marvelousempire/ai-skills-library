@@ -2,6 +2,7 @@
 name: cost-annotation-discipline
 id: SK-0018
 keywords: [annotate-cost, classify-tier, label-action]
+goal: Every destructive action tells the user exactly what they will lose before they click.
 hash: 2ecc801
 relations: []
 before: []

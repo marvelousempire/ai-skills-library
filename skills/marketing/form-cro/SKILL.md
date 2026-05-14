@@ -2,6 +2,7 @@
 name: form-cro
 id: SK-0083
 keywords: [write-form, check-cro, file-form]
+goal: Deliver form cro output correctly and completely.
 hash: da5bf52
 relations: []
 before: []

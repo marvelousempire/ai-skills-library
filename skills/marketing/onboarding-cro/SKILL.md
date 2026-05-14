@@ -2,6 +2,7 @@
 name: onboarding-cro
 id: SK-0090
 keywords: [write-onboarding, check-cro, file-onboarding]
+goal: Deliver onboarding cro output correctly and completely.
 hash: a44084a
 relations: []
 before: []

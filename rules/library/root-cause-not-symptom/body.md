@@ -2,6 +2,7 @@
 name: root-cause-not-symptom
 id: RL-0037
 keywords: [enforce-root, check-cause, build-symptom]
+goal: Deliver root cause not symptom output correctly and completely.
 hash: 6968b7f
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: sales-enablement
 id: SK-0100
 keywords: [write-sales, check-enablement, file-sales]
+goal: Deliver sales enablement output correctly and completely.
 hash: e6cc187
 relations: []
 before: []

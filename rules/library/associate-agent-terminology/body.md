@@ -2,6 +2,7 @@
 name: associate-agent-terminology
 id: RL-0006
 keywords: [enforce-associate, check-agent, build-terminology]
+goal: Deliver associate agent terminology output correctly and completely.
 hash: 1a72fe5
 relations: []
 before: []

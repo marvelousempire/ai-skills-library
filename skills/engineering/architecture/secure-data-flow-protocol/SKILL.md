@@ -2,6 +2,7 @@
 name: secure-data-flow-protocol
 id: SK-0009
 keywords: [secure-flow, encrypt-data, validate-transfer]
+goal: Deliver secure data flow protocol output correctly and completely.
 hash: 4aeed7c
 relations: []
 before: []

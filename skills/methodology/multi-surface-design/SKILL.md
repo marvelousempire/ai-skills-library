@@ -2,6 +2,7 @@
 name: multi-surface-design
 id: SK-0117
 keywords: [design-surface, coordinate-ui, align-platform]
+goal: Deliver multi surface design output correctly and completely.
 hash: 10c6575
 relations: []
 before: []

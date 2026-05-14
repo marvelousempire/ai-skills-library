@@ -1,6 +1,7 @@
 ---
 name: voice-chat-ai
 keywords: [integrate-voice, check-chat, file-voice]
+goal: Deliver voice chat ai output correctly and completely.
 hash: d7cce5e
 relations: []
 before: []

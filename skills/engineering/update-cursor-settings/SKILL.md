@@ -2,6 +2,7 @@
 name: update-cursor-settings
 id: SK-0049
 keywords: [update-settings, configure-cursor, set-preference]
+goal: Deliver update cursor settings output correctly and completely.
 hash: 476519b
 relations: []
 before: []

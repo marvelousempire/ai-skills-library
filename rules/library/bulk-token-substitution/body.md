@@ -2,6 +2,7 @@
 name: bulk-token-substitution
 id: RL-0007
 keywords: [enforce-bulk, check-token, build-substitution]
+goal: Deliver bulk token substitution output correctly and completely.
 hash: 39b6490
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: post-ship-elevation-pass
 id: SK-0033
 keywords: [audit-gaps, propose-elevations, wait-approval]
+goal: Every shipped feature is immediately audited for gaps and extended with its most ambitious version.
 hash: 1451c13
 relations: [gap-audit-and-elevation, create-skill]
 before: [confirm-ship-clearly]

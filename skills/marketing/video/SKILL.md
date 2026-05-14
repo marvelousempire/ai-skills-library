@@ -2,6 +2,7 @@
 name: video
 id: SK-0106
 keywords: [write-video]
+goal: Deliver video output correctly and completely.
 hash: 2613586
 relations: []
 before: []

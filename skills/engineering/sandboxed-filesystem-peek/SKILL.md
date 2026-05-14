@@ -2,6 +2,7 @@
 name: sandboxed-filesystem-peek
 id: SK-0039
 keywords: [read-path, measure-size, list-directory]
+goal: AI agents can read the filesystem safely without becoming a data-exfiltration vector.
 hash: 331b625
 relations: []
 before: []

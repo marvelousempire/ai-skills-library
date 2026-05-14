@@ -2,6 +2,7 @@
 name: rebase-changelog-resolver
 id: SK-0037
 keywords: [rebase-branch, resolve-conflict, update-changelog]
+goal: Deliver rebase changelog resolver output correctly and completely.
 hash: dd1afce
 relations: []
 before: []

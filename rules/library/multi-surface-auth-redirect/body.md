@@ -2,6 +2,7 @@
 name: multi-surface-auth-redirect
 id: RL-0026
 keywords: [enforce-multi, check-surface, build-auth]
+goal: Deliver multi surface auth redirect output correctly and completely.
 hash: 42eddcd
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: streaming-sse-event-vocabulary
 id: SK-0010
 keywords: [define-events, route-messages, handle-stream]
+goal: Every AI agent stream uses the same named events so any frontend can consume any agent.
 hash: ab17480
 relations: []
 before: []

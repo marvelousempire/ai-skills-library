@@ -1,6 +1,7 @@
 ---
 name: claude-code-local
 keywords: [integrate-claude, check-code, build-local]
+goal: Deliver claude code local output correctly and completely.
 hash: df7f5ef
 relations: []
 before: []

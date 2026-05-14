@@ -1,6 +1,7 @@
 ---
 name: kokoro-fastapi
 keywords: [integrate-kokoro, check-fastapi, file-kokoro]
+goal: Deliver kokoro fastapi output correctly and completely.
 hash: ca55598
 relations: []
 before: []

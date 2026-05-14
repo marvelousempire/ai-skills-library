@@ -2,6 +2,7 @@
 name: ios-build-preflight
 id: RL-0020
 keywords: [enforce-ios, check-build, build-preflight]
+goal: Deliver ios build preflight output correctly and completely.
 hash: 56e462c
 relations: []
 before: []

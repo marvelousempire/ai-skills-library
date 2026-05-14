@@ -3,6 +3,7 @@ name: existing-repo-alignment
 id: SK-0136
 hash: 9d4e1b8
 keywords: [align-repo, reshape-structure, audit-existing]
+goal: Any existing repo can be reshaped to the AVERY GOODMAN standard without destroying what is already there.
 relations: [new-repo-setup, avery-goodman-repo-standard, failure-proof-audit]
 before: [failure-proof-audit, gap-audit-and-elevation]
 governed_by: [RL-0039, RL-0045, global]

@@ -2,6 +2,7 @@
 name: co-marketing
 id: SK-0070
 keywords: [write-marketing]
+goal: Deliver co marketing output correctly and completely.
 hash: 68e1477
 relations: []
 before: []

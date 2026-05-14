@@ -2,6 +2,7 @@
 name: parallel-agent-coordination
 id: SK-0130
 keywords: [run-parallel, check-agent, build-coordination]
+goal: Deliver parallel agent coordination output correctly and completely.
 hash: a4c73fd
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: app-launch-workflow
 id: RL-0003
 keywords: [enforce-app, check-launch, build-workflow]
+goal: Deliver app launch workflow output correctly and completely.
 hash: fa731e3
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: verification-before-ship
 id: RL-0043
 keywords: [enforce-verification, check-before, build-ship]
+goal: Deliver verification before ship output correctly and completely.
 hash: c515cbe
 relations: []
 before: []

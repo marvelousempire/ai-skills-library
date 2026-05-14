@@ -2,6 +2,7 @@
 name: bulk-rename-tokens
 id: SK-0014
 keywords: [rename-token, find-replace, update-references]
+goal: Deliver bulk rename tokens output correctly and completely.
 hash: e0fe609
 relations: []
 before: []

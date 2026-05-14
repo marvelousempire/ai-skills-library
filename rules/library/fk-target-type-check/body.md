@@ -2,6 +2,7 @@
 name: fk-target-type-check
 id: RL-0014
 keywords: [enforce-target, check-type, build-check]
+goal: Deliver fk target type check output correctly and completely.
 hash: d8550fd
 relations: []
 before: []

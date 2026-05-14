@@ -2,6 +2,7 @@
 name: hardware-compat-doc
 id: SK-0127
 keywords: [run-hardware, check-compat, build-doc]
+goal: Deliver hardware compat doc output correctly and completely.
 hash: 0fa6669
 relations: []
 before: []

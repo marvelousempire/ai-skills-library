@@ -2,6 +2,7 @@
 name: quality-bar-do-it-right
 id: RL-0035
 keywords: [enforce-quality, check-bar, build-right]
+goal: Deliver quality bar do it right output correctly and completely.
 hash: 70a4ea4
 relations: []
 before: []

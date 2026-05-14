@@ -2,6 +2,7 @@
 name: plan-first-substantive-changes
 id: SK-0030
 keywords: [write-plan, get-approval, define-scope]
+goal: Every substantive change is planned, approved, and documented before a single line of code is written.
 hash: b3b89e5
 relations: [confirm-ship-clearly, post-ship-elevation-pass]
 before: []

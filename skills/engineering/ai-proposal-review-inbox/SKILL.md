@@ -2,6 +2,7 @@
 name: ai-proposal-review-inbox
 id: SK-0001
 keywords: [review-proposal, accept-snippet, dismiss-proposal]
+goal: AI agents can grow curated source files through a review inbox without ever auto-mutating the source.
 hash: d792928
 relations: []
 before: []

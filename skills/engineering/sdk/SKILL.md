@@ -2,6 +2,7 @@
 name: sdk
 id: SK-0041
 keywords: [build-sdk, integrate-api, configure-client]
+goal: Deliver sdk output correctly and completely.
 hash: f0ebbde
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: ui-ux-pro-max
 id: SK-0132
 keywords: [design-ui, review-ux, apply-guidelines]
+goal: Deliver ui ux pro max output correctly and completely.
 hash: 1e75ad9
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: directory-submissions
 id: SK-0080
 keywords: [write-directory, check-submissions, file-directory]
+goal: Deliver directory submissions output correctly and completely.
 hash: 7cbaf75
 relations: []
 before: []

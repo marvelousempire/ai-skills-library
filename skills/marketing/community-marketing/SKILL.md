@@ -2,6 +2,7 @@
 name: community-marketing
 id: SK-0072
 keywords: [write-community, check-marketing, file-community]
+goal: Deliver community marketing output correctly and completely.
 hash: 7fea391
 relations: []
 before: []

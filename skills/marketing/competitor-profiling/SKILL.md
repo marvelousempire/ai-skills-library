@@ -2,6 +2,7 @@
 name: competitor-profiling
 id: SK-0074
 keywords: [write-competitor, check-profiling, file-competitor]
+goal: Deliver competitor profiling output correctly and completely.
 hash: 2817eab
 relations: []
 before: []
