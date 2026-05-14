@@ -100,6 +100,9 @@ ACTION_KEYWORDS = {
     "post-ship-elevation-pass":         ["audit-gaps", "propose-elevations", "wait-approval"],
     "emil-design-eng":                  ["apply-design", "enforce-polish", "review-detail"],
     "generate-weather-plates":          ["generate-plates", "create-assets", "render-weather"],
+    "new-repo-setup":                     ["setup-repo", "scaffold-structure", "initialize-standard"],
+    "existing-repo-alignment":            ["align-repo", "reshape-structure", "audit-existing"],
+    "product-schema-standard":            ["enforce-schema", "validate-fields", "stamp-product"],
 }
 
 GOVERNED_BY = {
