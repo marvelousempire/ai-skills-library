@@ -104,11 +104,25 @@ Server: 200 lines of Node stdlib (`http` + `fs` + `fetch`). No npm install. Toke
 
 Polls every 15 seconds, pauses when the browser tab is hidden, click-through links go to the GitLab project / pipeline / dashboard in new tabs.
 
+## Dockyard integration
+
+When Dockyard is reachable at `:4321`, the console:
+
+- Surfaces it as a fifth service card (`Dockyard ● up · Docker manager · N containers visible`)
+- Adds an **engine badge** to the footer (`engine: colima ●` / `orbstack ●` / `docker-desktop ●` / `unknown`) sourced from Dockyard's authoritative `/api/version`
+- Adds a Dockyard tile to the quick-launch row
+- Surfaces `make engine-info` for explicit engine readouts
+
+The `make start` target boots Dockyard first (so it sees the other containers come up). `make doctor` includes Dockyard + engine rows. Falls back gracefully — every other surface still works without Dockyard.
+
+See [`../dockyard/`](../dockyard/) for the full Dockyard integration skill, label schema, and Docker-Desktop-to-Colima migration guide.
+
 ## Pairing
 
 - **SEEME** — the diagram tool the console links to ([`../../visual/diagrams/seeme/`](../../visual/diagrams/seeme/))
 - **self-hosted-git** — the GitLab CE stack the console polls ([`../self-hosted-git/`](../self-hosted-git/))
 - **CI dashboard** — the deep-dive pipeline view ([`../self-hosted-git/dashboard/`](../self-hosted-git/dashboard/))
+- **Dockyard** — the Docker manager UI the console probes ([`../dockyard/`](../dockyard/))
 
 The console is the **overview**. When you want detail, click through.
 

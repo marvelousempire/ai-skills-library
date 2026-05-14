@@ -328,6 +328,33 @@
     color: var(--text);
   }
   .cmd-row { margin-bottom: 4px; }
+  .engine-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+  }
+  .engine-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .engine-badge.colima { color: var(--green); border-color: rgba(111,207,151,0.3); }
+  .engine-badge.colima::before { background: var(--green); }
+  .engine-badge.orbstack { color: var(--blue); border-color: rgba(123,170,247,0.3); }
+  .engine-badge.orbstack::before { background: var(--blue); }
+  .engine-badge.docker-desktop { color: var(--yellow); border-color: rgba(242,193,78,0.3); }
+  .engine-badge.docker-desktop::before { background: var(--yellow); }
+  .engine-badge.unknown { color: var(--text-dim); }
 
   .loading {
     text-align: center;
@@ -391,16 +418,23 @@
       <div class="launch-title">Ollama</div>
       <div class="launch-sub">local LLM runtime</div>
     </a>
+    <a class="launch" id="link-dockyard" href="#" target="_blank" rel="noopener">
+      <span class="launch-arrow">↗</span>
+      <div class="launch-title">Dockyard 🚢</div>
+      <div class="launch-sub">Docker manager UI</div>
+    </a>
   </div>
 
 </main>
 
 <footer>
+  <div id="engine-badge-wrap"><span id="engine-badge" class="engine-badge unknown">engine: detecting…</span></div>
   <div class="cmd-row"><strong>make targets</strong> — run from <code>skills/infra/console/</code>:</div>
-  <div class="cmd-row"><code>make start</code> · boot SEEME + GitLab + this console</div>
+  <div class="cmd-row"><code>make start</code> · boot SEEME + GitLab + Dockyard + this console</div>
   <div class="cmd-row"><code>make stop</code> · stop all stacks</div>
   <div class="cmd-row"><code>make status</code> · service health + container list</div>
   <div class="cmd-row"><code>make doctor</code> · run health checks across the stack</div>
+  <div class="cmd-row"><code>make engine-info</code> · which Docker engine is in use (Colima / OrbStack / Docker Desktop)</div>
   <div class="cmd-row"><code>make logs</code> · tail logs from every container</div>
 </footer>
 
@@ -416,6 +450,8 @@
     linkGitlab: $('link-gitlab'),
     linkCiDashboard: $('link-ci-dashboard'),
     linkOllama: $('link-ollama'),
+    linkDockyard: $('link-dockyard'),
+    engineBadge: $('engine-badge'),
   };
 
   let timer = null;
@@ -511,6 +547,21 @@
       else els.linkGitlab.classList.remove('disabled');
       els.linkCiDashboard.href = data.links.ciDashboard;
       els.linkOllama.href = data.links.ollama;
+      els.linkDockyard.href = data.links.dockyard;
+      const dockyardSvc = data.services.find((s) => s.name === 'Dockyard');
+      if (dockyardSvc && !dockyardSvc.available) {
+        els.linkDockyard.classList.add('disabled');
+      } else {
+        els.linkDockyard.classList.remove('disabled');
+      }
+
+      // Engine badge — pulls the detected Docker engine name out of
+      // /api/status (Dockyard provides the authoritative readout when up).
+      if (data.engine) {
+        const cls = data.engine.available ? data.engine.name : 'unknown';
+        els.engineBadge.className = 'engine-badge ' + cls;
+        els.engineBadge.textContent = 'engine: ' + (data.engine.available ? data.engine.name : 'unknown (start Dockyard for detection)');
+      }
 
       els.updated.textContent = 'updated ' + new Date().toLocaleTimeString();
     } catch (err) {

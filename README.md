@@ -46,6 +46,7 @@ Think of it as:
 | **SEEME** — AI diagram generator | [`skills/visual/diagrams/seeme/SKILL.md`](skills/visual/diagrams/seeme/SKILL.md) · [`README`](skills/visual/diagrams/seeme/README.md) |
 | **Self-hosted Git** (GitLab CE + CI) | [`skills/infra/self-hosted-git/SKILL.md`](skills/infra/self-hosted-git/SKILL.md) · [`README`](skills/infra/self-hosted-git/README.md) |
 | **Homelab Console** (unified UI + Makefile) | [`skills/infra/console/SKILL.md`](skills/infra/console/SKILL.md) · [`README`](skills/infra/console/README.md) |
+| **Dockyard** (Docker UI + label schema) | [`skills/infra/dockyard/SKILL.md`](skills/infra/dockyard/SKILL.md) · [`README`](skills/infra/dockyard/README.md) |
 | Red-E Play project skills | [`skills/project/red-e-play/README.md`](skills/project/red-e-play/README.md) |
 | ReadyPlay context | [`context/readyplay-product-marketing-context.md`](context/readyplay-product-marketing-context.md) |
 | External tool bridge skills | [`skills/external/SKILL-CATALOG.md`](skills/external/SKILL-CATALOG.md) |
@@ -370,6 +371,66 @@ Outputs:
 
 ---
 
+## 11 — Dockyard (sovereign Docker UI integration)
+
+**Purpose:** wire every library container into [Dockyard](https://github.com/marvelousempire/claude-chat-reader/tree/main/dockyard) — the user's Python-stdlib Docker manager UI built to replace Docker Desktop. Defines the canonical label schema, ships an installer + standalone-compose template + Caddyfile snippet, and includes a Docker-Desktop-to-Colima migration guide for the Apple-Silicon + macOS Tahoe regressions Docker Desktop has been hitting.
+
+**Use when:** the task involves "set up Dockyard," "Docker UI without Docker Desktop," "Colima," "OrbStack," "labels for Dockyard," "switch off Docker Desktop," or just "use Dockyard on my library stacks."
+
+```text
+   ┌────────────────────────────────────────────────────────────────────┐
+   │  Dockyard :4321 — Compose-project view                              │
+   ├────────────────────────────────────────────────────────────────────┤
+   │  📦 seeme              (skill: seeme)                                │
+   │     ● seeme-ui         web-ui     http://localhost:7777             │
+   │     ● seeme-ollama     engine     http://localhost:11434            │
+   │     ○ seeme-ollama-init init      (exited cleanly)                  │
+   │                                                                    │
+   │  📦 self-hosted-git    (skill: self-hosted-git)                      │
+   │     ● gitlab           git-platform  https://git.your.tld           │
+   │     ● gitlab-caddy     reverse-proxy https://git.your.tld           │
+   │     ● gitlab-runner    ci-runner                                    │
+   │                                                                    │
+   │  Engine: ● colima (v0.7.0)        Disk: 47 GB / 60 GB               │
+   └────────────────────────────────────────────────────────────────────┘
+```
+
+**What this skill ships:**
+
+| File | Purpose |
+|---|---|
+| `templates/install.sh` | one-line installer — detects local Dockyard clone, falls back to standalone-compose |
+| `templates/standalone-compose.yml` | run Dockyard as a sidecar in any Compose project |
+| `templates/caddyfile-snippet.txt` | HTTPS front-door entries for Dockyard + every other UI in the library |
+| `templates/labels-reference.md` | **the canonical label schema** — every library container's contract |
+| `references/integration-checklist.md` | per-stack compliance snapshot |
+| `references/engines-compared.md` | Colima vs OrbStack vs Docker Desktop decision matrix |
+| `references/switching-from-docker-desktop.md` | Docker Desktop → Colima migration, no data loss |
+
+**Label schema (the contract):**
+
+```yaml
+labels:
+  org.opencontainers.image.title: "<display name>"
+  org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+  org.opencontainers.image.description: "<one-line role>"
+  ai-skills-library.skill: "<skill-slug>"            # seeme, self-hosted-git, dockyard, …
+  ai-skills-library.surface: "<role>"                # web-ui / engine / reverse-proxy / ci-runner / init / dock-ui / db / queue
+  ai-skills-library.url: "<localhost-url>"           # omit for surface=engine|init|ci-runner
+```
+
+The SEEME stack (3 containers) and self-hosted-git stack (3 containers) both ship this schema today — see [`integration-checklist.md`](skills/infra/dockyard/references/integration-checklist.md).
+
+**Console integration:** Dockyard appears as a fifth service card in the [Homelab Console](skills/infra/console/), the footer shows `engine: colima ●` / `orbstack ●` / `docker-desktop ●` sourced from Dockyard's authoritative `/api/version`, and `make engine-info` prints the engine readout from any terminal.
+
+| Resource | What It Covers |
+|---|---|
+| [`skills/infra/dockyard/SKILL.md`](skills/infra/dockyard/SKILL.md) | the playbook + MCP tool list |
+| [`skills/infra/dockyard/README.md`](skills/infra/dockyard/README.md) | human-readable README |
+| [`skills/infra/dockyard/templates/labels-reference.md`](skills/infra/dockyard/templates/labels-reference.md) | the canonical label schema every future skill must follow |
+
+---
+
 # AI Routing Cheat Sheet
 
 | Task Type | First Place To Look |
@@ -379,6 +440,7 @@ Outputs:
 | **Generate a diagram / flow / architecture picture** | **`skills/visual/diagrams/seeme/` — or just run `seeme "..."`** |
 | **Self-host Git or replace GitHub Actions** | **`skills/infra/self-hosted-git/`** |
 | **Boot / monitor the whole homelab stack** | **`skills/infra/console/` — `make start`** |
+| **Docker UI / replace Docker Desktop / Colima setup** | **`skills/infra/dockyard/`** |
 | Cursor project skills | `skills/ide/cursor/` |
 | Agent rules | `rules/` |
 | ReadyPlay context | `context/readyplay-product-marketing-context.md` |
@@ -411,7 +473,8 @@ ai-skills-library/
 │   │       └── seeme/                  # the AI tool: CLI + MCP + Web UI + Docker
 │   ├── infra/
 │   │   ├── self-hosted-git/            # GitLab CE + CI + dashboard
-│   │   └── console/                    # unified UI + Makefile (entry point)
+│   │   ├── console/                    # unified UI + Makefile (entry point)
+│   │   └── dockyard/                   # Docker UI integration + label schema
 │   ├── ide/cursor/
 │   ├── project/red-e-play/
 │   └── external/
@@ -443,7 +506,7 @@ ai-skills-library/
 Current known count:
 
 ```text
-72 SKILL.md files under skills/
+76 SKILL.md files under skills/
 ```
 
 Regenerate catalogs after vendoring or editing skills.

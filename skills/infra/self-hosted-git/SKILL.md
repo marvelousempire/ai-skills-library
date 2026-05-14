@@ -167,6 +167,7 @@ Full setup: [`dashboard/README.md`](dashboard/README.md).
 - **Upstream ledger**: [`docs/yousirjuan-upstream-repo-ledger.md`](../../../docs/yousirjuan-upstream-repo-ledger.md) — section 11 (Infrastructure, Network & Governance) and section 12 (Hardware) confirm the Mac-mini-on-WireGuard-via-Flint-2 target.
 - **Why not Forgejo**: [`references/gitlab-vs-forgejo.md`](references/gitlab-vs-forgejo.md) — the explicit decision record.
 - **Why this skill exists**: [`references/yousirjuan-context.md`](references/yousirjuan-context.md) — connects this playbook to the broader sovereign-stack vision.
+- **Docker UI** (recommended over Docker Desktop): [`../dockyard/`](../dockyard/) — every GitLab/Caddy/Runner container ships the full `ai-skills-library.*` labels so Dockyard renders the stack with names + roles + URLs. Switch to Colima per [`../dockyard/references/switching-from-docker-desktop.md`](../dockyard/references/switching-from-docker-desktop.md) if you're hitting Docker Desktop reliability issues.
 
 ## Status of the yousirjuan plan after running this
 

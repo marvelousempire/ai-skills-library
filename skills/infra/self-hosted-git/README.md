@@ -109,7 +109,12 @@ Migrating from Path A to Path B is a 10-minute job: stop containers, move volume
 
 Recurring cost: **basically nothing.**
 
+## Compatible with Dockyard
+
+Every container in this stack (`gitlab`, `gitlab-caddy`, `gitlab-runner`) ships with the canonical `ai-skills-library.*` label schema, so [Dockyard](../dockyard/) renders the GitLab stack as a clean Compose project with names, roles, and per-service URLs. Recommended Docker UI in place of Docker Desktop — see [`../dockyard/references/engines-compared.md`](../dockyard/references/engines-compared.md).
+
 ## Anchors
 
 - yousirjuan platform plan: [`docs/yousirjuan-platform-skills-master.md`](../../../docs/yousirjuan-platform-skills-master.md)
 - yousirjuan upstream ledger: [`docs/yousirjuan-upstream-repo-ledger.md`](../../../docs/yousirjuan-upstream-repo-ledger.md)
+- Dockyard (recommended Docker UI): [`../dockyard/`](../dockyard/)

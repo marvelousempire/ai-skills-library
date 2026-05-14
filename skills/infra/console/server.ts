@@ -29,6 +29,7 @@ const GITLAB_URL = (process.env.GITLAB_URL ?? '').replace(/\/$/, '')
 const GITLAB_TOKEN = process.env.GITLAB_TOKEN ?? ''
 const OLLAMA_HOST = (process.env.OLLAMA_HOST ?? 'http://localhost:11434').replace(/\/$/, '')
 const CI_DASHBOARD_URL = (process.env.CI_DASHBOARD_URL ?? 'http://localhost:7778').replace(/\/$/, '')
+const DOCKYARD_URL = (process.env.DOCKYARD_URL ?? 'http://localhost:4321').replace(/\/$/, '')
 
 const indexHtml = existsSync(indexPath)
   ? readFileSync(indexPath, 'utf-8')
@@ -152,6 +153,51 @@ interface GitlabProject {
   last_activity_at: string
 }
 
+const dockyardStatus = async (): Promise<ServiceStatus> => {
+  const cfgRes = await probe<{ port: number; branding?: { name?: string } }>(
+    `${DOCKYARD_URL}/api/config`,
+  )
+  if (!cfgRes.ok) {
+    return {
+      name: 'Dockyard',
+      available: false,
+      detail: cfgRes.error ?? 'unreachable',
+      links: [{ label: 'install', href: 'https://github.com/marvelousempire/claude-chat-reader/tree/main/dockyard' }],
+    }
+  }
+  // Pull container count so the card has something substantive to show.
+  const containersRes = await probe<unknown[]>(`${DOCKYARD_URL}/api/containers`)
+  const count = Array.isArray(containersRes.body) ? containersRes.body.length : 0
+  return {
+    name: 'Dockyard',
+    available: true,
+    detail: `Docker manager · ${count} container${count === 1 ? '' : 's'} visible`,
+    links: [{ label: 'open', href: DOCKYARD_URL }],
+    data: { containerCount: count },
+  }
+}
+
+// Detect which Docker engine is providing the socket. Best-effort — uses
+// `/api/version` from Dockyard if it's up, otherwise inspects the standard
+// socket paths.
+const engineStatus = async (): Promise<{ name: string; available: boolean; detail: string }> => {
+  // 1. If Dockyard is up, ask it (most authoritative).
+  const dockRes = await probe<{ socket?: string }>(`${DOCKYARD_URL}/api/version`)
+  if (dockRes.ok && (dockRes.body as { socket?: string })?.socket) {
+    const sock = String((dockRes.body as { socket?: string }).socket ?? '')
+    if (sock.includes('colima')) return { name: 'colima', available: true, detail: sock }
+    if (sock.includes('orbstack')) return { name: 'orbstack', available: true, detail: sock }
+    if (sock.includes('com.docker') || sock === '/var/run/docker.sock') {
+      return { name: 'docker-desktop', available: true, detail: sock }
+    }
+    return { name: 'unknown', available: true, detail: sock }
+  }
+  // 2. Fall back: probe candidate socket files in priority order.
+  // (We can't fs.exists from here on the host without `child_process.exec` —
+  // this is best-effort and reports "unknown" if Dockyard's down.)
+  return { name: 'unknown', available: false, detail: 'no engine info — start Dockyard for accurate readout' }
+}
+
 const gitlabStatus = async (): Promise<ServiceStatus> => {
   if (!GITLAB_URL || !GITLAB_TOKEN) {
     return {
@@ -232,18 +278,24 @@ const router = async (req: IncomingMessage, res: ServerResponse) => {
   }
 
   if (method === 'GET' && url === '/api/status') {
-    // Fan out to every service in parallel; aggregate.
-    const [seeme, gitlab, ollama] = await Promise.all([
+    // Fan out to every service in parallel; aggregate. Dockyard probe is
+    // included; engine detection piggybacks on Dockyard's /api/version when
+    // it's up, otherwise reports "unknown".
+    const [seeme, gitlab, ollama, dockyard, engine] = await Promise.all([
       seemeStatus(),
       gitlabStatus(),
       ollamaStatus(),
+      dockyardStatus(),
+      engineStatus(),
     ])
     return sendJson(res, 200, {
-      services: [seeme, gitlab, ollama],
+      services: [seeme, gitlab, ollama, dockyard],
+      engine,
       links: {
         seeme: SEEME_URL,
         gitlab: GITLAB_URL || null,
         ollama: OLLAMA_HOST,
+        dockyard: DOCKYARD_URL,
         ciDashboard: CI_DASHBOARD_URL,
       },
       timestamp: new Date().toISOString(),
@@ -256,6 +308,7 @@ const router = async (req: IncomingMessage, res: ServerResponse) => {
       gitlabUrl: GITLAB_URL || null,
       ollamaHost: OLLAMA_HOST,
       ciDashboardUrl: CI_DASHBOARD_URL,
+      dockyardUrl: DOCKYARD_URL,
     })
   }
 
@@ -282,6 +335,7 @@ process.stderr.write(`  SEEME       ${SEEME_URL}\n`)
 process.stderr.write(`  GitLab CE   ${GITLAB_URL || '(unset)'}\n`)
 process.stderr.write(`  Ollama      ${OLLAMA_HOST}\n`)
 process.stderr.write(`  CI dashbd   ${CI_DASHBOARD_URL}\n`)
+process.stderr.write(`  Dockyard    ${DOCKYARD_URL}\n`)
 process.stderr.write(`(Ctrl-C to stop)\n`)
 
 await new Promise<void>((resolveProm) => {

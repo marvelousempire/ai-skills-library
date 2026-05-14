@@ -49,6 +49,10 @@ seeme serve --open
 
 Opens `http://127.0.0.1:7777/` in your browser. Self-contained: no CDN deps, dark mode, monospace-forward, designed in the same Unicode box-and-arrow style the tool outputs. The page talks to a tiny local HTTP server that wraps the same `generate()` engine the CLI uses — same lint loop, same prompt caching, same provider routing. ⌘+↵ generates, click "Refine last" to iterate.
 
+## Compatible with Dockyard
+
+Every SEEME container ships with the canonical `ai-skills-library.*` label schema (skill, surface, url) plus OCI labels. They render natively in [Dockyard](../../../infra/dockyard/) — the lightweight Python-stdlib Docker manager UI — grouped under the `seeme` Compose project with proper names, roles, and per-service URLs. No extra config needed.
+
 ## Docker
 
 Run the full stack (SEEME + Ollama + llama3.1 auto-pull) without installing anything on the host:

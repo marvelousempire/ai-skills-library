@@ -457,6 +457,10 @@ Runs, connects, and secures the platform services.
 |---|---|---|---|---|
 | Docker | containerization | isolate services | APIs, DBs, queues, AI UIs | Active |
 | Docker Compose | orchestration | local service startup | dev/home-lab runtime | Active |
+| Colima | Docker engine | Apple-Silicon-native daemon | recommended replacement for Docker Desktop on macOS Tahoe | Active ([dockyard](../skills/infra/dockyard/references/engines-compared.md)) |
+| OrbStack | Docker engine | paid native daemon UI | alternative to Docker Desktop / Colima | Alternative ([dockyard](../skills/infra/dockyard/references/engines-compared.md)) |
+| Docker Desktop | Docker engine | bundled engine + GUI | legacy on Apple Silicon + macOS Tahoe (May 2026 regressions) | Legacy ([migration](../skills/infra/dockyard/references/switching-from-docker-desktop.md)) |
+| Dockyard | Docker UI | container manager UI (replaces Docker Desktop's GUI) | every library stack ships `ai-skills-library.*` labels for Dockyard's Compose view | Skill ready ([dockyard](../skills/infra/dockyard/)) |
 | PostgreSQL | relational DB | structured data | workspaces, namespaces, jobs, metadata | Active schema |
 | Redis | queue system | background jobs | ingestion, evals, orchestration | Planned |
 | WireGuard | VPN/network | encrypted private routing | connects all compute/storage nodes | Active |

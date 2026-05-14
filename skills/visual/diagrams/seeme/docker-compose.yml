@@ -28,6 +28,16 @@ services:
       timeout: 5s
       retries: 12
       start_period: 5s
+    # Self-describing labels so Dockyard renders this container with full
+    # provenance + role in its Compose view. See
+    # skills/infra/dockyard/templates/labels-reference.md for the schema.
+    labels:
+      org.opencontainers.image.title: "Ollama (SEEME)"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "Local LLM runtime backing the SEEME diagram generator"
+      ai-skills-library.skill: "seeme"
+      ai-skills-library.surface: "engine"
+      ai-skills-library.url: "http://localhost:11434"
 
   # One-shot init: pulls the default model so the first SEEME call doesn't
   # block on a several-hundred-MB download. Exits when done; safe to re-run.
@@ -53,6 +63,12 @@ services:
           echo "✓ llama3.1 ready"
         fi
     restart: "no"
+    labels:
+      org.opencontainers.image.title: "Ollama init (SEEME)"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "One-shot llama3.1 pull job — exits on success"
+      ai-skills-library.skill: "seeme"
+      ai-skills-library.surface: "init"
 
   seeme:
     build:
@@ -80,6 +96,13 @@ services:
     volumes:
       # Persist refine cache + opt-in history across container restarts.
       - seeme-data:/home/seeme/.seeme
+    labels:
+      org.opencontainers.image.title: "SEEME"
+      org.opencontainers.image.source: "https://github.com/marvelousempire/ai-skills-library"
+      org.opencontainers.image.description: "AI diagram generator — Unicode box-and-arrow style, multi-provider"
+      ai-skills-library.skill: "seeme"
+      ai-skills-library.surface: "web-ui"
+      ai-skills-library.url: "http://localhost:7777"
 
 volumes:
   ollama-data:
