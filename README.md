@@ -509,7 +509,7 @@ ai-skills-library/
 Current known count:
 
 ```text
-76 SKILL.md files under skills/
+78 SKILL.md files under skills/
 ```
 
 Regenerate catalogs after vendoring or editing skills.
