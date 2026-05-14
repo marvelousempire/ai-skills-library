@@ -1,506 +1,268 @@
 ---
 name: create-skill
 id: SK-0021
-keywords: [create, skill]
+keywords: [skill, authoring, schema]
 description: >-
-  Create Cursor Agent Skills. Use when authoring a new skill or asking about
-  SKILL.md structure.
+  The step-by-step guide for authoring a new product in the AI Skills Library —
+  writing the frontmatter, assigning an ID, choosing keywords, and filling the
+  eight body sections. Use this when creating a new skill, writing a new rule,
+  adding a product to the library, or when someone asks "how do I write a skill",
+  "how should this skill be structured", "what goes in a SKILL.md", "what are
+  the required sections", "skill frontmatter format", "how do I add a product".
 ---
-# Creating Skills in Cursor
 
-This skill guides you through creating effective Agent Skills for Cursor. Skills are markdown files that teach the agent how to perform specific tasks: reviewing PRs using team standards, generating commit messages in a preferred format, querying database schemas, or any specialized workflow.
+# write-skill-product — author any product for the AI Skills Library
 
-## Before You Begin: Gather Requirements
-
-Before creating a skill, gather essential information from the user about:
-
-1. **Purpose and scope**: What specific task or workflow should this skill help with?
-2. **Target location**: Should this be a personal skill (~/.cursor/skills/) or project skill (.cursor/skills/)?
-3. **Trigger scenarios**: When should the agent automatically apply this skill?
-4. **Key domain knowledge**: What specialized information does the agent need that it wouldn't already know?
-5. **Output format preferences**: Are there specific templates, formats, or styles required?
-6. **Existing patterns**: Are there existing examples or conventions to follow?
-
-### Verbatim text from the user
-
-If the user includes exact wording to use in the skill, respect it and use it **verbatim** in `SKILL.md` (same words, same order). Do not paraphrase, soften, or expand their copy, and do not add unrequested headings or commentary around it.
-
-### Inferring from Context
-
-If you have previous conversation context, infer the skill from what was discussed. You can create skills based on workflows, patterns, or domain knowledge that emerged in the conversation.
-
-### Gathering Additional Information
-
-If you need clarification, use the AskQuestion tool when available:
-
-```
-Example AskQuestion usage:
-- "Where should this skill be stored?" with options like ["Personal (~/.cursor/skills/)", "Project (.cursor/skills/)"]
-- "Should this skill include executable scripts?" with options like ["Yes", "No"]
-```
-
-If the AskQuestion tool is not available, ask these questions conversationally.
+A product without complete metadata is invisible to the distribution model. A product without the eight body sections is unusable by a future AI or human. This skill walks through writing a product that is complete, correctly formatted, and immediately useful.
 
 ---
 
-## Skill File Structure
+## When to use this skill
 
-### Directory Layout
-
-Skills are stored as directories containing a `SKILL.md` file:
-
-```
-skill-name/
-├── SKILL.md              # Required - main instructions
-├── reference.md          # Optional - detailed documentation
-├── examples.md           # Optional - usage examples
-└── scripts/              # Optional - utility scripts
-    ├── validate.py
-    └── helper.sh
-```
-
-### Storage Locations
-
-| Type | Path | Scope |
-|------|------|-------|
-| Personal | ~/.cursor/skills/skill-name/ | Available across all your projects |
-| Project | .cursor/skills/skill-name/ | Shared with anyone using the repository |
-
-**IMPORTANT**: Never create skills in `~/.cursor/skills-cursor/`. This directory is reserved for Cursor's internal built-in skills and is managed automatically by the system.
-
-### SKILL.md Structure
-
-Every skill requires a `SKILL.md` file with YAML frontmatter and markdown body:
-
-```markdown
----
-name: your-skill-name
-description: Brief description of what this skill does and when to use it
-disable-model-invocation: true
----
-
-# Your Skill Name
-
-## Instructions
-Clear, step-by-step guidance for the agent.
-
-## Examples
-Concrete examples of using this skill.
-```
-
-Default `disable-model-invocation: true` so the skill only loads when named explicitly. Omit it only when the agent should auto-invoke from ambient context.
-
-### Required Metadata Fields
-
-| Field | Requirements | Purpose |
-|-------|--------------|---------|
-| `name` | Max 64 chars, lowercase letters/numbers/hyphens only | Unique identifier for the skill |
-| `description` | Max 1024 chars, non-empty | Helps agent decide when to apply the skill |
+- Writing a new `SKILL.md`, `body.md` (rule), or `AGENT.md` for the library
+- Reformatting an existing product that's missing fields or sections
+- Someone asks "how do I write a skill" / "what goes in a SKILL.md"
+- After `conversation-retrospective-extraction` surfaces a new skill candidate
+- After the `skill-nutrients-decanter` confirms a nutrient is worth filing
 
 ---
 
-## Writing Effective Descriptions
+## Step 1 — Decide the product type
 
-The description is **critical** for skill discovery. The agent uses it to decide when to apply your skill.
+| Type | File | Where | When |
+|---|---|---|---|
+| **Skill** | `SKILL.md` | `skills/<category>/<name>/` | Invocable process with a trigger |
+| **Rule** | `body.md` | `rules/library/<name>/` | Always-on policy, no invocation needed |
+| **Agent** | `AGENT.md` | `agents/<name>/` | Autonomous actor with its own loop |
+| **Template** | any file | `templates/<category>/<name>/` | Starter structure for reuse |
+| **Doc** | `*.md` | `docs/` | Reference material, master plans |
+| **Checklist** | `*.md` | `docs/checklists/` | Binary verification list |
 
-### Description Best Practices
+---
 
-1. **Write in third person** (the description is injected into the system prompt):
-   - ✅ Good: "Processes Excel files and generates reports"
-   - ❌ Avoid: "I can help you process Excel files"
-   - ❌ Avoid: "You can use this to process Excel files"
+## Step 2 — Choose the folder location
 
-2. **Be specific and include trigger terms**:
-   - ✅ Good: "Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction."
-   - ❌ Vague: "Helps with documents"
+Use the folder taxonomy from `README.md`:
 
-3. **Include both WHAT and WHEN**:
-   - WHAT: What the skill does (specific capabilities)
-   - WHEN: When the agent should use it (trigger scenarios)
+```
+skills/engineering/           Implementation and workflow patterns
+skills/engineering/architecture/  Structural system decisions
+skills/visual/design/ux/      UX mood + method
+skills/visual/design/ui/      Cosmetic interface layer
+skills/visual/design/paint/   Decoration and branding
+skills/methodology/           Thinking and process frameworks
+skills/marketing/             Copy, SEO, CRO, launch, research
+skills/infra/                 Infrastructure and self-hosting
+```
 
-### Description Examples
+When in doubt: if it's about how systems are structured → `engineering/architecture/`. If it's about a process or methodology → `methodology/`. If it's about making something look or feel a certain way → `visual/design/`.
+
+---
+
+## Step 3 — Write the frontmatter (all four fields required)
 
 ```yaml
-# PDF Processing
-description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
+---
+name: product-name-kebab-case
+id: SK-XXXX
+keywords: [keyword1, keyword2, keyword3]
+description: >-
+  What this product does. When it triggers. 4–6 specific trigger phrases —
+  the exact words a user or AI would say that should load this product.
+  Narrow enough not to fire on every task. Rich enough to match confidently.
+---
+```
 
-# Excel Analysis
-description: Analyze Excel spreadsheets, create pivot tables, generate charts. Use when analyzing Excel files, spreadsheets, tabular data, or .xlsx files.
+### `name` — the machine identifier
 
-# Git Commit Helper
-description: Generate descriptive commit messages by analyzing git diffs. Use when the user asks for help writing commit messages or reviewing staged changes.
+- Exact match of the containing folder slug
+- Lowercase, kebab-case, no spaces, no capitals
 
-# Code Review
-description: Review code for quality, security, and best practices following team standards. Use when reviewing pull requests, code changes, or when the user asks for a code review.
+### `id` — the global unique product ID
+
+Run the stamper — it auto-assigns the next available number:
+
+```bash
+cd ~/Developer/ai-skills-library
+python3 scripts/stamp-product-ids.py
+```
+
+Format: `SK-NNNN` for skills, `RL-NNNN` for rules. Zero-padded to 4 digits.
+
+### `keywords` — max 3 domain routing tags
+
+Domain tags. What world does this product live in? Max 3. Lowercase. No verbs.
+
+| Good | Bad |
+|---|---|
+| `[audit, boolean, accountability]` | `[audit, run, checklist]` — verb |
+| `[git, architecture, github]` | `[repo, git, architecture, github]` — too many |
+| `[macOS, native-ui, applescript]` | `[tool, script, mac]` — too generic |
+
+### `description` — the trigger surface
+
+This is what the router reads. It must contain 4–6 specific trigger phrases embedded naturally in the text. Phrases should be things a real user would actually type or say.
+
+```yaml
+description: >-
+  A multi-pass audit methodology for any repo, project, or system. Triggers on
+  "audit this repo", "failure-proof audit", "run a full audit", "Boolean lead
+  sheet", "find hidden gaps", "what would break after six months".
 ```
 
 ---
 
-## Core Authoring Principles
+## Step 4 — Write the eight body sections
 
-### 1. Concise is Key
+After the closing `---`, every `SKILL.md` has these sections in this order:
 
-The context window is shared with conversation history, other skills, and requests. Every token competes for space.
-
-**Default assumption**: The agent is already very smart. Only add context it doesn't already have.
-
-Challenge each piece of information:
-- "Does the agent really need this explanation?"
-- "Can I assume the agent knows this?"
-- "Does this paragraph justify its token cost?"
-
-**Good (concise)**:
-```markdown
-## Extract PDF text
-
-Use pdfplumber for text extraction:
-
-\`\`\`python
-import pdfplumber
-
-with pdfplumber.open("file.pdf") as pdf:
-    text = pdf.pages[0].extract_text()
-\`\`\`
-```
-
-**Bad (verbose)**:
-```markdown
-## Extract PDF text
-
-PDF (Portable Document Format) files are a common file format that contains
-text, images, and other content. To extract text from a PDF, you'll need to
-use a library. There are many libraries available for PDF processing, but we
-recommend pdfplumber because it's easy to use and handles most cases well...
-```
-
-### 2. Keep SKILL.md Under 500 Lines
-
-For optimal performance, the main SKILL.md file should be concise. Use progressive disclosure for detailed content.
-
-### 3. Progressive Disclosure
-
-Put essential information in SKILL.md; detailed reference material in separate files that the agent reads only when needed.
+### 1. Title + tagline
 
 ```markdown
-# PDF Processing
+# [Title] — [one-line tagline]
 
-## Quick start
-[Essential instructions here]
-
-## Additional resources
-- For complete API details, see [reference.md](reference.md)
-- For usage examples, see [examples.md](examples.md)
+[One sentence: what failure this product prevents, or what friction it removes.]
 ```
 
-**Keep references one level deep** - link directly from SKILL.md to reference files. Deeply nested references may result in partial reads.
+The tagline is not the description. The description is for routing. The tagline is for humans scanning a list.
 
-### 4. Set Appropriate Degrees of Freedom
+### 2. When to use this product
 
-Match specificity to the task's fragility:
+```markdown
+## When to use this product
 
-| Freedom Level | When to Use | Example |
-|---------------|-------------|---------|
-| **High** (text instructions) | Multiple valid approaches, context-dependent | Code review guidelines |
-| **Medium** (pseudocode/templates) | Preferred pattern with acceptable variation | Report generation |
-| **Low** (specific scripts) | Fragile operations, consistency critical | Database migrations |
+- [Specific trigger condition — "the user says X"]
+- [Specific trigger condition — "you notice Y"]
+- [Exact phrase the user would say]
+```
+
+Be specific. "When working on a repo" is not specific. "When the user says 'audit this before we ship'" is specific.
+
+### 3. The mechanism
+
+```markdown
+## [Name it after what the skill teaches — not "How it works"]
+
+[The actual pattern, with runnable code or a paste-ready template.]
+[Not vague principles. Concrete implementation.]
+```
+
+Examples of good section names: "The four receipts", "The six-step decanting process", "The canonical implementation", "The Boolean lead sheet format".
+
+### 4. What this is NOT for
+
+```markdown
+## What this is NOT for
+
+- Not for [common misapplication]
+- Not for [adjacent use case — name the right skill instead]
+```
+
+This prevents scope creep and misuse. If a neighboring skill handles a related case, name it explicitly here.
+
+### 5. Anti-patterns
+
+```markdown
+## Anti-patterns
+
+- ❌ [Specific wrong approach] — [brief reason why]
+- ❌ [Another wrong approach] — [brief reason]
+- ❌ [Third wrong approach] — [brief reason]
+```
+
+Minimum 3 anti-patterns. Always use `❌` prefix. Always give a reason.
+
+### 6. Invocation
+
+```markdown
+## Invocation
+
+- "Use **skill-name**."
+- "[Natural phrase that triggers this]"
+- "[Another phrase]"
+```
+
+Always include the canonical `"Use **name**."` form first.
+
+### 7. Reference implementation
+
+```markdown
+## Reference implementation
+
+[Link to the real-world repo, file, PR, or commit that demonstrates this.]
+[Why it's the canonical example.]
+```
+
+A reference without a link is just a claim. Always link.
 
 ---
 
-## Common Patterns
+## Step 5 — Validate and stamp
 
-### Template Pattern
+```bash
+# Auto-assign id + keywords if not done manually
+python3 scripts/stamp-product-ids.py
 
-Provide output format templates:
+# Validate all frontmatter
+python3 scripts/validate-skill-frontmatter.py
 
-```markdown
-## Report structure
-
-Use this template:
-
-\`\`\`markdown
-# [Analysis Title]
-
-## Executive summary
-[One-paragraph overview of key findings]
-
-## Key findings
-- Finding 1 with supporting data
-- Finding 2 with supporting data
-
-## Recommendations
-1. Specific actionable recommendation
-2. Specific actionable recommendation
-\`\`\`
+# Sync SKILL-INDEX.md count (for new skills)
+./scripts/finalize-skills-index.sh
 ```
 
-### Examples Pattern
-
-For skills where output quality depends on seeing examples:
-
-```markdown
-## Commit message format
-
-**Example 1:**
-Input: Added user authentication with JWT tokens
-Output:
-\`\`\`
-feat(auth): implement JWT-based authentication
-
-Add login endpoint and token validation middleware
-\`\`\`
-
-**Example 2:**
-Input: Fixed bug where dates displayed incorrectly
-Output:
-\`\`\`
-fix(reports): correct date formatting in timezone conversion
-
-Use UTC timestamps consistently across report generation
-\`\`\`
-```
-
-### Workflow Pattern
-
-Break complex operations into clear steps with checklists:
-
-```markdown
-## Form filling workflow
-
-Copy this checklist and track progress:
-
-\`\`\`
-Task Progress:
-- [ ] Step 1: Analyze the form
-- [ ] Step 2: Create field mapping
-- [ ] Step 3: Validate mapping
-- [ ] Step 4: Fill the form
-- [ ] Step 5: Verify output
-\`\`\`
-
-**Step 1: Analyze the form**
-Run: \`python scripts/analyze_form.py input.pdf\`
-...
-```
-
-### Conditional Workflow Pattern
-
-Guide through decision points:
-
-```markdown
-## Document modification workflow
-
-1. Determine the modification type:
-
-   **Creating new content?** → Follow "Creation workflow" below
-   **Editing existing content?** → Follow "Editing workflow" below
-
-2. Creation workflow:
-   - Use docx-js library
-   - Build document from scratch
-   ...
-```
-
-### Feedback Loop Pattern
-
-For quality-critical tasks, implement validation loops:
-
-```markdown
-## Document editing process
-
-1. Make your edits
-2. **Validate immediately**: \`python scripts/validate.py output/\`
-3. If validation fails:
-   - Review the error message
-   - Fix the issues
-   - Run validation again
-4. **Only proceed when validation passes**
-```
+All three must pass before committing.
 
 ---
 
-## Utility Scripts
+## Step 6 — The four-gate filter (pass before filing)
 
-Pre-made scripts offer advantages over generated code:
-- More reliable than generated code
-- Save tokens (no code in context)
-- Save time (no code generation)
-- Ensure consistency across uses
+Before committing any new skill, verify all four:
 
-```markdown
-## Utility scripts
+| Gate | The question |
+|---|---|
+| **Scope** | Does it apply beyond this specific project? |
+| **Trigger** | Is the trigger narrow enough not to fire on every "improve" task? |
+| **Substance** | Does it contain concrete runnable code or a paste-ready template? |
+| **Origin** | Can you name the specific bug, pain, or moment that made this worth filing? |
 
-**analyze_form.py**: Extract all form fields from PDF
-\`\`\`bash
-python scripts/analyze_form.py input.pdf > fields.json
-\`\`\`
-
-**validate.py**: Check for errors
-\`\`\`bash
-python scripts/validate.py fields.json
-# Returns: "OK" or lists conflicts
-\`\`\`
-```
-
-Make clear whether the agent should **execute** the script (most common) or **read** it as reference.
+If it fails even one gate, it's not ready. See `docs/what-makes-a-good-skill.md` for the full filter.
 
 ---
 
-## Anti-Patterns to Avoid
+## What this is NOT for
 
-### 1. Windows-Style Paths
-- ✅ Use: `scripts/helper.py`
-- ❌ Avoid: `scripts\helper.py`
-
-### 2. Too Many Options
-```markdown
-# Bad - confusing
-"You can use pypdf, or pdfplumber, or PyMuPDF, or..."
-
-# Good - provide a default with escape hatch
-"Use pdfplumber for text extraction.
-For scanned PDFs requiring OCR, use pdf2image with pytesseract instead."
-```
-
-### 3. Time-Sensitive Information
-```markdown
-# Bad - will become outdated
-"If you're doing this before August 2025, use the old API."
-
-# Good - use an "old patterns" section
-## Current method
-Use the v2 API endpoint.
-
-## Old patterns (deprecated)
-<details>
-<summary>Legacy v1 API</summary>
-...
-</details>
-```
-
-### 4. Inconsistent Terminology
-Choose one term and use it throughout:
-- ✅ Always "API endpoint" (not mixing "URL", "route", "path")
-- ✅ Always "field" (not mixing "box", "element", "control")
-
-### 5. Vague Skill Names
-- ✅ Good: `processing-pdfs`, `analyzing-spreadsheets`
-- ❌ Avoid: `helper`, `utils`, `tools`
+- Not for general Cursor IDE skill authoring (the old `create-skill` covered that — this is library-specific)
+- Not for editing existing product metadata (run `stamp-product-ids.py` instead)
+- Not for deciding WHAT to file (use `conversation-retrospective-extraction` or `skill-nutrients-decanter` first)
 
 ---
 
-## Skill Creation Workflow
+## Anti-patterns
 
-When helping a user create a skill, follow this process:
-
-### Phase 1: Discovery
-
-Gather information about:
-1. The skill's purpose and primary use case
-2. Storage location (personal vs project)
-3. Trigger scenarios
-4. Any specific requirements or constraints
-5. Existing examples or patterns to follow
-
-If you have access to the AskQuestion tool, use it for efficient structured gathering. Otherwise, ask conversationally.
-
-### Phase 2: Design
-
-1. Draft the skill name (lowercase, hyphens, max 64 chars)
-2. Write a specific, third-person description
-3. Outline the main sections needed
-4. Identify if supporting files or scripts are needed
-
-### Phase 3: Implementation
-
-1. Create the directory structure
-2. Write the SKILL.md file with frontmatter
-3. Create any supporting reference files
-4. Create any utility scripts if needed
-
-### Phase 4: Verification
-
-1. Verify the SKILL.md is under 500 lines
-2. Check that the description is specific and includes trigger terms
-3. Ensure consistent terminology throughout
-4. Verify all file references are one level deep
-5. Test that the skill can be discovered and applied
+- ❌ Writing a product without running the stamper — missing `id` breaks the router
+- ❌ Keywords that are verbs (`create`, `build`, `improve`) — keywords are domains, not actions
+- ❌ A `description` with no trigger phrases — the router can't match a product without them
+- ❌ A body with "How it works" as a section name — name it after what it teaches
+- ❌ No reference implementation — a claim without a link is noise
+- ❌ Filing a product without the four-gate filter — the library gets diluted
 
 ---
 
-## Complete Example
+## Invocation
 
-Here's a complete example of a well-structured skill:
-
-**Directory structure:**
-```
-code-review/
-├── SKILL.md
-├── STANDARDS.md
-└── examples.md
-```
-
-**SKILL.md:**
-```markdown
----
-name: code-review
-description: Review code for quality, security, and maintainability following team standards. Use when reviewing pull requests, examining code changes, or when the user asks for a code review.
----
-
-# Code Review
-
-## Quick Start
-
-When reviewing code:
-
-1. Check for correctness and potential bugs
-2. Verify security best practices
-3. Assess code readability and maintainability
-4. Ensure tests are adequate
-
-## Review Checklist
-
-- [ ] Logic is correct and handles edge cases
-- [ ] No security vulnerabilities (SQL injection, XSS, etc.)
-- [ ] Code follows project style conventions
-- [ ] Functions are appropriately sized and focused
-- [ ] Error handling is comprehensive
-- [ ] Tests cover the changes
-
-## Providing Feedback
-
-Format feedback as:
-- 🔴 **Critical**: Must fix before merge
-- 🟡 **Suggestion**: Consider improving
-- 🟢 **Nice to have**: Optional enhancement
-
-## Additional Resources
-
-- For detailed coding standards, see [STANDARDS.md](STANDARDS.md)
-- For example reviews, see [examples.md](examples.md)
-```
+- "Use **create-skill**."
+- "How do I write a skill for this library?"
+- "What goes in a SKILL.md?"
+- "How should this be structured?"
+- "What are the required sections for a skill?"
 
 ---
 
-## Summary Checklist
+## Reference implementation
 
-Before finalizing a skill, verify:
+Every skill filed during the DustPan v0.21–v0.27 arc demonstrates this pattern:
+- `skills/methodology/failure-proof-audit/SKILL.md` (SK-0042) — the full eight sections
+- `skills/engineering/cost-annotation-discipline/SKILL.md` (SK-0018) — strong trigger phrases
+- `skills/engineering/architecture/product-repo-architecture/SKILL.md` (SK-0007) — good keywords
 
-### Core Quality
-- [ ] Description is specific and includes key terms
-- [ ] Description includes both WHAT and WHEN
-- [ ] Written in third person
-- [ ] SKILL.md body is under 500 lines
-- [ ] Consistent terminology throughout
-- [ ] Examples are concrete, not abstract
-
-### Structure
-- [ ] File references are one level deep
-- [ ] Progressive disclosure used appropriately
-- [ ] Workflows have clear steps
-- [ ] No time-sensitive information
-
-### If Including Scripts
-- [ ] Scripts solve problems rather than punt
-- [ ] Required packages are documented
-- [ ] Error handling is explicit and helpful
-- [ ] No Windows-style paths
+The governance document: `README.md` (root of this repo) — the schema + distribution model in full.
