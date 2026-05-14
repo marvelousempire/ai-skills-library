@@ -2,6 +2,7 @@
 name: site-architecture
 id: SK-0104
 keywords: [write-site, check-architecture, file-site]
+goal: Deliver site architecture output correctly and completely.
 hash: 62442f1
 relations: []
 before: []

@@ -3,6 +3,7 @@ name: product-schema-standard
 id: RL-0045
 hash: b8f3d21
 keywords: [enforce-schema, validate-fields, stamp-product]
+goal: Every product carries the full 8-field schema with action keywords and living metadata.
 relations: []
 before: []
 governed_by: [RL-0039, global]

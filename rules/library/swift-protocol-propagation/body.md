@@ -2,6 +2,7 @@
 name: swift-protocol-propagation
 id: RL-0042
 keywords: [enforce-swift, check-protocol, build-propagation]
+goal: Deliver swift protocol propagation output correctly and completely.
 hash: 8698320
 relations: []
 before: []

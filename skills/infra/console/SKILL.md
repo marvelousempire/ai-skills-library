@@ -2,6 +2,7 @@
 name: console
 id: SK-0061
 keywords: [setup-console]
+goal: Deliver console output correctly and completely.
 hash: 5b0c9c6
 relations: []
 before: []

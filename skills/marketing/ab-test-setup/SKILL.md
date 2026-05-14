@@ -2,6 +2,7 @@
 name: ab-test-setup
 id: SK-0064
 keywords: [write-test, check-setup, file-test]
+goal: Deliver ab test setup output correctly and completely.
 hash: 9ba1085
 relations: []
 before: []

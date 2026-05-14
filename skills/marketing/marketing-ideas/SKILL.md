@@ -2,6 +2,7 @@
 name: marketing-ideas
 id: SK-0088
 keywords: [write-marketing, check-ideas, file-marketing]
+goal: Deliver marketing ideas output correctly and completely.
 hash: a8e7f17
 relations: []
 before: []

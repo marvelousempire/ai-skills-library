@@ -1,6 +1,7 @@
 ---
 name: nephew
 keywords: [integrate-nephew]
+goal: Deliver nephew output correctly and completely.
 hash: 40401dc
 relations: []
 before: []

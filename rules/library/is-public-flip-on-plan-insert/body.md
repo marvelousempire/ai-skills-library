@@ -2,6 +2,7 @@
 name: is-public-flip-on-plan-insert
 id: RL-0021
 keywords: [enforce-public, check-flip, build-plan]
+goal: Deliver is public flip on plan insert output correctly and completely.
 hash: 5f6b662
 relations: []
 before: []

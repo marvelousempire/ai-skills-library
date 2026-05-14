@@ -2,6 +2,7 @@
 name: verify-ship
 id: SK-0124
 keywords: [verify-ship, check-deploy, confirm-release]
+goal: Deliver verify ship output correctly and completely.
 hash: f850b2d
 relations: []
 before: []

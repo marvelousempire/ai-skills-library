@@ -2,6 +2,7 @@
 name: library-plus-doc-template
 id: SK-0024
 keywords: [write-doc, capture-moment, pair-with-artifact]
+goal: Every library entry has a companion doc that captures what it does and the moment that prompted it.
 hash: 5e5bf4c
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: three-tier-safety-classification
 id: SK-0011
 keywords: [classify-tier, enforce-safety, gate-action]
+goal: No auto-clean ever reaches irreplaceable data — the safety tier is a structural code guarantee.
 hash: 7a877e9
 relations: []
 before: []

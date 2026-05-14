@@ -2,6 +2,7 @@
 name: ai-skills-library-labels
 id: RL-0001
 keywords: [enforce-skills, check-library, build-labels]
+goal: Deliver ai skills library labels output correctly and completely.
 hash: 1eb870d
 relations: []
 before: []

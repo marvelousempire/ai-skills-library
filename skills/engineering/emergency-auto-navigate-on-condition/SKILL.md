@@ -2,6 +2,7 @@
 name: emergency-auto-navigate-on-condition
 id: SK-0023
 keywords: [monitor-metric, navigate-surface, detect-threshold]
+goal: The UI takes the user to the right surface automatically when a system crosses a critical threshold.
 hash: b4007a6
 relations: []
 before: []

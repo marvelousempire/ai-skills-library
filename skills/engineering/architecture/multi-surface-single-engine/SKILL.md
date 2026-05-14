@@ -2,6 +2,7 @@
 name: multi-surface-single-engine
 id: SK-0006
 keywords: [route-surface, call-engine, adapt-output]
+goal: One engine powers every surface — the logic is never duplicated across CLI, web, Shortcut, or launchd.
 hash: 7dc96a6
 relations: []
 before: []

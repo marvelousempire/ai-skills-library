@@ -2,6 +2,7 @@
 name: marketing-feature-doc
 id: SK-0129
 keywords: [write-marketing, check-feature, build-doc]
+goal: Deliver marketing feature doc output correctly and completely.
 hash: 1aa97d5
 relations: []
 before: []

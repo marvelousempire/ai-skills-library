@@ -2,6 +2,7 @@
 name: split-to-prs
 id: SK-0045
 keywords: [split-changes, create-pr, scope-commit]
+goal: Deliver split to prs output correctly and completely.
 hash: e37b32a
 relations: []
 before: []

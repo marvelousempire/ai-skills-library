@@ -2,6 +2,7 @@
 name: post-sse-via-fetch-readablestream
 id: SK-0034
 keywords: [stream-post, parse-sse, handle-events]
+goal: POST endpoints can stream SSE without EventSource — any AI chat backend works with any frontend.
 hash: 507a320
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: failure-proof-audit
 id: SK-0112
 keywords: [run-audit, check-gaps, build-leadsheet]
+goal: Every system is hardened against the failure modes that six months of real-world use would expose.
 hash: c9e9f47
 relations: [conversation-retrospective-extraction, post-ship-elevation-pass]
 before: [gap-audit-and-elevation, plan-first-substantive-changes]

@@ -2,6 +2,7 @@
 name: parallel-pr-rebase-tax
 id: RL-0028
 keywords: [enforce-parallel, check-rebase, build-tax]
+goal: Deliver parallel pr rebase tax output correctly and completely.
 hash: f5ec4e7
 relations: []
 before: []

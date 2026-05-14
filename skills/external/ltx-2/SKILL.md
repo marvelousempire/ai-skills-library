@@ -1,6 +1,7 @@
 ---
 name: ltx-2
 keywords: [integrate-ltx]
+goal: Deliver ltx 2 output correctly and completely.
 hash: c6128b6
 relations: []
 before: []

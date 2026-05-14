@@ -2,6 +2,7 @@
 name: babysit
 id: SK-0013
 keywords: [review-pr, fix-ci, merge-ready]
+goal: Deliver babysit output correctly and completely.
 hash: 4493b1c
 relations: []
 before: []

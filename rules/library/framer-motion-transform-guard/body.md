@@ -2,6 +2,7 @@
 name: framer-motion-transform-guard
 id: RL-0016
 keywords: [enforce-framer, check-motion, build-transform]
+goal: Deliver framer motion transform guard output correctly and completely.
 hash: fe55f32
 relations: []
 before: []

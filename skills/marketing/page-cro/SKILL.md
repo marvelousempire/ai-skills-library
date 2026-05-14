@@ -2,6 +2,7 @@
 name: page-cro
 id: SK-0091
 keywords: [write-page, check-cro, file-page]
+goal: Deliver page cro output correctly and completely.
 hash: 5db501a
 relations: []
 before: []

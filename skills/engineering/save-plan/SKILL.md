@@ -2,6 +2,7 @@
 name: save-plan
 id: SK-0040
 keywords: [save-plan, write-plan, file-decision]
+goal: Deliver save plan output correctly and completely.
 hash: 6432331
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: update-cli-config
 id: SK-0048
 keywords: [update-config, configure-cli, set-option]
+goal: Deliver update cli config output correctly and completely.
 hash: b3888e1
 relations: []
 before: []

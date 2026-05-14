@@ -2,6 +2,7 @@
 name: free-tool-strategy
 id: SK-0084
 keywords: [write-free, check-tool, build-strategy]
+goal: Deliver free tool strategy output correctly and completely.
 hash: 7f10763
 relations: []
 before: []

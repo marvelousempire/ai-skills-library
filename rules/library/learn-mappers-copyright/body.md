@@ -2,6 +2,7 @@
 name: learn-mappers-copyright
 id: RL-0022
 keywords: [enforce-learn, check-mappers, build-copyright]
+goal: Deliver learn mappers copyright output correctly and completely.
 hash: cad71c2
 relations: []
 before: []

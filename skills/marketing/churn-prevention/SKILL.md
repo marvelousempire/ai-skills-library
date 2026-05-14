@@ -2,6 +2,7 @@
 name: churn-prevention
 id: SK-0069
 keywords: [write-churn, check-prevention, file-churn]
+goal: Deliver churn prevention output correctly and completely.
 hash: b0b4c4a
 relations: []
 before: []

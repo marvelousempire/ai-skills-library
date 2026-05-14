@@ -2,6 +2,7 @@
 name: product-marketing-context
 id: SK-0096
 keywords: [write-product, check-marketing, build-context]
+goal: Deliver product marketing context output correctly and completely.
 hash: b72bd30
 relations: []
 before: []

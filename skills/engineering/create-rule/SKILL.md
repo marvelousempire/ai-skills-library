@@ -2,6 +2,7 @@
 name: create-rule
 id: SK-0020
 keywords: [create-rule, define-policy, write-rule]
+goal: Deliver create rule output correctly and completely.
 hash: afcd8a6
 relations: []
 before: []

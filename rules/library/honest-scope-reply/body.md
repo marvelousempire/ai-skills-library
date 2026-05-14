@@ -2,6 +2,7 @@
 name: honest-scope-reply
 id: RL-0019
 keywords: [enforce-honest, check-scope, build-reply]
+goal: Deliver honest scope reply output correctly and completely.
 hash: 67b1a19
 relations: []
 before: []

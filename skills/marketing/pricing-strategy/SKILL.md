@@ -2,6 +2,7 @@
 name: pricing-strategy
 id: SK-0095
 keywords: [write-pricing, check-strategy, file-pricing]
+goal: Deliver pricing strategy output correctly and completely.
 hash: ba2c534
 relations: []
 before: []

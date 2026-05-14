@@ -2,6 +2,7 @@
 name: schema-fk-typecheck
 id: SK-0008
 keywords: [check-schema, validate-fk, verify-types]
+goal: Deliver schema fk typecheck output correctly and completely.
 hash: 115ec03
 relations: []
 before: []

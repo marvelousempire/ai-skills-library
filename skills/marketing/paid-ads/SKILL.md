@@ -2,6 +2,7 @@
 name: paid-ads
 id: SK-0092
 keywords: [write-paid, check-ads, file-paid]
+goal: Deliver paid ads output correctly and completely.
 hash: de057b6
 relations: []
 before: []

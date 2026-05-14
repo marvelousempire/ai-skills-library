@@ -2,6 +2,7 @@
 name: programmatic-seo
 id: SK-0097
 keywords: [write-programmatic, check-seo, file-programmatic]
+goal: Deliver programmatic seo output correctly and completely.
 hash: a9ca6b3
 relations: []
 before: []

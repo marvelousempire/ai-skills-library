@@ -2,6 +2,7 @@
 name: post-ship-audit-elevation
 id: SK-0032
 keywords: [audit-ship, elevate-output, file-findings]
+goal: Deliver post ship audit elevation output correctly and completely.
 hash: e61afbb
 relations: []
 before: []

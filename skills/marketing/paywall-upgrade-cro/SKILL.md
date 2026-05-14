@@ -2,6 +2,7 @@
 name: paywall-upgrade-cro
 id: SK-0093
 keywords: [write-paywall, check-upgrade, build-cro]
+goal: Deliver paywall upgrade cro output correctly and completely.
 hash: 21dd161
 relations: []
 before: []

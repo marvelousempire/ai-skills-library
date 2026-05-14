@@ -2,6 +2,7 @@
 name: plan-first-for-substantive
 id: RL-0032
 keywords: [enforce-plan, check-first, build-substantive]
+goal: Deliver plan first for substantive output correctly and completely.
 hash: 237de62
 relations: []
 before: []

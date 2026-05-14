@@ -1,6 +1,7 @@
 ---
 name: claude-mem
 keywords: [integrate-claude, check-mem, file-claude]
+goal: Deliver claude mem output correctly and completely.
 hash: f307e99
 relations: []
 before: []

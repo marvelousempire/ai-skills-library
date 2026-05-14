@@ -2,6 +2,7 @@
 name: feature-id-race-guard
 id: RL-0012
 keywords: [enforce-feature, check-race, build-guard]
+goal: Deliver feature id race guard output correctly and completely.
 hash: bc1e1cb
 relations: []
 before: []

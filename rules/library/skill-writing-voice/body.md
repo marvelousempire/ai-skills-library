@@ -2,6 +2,7 @@
 name: skill-writing-voice
 id: RL-0044
 keywords: [enforce-voice, check-clarity, validate-steps]
+goal: Every product is written with CLI clarity — no vague language, no open paths, no hallucination routes.
 hash: 4d7e2f1
 relations: []
 before: []

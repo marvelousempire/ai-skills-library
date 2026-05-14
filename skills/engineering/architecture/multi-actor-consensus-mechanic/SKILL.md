@@ -2,6 +2,7 @@
 name: multi-actor-consensus-mechanic
 id: SK-0005
 keywords: [build-consensus, coordinate-actors, resolve-conflict]
+goal: Deliver multi actor consensus mechanic output correctly and completely.
 hash: 43e1848
 relations: []
 before: []

@@ -1,6 +1,7 @@
 ---
 name: ruflo
 keywords: [integrate-ruflo]
+goal: Deliver ruflo output correctly and completely.
 hash: 08e170b
 relations: []
 before: []

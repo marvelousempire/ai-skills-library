@@ -2,6 +2,7 @@
 name: askuserquestion-fallback
 id: RL-0005
 keywords: [enforce-askuserquestion, check-fallback, file-askuserquestion]
+goal: Deliver askuserquestion fallback output correctly and completely.
 hash: 2955aa4
 relations: []
 before: []

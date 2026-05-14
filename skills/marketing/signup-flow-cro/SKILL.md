@@ -2,6 +2,7 @@
 name: signup-flow-cro
 id: SK-0103
 keywords: [write-signup, check-flow, build-cro]
+goal: Deliver signup flow cro output correctly and completely.
 hash: ac5a7cc
 relations: []
 before: []

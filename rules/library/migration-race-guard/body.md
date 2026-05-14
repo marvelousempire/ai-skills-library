@@ -2,6 +2,7 @@
 name: migration-race-guard
 id: RL-0025
 keywords: [enforce-migration, check-race, build-guard]
+goal: Deliver migration race guard output correctly and completely.
 hash: b1a356e
 relations: []
 before: []

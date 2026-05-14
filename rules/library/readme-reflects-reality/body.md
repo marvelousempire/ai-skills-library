@@ -2,6 +2,7 @@
 name: readme-reflects-reality
 id: RL-0036
 keywords: [enforce-readme, check-reflects, build-reality]
+goal: Deliver readme reflects reality output correctly and completely.
 hash: b2d33ac
 relations: []
 before: []

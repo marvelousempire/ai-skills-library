@@ -2,6 +2,7 @@
 name: forward-only-migration-fix
 id: RL-0015
 keywords: [enforce-forward, check-only, build-migration]
+goal: Deliver forward only migration fix output correctly and completely.
 hash: 50bdd38
 relations: []
 before: []

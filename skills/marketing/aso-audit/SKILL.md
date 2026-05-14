@@ -2,6 +2,7 @@
 name: aso-audit
 id: SK-0068
 keywords: [write-aso, check-audit, file-aso]
+goal: Deliver aso audit output correctly and completely.
 hash: 92f4d90
 relations: []
 before: []

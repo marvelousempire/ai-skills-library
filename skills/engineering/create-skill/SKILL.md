@@ -3,6 +3,7 @@ name: create-skill
 id: SK-0021
 hash: 7f3a9b2
 keywords: [write-skill, define-schema, stamp-product]
+goal: Every new product is correctly structured, voiced, and ready to route before it enters the library.
 relations: [conversation-retrospective-extraction, plan-first-substantive-changes]
 before: [skill-nutrients-decanter, gap-audit-and-elevation]
 governed_by: [RL-0039, RL-0044, global]
@@ -101,6 +102,10 @@ description: >-
 **`governed_by`** — rules that govern this product (RL-XXXX IDs or `global` for library-wide defaults).
 
 **`meta: dynamic`** — signals to any AI that `keywords`, `relations`, and `before` are living fields updated as the system learns more about this product.
+
+**`goal`** — one sentence: what this product achieves when it runs successfully. This is the **outcome**, distinct from `description` (which handles routing triggers). Keep it concrete and measurable.
+- ✅ `goal: Every new product is correctly structured before entering the library.`
+- ❌ `goal: Makes things better.` — not measurable
 
 **`description`** — one paragraph, embed 4–6 specific trigger phrases in natural sentences.
 

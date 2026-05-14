@@ -2,6 +2,7 @@
 name: dustpan-github-workflow
 id: RL-0011
 keywords: [enforce-dustpan, check-github, build-workflow]
+goal: Deliver dustpan github workflow output correctly and completely.
 hash: afbcffa
 relations: []
 before: []

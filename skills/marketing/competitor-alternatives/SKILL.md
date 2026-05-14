@@ -2,6 +2,7 @@
 name: competitor-alternatives
 id: SK-0073
 keywords: [write-competitor, check-alternatives, file-competitor]
+goal: Deliver competitor alternatives output correctly and completely.
 hash: bf85326
 relations: []
 before: []

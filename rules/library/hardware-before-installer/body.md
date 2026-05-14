@@ -2,6 +2,7 @@
 name: hardware-before-installer
 id: RL-0018
 keywords: [enforce-hardware, check-before, build-installer]
+goal: Deliver hardware before installer output correctly and completely.
 hash: 775aeed
 relations: []
 before: []

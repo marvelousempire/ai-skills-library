@@ -2,6 +2,7 @@
 name: changelog-and-versioning
 id: RL-0008
 keywords: [enforce-changelog, check-versioning, file-changelog]
+goal: Deliver changelog and versioning output correctly and completely.
 hash: d74670b
 relations: []
 before: []

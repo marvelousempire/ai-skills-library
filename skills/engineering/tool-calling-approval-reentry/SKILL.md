@@ -2,6 +2,7 @@
 name: tool-calling-approval-reentry
 id: SK-0047
 keywords: [pause-tool, show-approval, resume-loop]
+goal: AI agents with destructive tools always pause for human approval before running, then resume cleanly.
 hash: 2d95a38
 relations: []
 before: []

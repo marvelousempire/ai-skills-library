@@ -2,6 +2,7 @@
 name: session-retrospective
 id: SK-0042
 keywords: [extract-lessons, file-skill, update-library]
+goal: Deliver session retrospective output correctly and completely.
 hash: 6f5034e
 relations: []
 before: []

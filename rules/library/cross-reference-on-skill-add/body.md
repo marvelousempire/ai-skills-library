@@ -2,6 +2,7 @@
 name: cross-reference-on-skill-add
 id: RL-0009
 keywords: [update-index, ripple-references, sync-catalog]
+goal: Deliver cross reference on skill add output correctly and completely.
 hash: 999c8b9
 relations: []
 before: []

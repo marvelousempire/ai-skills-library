@@ -2,6 +2,7 @@
 name: generate-weather-plates
 id: SK-0123
 keywords: [generate-plates, create-assets, render-weather]
+goal: Deliver generate weather plates output correctly and completely.
 hash: d95abbf
 relations: []
 before: []

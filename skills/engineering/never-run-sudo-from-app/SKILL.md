@@ -2,6 +2,7 @@
 name: never-run-sudo-from-app
 id: SK-0029
 keywords: [show-command, copy-command, open-terminal]
+goal: No app ever asks for a Mac password — the OS password prompt is always the consent gate.
 hash: 774b137
 relations: []
 before: []

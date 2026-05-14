@@ -113,6 +113,7 @@ relations: [skill-a, skill-b]     # Skills to use IN SUCCESSION after this one.
 before: [skill-c]                 # Skills to run BEFORE this one (prerequisites).
 governed_by: [RL-0039, global]    # Rules that govern this product.
 meta: dynamic                     # These fields are living — updated as the system learns.
+goal: "One sentence — what this product achieves when it runs."  # The outcome.
 description: >-
   What it does. 4–6 specific trigger phrases embedded in natural sentences.
   These are the exact words a user would say. Narrow enough not to fire on

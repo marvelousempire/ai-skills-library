@@ -2,6 +2,7 @@
 name: real-time-honest-signaling
 id: SK-0036
 keywords: [wire-event, track-freed, report-completion]
+goal: Every UI signal reflects what the system actually reports — no faked completion, no estimated measurements.
 hash: ed5b43c
 relations: []
 before: []

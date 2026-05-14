@@ -1,6 +1,7 @@
 ---
 name: voicebox
 keywords: [integrate-voicebox]
+goal: Deliver voicebox output correctly and completely.
 hash: 730ffc2
 relations: []
 before: []

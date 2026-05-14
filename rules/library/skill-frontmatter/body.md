@@ -2,6 +2,7 @@
 name: skill-frontmatter
 id: RL-0039
 keywords: [validate-schema, enforce-fields, check-frontmatter]
+goal: Every product file has valid, complete frontmatter before it is committed.
 hash: e121d8f
 relations: []
 before: []

@@ -2,6 +2,7 @@
 name: migrate-to-skills
 id: SK-0027
 keywords: [migrate-rule, convert-skill, file-product]
+goal: Deliver migrate to skills output correctly and completely.
 hash: 228ec1b
 relations: []
 before: []

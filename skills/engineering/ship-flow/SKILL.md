@@ -2,6 +2,7 @@
 name: ship-flow
 id: SK-0044
 keywords: [open-pr, merge-pr, verify-deploy]
+goal: Deliver ship flow output correctly and completely.
 hash: 43ef420
 relations: []
 before: [plan-first-substantive-changes, make-check-defense-in-depth]

@@ -2,6 +2,7 @@
 name: migration-shipping
 id: SK-0028
 keywords: [ship-migration, run-migration, verify-schema]
+goal: Deliver migration shipping output correctly and completely.
 hash: 0cb5665
 relations: []
 before: []

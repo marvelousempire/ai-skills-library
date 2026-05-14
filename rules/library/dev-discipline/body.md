@@ -2,6 +2,7 @@
 name: dev-discipline
 id: RL-0010
 keywords: [enforce-dev, check-discipline, file-dev]
+goal: Deliver dev discipline output correctly and completely.
 hash: b6b150b
 relations: []
 before: []

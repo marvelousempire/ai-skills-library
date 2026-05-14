@@ -2,6 +2,7 @@
 name: feature-marketing-md
 id: SK-0082
 keywords: [write-feature-md, generate-copy, document-feature]
+goal: Every shipped feature has a self-contained marketing brief ready to power any launch on any channel.
 hash: b510e2d
 relations: []
 before: []

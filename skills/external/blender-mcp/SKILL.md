@@ -1,6 +1,7 @@
 ---
 name: blender-mcp
 keywords: [integrate-blender, check-mcp, file-blender]
+goal: Deliver blender mcp output correctly and completely.
 hash: 5fec2bb
 relations: []
 before: []

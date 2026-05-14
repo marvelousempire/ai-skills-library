@@ -2,6 +2,7 @@
 name: copy-language-audit
 id: SK-0077
 keywords: [write-copy, check-language, build-audit]
+goal: Deliver copy language audit output correctly and completely.
 hash: 4ef9a41
 relations: []
 before: []

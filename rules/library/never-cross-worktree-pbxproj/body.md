@@ -2,6 +2,7 @@
 name: never-cross-worktree-pbxproj
 id: RL-0027
 keywords: [enforce-never, check-worktree, build-pbxproj]
+goal: Deliver never cross worktree pbxproj output correctly and completely.
 hash: f9455e4
 relations: []
 before: []

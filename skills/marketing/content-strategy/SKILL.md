@@ -2,6 +2,7 @@
 name: content-strategy
 id: SK-0075
 keywords: [write-content, check-strategy, file-content]
+goal: Deliver content strategy output correctly and completely.
 hash: 087bcd3
 relations: []
 before: []

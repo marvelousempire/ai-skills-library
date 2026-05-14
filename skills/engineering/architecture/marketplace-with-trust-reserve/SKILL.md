@@ -2,6 +2,7 @@
 name: marketplace-with-trust-reserve
 id: SK-0004
 keywords: [setup-marketplace, configure-trust, reserve-funds]
+goal: Deliver marketplace with trust reserve output correctly and completely.
 hash: 3ab8d29
 relations: []
 before: []

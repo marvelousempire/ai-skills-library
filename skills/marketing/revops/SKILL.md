@@ -2,6 +2,7 @@
 name: revops
 id: SK-0099
 keywords: [write-revops]
+goal: Deliver revops output correctly and completely.
 hash: df82b16
 relations: []
 before: []

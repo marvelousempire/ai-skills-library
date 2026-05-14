@@ -2,6 +2,7 @@
 name: self-hosted-git
 id: SK-0063
 keywords: [setup-gitlab, configure-ci, host-git]
+goal: Deliver self hosted git output correctly and completely.
 hash: 26943d5
 relations: []
 before: []

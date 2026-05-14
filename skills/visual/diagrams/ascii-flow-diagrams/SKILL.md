@@ -2,6 +2,7 @@
 name: ascii-flow-diagrams
 id: SK-0133
 keywords: [draw-diagram, map-flow, visualize-architecture]
+goal: Deliver ascii flow diagrams output correctly and completely.
 hash: b02ed88
 relations: []
 before: []
