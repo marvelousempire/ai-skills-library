@@ -1,0 +1,6 @@
+{
+  "id": "multi-surface-auth-redirect",
+  "description": "Marketing pages with app equivalents must check getCurrentUser() at the top and redirect signed-in users to the player-web surface. Never strand a signed-in user on the public landing.",
+  "alwaysApply": false,
+  "globs": ["marketing/app/**/page.tsx", "marketing/app/**/layout.tsx"]
+}

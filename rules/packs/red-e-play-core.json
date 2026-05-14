@@ -10,6 +10,8 @@
     "pbxproj-conflict",
     "migration-race-guard",
     "swift-codable-guard",
-    "shared-util-extraction"
+    "shared-util-extraction",
+    "framer-motion-transform-guard",
+    "multi-surface-auth-redirect"
   ]
 }

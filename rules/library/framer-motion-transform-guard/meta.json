@@ -1,0 +1,6 @@
+{
+  "id": "framer-motion-transform-guard",
+  "description": "When framer-motion animates any transform (x/y/scale/rotate), its inline style silently overrides Tailwind transform classes. Use motion values in the style prop instead of -translate-*, scale-*, rotate-* CSS classes on animated elements.",
+  "alwaysApply": false,
+  "globs": ["**/*.tsx", "**/*.jsx"]
+}

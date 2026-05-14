@@ -17,6 +17,7 @@ Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marke
 | **competitor-profiling** | [competitor-profiling/SKILL.md](competitor-profiling/SKILL.md) |
 | **content-strategy** | [content-strategy/SKILL.md](content-strategy/SKILL.md) |
 | **copy-editing** | [copy-editing/SKILL.md](copy-editing/SKILL.md) |
+| **copy-language-audit** | [copy-language-audit/SKILL.md](copy-language-audit/SKILL.md) |
 | **copywriting** | [copywriting/SKILL.md](copywriting/SKILL.md) |
 | **customer-research** | [customer-research/SKILL.md](customer-research/SKILL.md) |
 | **directory-submissions** | [directory-submissions/SKILL.md](directory-submissions/SKILL.md) |
@@ -45,6 +46,7 @@ Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marke
 | **site-architecture** | [site-architecture/SKILL.md](site-architecture/SKILL.md) |
 | **social-content** | [social-content/SKILL.md](social-content/SKILL.md) |
 | **video** | [video/SKILL.md](video/SKILL.md) |
+| **copy-language-audit** | [copy-language-audit/SKILL.md](copy-language-audit/SKILL.md) |
 
 **Foundation:** [`../../context/readyplay-product-marketing-context.md`](../../context/readyplay-product-marketing-context.md)
 **By category:** [`CATEGORIES.md`](CATEGORIES.md) (SEO, CRO, copy, …)
