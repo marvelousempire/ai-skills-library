@@ -23,6 +23,10 @@ Subagent specifications introduced 2026-05-14. Each is a self-contained markdown
 | [`ship-flow-runner`](agents/ship-flow-runner.md) | Full commit → CI → merge → deploy → smoke loop |
 | [`post-ship-auditor`](agents/post-ship-auditor.md) | Gap audit + elevation pass after every substantive ship |
 | [`nephew`](agents/nephew.md) | The Orchestrator Agent by Avery Gooman — multi-agent swarm + Ed25519-signed witness manifest (ADR-103) + cross-installation federation. Project-scoped MCP, native witness CLI, Tier B cross-repo `fed find` |
+| [`chain-employee`](agents/chain-employee.md) | **The doer** — performs the task, records proof, hands upward (chain of command, seat 1) |
+| [`chain-assistant-manager`](agents/chain-assistant-manager.md) | **First reviewer** — validates proof, gap+elevation pass, returns rework (chain of command, seat 2) |
+| [`chain-manager`](agents/chain-manager.md) | **Operational gate** — full failure-proof audit, lead sheet, ship-ready authority (chain of command, seat 3) |
+| [`chain-director`](agents/chain-director.md) | **Final authority** — sign-off, standards admission, known-debt acceptance (chain of command, seat 4) |
 
 ## How to consume an agent
 
