@@ -54,6 +54,14 @@ Think of it as:
 | Install into another repo | [`docs/cursor-project-skills.md`](docs/cursor-project-skills.md) |
 | Related GitHub projects | [`docs/related-github-projects.md`](docs/related-github-projects.md) |
 | Third-party licenses | [`THIRD_PARTY.md`](THIRD_PARTY.md) |
+| **Repo structure map** | [`STRUCTURE.md`](STRUCTURE.md) |
+| **Templates** (scaffolds for plans, migrations, skills) | [`templates/`](templates/) |
+| **Checklists** (pre-commit, pre-merge, smoke, etc.) | [`checklists/`](checklists/) |
+| **Agents** (subagent specifications) | [`AGENTS.md`](AGENTS.md) |
+| **Master Reports** (per-session retrospectives) | [`docs/master-reports/`](docs/master-reports/) |
+| **Pain Journal** (per-incident write-ups) | [`docs/pain-journal/`](docs/pain-journal/) |
+| **Playbooks** (step-by-step ops guides) | [`docs/playbooks/`](docs/playbooks/) |
+| **Learning systems** (how the library grows itself) | [`docs/learning-systems/`](docs/learning-systems/) |
 
 ---
 

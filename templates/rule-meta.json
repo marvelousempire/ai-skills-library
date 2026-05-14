@@ -1,0 +1,6 @@
+{
+  "id": "<kebab-case-rule-id>",
+  "description": "<One sentence summary that appears in rule listings.>",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*.sql"]
+}

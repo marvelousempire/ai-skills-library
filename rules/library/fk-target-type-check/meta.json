@@ -1,0 +1,6 @@
+{
+  "id": "fk-target-type-check",
+  "description": "Before declaring a FK child column type, look up the parent table's column type. BIGINT vs UUID mismatches are not caught by lint or by CI — only by the production deploy.",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*.sql", "**/db/schema.sql"]
+}

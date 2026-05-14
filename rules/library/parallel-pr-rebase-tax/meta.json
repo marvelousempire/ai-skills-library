@@ -1,0 +1,6 @@
+{
+  "id": "parallel-pr-rebase-tax",
+  "description": "Multi-PR sessions in active monorepos pay a rebase tax. Each dependent PR needs 1-3 rebases against a moving main. Plan-time scoping should account for it.",
+  "alwaysApply": false,
+  "globs": []
+}

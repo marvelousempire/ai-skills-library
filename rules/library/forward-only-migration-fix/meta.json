@@ -1,0 +1,6 @@
+{
+  "id": "forward-only-migration-fix",
+  "description": "After a BEGIN/COMMIT migration fails atomically, the right fix is to edit the failed migration file in place and re-deploy. NEVER write a fix-up migration that re-creates partial state.",
+  "alwaysApply": true,
+  "globs": ["**/migrations/*.sql"]
+}

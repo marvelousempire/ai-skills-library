@@ -6,7 +6,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **79** total `SKILL.md` files under [`skills/`](skills/).
+- **92** total `SKILL.md` files under [`skills/`](skills/).
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
@@ -94,3 +94,68 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | Report | Path | Session |
 |---|---|---|
 | Family Interface MVP | `after-action/2026-05-14-family-interface-mvp.md` | Built full YSJ OS MVP in one day |
+
+## Trainer-Marketplace Session — Master Repo Evolution (2026-05-14)
+
+13 new skills + 13 new rules + 5 agents + 8 templates + 7 checklists + 10 docs + 6 pain-journal entries from the 2026-05-14 trainer-marketplace session. See [`docs/master-reports/2026-05-14-trainer-marketplace-session.md`](docs/master-reports/2026-05-14-trainer-marketplace-session.md) for the full retrospective.
+
+### New skills (`skills/engineering/`)
+
+| Skill | Use when | Invoke |
+|---|---|---|
+| **register-feature-ledger-plan** | Registering a plan + N features in admin ledger BEFORE coding | `/register-feature-ledger-plan <slug>` |
+| **ship-flow** | Running commit → CI → merge → deploy → smoke loop | `/ship-flow` |
+| **rebase-changelog-resolver** | Auto-resolve CHANGELOG.md conflicts on rebase | `/rebase-changelog-resolver` |
+| **schema-fk-typecheck** | Verify parent's column type before declaring FK child column | `/schema-fk-typecheck <migration.sql>` |
+| **migration-shipping** | Full migration safety checklist (FK + ALTER TYPE + idempotency + smoke) | `/migration-shipping <migration.sql>` |
+| **post-ship-audit-elevation** | Right after a substantive ship — gap audit + elevation menu | `/post-ship-audit-elevation` |
+| **secure-data-flow-protocol** | Adding a new field that flows iOS → API → DB → API → reader | `/secure-data-flow-protocol <field>` |
+| **plan-mode-runbook** | Plan-mode is active — Explore → Plan → Review → ExitPlanMode | `/plan-mode-runbook` |
+| **multi-actor-consensus-mechanic** | Designing any anti-fraud / trust signal that needs ≥N independent actors | `/multi-actor-consensus-mechanic` |
+| **marketplace-with-trust-reserve** | Designing a two-sided marketplace with fee split + audit funding | `/marketplace-with-trust-reserve` |
+| **versioned-pinned-protocol** | Curriculum / rubric / scoring system that needs historical stability | `/versioned-pinned-protocol` |
+| **bulk-rename-tokens** | Deterministic token rename across 3+ files via Python heredoc | `/bulk-rename-tokens` |
+| **quality-bar-honest** | User demands 100% delivery on impossible scope; reply with honest framing | `/quality-bar-honest` |
+
+### New rules (`rules/library/`)
+
+| Rule | Applies to | Always-on? |
+|---|---|---|
+| **feature-id-race-guard** | Multi-feature seed migrations | ✓ |
+| **fk-target-type-check** | Any FK column declaration | ✓ |
+| **alter-type-outside-transaction** | Migrations with enum extensions | ✓ |
+| **is-public-flip-on-plan-insert** | Plan-registration seed migrations | ✓ |
+| **forward-only-migration-fix** | Failed migrations | ✓ |
+| **honest-scope-reply** | Scope-exceeding asks | ✓ |
+| **parallel-pr-rebase-tax** | Multi-PR sessions | — |
+| **feature-ledger-first** | Any new feature work | ✓ |
+| **bulk-token-substitution** | 3+ file deterministic edits | — |
+| **smoke-test-after-deploy** | Every deploy | ✓ |
+| **askuserquestion-fallback** | AskUserQuestion tool calls | ✓ |
+| **quality-bar-do-it-right** | Any "right vs hack" choice | ✓ |
+| **pipeline-stage-truth** | Every "done" reply | ✓ |
+
+### New agents (`agents/`)
+
+See [`AGENTS.md`](AGENTS.md):
+- **ledger-orchestrator** — atomic plan + features seed migration
+- **migration-author** — migrations with safety guards
+- **rebase-shepherd** — auto-resolve known conflict patterns
+- **ship-flow-runner** — full commit → deploy → smoke loop
+- **post-ship-auditor** — gap audit + elevation pass
+
+### New templates (`templates/`)
+
+`plan-doc.md` · `seed-migration-plan-registration.sql` · `schema-migration.sql` · `changelog-entry.md` · `skill.md` · `rule-body.md` · `rule-meta.json` · `agent.md`
+
+### New checklists (`checklists/`)
+
+`pre-commit.md` · `pre-merge.md` · `pre-deploy.md` · `post-deploy-smoke.md` · `honest-scope-deferral.md` · `multi-pr-session-opener.md` · `rebase-conflict-resolver.md`
+
+### New docs
+
+- `docs/master-reports/2026-05-14-trainer-marketplace-session.md`
+- `docs/playbooks/` × 5 (plan-mode-to-ship · migration-rolled-back · multi-pr-cascade · registration-side-rules · repo-safety-before-major-work)
+- `docs/learning-systems/` × 3 (lesson-extraction-pipeline · repeated-pattern-detector · session-retrospective-template)
+- `docs/pain-journal/format.md` + 6 entries from the session
+- `STRUCTURE.md` (repo root)
