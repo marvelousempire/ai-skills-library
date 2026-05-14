@@ -1,17 +1,20 @@
 ---
 name: product-repo-architecture
 description: >-
-  The opinionated repo structure, Makefile interface, auto-release workflow,
-  version-tracking pattern, branch and PR naming conventions, folder hierarchy,
-  and single-source-of-truth file discipline used in the DustPan project —
-  adaptable to any macOS developer tool or local-first web app that ships via
-  git clone + make. Covers: Makefile as primary UX, kVersion in one canonical
-  file, squash-merge + auto-tag release, numbered append-only plan docs,
-  three-tier folder structure, PR body format, and the make check CI gate.
-  Triggers on "how should I set up this repo", "repo structure for a dev tool",
-  "how do we handle releases", "Makefile conventions", "version tracking",
-  "branch naming", "where do plans go", "how did we organize the DustPan repo",
-  "auto-release on merge", "single source of truth for version".
+  The opinionated git repo structure, Makefile interface, GitHub Actions
+  auto-release workflow, version-tracking pattern, git branch and PR naming
+  conventions, folder hierarchy, and single-source-of-truth file discipline for
+  any macOS developer tool or local-first web app that ships via git clone + make.
+  This is a git + GitHub-specific pattern: uses gh CLI, GitHub Actions for
+  auto-tagging releases on every squash-merge to main, git branch naming that
+  embeds the version number, and GitHub Releases for distribution. Covers:
+  Makefile as primary UX, kVersion in one canonical file, squash-merge + auto-tag,
+  numbered append-only plan docs, PR body format, and the make check CI gate.
+  Triggers on "set up this git repo", "git repo structure", "GitHub repo
+  architecture", "GitHub Actions release workflow", "auto-release on merge",
+  "git branch naming", "version tracking in git", "how should I set up this
+  repo", "Makefile conventions", "where do plans go", "GitHub releases",
+  "single source of truth for version", "how did we organize the DustPan repo".
 ---
 
 # Product repo architecture — the DustPan opinionated repo design
