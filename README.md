@@ -355,13 +355,16 @@ Outputs:
 
 | Target | What it does |
 |---|---|
-| `make start` | boot SEEME + GitLab + CI dashboard + this console |
+| **`make ui`** | **THE one command — boot whatever's down + open it in your browser. Idempotent.** |
 | `make stop` | stop everything (volumes preserved) |
 | `make status` | container list + process state |
 | `make doctor` | health probes (disk, docker, every service) |
 | `make logs` | tail logs across the stack |
-| `make ui` | start only this console |
+| `make engine-info` | which Docker engine is in use (Colima / OrbStack / DD) |
+| `make ui-console` | start ONLY the console (services already running) |
 | `make open` | open http://localhost:7779 in browser |
+
+Re-running `make ui` is the standard workflow — it's safe and idempotent. Set `OPEN_ALL=1 make ui` to open every UI in its own tab instead of just the Console.
 
 | Resource | What It Covers |
 |---|---|
@@ -439,7 +442,7 @@ The SEEME stack (3 containers) and self-hosted-git stack (3 containers) both shi
 | UI, app, dashboard, or page design | `skills/visual/design/` + You-Sir Juan design domain |
 | **Generate a diagram / flow / architecture picture** | **`skills/visual/diagrams/seeme/` — or just run `seeme "..."`** |
 | **Self-host Git or replace GitHub Actions** | **`skills/infra/self-hosted-git/`** |
-| **Boot / monitor the whole homelab stack** | **`skills/infra/console/` — `make start`** |
+| **Boot / monitor the whole homelab stack** | **`skills/infra/console/` — `make ui` (one command, idempotent)** |
 | **Docker UI / replace Docker Desktop / Colima setup** | **`skills/infra/dockyard/`** |
 | Cursor project skills | `skills/ide/cursor/` |
 | Agent rules | `rules/` |

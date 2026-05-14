@@ -40,23 +40,30 @@ One web page that shows the health of every service in your sovereign stack, plu
 - "Make start" (this is the Makefile in this skill folder)
 - Routine ops: `make doctor` for health probes, `make logs` to tail everything
 
-## Quick start
+## Quick start — one command
 
 ```sh
 cd skills/infra/console
-cp .env.example .env       # optional — fill in GITLAB_URL + GITLAB_TOKEN if you want pipelines
-make start                 # boots SEEME + GitLab + CI dashboard + this console
-make open                  # opens http://localhost:7779 in your browser
+make ui
 ```
 
-To stop everything: `make stop`. To see what's running: `make status`. For health probes: `make doctor`.
+That's the whole thing. **Same command every time.** `make ui` is idempotent — it boots whatever isn't already up, waits for the Console to respond, then opens it in your browser. Re-running it later does nothing harmful (containers are already running, console process is already up — it just opens the browser again).
+
+Want every surface in its own tab?
+
+```sh
+OPEN_ALL=1 make ui
+```
+
+To stop everything: `make stop`. Health probes: `make doctor`. Status: `make status`.
 
 ## Makefile targets
 
 | Target | What it does |
 |---|---|
+| **`make ui`** | **THE one command** — boot the whole stack + open it in your browser. Idempotent. Same command every time. `OPEN_ALL=1 make ui` opens every UI in its own tab. |
 | `make` (no args) | help screen |
-| `make start` | boot every service in the stack (SEEME + GitLab + CI dashboard + console) |
+| `make start` | boot every service in the stack (same as `make ui` minus the browser-open step) |
 | `make stop` | stop every service (data volumes preserved) |
 | `make restart` | stop then start |
 | `make status` | container list + console process state |
