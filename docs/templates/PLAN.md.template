@@ -1,0 +1,83 @@
+# Plan — <descriptive title>
+
+**Date:** YYYY-MM-DD
+**Recovery tag:** `<tag-name>` (if applicable)
+
+## Context
+
+<Why this change, what prompted it, intended outcome. 1–3 paragraphs.>
+
+## Goals
+
+- <Goal 1>
+- <Goal 2>
+- <Goal 3>
+
+## Non-goals
+
+- <Out of scope item>
+- <Out of scope item>
+
+## Architecture (if applicable)
+
+```text
+<ascii diagram of the proposed system>
+```
+
+## Tasks (precise todos)
+
+### 1. <Task name>
+
+**File**: `<path>`
+**Change**:
+- <Specific edit 1>
+- <Specific edit 2>
+
+**Verification**: `<command>` → expected `<output>`
+
+### 2. <Task name>
+
+…
+
+## Critical files
+
+```
+<repo path 1>             (modify / create)
+<repo path 2>             (modify / create)
+```
+
+## Verification (literal commands + expected outputs)
+
+```sh
+# Gate 1
+<command>
+# expected: <…>
+
+# Gate 2
+<command>
+# expected: <…>
+```
+
+## Out of scope
+
+- <Item>
+- <Item>
+
+## Recovery
+
+If this commit breaks something on `main`:
+
+```sh
+git checkout main
+git reset --hard <recovery-tag>
+git push origin main --force-with-lease
+```
+
+## Future (not in this commit)
+
+- <Item>
+- <Item>
+
+---
+
+**Anatomy:** [`docs/standards/plan-naming.md`](../../docs/standards/plan-naming.md)

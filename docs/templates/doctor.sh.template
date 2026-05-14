@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# <skill-slug> doctor — health probes across the stack.
+#
+# Read-only. Fast. Exit 0 all green, 1 any red, 2 any yellow.
+# See docs/standards/doctor-script.md for the contract.
+
+set -u
+
+# ─── colors (graceful TTY detection) ────────────────────────────────
+if [ -t 1 ]; then
+  G=$'\033[32m'; R=$'\033[31m'; Y=$'\033[33m'; B=$'\033[36m'; D=$'\033[2m'; N=$'\033[0m'
+else
+  G=""; R=""; Y=""; B=""; D=""; N=""
+fi
+
+pass=0
+fail=0
+warn=0
+
+check() {
+  local label="$1"; shift
+  if "$@" >/dev/null 2>&1; then
+    printf "  ${G}● up${N}     %s\n" "$label"
+    pass=$((pass+1))
+  else
+    printf "  ${R}○ down${N}   %s\n" "$label"
+    fail=$((fail+1))
+  fi
+}
+
+note() {
+  printf "  ${D}%s${N}\n" "$1"
+}
+
+echo ""
+echo "${B}🩺  <skill-slug> doctor${N}"
+echo "    $(date '+%Y-%m-%d %H:%M:%S')"
+echo ""
+
+# ─── 1. Disk space ──────────────────────────────────────────────────
+echo "${B}Disk${N}"
+df -h "$HOME" 2>/dev/null | tail -1 | awk '{printf "  used %s of %s (%s full, %s free)\n", $3, $2, $5, $4}'
+echo ""
+
+# ─── 2. Docker daemon ───────────────────────────────────────────────
+echo "${B}Docker${N}"
+check "Docker daemon"  docker info
+echo ""
+
+# ─── 3. Services in the stack ───────────────────────────────────────
+echo "${B}Services${N}"
+check "<service-A> :<port>"  curl -fsS --max-time 2 http://localhost:<port>/health
+check "<service-B> :<port>"  curl -fsS --max-time 2 http://localhost:<port>/health
+echo ""
+
+# ─── 4. Background processes ────────────────────────────────────────
+# echo "${B}Processes${N}"
+# check "<name>"  pgrep -f "<process-pattern>"
+# echo ""
+
+# ─── Summary ────────────────────────────────────────────────────────
+echo ""
+if [ $fail -eq 0 ] && [ $warn -eq 0 ]; then
+  printf "${G}✓ $pass check(s) passed.${N}\n"
+  exit 0
+elif [ $fail -eq 0 ]; then
+  printf "${Y}⚠ $pass green, $warn warning(s).${N}\n"
+  exit 2
+else
+  printf "${R}✗ $fail failure(s), $pass green.${N}\n"
+  echo ""
+  echo "${D}Common fixes:${N}"
+  echo "  Docker daemon down:  ${B}colima start${N}  |  ${B}open -a OrbStack${N}  |  ${B}open -a Docker${N}"
+  exit 1
+fi

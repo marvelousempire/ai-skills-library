@@ -1,0 +1,49 @@
+# Integration checklist — per-stack compliance with the <X> contract
+
+Snapshot of which stacks comply with <X>. Update this file every time a stack changes or a new stack ships.
+
+## Compliance matrix
+
+| Skill | File | <field 1> | <field 2> | <field 3> | Status |
+|---|---|---|---|---|---|
+| `<skill-A>` | `<path>` | ✓ | ✓ | ✓ | **Compliant** |
+| `<skill-B>` | `<path>` | ✓ | ✗ | ✓ | **Partial — missing <field 2>** |
+
+## Per-service detail
+
+### `<skill-A>` (N services)
+
+| Service | Container | Field 1 | Field 2 | Notes |
+|---|---|---|---|---|
+| <…> | <…> | <…> | <…> | <…> |
+
+## How to add a stack
+
+When you build a new skill that ships <thing>:
+
+1. Apply <the contract> to every service.
+2. Validate: `<command>` should equal <N>.
+3. Add a row to the compliance matrix above.
+4. Add a per-service detail subsection.
+
+## Common issues
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| <…> | <…> | <…> |
+
+## Verification one-liner
+
+```sh
+<command>
+```
+
+Expected output:
+
+```text
+<…>
+```
+
+---
+
+**Pattern:** [`docs/templates/integration-checklist.md.template`](../../../../docs/templates/integration-checklist.md.template) · **Examples:** [`skills/infra/dockyard/references/integration-checklist.md`](../../../../skills/infra/dockyard/references/integration-checklist.md)

@@ -1,0 +1,8 @@
+{
+  "id": "verification-before-ship",
+  "alwaysApply": true,
+  "globs": ["**/*"],
+  "category": "repo-discipline",
+  "owner": "ai-skills-library",
+  "version": "0.1.0"
+}

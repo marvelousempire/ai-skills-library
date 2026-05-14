@@ -1,0 +1,73 @@
+# Switching from <old> to <new> — migration guide
+
+Step-by-step. No data loss. Reversible. ~<N> minutes if <old> is currently healthy.
+
+## What you preserve vs what migrates
+
+| What | Where | Survives the switch? |
+|---|---|---|
+| <category 1> | <location> | yes/no — why |
+| <category 2> | <location> | yes/no — why |
+
+## 1. Pre-flight
+
+```sh
+# Verify current state
+<command>
+```
+
+## 2. Backup
+
+```sh
+# Snapshot the current state
+<command>
+```
+
+## 3. Install <new>
+
+```sh
+<command>
+```
+
+## 4. Switch
+
+```sh
+<command>
+```
+
+## 5. Verify
+
+```sh
+# Confirm the new state is healthy
+<command>
+# Expected: <…>
+```
+
+## 6. Reclaim space (optional)
+
+```sh
+# Remove the old install
+<command>
+```
+
+## 7. Rolling back
+
+If <new> doesn't work for you, rollback is symmetrical:
+
+```sh
+<command>
+```
+
+## Common issues
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| <…> | <…> | <…> |
+
+## Why <new>
+
+See [`<decision-record>.md`](<decision-record>.md) for the full reasoning.
+
+---
+
+**Pattern:** [`docs/templates/migration-guide.md.template`](../../../../docs/templates/migration-guide.md.template) · **Examples:** [`skills/infra/dockyard/references/switching-from-docker-desktop.md`](../../../../skills/infra/dockyard/references/switching-from-docker-desktop.md)

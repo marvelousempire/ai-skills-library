@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# <skill-slug> install.sh — idempotent installer with pre-flight checks.
+#
+# Safe to re-run. Bails clearly when prerequisites are missing.
+# See docs/standards/doctor-script.md (similar conventions).
+
+set -euo pipefail
+
+# ─── colors ─────────────────────────────────────────────────────────
+log() { printf '\033[36m→\033[0m %s\n' "$*"; }
+ok()  { printf '\033[32m✓\033[0m %s\n' "$*"; }
+warn(){ printf '\033[33m⚠\033[0m %s\n' "$*"; }
+err() { printf '\033[31m✗\033[0m %s\n' "$*" >&2; }
+
+# ─── 1. Pre-flight checks ───────────────────────────────────────────
+log "Pre-flight checks..."
+
+if ! command -v docker >/dev/null 2>&1; then
+  err "docker CLI not found. Install with: brew install docker docker-compose"
+  exit 1
+fi
+
+if ! docker info >/dev/null 2>&1; then
+  err "Docker daemon is not reachable. Start an engine first:"
+  echo "    Colima:          brew install colima && colima start"
+  echo "    OrbStack:        brew install orbstack && open -a OrbStack"
+  echo "    Docker Desktop:  open -a Docker"
+  exit 1
+fi
+
+ok "docker daemon is up"
+
+# ─── 2. Install / boot ──────────────────────────────────────────────
+log "Starting <skill-slug>..."
+
+# TODO: replace with your actual boot command
+docker compose -f docker-compose.yml up -d 2>&1 | tail -5
+
+# ─── 3. Wait for health ─────────────────────────────────────────────
+log "Waiting for <skill-slug> to respond..."
+for i in 1 2 3 4 5 6 7 8 9 10; do
+  if curl -fsS --max-time 1 http://localhost:<port>/health >/dev/null 2>&1; then
+    ok "<skill-slug> is reachable"
+    break
+  fi
+  sleep 1
+  [ "$i" -eq 10 ] && {
+    err "<skill-slug> did not respond within 10 seconds."
+    exit 1
+  }
+done
+
+# ─── 4. Done ────────────────────────────────────────────────────────
+echo ""
+ok "<skill-slug> is up at http://127.0.0.1:<port>/"
+echo ""
+echo "Next steps:"
+echo "  • Open it:           open http://127.0.0.1:<port>/"
+echo "  • Stop:              make stop  (or  docker compose down)"
+echo "  • Doctor:            make doctor"
+echo ""

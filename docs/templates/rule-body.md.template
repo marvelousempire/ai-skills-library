@@ -1,0 +1,40 @@
+# <Rule title>
+
+## When this fires
+
+<One paragraph describing the trigger condition. E.g. "Any time a new skill is added to skills/<family>/<slug>/.">
+
+## What it says
+
+<The rule in plain language. Imperative. No equivocation.>
+
+## Examples
+
+### ✓ Compliant
+
+```<lang>
+<example code or text that complies>
+```
+
+### ✗ Violation
+
+```<lang>
+<example code or text that violates>
+```
+
+## Why
+
+<Rationale. Incident history if applicable. Design goal.>
+
+## Related
+
+- **Standard:** [`docs/standards/<name>.md`](../../../docs/standards/<name>.md)
+- **Checklist:** [`docs/checklists/<name>.md`](../../../docs/checklists/<name>.md)
+- **Script:** [`scripts/<name>.sh`](../../../scripts/<name>.sh)
+- **Skill:** [`skills/methodology/<slug>/`](../../../skills/methodology/<slug>/)
+
+## Enforcement
+
+- [ ] Caught by linter? `<script-name>.sh`
+- [ ] Caught by pre-commit hook? <yes/no/planned>
+- [ ] Caught by CI? <yes/no/planned>

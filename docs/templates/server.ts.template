@@ -1,0 +1,94 @@
+// <skill-slug> — local HTTP server.
+//
+// Pure Node stdlib (http + fs). No npm deps. Run via:
+//   node --experimental-strip-types --no-warnings=ExperimentalWarning server.ts
+//
+// Modeled on skills/infra/console/server.ts and skills/visual/diagrams/seeme/src/server.ts.
+
+import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
+import { readFileSync, existsSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, resolve } from 'node:path'
+
+const here = dirname(fileURLToPath(import.meta.url))
+const indexPath = resolve(here, 'index.html')
+
+const PORT = Number(process.env.PORT ?? <default-port>)
+const HOST = process.env.HOST ?? '127.0.0.1'
+
+const indexHtml = existsSync(indexPath)
+  ? readFileSync(indexPath, 'utf-8')
+  : '<!DOCTYPE html><pre>index.html missing</pre>'
+
+// ─── helpers ────────────────────────────────────────────────────────
+const sendJson = (res: ServerResponse, status: number, body: unknown) => {
+  const json = JSON.stringify(body)
+  res.writeHead(status, {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Length': Buffer.byteLength(json),
+    'Cache-Control': 'no-store',
+  })
+  res.end(json)
+}
+
+const sendText = (res: ServerResponse, status: number, body: string, ct: string) => {
+  res.writeHead(status, {
+    'Content-Type': ct,
+    'Content-Length': Buffer.byteLength(body),
+    'Cache-Control': 'no-store',
+  })
+  res.end(body)
+}
+
+// ─── router ─────────────────────────────────────────────────────────
+const router = async (req: IncomingMessage, res: ServerResponse) => {
+  const url = req.url ?? '/'
+  const method = req.method ?? 'GET'
+
+  // CORS — open for local-network use.
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  if (method === 'OPTIONS') {
+    res.writeHead(204)
+    return res.end()
+  }
+
+  if (method === 'GET' && (url === '/' || url === '/index.html')) {
+    return sendText(res, 200, indexHtml, 'text/html; charset=utf-8')
+  }
+
+  if (method === 'GET' && url === '/health') {
+    return sendJson(res, 200, { ok: true, ts: new Date().toISOString() })
+  }
+
+  // TODO: add your own routes here.
+
+  return sendJson(res, 404, { error: `Not found: ${method} ${url}` })
+}
+
+const server = createServer((req, res) => {
+  router(req, res).catch((err) => {
+    const message = err instanceof Error ? err.message : String(err)
+    try {
+      sendJson(res, 500, { error: message })
+    } catch {}
+  })
+})
+
+await new Promise<void>((resolveListen, rejectListen) => {
+  server.on('error', rejectListen)
+  server.listen(PORT, HOST, () => resolveListen())
+})
+
+process.stderr.write(`<skill-slug> running at http://${HOST}:${PORT}/\n`)
+process.stderr.write(`(Ctrl-C to stop)\n`)
+
+await new Promise<void>((resolveProm) => {
+  const cleanup = () => {
+    server.close()
+    resolveProm()
+  }
+  process.on('SIGINT', cleanup)
+  process.on('SIGTERM', cleanup)
+})
