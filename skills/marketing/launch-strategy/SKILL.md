@@ -1,7 +1,12 @@
 ---
 name: launch-strategy
 id: SK-0086
-keywords: [launch, strategy]
+keywords: [write-launch, check-strategy, file-launch]
+hash: 63bb5d0
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas."
 metadata:
   version: 1.1.0

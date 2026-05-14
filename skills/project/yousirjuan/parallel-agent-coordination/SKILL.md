@@ -1,7 +1,12 @@
 ---
 name: parallel-agent-coordination
 id: SK-0130
-keywords: [parallel, agent, coordination]
+keywords: [run-parallel, check-agent, build-coordination]
+hash: a4c73fd
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

@@ -1,7 +1,12 @@
 ---
 name: generate-weather-plates
 id: SK-0123
-keywords: [generate, weather, plates]
+keywords: [generate-plates, create-assets, render-weather]
+hash: d95abbf
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: Generate the 16 cinematic weather background plates (8 conditions × day/night) for the Red-E Play HomeView hero by calling OpenAI's gpt-image-1. Drops the resulting JPGs straight into the iOS Assets.xcassets/WeatherPlates/ imagesets, ready for SwiftUI Image(...). Re-runnable for any subset (regenerate just one kind by passing its name as an arg). Reusable for any future "I need N AI-generated plates that match a brand prompt" task.
 ---
 

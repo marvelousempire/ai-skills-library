@@ -1,7 +1,12 @@
 ---
 name: port-alignment
 id: RL-0034
-keywords: [port, alignment]
+keywords: [enforce-port, check-alignment, file-port]
+hash: 5cc4264
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Port Alignment

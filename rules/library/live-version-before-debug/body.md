@@ -1,7 +1,12 @@
 ---
 name: live-version-before-debug
 id: RL-0023
-keywords: [live, version, before]
+keywords: [enforce-live, check-version, build-before]
+hash: 0b12291
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Live version before debug

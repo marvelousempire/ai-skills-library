@@ -1,7 +1,12 @@
 ---
 name: marketing-doc-per-feature
 id: RL-0024
-keywords: [marketing, doc, feature]
+keywords: [enforce-marketing, check-doc, build-feature]
+hash: cd52004
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Marketing Doc Per Feature

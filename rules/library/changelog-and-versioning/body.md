@@ -1,7 +1,12 @@
 ---
 name: changelog-and-versioning
 id: RL-0008
-keywords: [changelog, versioning]
+keywords: [enforce-changelog, check-versioning, file-changelog]
+hash: d74670b
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Changelog and version discipline

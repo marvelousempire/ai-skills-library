@@ -1,7 +1,12 @@
 ---
 name: hardware-compat-doc
 id: SK-0127
-keywords: [hardware, compat, doc]
+keywords: [run-hardware, check-compat, build-doc]
+hash: 0fa6669
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

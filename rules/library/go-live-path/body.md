@@ -1,7 +1,12 @@
 ---
 name: go-live-path
 id: RL-0017
-keywords: [live, path]
+keywords: [enforce-live, check-path, file-live]
+hash: 9d57415
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Go live path — never defer

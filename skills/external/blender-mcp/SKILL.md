@@ -1,7 +1,12 @@
 ---
 name: blender-mcp
 id: SK-0050
-keywords: [blender, mcp]
+keywords: [integrate-blender, check-mcp, file-blender]
+hash: 0264372
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "Blender MCP \u2014 Model Context Protocol bridge so agents can drive Blender scenes and operations. Use when the user mentions or needs: Blender MCP; control Blender from Claude; MCP Blender integration."
 ---
 

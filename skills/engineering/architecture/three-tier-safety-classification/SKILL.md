@@ -1,7 +1,12 @@
 ---
 name: three-tier-safety-classification
 id: SK-0011
-keywords: [three, tier, safety]
+keywords: [classify-tier, enforce-safety, gate-action]
+hash: 7a877e9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Classify every destructive action into exactly one of three safety tiers:
   safe (always reclaimable, rebuild is trivial), probably_safe (rebuild exists

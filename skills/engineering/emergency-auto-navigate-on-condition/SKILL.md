@@ -1,7 +1,12 @@
 ---
 name: emergency-auto-navigate-on-condition
 id: SK-0023
-keywords: [emergency, navigate, condition]
+keywords: [monitor-metric, navigate-surface, detect-threshold]
+hash: b4007a6
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   When a system metric crosses a critical threshold (disk at zero, error rate
   spiking, health check failing), automatically navigate the UI to the relevant

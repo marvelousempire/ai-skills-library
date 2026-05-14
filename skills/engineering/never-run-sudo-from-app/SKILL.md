@@ -1,7 +1,12 @@
 ---
 name: never-run-sudo-from-app
 id: SK-0029
-keywords: [never, sudo, app]
+keywords: [show-command, copy-command, open-terminal]
+hash: 774b137
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Security + UX boundary — when a tool needs elevated privileges (sudo,
   ownership transfer, system file modification, password unlock), it MUST NOT

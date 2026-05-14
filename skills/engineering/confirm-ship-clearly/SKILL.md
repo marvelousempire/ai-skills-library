@@ -1,7 +1,12 @@
 ---
 name: confirm-ship-clearly
 id: SK-0016
-keywords: [confirm, ship, clearly]
+keywords: [check-tag, verify-merge, show-receipts]
+hash: 93fd5bd
+relations: []
+before: []
+governed_by: [RL-0043, RL-0039, global]
+meta: dynamic
 description: >-
   Every shipping confirmation must be unambiguous. Show all four: release
   tag, PR state+mergedAt, commit hash on main, and kVersion in the canonical

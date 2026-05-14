@@ -1,7 +1,12 @@
 ---
 name: associate-agent-terminology
 id: RL-0006
-keywords: [associate, agent, terminology]
+keywords: [enforce-associate, check-agent, build-terminology]
+hash: 1a72fe5
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Associate Agent Terminology

@@ -1,7 +1,12 @@
 ---
 name: create-subagent
 id: SK-0022
-keywords: [create, subagent]
+keywords: [create-agent, define-role, configure-subagent]
+hash: 2f43527
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Create custom subagents for specialized AI tasks. Use when you want to create
   a new type of subagent, set up task-specific agents, configure code reviewers,

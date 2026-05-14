@@ -1,7 +1,12 @@
 ---
 name: feature-id-race-guard
 id: RL-0012
-keywords: [feature, race, guard]
+keywords: [enforce-feature, check-race, build-guard]
+hash: bc1e1cb
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Feature-ID race guard — check IDs at write time, not at planning time

@@ -1,7 +1,12 @@
 ---
 name: create-hook
 id: SK-0019
-keywords: [create, hook]
+keywords: [create-hook, configure-trigger, wire-event]
+hash: 20ddce2
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Create Cursor hooks. Use when you want to create a hook, write hooks.json, add
   hook scripts, or automate behavior around agent events.

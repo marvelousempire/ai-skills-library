@@ -1,7 +1,12 @@
 ---
 name: smoke-test-after-deploy
 id: RL-0040
-keywords: [smoke, test, after]
+keywords: [enforce-smoke, check-test, build-after]
+hash: 3f025e1
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Smoke test after every deploy

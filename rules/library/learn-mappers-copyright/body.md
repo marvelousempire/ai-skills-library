@@ -1,7 +1,12 @@
 ---
 name: learn-mappers-copyright
 id: RL-0022
-keywords: [learn, mappers, copyright]
+keywords: [enforce-learn, check-mappers, build-copyright]
+hash: cad71c2
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Learn Mappers LLC — app copyright & attribution

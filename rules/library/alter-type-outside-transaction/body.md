@@ -1,7 +1,12 @@
 ---
 name: alter-type-outside-transaction
 id: RL-0002
-keywords: [alter, type, outside]
+keywords: [enforce-alter, check-type, build-outside]
+hash: 2308a41
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # ALTER TYPE goes outside BEGIN/COMMIT

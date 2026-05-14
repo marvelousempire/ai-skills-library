@@ -1,7 +1,12 @@
 ---
 name: multi-surface-single-engine
 id: SK-0006
-keywords: [multi, surface, single]
+keywords: [route-surface, call-engine, adapt-output]
+hash: 7dc96a6
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   One core engine — a shell script, AppleScript, API, or binary — wrapped by
   multiple UX surfaces that each reach different users: a web dashboard, a CLI

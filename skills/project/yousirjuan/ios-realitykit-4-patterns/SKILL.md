@@ -1,7 +1,12 @@
 ---
 name: ios-realitykit-4-patterns
 id: SK-0128
-keywords: [ios, realitykit, patterns]
+keywords: [run-ios, check-realitykit, build-patterns]
+hash: 65d0e0b
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

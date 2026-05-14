@@ -1,7 +1,12 @@
 ---
 name: hardware-before-installer
 id: RL-0018
-keywords: [hardware, before, installer]
+keywords: [enforce-hardware, check-before, build-installer]
+hash: 775aeed
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Hardware Before Installer

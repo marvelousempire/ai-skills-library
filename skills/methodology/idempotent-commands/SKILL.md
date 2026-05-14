@@ -1,7 +1,12 @@
 ---
 name: idempotent-commands
 id: SK-0115
-keywords: [idempotent, commands]
+keywords: [run-idempotent, check-state, skip-if-done]
+hash: 4e8ec9e
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: Design Makefile + CLI commands so they're safe to re-run forever. `make ui` boots whatever is down + opens the browser, same result every time. Pre-flight checks, pgrep guards, bounded waits. Triggers on "make ui pattern", "one command", "idempotent", "safe to re-run". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/plan-naming.md` and `docs/templates/Makefile.template`.
 ---
 

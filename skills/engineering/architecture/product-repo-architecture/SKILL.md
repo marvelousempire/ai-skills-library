@@ -1,7 +1,12 @@
 ---
 name: product-repo-architecture
 id: SK-0007
-keywords: [product, repo, architecture]
+keywords: [setup-repo, configure-release, name-branch]
+hash: 8e05ad7
+relations: [avery-goodman-repo-standard, make-check-defense-in-depth]
+before: []
+governed_by: [RL-0039, RL-0032, global]
+meta: dynamic
 description: >-
   The opinionated git repo structure, Makefile interface, GitHub Actions
   auto-release workflow, version-tracking pattern, git branch and PR naming

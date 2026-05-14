@@ -1,7 +1,12 @@
 ---
 name: conversation-retrospective-extraction
 id: SK-0017
-keywords: [conversation, retrospective, extraction]
+keywords: [read-conversation, classify-finding, file-skill]
+hash: 2717e37
+relations: [create-skill, failure-proof-audit, gap-audit-and-elevation]
+before: [skill-nutrients-decanter]
+governed_by: [global]
+meta: dynamic
 description: >-
   After any substantive Claude conversation — a build session, a design
   sprint, a debugging arc — read the full conversation backward, extract

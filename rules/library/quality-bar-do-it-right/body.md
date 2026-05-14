@@ -1,7 +1,12 @@
 ---
 name: quality-bar-do-it-right
 id: RL-0035
-keywords: [quality, bar, right]
+keywords: [enforce-quality, check-bar, build-right]
+hash: 70a4ea4
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Quality bar — do it right the first time

@@ -1,7 +1,12 @@
 ---
 name: readme-reflects-reality
 id: RL-0036
-keywords: [readme, reflects, reality]
+keywords: [enforce-readme, check-reflects, build-reality]
+hash: b2d33ac
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # README Reflects Reality

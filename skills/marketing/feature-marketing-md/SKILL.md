@@ -1,7 +1,12 @@
 ---
 name: feature-marketing-md
 id: SK-0082
-keywords: [feature, marketing]
+keywords: [write-feature-md, generate-copy, document-feature]
+hash: b510e2d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Write one Markdown file per shipped feature, in a `docs/marketing/` folder
   inside the product repo, using a strict eight-section template. Each MD is

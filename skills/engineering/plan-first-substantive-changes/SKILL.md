@@ -1,7 +1,12 @@
 ---
 name: plan-first-substantive-changes
 id: SK-0030
-keywords: [plan, first, substantive]
+keywords: [write-plan, get-approval, define-scope]
+hash: b3b89e5
+relations: [confirm-ship-clearly, post-ship-elevation-pass]
+before: []
+governed_by: [RL-0032, RL-0039, global]
+meta: dynamic
 description: >-
   Before writing any code that touches more than ~2 files, adds a new feature
   or subsystem, changes architecture, or modifies behavior other code depends

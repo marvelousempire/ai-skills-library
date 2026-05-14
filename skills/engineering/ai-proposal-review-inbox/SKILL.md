@@ -1,7 +1,12 @@
 ---
 name: ai-proposal-review-inbox
 id: SK-0001
-keywords: [proposal, review, inbox]
+keywords: [review-proposal, accept-snippet, dismiss-proposal]
+hash: d792928
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Pattern for letting an AI agent "grow" a hand-curated source file (cleaners,
   rules, fixtures, prompts, library entries) without ever auto-mutating it.

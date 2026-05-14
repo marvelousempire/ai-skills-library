@@ -1,7 +1,12 @@
 ---
 name: migration-race-guard
 id: RL-0025
-keywords: [migration, race, guard]
+keywords: [enforce-migration, check-race, build-guard]
+hash: b1a356e
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Migration number reservation — check at write time, not plan time

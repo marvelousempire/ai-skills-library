@@ -1,7 +1,12 @@
 ---
 name: make-check-defense-in-depth
 id: SK-0025
-keywords: [check, defense, depth]
+keywords: [run-check, verify-references, catch-regression]
+hash: 8dd3416
+relations: [confirm-ship-clearly, make-update-make-doctor]
+before: [plan-first-substantive-changes]
+governed_by: [RL-0039, RL-0043, global]
+meta: dynamic
 description: >-
   Extend `make check` (or any CI gate) so it catches silent-regression bugs
   beyond just "does the code parse." Verify every file referenced by docs/

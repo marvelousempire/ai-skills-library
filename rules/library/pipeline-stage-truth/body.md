@@ -1,7 +1,12 @@
 ---
 name: pipeline-stage-truth
 id: RL-0031
-keywords: [pipeline, stage, truth]
+keywords: [enforce-pipeline, check-stage, build-truth]
+hash: de37655
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Pipeline-stage truth — name the stage, don't generalize

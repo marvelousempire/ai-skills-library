@@ -1,7 +1,12 @@
 ---
 name: parallel-pr-rebase-tax
 id: RL-0028
-keywords: [parallel, rebase, tax]
+keywords: [enforce-parallel, check-rebase, build-tax]
+hash: f5ec4e7
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Parallel-PR rebase tax — count rebases per PR

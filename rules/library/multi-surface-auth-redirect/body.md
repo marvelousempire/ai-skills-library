@@ -1,7 +1,12 @@
 ---
 name: multi-surface-auth-redirect
 id: RL-0026
-keywords: [multi, surface, auth]
+keywords: [enforce-multi, check-surface, build-auth]
+hash: 42eddcd
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Multi-surface auth redirect

@@ -1,7 +1,12 @@
 ---
 name: swift-codable-guard
 id: RL-0041
-keywords: [swift, codable, guard]
+keywords: [enforce-swift, check-codable, build-guard]
+hash: bc894a2
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Swift Codable models — guard after rebase

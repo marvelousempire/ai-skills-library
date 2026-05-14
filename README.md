@@ -22,17 +22,22 @@ Everything in this library is a **product** — a discrete, shippable, identifia
 
 ## The Canonical Product Schema
 
-Every product has the same frontmatter shape. This is what every AI reads to route, match, display, and deliver a product.
+Every product has the same frontmatter shape — 8 fields. This is what the router reads to match, display, sequence, and deliver a product.
 
 ```yaml
 ---
 name: product-name-kebab-case    # Machine ID. Kebab-case. Unique within its type.
 id: SK-0042                      # Global unique ID. Type prefix + zero-padded integer.
+hash: a3f9b2c                    # Stable 7-char hex. Never changes. Used for cross-references.
+keywords: [run-audit, check-gaps, build-leadsheet]  # Max 3. Action-based verb-object tags.
+relations: [skill-a, skill-b]    # Skills to use IN SUCCESSION after this one.
+before: [skill-c]                # Skills to run BEFORE this one (prerequisites).
+governed_by: [RL-0039, global]   # Rules that govern this product.
+meta: dynamic                    # Living metadata — updated by the system as it learns.
 description: >-                  # What it does. When it triggers. What it produces.
   One paragraph. Includes 4–6 specific trigger phrases — the exact words a
   user or AI would say that should load this product. Narrow enough not to
   fire on every task. Rich enough for the router to match confidently.
-keywords: [keyword1, keyword2, keyword3]  # Max 3. Lowercase. Domain tags.
 ---
 ```
 

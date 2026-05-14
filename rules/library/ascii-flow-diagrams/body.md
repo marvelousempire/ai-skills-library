@@ -1,7 +1,12 @@
 ---
 name: ascii-flow-diagrams
 id: RL-0004
-keywords: [ascii, flow, diagrams]
+keywords: [draw-diagram, map-flow, visualize-architecture]
+hash: 98a9aa9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # ASCII flow diagrams — default visualization style

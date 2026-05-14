@@ -1,7 +1,12 @@
 ---
 name: root-cause-not-symptom
 id: RL-0037
-keywords: [root, cause, symptom]
+keywords: [enforce-root, check-cause, build-symptom]
+hash: 6968b7f
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Root cause, not symptom

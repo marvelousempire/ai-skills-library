@@ -1,7 +1,12 @@
 ---
 name: rebase-changelog-resolver
 id: SK-0037
-keywords: [rebase, changelog, resolver]
+keywords: [rebase-branch, resolve-conflict, update-changelog]
+hash: dd1afce
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Auto-resolve CHANGELOG.md merge conflicts during rebase by keeping both entries with newest-first ordering. Pattern is mechanical — every PR adds an entry at the top, so every rebase produces the same shape of conflict. Tested 3 times in the trainer-marketplace session.
 trigger: >-

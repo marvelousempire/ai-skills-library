@@ -1,7 +1,12 @@
 ---
 name: honest-scope-reply
 id: RL-0019
-keywords: [honest, scope, reply]
+keywords: [enforce-honest, check-scope, build-reply]
+hash: 67b1a19
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Honest scope reply — when the ask exceeds capacity

@@ -1,7 +1,12 @@
 ---
 name: plan-first-for-substantive
 id: RL-0032
-keywords: [plan, first, substantive]
+keywords: [enforce-plan, check-first, build-substantive]
+hash: 237de62
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Plan first for substantive changes

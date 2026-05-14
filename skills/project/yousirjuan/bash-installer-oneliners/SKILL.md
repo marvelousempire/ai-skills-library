@@ -1,7 +1,12 @@
 ---
 name: bash-installer-oneliners
 id: SK-0126
-keywords: [bash, installer, oneliners]
+keywords: [run-bash, check-installer, build-oneliners]
+hash: d09cc4f
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

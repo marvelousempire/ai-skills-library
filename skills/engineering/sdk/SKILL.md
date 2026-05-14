@@ -1,7 +1,12 @@
 ---
 name: sdk
 id: SK-0041
-keywords: [sdk]
+keywords: [build-sdk, integrate-api, configure-client]
+hash: f0ebbde
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   Guide users building apps, scripts, CI pipelines, or automations on top of the
   Cursor TypeScript SDK (`@cursor/sdk`). Use when the user mentions integrating,

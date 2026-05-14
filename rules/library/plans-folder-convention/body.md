@@ -1,7 +1,12 @@
 ---
 name: plans-folder-convention
 id: RL-0033
-keywords: [plans, folder, convention]
+keywords: [enforce-plans, check-folder, build-convention]
+hash: 3188ef5
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Plans Folder Convention — every repo, every substantive change

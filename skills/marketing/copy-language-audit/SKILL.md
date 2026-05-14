@@ -1,7 +1,12 @@
 ---
 name: copy-language-audit
 id: SK-0077
-keywords: [copy, language, audit]
+keywords: [write-copy, check-language, build-audit]
+hash: 4ef9a41
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: "When the user wants to audit marketing copy for contractual, binding, or overly-formal language and replace it with platform-appropriate vocabulary. Also use when the user mentions 'binding language,' 'integration language,' 'partnership language,' 'sounds too corporate,' 'sounds like we have contracts,' 'soften this,' 'loose language,' 'accommodate instead of integrate,' 'compatibility instead of integration,' 'too formal,' 'legal-sounding,' 'implied obligations,' or 'we don't want to imply a partnership.' Use this whenever copy implies contractual relationships, fixed integrations, or formal partnerships that the product hasn't committed to. For writing new copy from scratch, see copywriting. For general copy improvements, see copy-editing."
 metadata:
   version: 1.0.0

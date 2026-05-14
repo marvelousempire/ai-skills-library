@@ -1,7 +1,12 @@
 ---
 name: associate-agent-system
 id: SK-0125
-keywords: [associate, agent, system]
+keywords: [run-associate, check-agent, build-system]
+hash: 749b06e
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

@@ -1,7 +1,12 @@
 ---
 name: bulk-token-substitution
 id: RL-0007
-keywords: [bulk, token, substitution]
+keywords: [enforce-bulk, check-token, build-substitution]
+hash: 39b6490
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Bulk token substitution — Python-in-Bash beats N Edit calls

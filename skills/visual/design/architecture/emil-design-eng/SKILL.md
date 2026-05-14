@@ -1,7 +1,12 @@
 ---
 name: emil-design-eng
 id: SK-0131
-keywords: [emil, design, eng]
+keywords: [apply-design, enforce-polish, review-detail]
+hash: 5bd136e
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: Encodes Emil Kowalski's design engineering philosophy for UI polish, component design, animation decisions, and invisible details that make software feel great.
 ---
 

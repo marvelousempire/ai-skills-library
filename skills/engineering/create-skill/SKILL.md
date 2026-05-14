@@ -1,250 +1,247 @@
 ---
 name: create-skill
 id: SK-0021
-keywords: [skill, authoring, schema]
+hash: 7f3a9b2
+keywords: [write-skill, define-schema, stamp-product]
+relations: [conversation-retrospective-extraction, plan-first-substantive-changes]
+before: [skill-nutrients-decanter, gap-audit-and-elevation]
+governed_by: [RL-0039, RL-0044, global]
+meta: dynamic
 description: >-
-  The step-by-step guide for authoring a new product in the AI Skills Library —
-  writing the frontmatter, assigning an ID, choosing keywords, and filling the
-  eight body sections. Use this when creating a new skill, writing a new rule,
-  adding a product to the library, or when someone asks "how do I write a skill",
-  "how should this skill be structured", "what goes in a SKILL.md", "what are
-  the required sections", "skill frontmatter format", "how do I add a product".
+  The complete unified standard for authoring any product in the AI Skills Library
+  — covering schema structure, writing voice, action keywords, and all eight body
+  sections. Use when creating a new skill, writing a new rule, adding any product,
+  or when someone asks "how do I write a skill", "what goes in a SKILL.md",
+  "skill frontmatter format", "how should this be structured", "writing voice for
+  skills", "what are the required sections", "eight-answer test for skills",
+  "Boolean clarity for skills", "how do I add a product to the library".
 ---
 
-# write-skill-product — author any product for the AI Skills Library
+# create-skill — the complete authoring standard for every library product
 
-A product without complete metadata is invisible to the distribution model. A product without the eight body sections is unusable by a future AI or human. This skill walks through writing a product that is complete, correctly formatted, and immediately useful.
+A product without complete metadata is invisible to the router. A product without the right voice is unusable by an AI or human. This skill unifies both — schema structure AND writing voice — into one authoritative guide.
 
 ---
 
-## When to use this skill
+## When to use this product
 
-- Writing a new `SKILL.md`, `body.md` (rule), or `AGENT.md` for the library
+- Writing a new `SKILL.md`, `body.md` (rule), or `AGENT.md`
 - Reformatting an existing product that's missing fields or sections
-- Someone asks "how do I write a skill" / "what goes in a SKILL.md"
 - After `conversation-retrospective-extraction` surfaces a new skill candidate
-- After the `skill-nutrients-decanter` confirms a nutrient is worth filing
+- After `skill-nutrients-decanter` confirms a nutrient is worth filing
+- Any time someone asks "how do I write a skill" or "what goes in a SKILL.md"
 
 ---
 
 ## Step 1 — Decide the product type
 
-| Type | File | Where | When |
+| Type | File | Location | When |
 |---|---|---|---|
 | **Skill** | `SKILL.md` | `skills/<category>/<name>/` | Invocable process with a trigger |
-| **Rule** | `body.md` | `rules/library/<name>/` | Always-on policy, no invocation needed |
+| **Rule** | `body.md` | `rules/library/<name>/` | Always-on policy, fires automatically |
 | **Agent** | `AGENT.md` | `agents/<name>/` | Autonomous actor with its own loop |
 | **Template** | any file | `templates/<category>/<name>/` | Starter structure for reuse |
 | **Doc** | `*.md` | `docs/` | Reference material, master plans |
-| **Checklist** | `*.md` | `docs/checklists/` | Binary verification list |
+| **Checklist** | `*.md` | `docs/checklists/` | Binary verification — every item Yes/No |
 
 ---
 
 ## Step 2 — Choose the folder location
 
-Use the folder taxonomy from `README.md`:
-
 ```
 skills/engineering/           Implementation and workflow patterns
-skills/engineering/architecture/  Structural system decisions
-skills/visual/design/ux/      UX mood + method
-skills/visual/design/ui/      Cosmetic interface layer
-skills/visual/design/paint/   Decoration and branding
+skills/engineering/architecture/  Structural system decisions (bones)
+skills/visual/design/ux/      UX mood + method (how it feels)
+skills/visual/design/ui/      Cosmetic interface layer (what it looks like)
+skills/visual/design/paint/   Decoration, branding, surface identity
 skills/methodology/           Thinking and process frameworks
 skills/marketing/             Copy, SEO, CRO, launch, research
 skills/infra/                 Infrastructure and self-hosting
 ```
 
-When in doubt: if it's about how systems are structured → `engineering/architecture/`. If it's about a process or methodology → `methodology/`. If it's about making something look or feel a certain way → `visual/design/`.
-
 ---
 
-## Step 3 — Write the frontmatter (all four fields required)
+## Step 3 — Write the frontmatter (all 8 fields required)
 
 ```yaml
 ---
 name: product-name-kebab-case
 id: SK-XXXX
-keywords: [keyword1, keyword2, keyword3]
+hash: a3f9b2c
+keywords: [verb-object, verb-object, verb-object]
+relations: [skill-used-after-this, another-skill]
+before: [skill-needed-first, another-prerequisite]
+governed_by: [RL-XXXX, global]
+meta: dynamic
 description: >-
-  What this product does. When it triggers. 4–6 specific trigger phrases —
-  the exact words a user or AI would say that should load this product.
-  Narrow enough not to fire on every task. Rich enough to match confidently.
+  What it does. When it triggers. 4–6 specific trigger phrases —
+  the exact words a user or AI would say. Narrow enough not to fire
+  on every task. Rich enough for the router to match confidently.
 ---
 ```
 
-### `name` — the machine identifier
+### Field rules
 
-- Exact match of the containing folder slug
-- Lowercase, kebab-case, no spaces, no capitals
+**`name`** — lowercase kebab-case, exact match of folder slug. No capitals, no spaces.
 
-### `id` — the global unique product ID
+**`id`** — run `python3 scripts/stamp-product-ids.py` to auto-assign. Format: `SK-NNNN`.
 
-Run the stamper — it auto-assigns the next available number:
+**`hash`** — auto-generated by the stamper. Never change it manually — it's the stable pointer.
+
+**`keywords`** — **Action-based. Verb leads. Up to 2 words, hyphenated. Max 3.**
+- Format: `verb-object` like `run-audit`, `setup-repo`, `write-skill`, `show-dialog`
+- ✅ `[run-audit, check-gaps, build-leadsheet]` — clear actions
+- ❌ `[audit, boolean, accountability]` — domain nouns, not actions
+- ❌ `[create, build, improve]` — verbs with no object
+
+**`relations`** — skills to run IN SUCCESSION after this one (up to 3, by name).
+
+**`before`** — skills to run BEFORE this one (up to 3, by name).
+
+**`governed_by`** — rules that govern this product (RL-XXXX IDs or `global` for library-wide defaults).
+
+**`meta: dynamic`** — signals to any AI that `keywords`, `relations`, and `before` are living fields updated as the system learns more about this product.
+
+**`description`** — one paragraph, embed 4–6 specific trigger phrases in natural sentences.
+
+---
+
+## Step 4 — The writing voice (eight-answer test + Boolean clarity)
+
+Write every product like a **plain-language command file** — clear orders in normal English that a sharp 12-year-old can understand, but advanced enough that an AI can execute it reliably. The thinking stays advanced. The language gets clear.
+
+### The eight-answer test
+
+Every product must implicitly answer all eight before it ships:
+
+1. **When** — when exactly does this apply?
+2. **Input** — what does it need to run?
+3. **Output** — what does it produce? In what format?
+4. **Rules** — what constraints must be respected?
+5. **Steps** — what exactly happens, in what order?
+6. **Checks** — how does it verify the work is correct?
+7. **Never** — what must it never do, even if asked?
+8. **Done** — how does it confirm completion?
+
+If any of the eight is missing or vague, the product is not ready.
+
+### DO / DO NOT
+
+**DO:**
+- Write in complete, direct sentences that give a clear order
+- Use plain words when both options are equally accurate
+- Make every step actionable — the reader knows exactly what to do next
+- Use Boolean logic for decisions — yes/no, pass/fail, present/absent
+- Name what happens when input is wrong — never leave an error path open
+
+**DO NOT:**
+- Use vague language ("improve this", "make it better", "consider doing X")
+- Leave open paths — every instruction must close with a definite outcome
+- Use filler phrases ("it's worth noting", "you might want to", "generally speaking")
+- Write steps ambiguously — if a step could be interpreted two ways, rewrite it
+
+### Boolean current-state check
+
+For every instruction or step — define the gap:
+
+| What it is | What it should be | What it does | What it should do | Boolean | Fix |
+|---|---|---|---|---|---|
+| Vague step | Clear command | Variable output | Same output every time | Idempotent? Y/N | Rewrite as direct order |
+
+### Voice comparison
+
+**Too vague:**
+> You might want to check the frontmatter before proceeding.
+
+**Correct:**
+> Check that all 8 frontmatter fields are present. If any are missing, stop and run `stamp-product-ids.py`. Do not proceed until `validate-skill-frontmatter.py` returns OK.
+
+**Too vague:**
+> Make the description clear and include some trigger phrases.
+
+**Correct:**
+> Write the `description` field as one paragraph. Embed 4–6 exact trigger phrases in quotes. No bulleted list. The phrases must be words a real user would type.
+
+---
+
+## Step 5 — Write the eight body sections
+
+After the closing `---`, every `SKILL.md` must have these sections in this order:
+
+**1. Title + tagline**
+```markdown
+# [Title] — [one-line tagline naming the failure mode this product prevents]
+[One sentence: the failure mode it prevents or the friction it removes.]
+```
+
+**2. When to use this product**
+Specific conditions, exact trigger phrases. "When working on a repo" is not specific. "When the user says 'audit this before we ship'" is specific.
+
+**3. The mechanism** — named after what the skill TEACHES, not "How it works"
+Good names: "The four receipts", "The six-step decanting process", "The Boolean lead sheet format". Must include runnable code or a paste-ready template.
+
+**4. What this is NOT for**
+Prevents scope creep. Names adjacent skills for neighboring cases.
+
+**5. Anti-patterns** — minimum 3, each with `❌` prefix and a reason
+
+**6. Invocation**
+Always include `"Use **skill-name**."` as the first line. Add 2–3 natural-language phrases.
+
+**7. Reference implementation**
+Link to the real-world file/PR/commit that demonstrates this. A claim without a link is noise.
+
+---
+
+## Step 6 — Validate and stamp
 
 ```bash
-cd ~/Developer/ai-skills-library
-python3 scripts/stamp-product-ids.py
-```
-
-Format: `SK-NNNN` for skills, `RL-NNNN` for rules. Zero-padded to 4 digits.
-
-### `keywords` — max 3 domain routing tags
-
-Domain tags. What world does this product live in? Max 3. Lowercase. No verbs.
-
-| Good | Bad |
-|---|---|
-| `[audit, boolean, accountability]` | `[audit, run, checklist]` — verb |
-| `[git, architecture, github]` | `[repo, git, architecture, github]` — too many |
-| `[macOS, native-ui, applescript]` | `[tool, script, mac]` — too generic |
-
-### `description` — the trigger surface
-
-This is what the router reads. It must contain 4–6 specific trigger phrases embedded naturally in the text. Phrases should be things a real user would actually type or say.
-
-```yaml
-description: >-
-  A multi-pass audit methodology for any repo, project, or system. Triggers on
-  "audit this repo", "failure-proof audit", "run a full audit", "Boolean lead
-  sheet", "find hidden gaps", "what would break after six months".
-```
-
----
-
-## Step 4 — Write the eight body sections
-
-After the closing `---`, every `SKILL.md` has these sections in this order:
-
-### 1. Title + tagline
-
-```markdown
-# [Title] — [one-line tagline]
-
-[One sentence: what failure this product prevents, or what friction it removes.]
-```
-
-The tagline is not the description. The description is for routing. The tagline is for humans scanning a list.
-
-### 2. When to use this product
-
-```markdown
-## When to use this product
-
-- [Specific trigger condition — "the user says X"]
-- [Specific trigger condition — "you notice Y"]
-- [Exact phrase the user would say]
-```
-
-Be specific. "When working on a repo" is not specific. "When the user says 'audit this before we ship'" is specific.
-
-### 3. The mechanism
-
-```markdown
-## [Name it after what the skill teaches — not "How it works"]
-
-[The actual pattern, with runnable code or a paste-ready template.]
-[Not vague principles. Concrete implementation.]
-```
-
-Examples of good section names: "The four receipts", "The six-step decanting process", "The canonical implementation", "The Boolean lead sheet format".
-
-### 4. What this is NOT for
-
-```markdown
-## What this is NOT for
-
-- Not for [common misapplication]
-- Not for [adjacent use case — name the right skill instead]
-```
-
-This prevents scope creep and misuse. If a neighboring skill handles a related case, name it explicitly here.
-
-### 5. Anti-patterns
-
-```markdown
-## Anti-patterns
-
-- ❌ [Specific wrong approach] — [brief reason why]
-- ❌ [Another wrong approach] — [brief reason]
-- ❌ [Third wrong approach] — [brief reason]
-```
-
-Minimum 3 anti-patterns. Always use `❌` prefix. Always give a reason.
-
-### 6. Invocation
-
-```markdown
-## Invocation
-
-- "Use **skill-name**."
-- "[Natural phrase that triggers this]"
-- "[Another phrase]"
-```
-
-Always include the canonical `"Use **name**."` form first.
-
-### 7. Reference implementation
-
-```markdown
-## Reference implementation
-
-[Link to the real-world repo, file, PR, or commit that demonstrates this.]
-[Why it's the canonical example.]
-```
-
-A reference without a link is just a claim. Always link.
-
----
-
-## Step 5 — Validate and stamp
-
-```bash
-# Auto-assign id + keywords if not done manually
+# Auto-assign or refresh all metadata fields
 python3 scripts/stamp-product-ids.py
 
-# Validate all frontmatter
+# Validate all frontmatter — must say OK
 python3 scripts/validate-skill-frontmatter.py
 
-# Sync SKILL-INDEX.md count (for new skills)
+# Sync SKILL-INDEX.md count (for new skills only)
 ./scripts/finalize-skills-index.sh
 ```
 
-All three must pass before committing.
+All three must pass. Do not commit until they do.
 
 ---
 
-## Step 6 — The four-gate filter (pass before filing)
+## Step 7 — The four-gate filter
 
-Before committing any new skill, verify all four:
+Before filing any product, verify all four gates:
 
-| Gate | The question |
-|---|---|
-| **Scope** | Does it apply beyond this specific project? |
-| **Trigger** | Is the trigger narrow enough not to fire on every "improve" task? |
-| **Substance** | Does it contain concrete runnable code or a paste-ready template? |
-| **Origin** | Can you name the specific bug, pain, or moment that made this worth filing? |
+| Gate | The question | If no: |
+|---|---|---|
+| **Scope** | Does it apply beyond this specific project? | Keep in that project's docs |
+| **Trigger** | Is the trigger narrow enough not to fire on every task? | Narrow the description |
+| **Substance** | Does it contain runnable code or a paste-ready template? | Write the implementation first |
+| **Origin** | Can you name the specific bug/pain/moment that triggered it? | Collect more evidence |
 
-If it fails even one gate, it's not ready. See `docs/what-makes-a-good-skill.md` for the full filter.
+All four must pass. One failure = not ready.
 
 ---
 
 ## What this is NOT for
 
-- Not for general Cursor IDE skill authoring (the old `create-skill` covered that — this is library-specific)
-- Not for editing existing product metadata (run `stamp-product-ids.py` instead)
-- Not for deciding WHAT to file (use `conversation-retrospective-extraction` or `skill-nutrients-decanter` first)
+- Not for deciding WHAT to file — use `conversation-retrospective-extraction` or `skill-nutrients-decanter` first
+- Not for editing existing product metadata — run `stamp-product-ids.py` instead
+- Not for products in other repos (DustPan AppleScript docs use DS- prefix handled by the stamper's `--dustpan` flag)
 
 ---
 
 ## Anti-patterns
 
-- ❌ Writing a product without running the stamper — missing `id` breaks the router
-- ❌ Keywords that are verbs (`create`, `build`, `improve`) — keywords are domains, not actions
-- ❌ A `description` with no trigger phrases — the router can't match a product without them
-- ❌ A body with "How it works" as a section name — name it after what it teaches
+- ❌ Filing a product without running the stamper — missing `id` or `hash` breaks the router
+- ❌ Keywords that are domain nouns (`[audit, boolean, accountability]`) — must be action-based (`[run-audit, check-gaps, build-leadsheet]`)
+- ❌ A `description` with no trigger phrases — the router can't match it
+- ❌ Body section named "How it works" — name it after what the skill teaches
 - ❌ No reference implementation — a claim without a link is noise
-- ❌ Filing a product without the four-gate filter — the library gets diluted
+- ❌ Filing without the four-gate filter — the library gets diluted
+- ❌ Vague steps with "might", "consider", "generally" — not commands, not actionable
 
 ---
 
@@ -253,16 +250,17 @@ If it fails even one gate, it's not ready. See `docs/what-makes-a-good-skill.md`
 - "Use **create-skill**."
 - "How do I write a skill for this library?"
 - "What goes in a SKILL.md?"
-- "How should this be structured?"
 - "What are the required sections for a skill?"
+- "What's the writing voice for skills?"
+- "Eight-answer test for this product."
 
 ---
 
 ## Reference implementation
 
-Every skill filed during the DustPan v0.21–v0.27 arc demonstrates this pattern:
-- `skills/methodology/failure-proof-audit/SKILL.md` (SK-0042) — the full eight sections
-- `skills/engineering/cost-annotation-discipline/SKILL.md` (SK-0018) — strong trigger phrases
-- `skills/engineering/architecture/product-repo-architecture/SKILL.md` (SK-0007) — good keywords
+The DustPan v0.21–v0.27 arc skills demonstrate this fully:
+- `skills/methodology/failure-proof-audit/SKILL.md` (SK-0112) — 8 sections, Boolean lead sheet, action keywords
+- `skills/engineering/cost-annotation-discipline/SKILL.md` (SK-0018) — strong trigger phrases in description
+- `skills/engineering/architecture/product-repo-architecture/SKILL.md` (SK-0007) — action keywords: [setup-repo, configure-release, name-branch]
 
-The governance document: `README.md` (root of this repo) — the schema + distribution model in full.
+The master governance document: `README.md` — the full 8-field schema + distribution model.

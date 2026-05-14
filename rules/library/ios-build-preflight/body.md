@@ -1,7 +1,12 @@
 ---
 name: ios-build-preflight
 id: RL-0020
-keywords: [ios, build, preflight]
+keywords: [enforce-ios, check-build, build-preflight]
+hash: 56e462c
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # iOS build preflight — check disk and enumerate all errors first

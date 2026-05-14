@@ -1,7 +1,12 @@
 ---
 name: pbxproj-conflict
 id: RL-0030
-keywords: [pbxproj, conflict]
+keywords: [enforce-pbxproj, check-conflict, file-pbxproj]
+hash: d0f74c9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # project.pbxproj — rebase and merge conflict resolution

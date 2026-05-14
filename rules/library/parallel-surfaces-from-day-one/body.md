@@ -1,7 +1,12 @@
 ---
 name: parallel-surfaces-from-day-one
 id: RL-0029
-keywords: [parallel, surfaces, day]
+keywords: [enforce-parallel, check-surfaces, build-day]
+hash: 2c38fd3
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Parallel Surfaces From Day One

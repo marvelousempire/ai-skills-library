@@ -1,7 +1,12 @@
 ---
 name: streaming-sse-event-vocabulary
 id: SK-0010
-keywords: [streaming, sse, event]
+keywords: [define-events, route-messages, handle-stream]
+hash: ab17480
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: >-
   The canonical set of SSE event types for an AI agent streaming interface.
   Every event has a defined shape, a defined moment it fires, and a defined

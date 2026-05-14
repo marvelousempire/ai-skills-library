@@ -1,7 +1,12 @@
 ---
 name: dockyard
 id: SK-0062
-keywords: [dockyard]
+keywords: [setup-dockyard]
+hash: 7f4ab7a
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 description: Wire the ai-skills-library stacks into Dockyard — the user's Python-stdlib local-first Docker manager UI that replaces Docker Desktop's GUI. Talks any Docker socket (Colima → OrbStack → Docker Desktop), default Compose-project view, 12 MCP tools for AI agents, Caddy HTTPS front-door. This skill ships the install + standalone-compose templates, the canonical label schema every library container must follow, an integration checklist, and a Docker Desktop → Colima migration guide. Triggers on "set up Dockyard", "use Dockyard with ai-skills-library", "Docker UI", "Colima manager", "Dockyard MCP", "Docker Desktop replacement", "self-hosted Docker UI", "labels for Dockyard".
 ---
 

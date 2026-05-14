@@ -1,7 +1,12 @@
 ---
 name: post-ship-elevation-pass
 id: SK-0033
-keywords: [ship, elevation, pass]
+keywords: [audit-gaps, propose-elevations, wait-approval]
+hash: 1451c13
+relations: [gap-audit-and-elevation, create-skill]
+before: [confirm-ship-clearly]
+governed_by: [global]
+meta: dynamic
 description: >-
   After every substantive ship, immediately run two passes before closing the
   session: (1) GAP AUDIT — list everything incomplete, deferred, fragile, or

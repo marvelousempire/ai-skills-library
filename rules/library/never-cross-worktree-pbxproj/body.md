@@ -1,7 +1,12 @@
 ---
 name: never-cross-worktree-pbxproj
 id: RL-0027
-keywords: [never, cross, worktree]
+keywords: [enforce-never, check-worktree, build-pbxproj]
+hash: f9455e4
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
 ---
 
 # Never write project.pbxproj via cross-worktree bypass
