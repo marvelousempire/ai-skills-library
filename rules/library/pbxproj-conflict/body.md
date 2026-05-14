@@ -92,3 +92,36 @@ grep -E "MARKETING_VERSION =|CURRENT_PROJECT_VERSION = [0-9]+" \
 Expected: two unique lines — one for `MARKETING_VERSION`, one for
 `CURRENT_PROJECT_VERSION` (the real build number, not the extension `= 1`).
 If you see both the old and new numbers, the script missed a conflict block.
+
+---
+
+## Warning: Never apply this script via cross-worktree bypass
+
+The conflict-resolution Python script above is safe ONLY when run inside the
+correct worktree. Running it with `CLAUDE_ALLOW_CROSS_WORKTREE_EDIT=1` on a
+pbxproj path outside the current worktree consistently corrupts the file.
+
+See `rules/library/never-cross-worktree-pbxproj/body.md` for the full analysis
+and recovery protocol.
+
+---
+
+## Warning: UUID regex false positives when auditing chains
+
+When checking whether a `fileRef` UUID has a corresponding `PBXFileReference`,
+use a regex that matches the UUID as the PRIMARY KEY, not as a comment:
+
+```python
+# CORRECT — UUID as primary key
+file_refs = set(re.findall(
+    r'([0-9A-F]{24}) /\* [^*]+ \*/ = \{isa = PBXFileReference',
+    content
+))
+
+# WRONG — UUID can match as a comment inside a PBXBuildFile line
+# This produces false positives and reports 0 broken chains when there are 303
+bad_pattern = r'\b' + uuid + r'\b[^;]{1,200}isa = PBXFileReference'
+```
+
+The false-positive pattern cost hours of lost diagnostic time in the
+2026-05-14 repair session before the correct regex was identified.

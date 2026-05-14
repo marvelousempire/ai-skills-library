@@ -89,3 +89,59 @@ This rule applies to any Swift file that:
 
 Models that rely entirely on synthesized Codable (no custom init/encode)
 are not at risk.
+
+---
+
+## Three-way Codable fix: property + CodingKeys + decode + encode
+
+A common failure mode is adding a property and its decode/encode calls, but
+forgetting the `CodingKeys` case. The build error is:
+
+```
+error: type 'Player.CodingKeys' has no member 'wellnessVisibility'
+```
+
+This is a compile error (caught at build time), but missing the *encode* call
+is silent data loss (never caught, property disappears on every sync).
+
+**All four must be added in the same commit:**
+
+```swift
+// 1. Property declaration
+var wellnessVisibility: String?
+
+// 2. CodingKeys case (THIS is the one that's most often forgotten)
+enum CodingKeys: String, CodingKey {
+    // ... existing cases ...
+    case wellnessVisibility  // ADD THIS
+}
+
+// 3. Decode (in init(from:))
+wellnessVisibility = try container.decodeIfPresent(String.self, forKey: .wellnessVisibility)
+
+// 4. Encode (in encode(to:))
+try container.encodeIfPresent(wellnessVisibility, forKey: .wellnessVisibility)
+```
+
+The `wellnessVisibility` case specifically: in red-e-play-app PR #826, this
+property was declared at line 177 and had a decode call at line 557, but the
+`CodingKeys` enum had no `case wellnessVisibility`. Result: compile error on
+every build until the case was added.
+
+---
+
+## Also check: Codable conformance itself may be missing
+
+A type used in `JSONEncoder().encode(x)` must conform to `Codable`.
+If the type is `Hashable` but not `Codable`, the error is:
+
+```
+error: type 'MiniGameConfig' has no conformance to 'Codable'
+```
+
+Fix: add `Codable` to the conformance list. If all stored properties already
+conform (which `String`, `Int`, `Bool`, `UUID` do), Swift synthesizes the
+implementation automatically.
+
+This is a different failure mode from the `func encode(to:)` structural check
+above — that check only applies to types with *manual* Codable implementations.

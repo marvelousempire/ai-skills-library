@@ -1,0 +1,6 @@
+{
+  "id": "swift-protocol-propagation",
+  "description": "When a Swift API changes (init signature, protocol requirement, Codable property, enum case, @MainActor boundary), update every consumer in the same PR",
+  "alwaysApply": false,
+  "globs": ["**/*.swift"]
+}

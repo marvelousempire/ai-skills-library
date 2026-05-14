@@ -1,0 +1,6 @@
+{
+  "id": "ios-build-preflight",
+  "description": "Before any iOS build: check disk >= 2GB free, enumerate ALL errors before fixing any, classify by type, never run concurrent xcodebuild",
+  "alwaysApply": false,
+  "globs": ["**/*.xcodeproj/**", "**/*.swift"]
+}
