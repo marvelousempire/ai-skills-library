@@ -58,3 +58,15 @@ When an elevation is picked:
 2. Build per [`docs/workflows/build-new-skill.md`](../workflows/build-new-skill.md) (or appropriate workflow)
 3. Footnote here: `[picked YYYY-MM-DD: <commit hash>]`
 4. Remove the bullet
+
+### Brokerage make-shim / Docker / Colima session (2026-05-14)
+
+- [brokerage-prototype] **A. `tech-stack-sync-check.sh`** — diff `STACK.md` shipped-rows against `src/data/tech-stack.ts`; fail CI on drift. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **B. `port-drift.sh` v2 — target file existence probe** — auto-suggest ✅ for Flow 1 rows whose canonical-side path exists. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **C. Portable launchd plist** — render with `$HOME` at install time; ports between users. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **D. Tier 1 — four more scripts** — doc-drift, auth-middleware audit, compliance tickler, witness signer; follow `port-drift.sh` template. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **E. `make docker-up --dry-run`** — render compose plan without launching daemons; user sees image pulls before they start. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **F. Stack modal `Cmd+,` shortcut** — keyboard-discoverable reference panel, matches cmdk pattern. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [skills-library] **G. `scripts/cleanup-ruflo.sh`** — uninstall script for Ruflo plugins + marketplace. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype / FOP] **H. Tier 2 coordinated multi-agent** for prototype ↔ canonical port handoff. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [skills-library] **I. `STRUCTURE.md` reconciliation** — `docs/master-reports/` (per STRUCTURE.md) vs `docs/reports/` (per gap-audit-and-elevation skill + Dockyard audit) — pick one canonical dir. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
