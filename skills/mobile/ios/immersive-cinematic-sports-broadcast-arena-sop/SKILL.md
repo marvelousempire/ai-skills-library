@@ -1,5 +1,7 @@
 ---
 name: immersive-cinematic-sports-broadcast-arena-sop
+id: SK-0122
+keywords: [immersive, cinematic, sports]
 description: Reusable SOP and PRD skill for building premium immersive iOS scorekeeping and stats apps for any sport using SwiftUI, RealityKit 4, RealityView, Metal, HealthKit, WHOOP, physics, particles, spatial audio, and haptics.
 ---
 

@@ -1,3 +1,9 @@
+---
+name: migration-race-guard
+id: RL-0025
+keywords: [migration, race, guard]
+---
+
 # Migration number reservation — check at write time, not plan time
 
 Migration numbers are first-come, first-served. There is no reservation

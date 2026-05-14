@@ -1,5 +1,7 @@
 ---
 name: secure-data-flow-protocol
+id: SK-0009
+keywords: [secure, data, flow]
 description: >-
   Walk the 8-question checklist for any new field that flows iOS → API → DB → API → reader. Catches the "doesn't show up everywhere" gap. Adopted from red-e-play's Plan-Secure-Data-Flow-Protocol after 5 back-to-back PRs hit the same root cause.
 trigger: >-

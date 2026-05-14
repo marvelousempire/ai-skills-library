@@ -1,3 +1,9 @@
+---
+name: swift-codable-guard
+id: RL-0041
+keywords: [swift, codable, guard]
+---
+
 # Swift Codable models — guard after rebase
 
 Swift's type checker does not catch the most dangerous class of `Codable`

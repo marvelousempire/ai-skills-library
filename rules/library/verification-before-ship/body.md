@@ -1,3 +1,9 @@
+---
+name: verification-before-ship
+id: RL-0043
+keywords: [verification, before, ship]
+---
+
 # Run verification gates before any commit to main
 
 ## When this fires

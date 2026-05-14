@@ -1,5 +1,7 @@
 ---
 name: bash-installer-oneliners
+id: SK-0126
+keywords: [bash, installer, oneliners]
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

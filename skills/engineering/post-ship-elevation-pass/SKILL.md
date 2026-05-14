@@ -1,5 +1,7 @@
 ---
 name: post-ship-elevation-pass
+id: SK-0033
+keywords: [ship, elevation, pass]
 description: >-
   After every substantive ship, immediately run two passes before closing the
   session: (1) GAP AUDIT — list everything incomplete, deferred, fragile, or

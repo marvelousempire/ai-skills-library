@@ -1,5 +1,7 @@
 ---
 name: cornhole-arena-cinematic-broadcast-scorekeeper
+id: SK-0121
+keywords: [cornhole, arena, cinematic]
 description: Builds Cornhole Arena, an immersive iOS RealityKit 4 cinematic broadcast scorekeeper using SwiftUI, RealityView, Metal post-processing, HealthKit, WHOOP data, physics, particles, spatial audio, and haptics.
 ---
 

@@ -1,3 +1,9 @@
+---
+name: alter-type-outside-transaction
+id: RL-0002
+keywords: [alter, type, outside]
+---
+
 # ALTER TYPE goes outside BEGIN/COMMIT
 
 PostgreSQL has historically restricted `ALTER TYPE ... ADD VALUE` inside transaction blocks. Pre-12 rejects it outright; pg12+ allows it but prohibits using the new value in the same transaction. The safe pattern is to put `ALTER TYPE` statements at the top of the migration file, **outside** the `BEGIN; ... COMMIT;` wrapper.

@@ -1,5 +1,7 @@
 ---
 name: confirm-ship-clearly
+id: SK-0016
+keywords: [confirm, ship, clearly]
 description: >-
   Every shipping confirmation must be unambiguous. Show all four: release
   tag, PR state+mergedAt, commit hash on main, and kVersion in the canonical

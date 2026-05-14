@@ -1,3 +1,9 @@
+---
+name: parallel-surfaces-from-day-one
+id: RL-0029
+keywords: [parallel, surfaces, day]
+---
+
 # Parallel Surfaces From Day One
 
 **Rule:** Every app, web app, or website starts with all surfaces in parallel — never a single-surface bootstrap with the expectation that the rest will be "retrofitted later." Retrofitting is where products go to die.

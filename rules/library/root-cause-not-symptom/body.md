@@ -1,3 +1,9 @@
+---
+name: root-cause-not-symptom
+id: RL-0037
+keywords: [root, cause, symptom]
+---
+
 # Root cause, not symptom
 
 ## The rule

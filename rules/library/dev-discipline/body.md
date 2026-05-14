@@ -1,3 +1,9 @@
+---
+name: dev-discipline
+id: RL-0010
+keywords: [dev, discipline]
+---
+
 # Dev discipline — session opener + closer
 
 This rule complements [`changelog-and-versioning.mdc`](changelog-and-versioning.mdc). That rule says **what** to log when something ships; this rule says **how** to start and end every session so logs actually get written and parallel work doesn't collide.

@@ -1,5 +1,7 @@
 ---
 name: voxtral-tts-c
+id: SK-0060
+keywords: [voxtral, tts]
 description: "voxtral-tts.c \u2014 Pure C implementation of Voxtral TTS for lightweight embedded or server-side synthesis (per upstream). Use when the user mentions or needs: voxtral-tts.c; C TTS Voxtral; embedded Voxtral speech."
 ---
 

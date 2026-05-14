@@ -1,3 +1,9 @@
+---
+name: hardware-before-installer
+id: RL-0018
+keywords: [hardware, before, installer]
+---
+
 # Hardware Before Installer
 
 Before writing any installer script for a specific hardware target, write the hardware compatibility doc first. The compatibility doc surfaces constraints that change the installer's behavior — and finding those constraints after the installer is written means rewriting the installer.

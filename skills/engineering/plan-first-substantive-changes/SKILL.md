@@ -1,5 +1,7 @@
 ---
 name: plan-first-substantive-changes
+id: SK-0030
+keywords: [plan, first, substantive]
 description: >-
   Before writing any code that touches more than ~2 files, adds a new feature
   or subsystem, changes architecture, or modifies behavior other code depends

@@ -1,5 +1,7 @@
 ---
 name: ship-flow
+id: SK-0044
+keywords: [ship, flow]
 description: >-
   Run the full commit → push → PR → CI watch → merge → deploy → smoke-test pipeline. Names the pipeline stage at every step. Stops + reports if anything fails (CI red, conflict, deploy failure, smoke gap). Pre-authorized for backend/admin/marketing per red-e-play CLAUDE.md.
 trigger: >-

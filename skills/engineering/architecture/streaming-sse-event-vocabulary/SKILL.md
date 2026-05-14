@@ -1,5 +1,7 @@
 ---
 name: streaming-sse-event-vocabulary
+id: SK-0010
+keywords: [streaming, sse, event]
 description: >-
   The canonical set of SSE event types for an AI agent streaming interface.
   Every event has a defined shape, a defined moment it fires, and a defined

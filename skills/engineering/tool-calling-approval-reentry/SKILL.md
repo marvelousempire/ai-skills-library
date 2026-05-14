@@ -1,5 +1,7 @@
 ---
 name: tool-calling-approval-reentry
+id: SK-0047
+keywords: [tool, calling, approval]
 description: >-
   Multi-turn AI tool-calling loop where destructive tools surface an approval
   card BEFORE running. The stream emits `tool_approval_needed`, closes

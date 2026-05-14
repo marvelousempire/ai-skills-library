@@ -1,3 +1,9 @@
+---
+name: ai-skills-library-labels
+id: RL-0001
+keywords: [skills, library, labels]
+---
+
 # Every container ships the ai-skills-library label schema
 
 ## When this fires

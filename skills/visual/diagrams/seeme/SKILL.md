@@ -1,5 +1,7 @@
 ---
 name: seeme
+id: SK-0134
+keywords: [seeme]
 description: AI visual interpreter — turn any text, file, or idea into a Unicode box-and-arrow diagram in the ascii-flow-diagrams style. Defaults to local Ollama; supports OpenAI, Anthropic Claude, Google Gemini, Perplexity. Five-rule lint loop, prompt caching, MCP server, SVG export, file-watch mode, iterative refinement, multi-step chains. Triggers on "diagram this with seeme", "use seeme on X", "seeme: explain Y", "generate a visual of Z", "draw the architecture of W".
 ---
 

@@ -1,5 +1,7 @@
 ---
 name: blender-mcp
+id: SK-0050
+keywords: [blender, mcp]
 description: "Blender MCP \u2014 Model Context Protocol bridge so agents can drive Blender scenes and operations. Use when the user mentions or needs: Blender MCP; control Blender from Claude; MCP Blender integration."
 ---
 

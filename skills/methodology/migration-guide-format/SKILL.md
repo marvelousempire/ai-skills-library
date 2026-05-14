@@ -1,5 +1,7 @@
 ---
 name: migration-guide-format
+id: SK-0116
+keywords: [migration, guide, format]
 description: When swapping one tool for another (Docker Desktop → Colima, Forgejo → GitLab CE), write a step-by-step migration guide at `skills/<family>/<slug>/references/switching-from-<old>.md` covering: preserve vs migrate, pre-flight, backup, install new, switch, verify, reclaim space, rollback. Triggers on "migration guide", "switching from X to Y", "rip and replace". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/templates/migration-guide.md.template` and `docs/workflows/rip-and-replace-a-tool.md`.
 ---
 

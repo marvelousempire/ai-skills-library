@@ -1,3 +1,9 @@
+---
+name: multi-surface-auth-redirect
+id: RL-0026
+keywords: [multi, surface, auth]
+---
+
 # Multi-surface auth redirect
 
 ## The rule

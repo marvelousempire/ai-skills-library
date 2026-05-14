@@ -1,5 +1,7 @@
 ---
 name: feature-marketing-md
+id: SK-0082
+keywords: [feature, marketing]
 description: >-
   Write one Markdown file per shipped feature, in a `docs/marketing/` folder
   inside the product repo, using a strict eight-section template. Each MD is

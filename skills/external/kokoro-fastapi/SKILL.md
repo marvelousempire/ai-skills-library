@@ -1,5 +1,7 @@
 ---
 name: kokoro-fastapi
+id: SK-0053
+keywords: [kokoro, fastapi]
 description: "Kokoro FastAPI \u2014 Docker-friendly FastAPI wrapper for Kokoro TTS with CPU ONNX and optional GPU PyTorch paths. Use when the user mentions or needs: Kokoro TTS API; Kokoro FastAPI; self-hosted TTS OpenAI compatible."
 ---
 

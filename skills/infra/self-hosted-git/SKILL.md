@@ -1,5 +1,7 @@
 ---
 name: self-hosted-git
+id: SK-0063
+keywords: [hosted, git]
 description: Stand up a private GitLab CE Git server on a Mac mini (or any spare box) with Docker Compose, Caddy auto-HTTPS, and a Tailscale-or-WireGuard tunnel for remote access. Includes GitHub-Actions-equivalent CI/CD via GitLab Runners (5 ready-to-use .gitlab-ci.yml templates + a tutorial), a self-contained CI overview dashboard, container registry, GitHub repo migration, daily backups to Backblaze B2, and an upgrade-stepping checklist. Anchors in the yousirjuan platform Category 11 (Governance, GitOps & Operational Memory). Triggers on "set up private git", "self-host git", "GitLab on Mac mini", "private git server", "private repo hosting", "migrate from GitHub", "self-hosted GitHub Actions", "private CI/CD", "GitLab CI", "replace GitHub Actions".
 ---
 

@@ -1,5 +1,7 @@
 ---
 name: voice-chat-ai
+id: SK-0058
+keywords: [voice, chat]
 description: "voice-chat-ai \u2014 Local voice conversation app with multiple LLM backends and pluggable TTS providers. Use when the user mentions or needs: local voice chat AI; voice-chat-ai; Ollama voice assistant."
 ---
 

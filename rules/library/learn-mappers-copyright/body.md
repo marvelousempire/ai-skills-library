@@ -1,3 +1,9 @@
+---
+name: learn-mappers-copyright
+id: RL-0022
+keywords: [learn, mappers, copyright]
+---
+
 # Learn Mappers LLC — app copyright & attribution
 
 When adding or editing **copyright lines**, **legal footers**, **About / credits**, **App Store copyright / seller text**, **Terms / Privacy headers**, or similar **IP attribution** for apps this org ships:

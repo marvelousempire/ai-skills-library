@@ -1,5 +1,7 @@
 ---
 name: ltx-2
+id: SK-0054
+keywords: [ltx]
 description: "LTX-2 \u2014 Official Python inference and LoRA trainer package for the LTX-2 audio-video generative model (Lightricks). Use when the user mentions or needs: LTX-2; Lightricks LTX; LTX-2 inference; LTX-2 LoRA training; audio-video generative model Python."
 ---
 

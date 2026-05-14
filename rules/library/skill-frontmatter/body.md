@@ -1,3 +1,9 @@
+---
+name: skill-frontmatter
+id: RL-0039
+keywords: [skill, frontmatter]
+---
+
 # Every SKILL.md has valid frontmatter
 
 ## When this fires

@@ -1,3 +1,9 @@
+---
+name: ios-build-preflight
+id: RL-0020
+keywords: [ios, build, preflight]
+---
+
 # iOS build preflight — check disk and enumerate all errors first
 
 This rule fires before any iOS build attempt. It prevents two of the most

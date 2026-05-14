@@ -1,5 +1,7 @@
 ---
 name: skill-nutrients-decanter
+id: SK-0119
+keywords: [skill, nutrients, decanter]
 description: >-
   A "Skill Nutrient" is a learning moment that is critically vital and net
   positive — a plus, not a minus or zero. The Decanter is the process that

@@ -1,5 +1,7 @@
 ---
 name: hardware-compat-doc
+id: SK-0127
+keywords: [hardware, compat, doc]
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

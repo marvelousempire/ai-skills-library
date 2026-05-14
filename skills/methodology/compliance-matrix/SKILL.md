@@ -1,5 +1,7 @@
 ---
 name: compliance-matrix
+id: SK-0108
+keywords: [compliance, matrix]
 description: Per-stack / per-X compliance snapshots in markdown tables. Update on every change to ensure no stack drifts off the contract (label schema, frontmatter, doctor presence, etc.). Triggers on "compliance check", "per-stack matrix", "which stacks have X". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/templates/integration-checklist.md.template` and `skills/infra/dockyard/references/integration-checklist.md`.
 ---
 

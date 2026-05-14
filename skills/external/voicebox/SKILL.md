@@ -1,5 +1,7 @@
 ---
 name: voicebox
+id: SK-0059
+keywords: [voicebox]
 description: "Voicebox \u2014 Open-source AI voice studio for cloning, dictation, and voice creation workflows. Use when the user mentions or needs: Voicebox; open source voice clone studio; local voice AI workstation."
 ---
 

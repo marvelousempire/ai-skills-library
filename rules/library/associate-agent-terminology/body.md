@@ -1,3 +1,9 @@
+---
+name: associate-agent-terminology
+id: RL-0006
+keywords: [associate, agent, terminology]
+---
+
 # Associate Agent Terminology
 
 All user-facing copy, code comments, and documentation in You-Sir Juan™ must use the correct terminology. Violations cause confusion in marketing, inconsistency in the product, and re-work across every surface.

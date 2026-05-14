@@ -1,5 +1,7 @@
 ---
 name: ios-realitykit-4-patterns
+id: SK-0128
+keywords: [ios, realitykit, patterns]
 domain: project/yousirjuan
 status: Active
 tool: Claude Code

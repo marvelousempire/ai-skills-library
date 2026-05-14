@@ -1,5 +1,7 @@
 ---
 name: statusline
+id: SK-0046
+keywords: [statusline]
 description: >-
   Configure a custom status line in the CLI. Use when the user mentions status
   line, statusline, statusLine, CLI status bar, prompt footer customization, or

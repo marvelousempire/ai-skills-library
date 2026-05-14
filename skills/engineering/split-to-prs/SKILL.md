@@ -1,5 +1,7 @@
 ---
 name: split-to-prs
+id: SK-0045
+keywords: [split, prs]
 description: >-
   Split current work into small reviewable PRs. Use when the user asks to split
   a chat, set of changes, branch, or PR.

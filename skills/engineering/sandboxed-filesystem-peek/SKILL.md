@@ -1,5 +1,7 @@
 ---
 name: sandboxed-filesystem-peek
+id: SK-0039
+keywords: [sandboxed, filesystem, peek]
 description: >-
   Give an AI agent or third-party tool read-only filesystem access via a
   strict allowlist + hard-deny + symlink-resolution validator. Path-traversal

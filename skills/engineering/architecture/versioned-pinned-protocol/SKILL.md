@@ -1,5 +1,7 @@
 ---
 name: versioned-pinned-protocol
+id: SK-0012
+keywords: [versioned, pinned, protocol]
 description: >-
   Design a curriculum, rubric, scoring system, or protocol where the version is pinned to each artifact that uses it. Once activated, the version row is read-only — a v2 ships as a new row. Mirrors how Stripe API versions, PostgreSQL pg_dump format versions, and ISO standards work.
 trigger: >-

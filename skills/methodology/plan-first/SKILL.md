@@ -1,5 +1,7 @@
 ---
 name: plan-first
+id: SK-0118
+keywords: [plan, first]
 description: Write the plan to `~/.claude/plans/<title>.md` or `docs/master-plans/` BEFORE substantive work (multi-file changes, architecture decisions, > 50 lines changed). Triggers on "write a plan", "plan first", "before we ship", "substantive change incoming". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/plan-naming.md`.
 ---
 

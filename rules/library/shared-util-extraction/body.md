@@ -1,3 +1,9 @@
+---
+name: shared-util-extraction
+id: RL-0038
+keywords: [shared, util, extraction]
+---
+
 # Shared utilities — extract to lib/, never copy-paste
 
 A pure function that appears in more than one route file, service, or

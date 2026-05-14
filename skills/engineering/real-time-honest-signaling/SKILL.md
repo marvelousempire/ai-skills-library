@@ -1,5 +1,7 @@
 ---
 name: real-time-honest-signaling
+id: SK-0036
+keywords: [real, time, honest]
 description: >-
   Never fake completion, progress, or measurement. Wire every UI signal to the
   real event source — the kernel-reported freed-GB after a subprocess exits,
