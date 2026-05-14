@@ -1,8 +1,7 @@
 ---
 name: scrapegraph-ai
-id: SK-0057
 keywords: [integrate-scrapegraph]
-hash: dfb5e9f
+hash: 88bcb44
 relations: []
 before: []
 governed_by: [global]

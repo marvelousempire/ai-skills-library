@@ -1,8 +1,7 @@
 ---
 name: blender-mcp
-id: SK-0050
 keywords: [integrate-blender, check-mcp, file-blender]
-hash: 0264372
+hash: 5fec2bb
 relations: []
 before: []
 governed_by: [global]

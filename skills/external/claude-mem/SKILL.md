@@ -1,8 +1,7 @@
 ---
 name: claude-mem
-id: SK-0052
 keywords: [integrate-claude, check-mem, file-claude]
-hash: 731f991
+hash: f307e99
 relations: []
 before: []
 governed_by: [global]

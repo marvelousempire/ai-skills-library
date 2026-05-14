@@ -1,8 +1,7 @@
 ---
 name: open-generative-ai
-id: SK-0055
 keywords: [integrate-open, check-generative, file-open]
-hash: 8d11c2c
+hash: 1d8820b
 relations: []
 before: []
 governed_by: [global]

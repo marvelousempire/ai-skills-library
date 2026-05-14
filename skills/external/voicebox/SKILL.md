@@ -1,8 +1,7 @@
 ---
 name: voicebox
-id: SK-0059
 keywords: [integrate-voicebox]
-hash: bb272c8
+hash: 730ffc2
 relations: []
 before: []
 governed_by: [global]
