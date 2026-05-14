@@ -11,6 +11,7 @@
 | `migration-race-guard` | yes | `**/migrations/*.sql` | backend-discipline |
 | `swift-codable-guard` | no | `**/*.swift` | ios-build |
 | `shared-util-extraction` | yes | `**/routes/*.js, **/*.swift` | backend-discipline |
+| `add-agent-to-skills-library` | yes | `agents/**, docs/external-tools.manifest.json, skills/external/**` | (uncategorized) |
 
 Edit a rule in `rules/library/<id>/` then re-run [`scripts/sync-rules-into-repo.sh`](../scripts/sync-rules-into-repo.sh).
 
