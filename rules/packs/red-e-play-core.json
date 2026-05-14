@@ -12,6 +12,8 @@
     "swift-codable-guard",
     "shared-util-extraction",
     "framer-motion-transform-guard",
-    "multi-surface-auth-redirect"
+    "multi-surface-auth-redirect",
+    "live-version-before-debug",
+    "root-cause-not-symptom"
   ]
 }

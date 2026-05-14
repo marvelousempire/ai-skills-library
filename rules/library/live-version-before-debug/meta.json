@@ -1,0 +1,6 @@
+{
+  "id": "live-version-before-debug",
+  "description": "When a deploy succeeds but a bug still appears on the live site, confirm the live version matches your deployed commit before debugging the code. Saves full deploy cycles chasing problems that aren't there yet.",
+  "alwaysApply": false,
+  "globs": []
+}

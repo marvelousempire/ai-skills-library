@@ -1,0 +1,6 @@
+{
+  "id": "root-cause-not-symptom",
+  "description": "Before shipping a fix, verify it addresses the mechanism causing the bug — not just the visible output. A fix that moves the symptom to a different location is not a fix. Two tests: (1) does removing your change make the bug reappear exactly as before? (2) can you explain in one sentence why the bug can no longer occur?",
+  "alwaysApply": true,
+  "globs": []
+}

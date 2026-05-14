@@ -23,10 +23,30 @@ Adapt to the diff; always hit these when relevant:
 
 If production access is not available from the agent environment, **still** publish the exact steps so the operator can run them in order—same requirement.
 
+## Version confirmation step (added 2026-05-14)
+
+After deploy CI shows green, **confirm the live version matches your commit
+before calling the work done or debugging any reported issue:**
+
+```bash
+curl -s “https://readyplay.app/” | grep -o ‘[0-9]\+\.[0-9]\+\.[0-9]\+’
+```
+
+The smoke test checks HTTP 200. It does NOT check which version is responding
+or whether the specific change works. A deploy can show green while the VPS
+still serves an old build.
+
+If a user reports “still broken” after a green deploy — check the version
+first. If the version is old, the deploy didn’t fully land. If the version
+is correct and the bug persists, the fix is wrong.
+See [`live-version-before-debug`](live-version-before-debug.mdc) and
+[`root-cause-not-symptom`](root-cause-not-symptom.mdc).
+
 ## Anti-patterns
 
 - Shipping a migration file without saying **where** it must run and **after** which deploy step.
 - Closing with “merge when ready” without **migrate + reload + smoke** when the change isn’t live until those run.
 - Assuming “CI handles it” without naming **which workflow** and **what green means** for this change.
+- Reporting “deployed” without confirming the live version matches the deployed commit.
 
 This rule applies to **Cursor, Claude Code, ChatGPT, or any assistant** operating under this repo’s rules: **go-live discipline is not optional.**
