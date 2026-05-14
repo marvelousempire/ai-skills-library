@@ -60,6 +60,30 @@
       ]
     },
     {
+      "id": "nephew",
+      "display_name": "Nephew",
+      "repo": "marvelousempire/nephew",
+      "section": "Agents, memory & orchestration",
+      "artifact_type": "platform",
+      "upstream_publishes_skill": false,
+      "summary": "Nephew \u2014 the Orchestrator Agent by Avery Gooman. Multi-agent orchestration for Claude Code (forked from Ruflo) with an Ed25519-signed witness manifest (ADR-103), Tier B cross-repo federation, WireGuard-only mesh defaults, and per-repo `.mcp.json` set-and-forget integration.",
+      "triggers": [
+        "Nephew",
+        "Orchestrator Agent",
+        "Avery Gooman",
+        "witness manifest",
+        "ADR-103",
+        "cross-repo witness chain",
+        "Tier B federation"
+      ],
+      "install_pointer": "Set-and-forget: drop the project .mcp.json at https://github.com/marvelousempire/nephew (engine currently shims to upstream ruflo until nephew@latest is published to npm). Full runbook in the consuming repo's NEPHEW.md (see family-office-platform).",
+      "compliance_notes": [
+        "Private repo during bring-up \u2014 flip to public before broad adoption.",
+        "Ed25519 private key lives on the operator's machine; back up to a password manager.",
+        "Federation transport default is WireGuard; do not import tailnet patterns without explicit opt-in."
+      ]
+    },
+    {
       "id": "claude-code-local",
       "display_name": "Claude Code Local",
       "repo": "nicedreamzapp/claude-code-local",

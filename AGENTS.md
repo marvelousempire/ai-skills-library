@@ -22,6 +22,7 @@ Subagent specifications introduced 2026-05-14. Each is a self-contained markdown
 | [`rebase-shepherd`](agents/rebase-shepherd.md) | Auto-resolve CHANGELOG / Feature Ledger / pbxproj / Codable conflicts |
 | [`ship-flow-runner`](agents/ship-flow-runner.md) | Full commit → CI → merge → deploy → smoke loop |
 | [`post-ship-auditor`](agents/post-ship-auditor.md) | Gap audit + elevation pass after every substantive ship |
+| [`nephew`](agents/nephew.md) | The Orchestrator Agent by Avery Gooman — multi-agent swarm + Ed25519-signed witness manifest (ADR-103) + cross-installation federation. Project-scoped MCP, native witness CLI, Tier B cross-repo `fed find` |
 
 ## How to consume an agent
 

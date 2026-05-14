@@ -23,6 +23,7 @@ Each row links the **upstream repo** and the **generated bridge skill** in this 
 |------|----------|-------|-------|
 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | Plugin | **Generated** + check upstream · [`claude-mem`](../skills/external/claude-mem/SKILL.md) | Claude Code plugin that captures session work, compresses it, and injects context into later sessions. |
 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | Platform | **Generated** · [`ruflo`](../skills/external/ruflo/SKILL.md) | Agent orchestration platform: multi-agent swarms, workflows, RAG; Claude Code / Codex integration (per upstream). |
+| [marvelousempire/nephew](https://github.com/marvelousempire/nephew) | Platform | **Generated** · [`nephew`](../skills/external/nephew/SKILL.md) | Nephew — the Orchestrator Agent by Avery Gooman. Multi-agent orchestration for Claude Code (forked from Ruflo) with an Ed25519-signed witness manifest (ADR-103), Tier B cross-repo federation, WireGuard-only mesh defaults, and per-repo `.mcp.json` set-and-forget integration. |
 
 ## Claude Code (local / on-device)
 
