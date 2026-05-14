@@ -1,8 +1,7 @@
 ---
 name: ltx-2
-id: SK-0054
 keywords: [integrate-ltx]
-hash: e695683
+hash: c6128b6
 relations: []
 before: []
 governed_by: [global]

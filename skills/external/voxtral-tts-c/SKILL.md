@@ -1,8 +1,7 @@
 ---
 name: voxtral-tts-c
-id: SK-0060
 keywords: [integrate-voxtral, check-tts, file-voxtral]
-hash: 5e1db0e
+hash: a930885
 relations: []
 before: []
 governed_by: [global]

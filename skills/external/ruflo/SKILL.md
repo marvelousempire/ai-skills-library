@@ -1,8 +1,7 @@
 ---
 name: ruflo
-id: SK-0056
 keywords: [integrate-ruflo]
-hash: be41bce
+hash: 08e170b
 relations: []
 before: []
 governed_by: [global]

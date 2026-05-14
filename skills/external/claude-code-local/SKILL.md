@@ -1,8 +1,7 @@
 ---
 name: claude-code-local
-id: SK-0051
 keywords: [integrate-claude, check-code, build-local]
-hash: bf8cd9b
+hash: df7f5ef
 relations: []
 before: []
 governed_by: [global]

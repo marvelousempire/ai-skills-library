@@ -1,8 +1,7 @@
 ---
 name: voice-chat-ai
-id: SK-0058
 keywords: [integrate-voice, check-chat, file-voice]
-hash: b20fde4
+hash: d7cce5e
 relations: []
 before: []
 governed_by: [global]

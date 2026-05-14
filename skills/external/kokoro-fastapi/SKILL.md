@@ -1,8 +1,7 @@
 ---
 name: kokoro-fastapi
-id: SK-0053
 keywords: [integrate-kokoro, check-fastapi, file-kokoro]
-hash: 5f68131
+hash: ca55598
 relations: []
 before: []
 governed_by: [global]
