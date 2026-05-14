@@ -31,24 +31,41 @@
 - **Quick launch** — one-click into SEEME, GitLab, CI dashboard, Ollama
 - **Makefile** — `make start` / `make stop` / `make status` / `make doctor` / `make logs` — the whole stack as a single command surface
 
-## Quick start
+## Quick start — one command
 
 ```sh
 cd skills/infra/console
-
-# Optional: fill in GitLab credentials so the pipelines section lights up
-cp .env.example .env
-# edit .env: GITLAB_URL=https://git.your-tailnet.ts.net
-#            GITLAB_TOKEN=<personal access token, read_api scope>
-
-# Boot everything (SEEME + GitLab + CI dashboard + this console):
-make start
-
-# Open the UI:
-make open       # → http://localhost:7779
+make ui
 ```
 
-Stop: `make stop`. Status: `make status`. Health: `make doctor`. Logs: `make logs`.
+That's the whole thing. Same command every time. `make ui` is idempotent: it boots whatever isn't already running, waits for the Console to respond, then opens it in your browser. Re-running does nothing harmful.
+
+If you want **every UI in its own tab** (Console + SEEME + Dockyard + CI dashboard + GitLab):
+
+```sh
+OPEN_ALL=1 make ui
+```
+
+Optional one-time setup:
+
+```sh
+cp .env.example .env
+# Edit .env:
+#   GITLAB_URL    → so the pipelines panel lights up
+#   GITLAB_TOKEN  → Personal Access Token, read_api scope
+#   DOCKYARD_URL  → overrides http://localhost:4321 if you bind differently
+```
+
+Other useful targets:
+
+| Command | What |
+|---|---|
+| `make ui` | **the one command** — boot + open everything |
+| `make stop` | shut everything down (data volumes preserved) |
+| `make doctor` | health probes across the whole stack |
+| `make status` | what's running where |
+| `make engine-info` | which Docker engine is in use (Colima / OrbStack / DD) |
+| `make logs` | follow logs across every container |
 
 ## All the make targets
 

@@ -46,14 +46,15 @@ help: ## Show this help (default)
 	@echo ""
 	@printf "  $(CYAN)Homelab Console$(RESET) · sovereign stack commands\n"
 	@echo ""
+	@printf "  $(GREEN)ONE COMMAND TO RULE THEM ALL:$(RESET)\n"
+	@printf "    $(CYAN)make ui$(RESET)        boot everything + open it in your browser (idempotent)\n"
+	@echo ""
+	@printf "  $(YELLOW)Everything else:$(RESET)\n"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+		| grep -v '^ui:' \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "  $(GREEN)%-14s$(RESET) %s\n", $$1, $$2}'
 	@echo ""
-	@printf "  $(YELLOW)Common flow:$(RESET)\n"
-	@echo "    make start    # boot everything"
-	@echo "    make open     # open the UI in your browser"
-	@echo "    make doctor   # check health"
-	@echo "    make stop     # shut everything down"
+	@printf "  $(YELLOW)Tip:$(RESET) OPEN_ALL=1 make ui   opens every UI in its own browser tab\n"
 	@echo ""
 
 # ─── lifecycle ────────────────────────────────────────────────────────────
@@ -226,9 +227,87 @@ engine-info-line:
 		printf "$(RED)○ no engine$(RESET) (start one: colima start | open -a OrbStack | open -a Docker)\n"; \
 	fi
 
-# ─── convenience ──────────────────────────────────────────────────────────
+# ─── the one command ──────────────────────────────────────────────────────
+# `make ui` = do everything. Idempotent. Same command every time.
+#
+# What it does:
+#   1. Verify Docker is up (clear error if not)
+#   2. Boot every service that isn't already running (Dockyard, SEEME,
+#      GitLab, CI dashboard, Console) — `docker compose up -d` is naturally
+#      idempotent; the console process is guarded by a pgrep check
+#   3. Wait until the Console responds on :7779
+#   4. Open the Console in your default browser
+#   5. Print every URL in the stack so you can deep-link if needed
+#
+# To open EVERY UI in its own tab (not just the Console):
+#   OPEN_ALL=1 make ui
 .PHONY: ui
-ui: start-console ## Start ONLY the console UI (services already running)
+ui: _check-docker start-dockyard start-seeme start-gitlab start-ci-dashboard _ensure-console _wait-console _open-all ## ONE COMMAND. Boots the whole stack + opens it in your browser.
+	@echo ""
+	@printf "$(GREEN)✓ homelab is up$(RESET)\n"
+	@printf "   Console:       $(CYAN)http://localhost:$(CONSOLE_PORT)$(RESET)\n"
+	@printf "   SEEME:         http://localhost:$(SEEME_PORT)\n"
+	@printf "   Dockyard:      http://localhost:$(DOCKYARD_PORT)\n"
+	@printf "   CI dashboard:  http://localhost:$(CI_PORT)\n"
+	@if [ -n "$${GITLAB_HOSTNAME:-}" ]; then \
+		printf "   GitLab CE:     https://$$GITLAB_HOSTNAME\n"; \
+	fi
+	@echo ""
+	@printf "  $(YELLOW)Tip:$(RESET) re-run this same \`make ui\` any time — idempotent.\n"
+	@printf "       \`make stop\` shuts everything down. \`make doctor\` checks health.\n"
+	@echo ""
+
+# Pre-flight: bail loudly if Docker is down, with a helpful message.
+.PHONY: _check-docker
+_check-docker:
+	@if ! docker info >/dev/null 2>&1; then \
+		printf "$(RED)✗ Docker daemon is not running.$(RESET)\n\n"; \
+		printf "  Start one (Colima recommended on Apple Silicon):\n"; \
+		printf "    $(CYAN)colima start$(RESET)            # free, native, no GUI bloat\n"; \
+		printf "    $(CYAN)open -a OrbStack$(RESET)        # paid, native UI\n"; \
+		printf "    $(CYAN)open -a Docker$(RESET)          # Docker Desktop (legacy)\n\n"; \
+		printf "  Then re-run: $(CYAN)make ui$(RESET)\n"; \
+		exit 1; \
+	fi
+
+# Start the Console only if it isn't already running.
+.PHONY: _ensure-console
+_ensure-console:
+	@if pgrep -f "console/server.ts" >/dev/null 2>&1; then \
+		printf "$(CYAN)→$(RESET) console already running on :$(CONSOLE_PORT)\n"; \
+	else \
+		$(MAKE) --no-print-directory start-console; \
+	fi
+
+# Poll the console until it responds. Hard ceiling 15 s.
+.PHONY: _wait-console
+_wait-console:
+	@printf "$(CYAN)→$(RESET) waiting for console to respond"
+	@i=0; while [ $$i -lt 15 ]; do \
+		if curl -sf --max-time 1 http://localhost:$(CONSOLE_PORT)/api/config >/dev/null 2>&1; then \
+			printf " $(GREEN)ready$(RESET)\n"; exit 0; \
+		fi; \
+		printf "."; sleep 1; i=$$((i+1)); \
+	done; \
+	printf " $(YELLOW)timeout$(RESET) (proceeding anyway)\n"
+
+# Open the Console in the default browser. If OPEN_ALL=1, also open every
+# other UI in its own tab.
+.PHONY: _open-all
+_open-all:
+	@$(MAKE) --no-print-directory open
+	@if [ -n "$${OPEN_ALL:-}" ]; then \
+		printf "$(CYAN)→$(RESET) opening all UIs in tabs (OPEN_ALL=1)\n"; \
+		open http://localhost:$(SEEME_PORT)/ 2>/dev/null || true; \
+		open http://localhost:$(DOCKYARD_PORT)/ 2>/dev/null || true; \
+		open http://localhost:$(CI_PORT)/ 2>/dev/null || true; \
+		if [ -n "$${GITLAB_HOSTNAME:-}" ]; then open "https://$$GITLAB_HOSTNAME/" 2>/dev/null || true; fi; \
+	fi
+
+# ─── legacy convenience ──────────────────────────────────────────────────
+# Old `make ui` (console-only). Kept for users who liked the previous shape.
+.PHONY: ui-console
+ui-console: start-console ## Start ONLY the console UI (services already running)
 
 .PHONY: open
 open: ## Open the console UI in your browser
