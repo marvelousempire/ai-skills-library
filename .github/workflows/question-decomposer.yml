@@ -1,0 +1,65 @@
+name: Question Decomposer
+
+on:
+  # Fires when someone manually adds questions to a batch file
+  push:
+    paths:
+      - 'docs/faq/intake.md'    # a file where humans can drop raw questions for batch processing
+  workflow_dispatch:
+    inputs:
+      question:
+        description: 'Question to decompose and log'
+        required: true
+        type: string
+      session:
+        description: 'Session or project context'
+        required: false
+        default: 'manual'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  decompose:
+    name: Decompose and log question
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Decompose single question (manual trigger)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          python3 scripts/decompose-question.py \
+            --session "${{ github.event.inputs.session }}" \
+            "${{ github.event.inputs.question }}"
+
+      - name: Decompose batch from intake file (push trigger)
+        if: github.event_name == 'push'
+        run: |
+          if [ -f "docs/faq/intake.md" ]; then
+            # Extract lines that aren't headings or empty
+            grep -v "^#" docs/faq/intake.md | grep -v "^$" | while IFS= read -r line; do
+              python3 scripts/decompose-question.py --session "intake-batch" "$line"
+            done
+            # Clear the intake file after processing
+            echo "# Question Intake" > docs/faq/intake.md
+            echo "Add questions here (one per line). They will be decomposed and logged automatically." >> docs/faq/intake.md
+          fi
+
+      - name: Commit updated FAQ log and function map
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            faq: decomposed and logged question(s) [skip ci]
+            
+            Updated question-log.md and function-map.md.
+            Co-Authored-By: Question Decomposer <noreply@github.com>
+          file_pattern: 'docs/faq/question-log.md docs/faq/function-map.md docs/faq/intake.md'
+          skip_dirty_check: false
