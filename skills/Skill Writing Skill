@@ -1,0 +1,399 @@
+# Skill Writing Skill
+
+Boolean Decision, Idempotent, and Iteration Skill
+Write the skills in plain English without lowering the quality, intelligence, accuracy, or power of the output.
+
+Each skill must read like a **CLI command written in plain language** or a **plain-language code file**. It should give clear orders the way code does, but using normal English that a smart 12-year-old can understand.
+
+The skill must feel like a small application program written for an AI, LLM, or machine-learning system.
+
+Write every instruction as a complete, direct, useful command.
+
+Use:
+
+* Plain words
+* Clear steps
+* Strong logic
+* Complete thoughts
+* Direct action language
+* No vague wording
+* No filler
+* No guessing
+* No weak options
+* No room for confusion
+* No hallucination paths
+
+Each skill must explain exactly:
+
+1. When to use it
+2. What input it needs
+3. What output it must create
+4. What rules it must follow
+5. What steps it must perform
+6. What checks it must run
+7. What it must never do
+8. How it confirms the work is complete
+
+The writing must be simple, but the thinking must stay advanced.
+
+Do not make the skill sound basic. Make it sound clear, sharp, and powerful.
+
+The final skill should be written like a plain-English operating command that produces reliable, repeatable, high-quality results with no loose meaning, no soft logic, and no avoidable error paths.
+
+---
+
+# Current-State vs Correct-State Logic
+
+For every skill, rule, word choice, process, command, or instruction, define the gap in plain Boolean logic.
+
+Each item must show:
+
+1. **What it is not right now**
+2. **What it should be right now**
+3. **What it does now**
+4. **What it should be doing**
+5. **What decision this proves**
+6. **What fix is required**
+
+Use this format:
+
+| Item              | What It Is Not Right Now          | What It Should Be Right Now                     | What It Does Now       | What It Should Do                      | Boolean Decision        | Fix Required                  |
+| ----------------- | --------------------------------- | ----------------------------------------------- | ---------------------- | -------------------------------------- | ----------------------- | ----------------------------- |
+| Skill instruction | Not clear enough to prevent drift | A plain-English command with exact action steps | Gives general guidance | Gives direct steps, checks, and limits | Pass / Fail / Needs Fix | Rewrite as a testable command |
+
+This creates a simple decision system that shows the difference between the current state and the correct state.
+
+Use this logic to decant the decision-making process into clean, easy checks:
+
+* Is the instruction clear? Yes / No
+* Is the output defined? Yes / No
+* Is the current behavior correct? Yes / No
+* Is the desired behavior stated? Yes / No
+* Is the fix obvious? Yes / No
+* Can this become a reusable rule? Yes / No
+
+Do not only say something is weak. Show what it is now, what it should be, what it does now, and what it must do instead.
+
+---
+
+# Idempotent Logic
+
+Every skill must be idempotent.
+
+This means the skill must be safe to run more than once without creating duplicate work, breaking existing files, overwriting useful content, corrupting structure, or causing confusion.
+
+Before creating anything new, the skill must check:
+
+* Does this already exist?
+* Should it be updated instead of recreated?
+* Will this duplicate anything?
+* Will this damage existing work?
+* Will this overwrite useful content?
+* Will this create naming conflict?
+* Can this be safely repeated?
+* Is there a rollback path if something goes wrong?
+
+The skill must follow this rule:
+
+* If the item already exists and is correct, leave it alone.
+* If the item already exists but is weak, improve it safely.
+* If the item does not exist, create it.
+* If the item may conflict with existing work, stop and mark it as blocked or needs review.
+* If the item cannot be safely changed, do not force the change.
+
+Example:
+
+Bad instruction:
+
+> Create a checklist.
+
+Better instruction:
+
+> Check if the checklist already exists. If it exists, review it and update only the missing or weak parts. If it does not exist, create it. Do not duplicate it. Do not overwrite useful content. Record what changed.
+
+Every repeated run must produce a safe, stable, predictable result.
+
+---
+
+# Iteration Logic
+
+Every skill must support iteration.
+
+This means the skill must be easy to improve in clean rounds without losing its original purpose, breaking prior work, or drifting away from the core goal.
+
+After each use, the skill must check:
+
+* What worked?
+* What failed?
+* What repeated?
+* What drifted?
+* What was unclear?
+* What caused rework?
+* What should be clearer?
+* What should be safer?
+* What should be more direct?
+* What should become a rule?
+* What should become a reusable pattern?
+* What should become a checklist?
+* What should become a template?
+* What should become automation?
+
+Each iteration must improve the skill while preserving:
+
+* The original purpose
+* The core rules
+* The required output
+* The plain-English structure
+* The Boolean decision logic
+* The idempotent safety logic
+* The no-hallucination standard
+
+Iteration must follow this path:
+
+1. Review the current version.
+2. Identify what worked.
+3. Identify what failed or drifted.
+4. Identify what repeated.
+5. Identify what can become reusable.
+6. Improve the weak parts.
+7. Keep what already works.
+8. Test the new version against the same goal.
+9. Confirm the new version is clearer, safer, stronger, and easier to repeat.
+
+Example:
+
+* Version 1: writes plain-English rules.
+* Version 2: adds Boolean checks.
+* Version 3: adds idempotent safety.
+* Version 4: adds review steps.
+* Version 5: adds proof, validation, and filing rules.
+
+Final iteration rule:
+
+The skill must get better each time it is reviewed without losing what made it useful.
+
+---
+
+# Plain-English Code Style
+
+Write the skill like plain-language code.
+
+Use direct command language like:
+
+* Start by checking the input.
+* Confirm the goal.
+* Identify missing parts.
+* Create the needed output.
+* Test the output.
+* Fix any failed check.
+* Confirm completion.
+
+Avoid weak wording like:
+
+* Maybe
+* Try
+* Consider
+* It might be helpful
+* If possible
+* Perhaps
+* Generally
+* You could
+
+Use strong wording like:
+
+* Do
+* Check
+* Confirm
+* Build
+* Compare
+* Validate
+* Fix
+* Record
+* Stop if unsafe
+* Mark blocked if missing proof
+
+The skill must sound like a clean operating file written in human language.
+
+---
+
+# Anti-Hallucination Rules
+
+The skill must block hallucination paths.
+
+It must require proof, limits, or uncertainty marking when facts are not known.
+
+The skill must never invent:
+
+* Files
+* Facts
+* Sources
+* Test results
+* User intent
+* Repo status
+* Git status
+* Approval
+* Completion
+* Safety confirmation
+
+If something is unknown, the skill must say it is unknown and define the next safe step.
+
+Use this rule:
+
+* Known facts must be used.
+* Unknown facts must be marked.
+* Assumptions must be labeled.
+* Missing proof must block final approval.
+* Work must not be called complete unless the completion check passes.
+
+---
+
+# Skill Output Requirements
+
+Each skill must produce outputs that are:
+
+* Clear
+* Direct
+* Complete
+* Testable
+* Reusable
+* Safe to repeat
+* Easy to improve
+* Easy to audit
+* Easy to convert into a checklist
+* Easy to file into a repo
+* Easy for an AI system to follow without drifting
+
+Every major skill output must include:
+
+1. Purpose
+2. Trigger
+3. Required input
+4. Required output
+5. Operating rules
+6. Step-by-step commands
+7. Boolean checks
+8. Idempotent safety checks
+9. Iteration checks
+10. Anti-hallucination rules
+11. Completion standard
+12. Failure handling
+13. Final confirmation language
+
+---
+
+# Required Skill Body Format
+
+Use this structure when writing each skill:
+
+## Skill Name
+
+State the name in plain words.
+
+## Purpose
+
+Say what this skill does and why it exists.
+
+## When To Use This Skill
+
+Say exactly when the skill should activate.
+
+## Required Input
+
+List what the skill must receive before it starts.
+
+## Required Output
+
+List what the skill must produce.
+
+## Operating Rules
+
+List the rules the skill must follow.
+
+## Plain-English Command Steps
+
+Write the steps like plain-language code commands.
+
+Example:
+
+1. Read the user request.
+2. Confirm the main goal.
+3. Identify the required output.
+4. Check for missing inputs.
+5. Mark unknown facts.
+6. Build the output.
+7. Run Boolean checks.
+8. Run idempotent checks.
+9. Run iteration checks.
+10. Fix failed checks.
+11. Confirm completion only after all checks pass.
+
+## Current-State vs Correct-State Table
+
+Include the Boolean decision table:
+
+| Item | What It Is Not Right Now | What It Should Be Right Now | What It Does Now | What It Should Do | Boolean Decision | Fix Required |
+| ---- | ------------------------ | --------------------------- | ---------------- | ----------------- | ---------------- | ------------ |
+
+## Idempotent Safety Checks
+
+Include:
+
+* Does this already exist?
+* Should this be updated instead of recreated?
+* Will this duplicate anything?
+* Will this overwrite useful work?
+* Can this be safely repeated?
+* Is there a rollback path?
+
+## Iteration Checks
+
+Include:
+
+* What worked?
+* What failed?
+* What repeated?
+* What drifted?
+* What should be improved?
+* What should become reusable?
+
+## Failure Handling
+
+Say what to do if the skill cannot safely continue.
+
+Use:
+
+* Mark blocked.
+* State the missing input.
+* State the risk.
+* State the next safe step.
+* Do not pretend the work is complete.
+
+## Completion Standard
+
+The skill is complete only when:
+
+* The output is created.
+* The output matches the purpose.
+* The Boolean checks pass.
+* The idempotent checks pass.
+* The iteration checks are recorded.
+* No unknown facts are hidden.
+* No unsafe changes are made.
+* The result is ready to reuse.
+
+---
+
+# Final Standard
+
+The skill must be plain enough for a 12-year-old to read, strong enough for an expert to trust, exact enough for an AI system to follow without drifting, safe enough to run more than once, and structured enough to make every decision Boolean-testable.
+
+The final output must produce pure, direct, reliable, repeatable, high-quality skill instructions with:
+
+* No loose meaning
+* No confusion path
+* No avoidable hallucination route
+* No unsafe repeat behavior
+* No hidden uncertainty
+* No untested completion claim
+
+The final skill must be clear, powerful, safe, reusable, idempotent, iterative, and ready to perform like a plain-English mini application program.
