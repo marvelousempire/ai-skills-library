@@ -625,3 +625,63 @@ This guide should let an AI quickly know:
 - whether it is ready now or later
 
 The goal is a clean, browsable, AI-friendly skills map that acts like a lightweight RAG layer before full retrieval infrastructure is built.
+
+---
+
+# 13 — Session Operations (added 2026-05-14)
+
+## Role
+
+Patterns for operating efficiently in long Claude Code sessions on this repo.
+How to start, how to parallelize, how to close, and how to file learnings.
+
+## Key patterns
+
+| Pattern | When to use | Reference |
+|---|---|---|
+| **Parallel agent coordination** | Any session touching iOS + web + backend | `skills/project/yousirjuan/parallel-agent-coordination/SKILL.md` |
+| **After-action report** | End of any session that produced significant work | `skills/templates/after-action/TEMPLATE.md` |
+| **Pre-PR checklist** | Before opening any PR | `checklists/pre-pr.md` |
+| **New session checklist** | Start of every session | `checklists/new-session.md` |
+
+## Routing note
+
+At session start: run `checklists/new-session.md`.
+At session end: write `after-action/YYYY-MM-DD-session-title.md` using the template.
+Before PR: run `checklists/pre-pr.md`.
+
+---
+
+# 14 — Hardware + Installer Track (added 2026-05-14)
+
+## Role
+
+Documenting hardware compatibility, writing one-liner installers, and publishing
+them via the GitHub Actions → GitHub Releases → VPS nginx pipeline.
+
+## Workflow
+
+```
+1. Write hardware doc → docs/hardware/<machine>.md
+   (template: skills/templates/hardware-doc/TEMPLATE.md)
+2. Write installer → installers/<platform>/install.sh
+   (reference: skills/project/yousirjuan/bash-installer-oneliners/SKILL.md)
+3. Write GitHub Actions workflow → .github/workflows/release-<platform>.yml
+4. Write VPS nginx config → vps/nginx-<platform>-installer.conf
+5. Tag a release → workflow publishes to yousirjuan-ai
+6. VPS nginx serves: https://get.yousirjuan.ai/<platform>
+```
+
+## Routing note
+
+For new hardware: `hardware-before-installer` rule applies.
+For installer writing: `bash-installer-oneliners` skill.
+For OpenCore/legacy hardware: `installers/intel-mac/opencore-sonoma-guide.md` is the model doc.
+
+## Current hardware docs
+
+| Machine | Doc | Installer |
+|---|---|---|
+| iMac 2017 Intel i5 64GB | `docs/hardware/imac-2017-intel-i5.md` | `installers/intel-mac/install.sh` |
+| MacBook Pro M5 Max / Mac mini M4 Pro | `docs/hardware/apple-device-stack.md` | `installers/macos.sh` |
+| NVIDIA DGX Spark | `hardware/dgx-spark-frontier-node.md` | (CLI only) |

@@ -1,0 +1,8 @@
+{
+  "id": "readme-reflects-reality",
+  "title": "README Reflects Reality",
+  "applies_to": ["yousirjuan", "any-multi-surface-project"],
+  "scope": ["documentation", "post-build-pass"],
+  "severity": "warning",
+  "tags": ["documentation", "maintenance", "session-closer"]
+}

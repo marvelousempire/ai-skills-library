@@ -1,0 +1,9 @@
+{
+  "id": "associate-agent-terminology",
+  "title": "Associate Agent Terminology",
+  "applies_to": ["yousirjuan"],
+  "scope": ["copy", "code-comments", "docs", "agent-briefings"],
+  "severity": "error",
+  "auto_check": "grep -r 'butler' apps/ api/src/ docs/ README.md",
+  "tags": ["terminology", "product", "yousirjuan"]
+}

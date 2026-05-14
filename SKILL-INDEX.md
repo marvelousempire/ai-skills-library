@@ -54,3 +54,40 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 - **Bridge skill** = generated `skills/external/<id>/SKILL.md` from [`docs/external-tools.manifest.json`](docs/external-tools.manifest.json) — agent playbook only, not the product source.
 - Full table with **Artifact** / **Skill** columns: [`docs/related-github-projects.md`](docs/related-github-projects.md).
 
+
+---
+
+## Skills added 2026-05-14 — You-Sir Juan OS session learnings
+
+| Skill | Domain | Tool | Use when | Invoke |
+|---|---|---|---|---|
+| **parallel-agent-coordination** | project/yousirjuan | Claude Code | Multi-surface build: iOS + web + backend simultaneously | "Use **parallel-agent-coordination** pattern." |
+| **associate-agent-system** | project/yousirjuan | Claude Code | Referencing or extending the 4-persona paradigm architecture | "See **associate-agent-system** skill." |
+| **bash-installer-oneliners** | project/yousirjuan | Claude Code | Writing a new one-liner installer for a hardware platform | "Use **bash-installer-oneliners** pattern." |
+| **hardware-compat-doc** | project/yousirjuan | Claude Code | Documenting a new machine for You-Sir Juan OS | "Use **hardware-compat-doc** skill." |
+| **marketing-feature-doc** | project/yousirjuan | Claude Code | Writing docs/marketing/NN-feature.md for a shipped feature | "Use **marketing-feature-doc** skill." |
+| **ios-realitykit-4-patterns** | project/yousirjuan | Claude Code | Building RealityKit 4 components for the iOS kiosk | "Use **ios-realitykit-4-patterns** skill." |
+
+## Templates added 2026-05-14
+
+| Template | Path | Use for |
+|---|---|---|
+| hardware-doc | `skills/templates/hardware-doc/TEMPLATE.md` | New machine compatibility docs |
+| marketing-feature | `skills/templates/marketing-feature/TEMPLATE.md` | docs/marketing/ files |
+| after-action | `skills/templates/after-action/TEMPLATE.md` | Session summaries |
+| claude-md | `skills/templates/claude-md/TEMPLATE.md` | CLAUDE.md for new projects |
+
+## Checklists added 2026-05-14
+
+| Checklist | Path | Run when |
+|---|---|---|
+| pre-pr | `checklists/pre-pr.md` | Before opening any PR |
+| new-session | `checklists/new-session.md` | Start of every Claude Code session |
+| hardware-doc | `checklists/hardware-doc.md` | Before writing a hardware compat doc |
+| installer-release | `checklists/installer-release.md` | Before tagging an installer release |
+
+## After-action reports
+
+| Report | Path | Session |
+|---|---|---|
+| Family Interface MVP | `after-action/2026-05-14-family-interface-mvp.md` | Built full YSJ OS MVP in one day |

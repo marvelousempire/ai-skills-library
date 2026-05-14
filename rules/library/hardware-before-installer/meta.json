@@ -1,0 +1,8 @@
+{
+  "id": "hardware-before-installer",
+  "title": "Hardware Before Installer",
+  "applies_to": ["yousirjuan", "any-hardware-product"],
+  "scope": ["process", "installers", "hardware"],
+  "severity": "warning",
+  "tags": ["hardware", "installers", "process"]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "marketing-doc-per-feature",
+  "title": "Marketing Doc Per Feature",
+  "applies_to": ["yousirjuan", "any-consumer-product"],
+  "scope": ["documentation", "marketing", "post-ship"],
+  "severity": "warning",
+  "tags": ["documentation", "marketing", "product"]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "port-alignment",
+  "title": "Port Alignment",
+  "applies_to": ["yousirjuan", "any-multi-service-project"],
+  "scope": ["infrastructure", "env-config"],
+  "severity": "error",
+  "tags": ["configuration", "docker", "env-vars"]
+}
