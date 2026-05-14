@@ -1,0 +1,6 @@
+{
+  "id": "never-cross-worktree-pbxproj",
+  "description": "Never write project.pbxproj via cross-worktree bypass — use Edit inside the worktree or git checkout origin/main to restore",
+  "alwaysApply": true,
+  "globs": ["**/*.pbxproj"]
+}
