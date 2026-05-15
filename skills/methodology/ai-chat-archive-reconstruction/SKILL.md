@@ -4,7 +4,7 @@ id: SK-ARCH-RECON
 keywords: [reconstruct-archive, grok-export, nephew-rebuild, chat-to-repo, simulated-commits]
 goal: Rebuild a target repo from ingested AI chat exports with witnessed git commits — never claim push without SHA.
 hash: pending
-relations: [gap-audit-and-elevation, plan-first]
+relations: [gap-audit-and-elevation, plan-first, nephew-cloak-amending-mission]
 before: []
 governed_by: [global]
 meta: dynamic

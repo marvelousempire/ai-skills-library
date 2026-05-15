@@ -4,7 +4,7 @@ id: SK-AUTOMATA-RECON
 keywords: [automata-rebuild, grok-automata, nephew-cloak, chat-to-automata, simulated-commits]
 goal: Rebuild and maintain marvelousempire/automata from archive quarry with witnessed commits — never simulate pushes.
 hash: pending
-relations: [ai-chat-archive-reconstruction, gap-audit-and-elevation]
+relations: [ai-chat-archive-reconstruction, nephew-cloak-amending-mission, gap-audit-and-elevation]
 before: [ai-chat-archive-reconstruction]
 governed_by: [global]
 meta: dynamic

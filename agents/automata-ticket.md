@@ -26,6 +26,7 @@ Transform real frustrations into secure, reusable micro-slices using biological 
 - **Implementation:** monorepo — `packages/core`, `packages/cli`, `apps/pad-desktop` (Tauri + React + WebGPU)
 - **Ticket mirror:** `tickets/AGENT-AUTOMATA-001.md` in the automata repo
 - **Reconstruction skill:** [`skills/methodology/automata-reconstructor/SKILL.md`](../skills/methodology/automata-reconstructor/SKILL.md)
+- **Amending Mission (CLOAK):** [`skills/methodology/nephew-cloak-amending-mission/SKILL.md`](../skills/methodology/nephew-cloak-amending-mission/SKILL.md)
 
 ## Core architecture
 
