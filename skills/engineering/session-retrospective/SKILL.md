@@ -77,11 +77,27 @@ and future sessions will need it to reason correctly.
 
 ### Context files (product-specific permanent decisions)
 Word-choice standards, approved vocabulary, brand voice rulings, architectural
-decisions that must persist. Examples: "accommodate" not "integrate" for
-READYPLAY, which pages redirect signed-in users, which surface owns what.
+decisions that must persist. Also includes: system architecture that is not
+obvious from code alone, pipeline documentation, dual-registration antipatterns,
+serializer field inventories, SQL patterns that must not be simplified.
+
+Examples:
+- "accommodate" not "integrate" for READYPLAY (copy vocabulary)
+- Which pages redirect signed-in users, which surface owns what (routing architecture)
+- The admin dual-nav list pattern — sidebar.tsx AND admin-nav.ts must both be updated (structural constraint)
+- The 9-condition participation SQL — the full form is the only correct form (SQL architecture)
+- The game data pipeline — iOS push → API → DB → public endpoint → frontend (pipeline architecture)
+
+**File as context (not a rule) when:** the knowledge is project-specific, too long to be a rule body,
+and is primarily reference material rather than a mandate. Use `context/<product>-<topic>.md`.
+
+**File as a rule (not context) when:** the knowledge is universal enough to apply across projects
+and its violation reliably causes a bug. Example: "participation SQL not creator SQL" is a rule
+because it applies to any multi-player game system.
 
 **File if:** a decision was made that future sessions need to know about
-to avoid undoing it or contradicting it.
+to avoid undoing it or contradicting it, OR the session revealed architecture
+that isn't obvious from reading the code.
 
 ### Updates to existing artifacts
 Sometimes the right action is to extend an existing rule, skill, or doc
@@ -207,9 +223,28 @@ When time is limited, file in this order:
 
 ---
 
+## Session-end checklist
+
+Before closing any retrospective, confirm:
+
+- [ ] Did this session have a dual-nav-list issue? (`sidebar-nav-dual-list` rule filed / already exists)
+- [ ] Did this session display any raw measurements? (`format-measurements-for-display` rule filed)
+- [ ] Did this session have "stats show zeros"? (`diagnosis-before-fix` rule / `data-pipeline-tracer` skill)
+- [ ] Was the DB verified (row COUNT) before any code was written for a zero-stats bug?
+- [ ] Were there agent stray files in any PR? (`agent-stray-files-guard` rule filed)
+- [ ] Was a CHANGELOG entry dropped during rebase? (`rebase-changelog-keep-both-sides` rule filed)
+- [ ] Did this session have a migration collision? (`migration-collision-recovery` skill invoked)
+- [ ] Was any SSH-level investigation performed? → file a `diagnosis-report` doc
+- [ ] Does the project have undocumented architecture? → file a context file
+- [ ] Did the session produce zero artifacts? → something was learned; find and file it
+
+---
+
 ## Related skills
 
 - **create-rule**: Cursor skill for authoring a single rule in isolation
 - **create-skill**: Cursor skill for authoring a single skill in isolation
 - **verify-ship**: Confirms what is deployed; useful for the "live version before debug" pattern
 - **copy-language-audit**: Marketing copy audit extracted from a real session retrospective
+- **diagnosis-report**: Write a structured diagnosis doc after SSH investigation
+- **data-pipeline-tracer**: Trace end-to-end data loss when stats show zeros

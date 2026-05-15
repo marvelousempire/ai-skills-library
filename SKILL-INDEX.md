@@ -103,6 +103,42 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 13 new skills + 13 new rules + 5 agents + 8 templates + 7 checklists + 10 docs + 6 pain-journal entries from the 2026-05-14 trainer-marketplace session. See [`docs/master-reports/2026-05-14-trainer-marketplace-session.md`](docs/master-reports/2026-05-14-trainer-marketplace-session.md) for the full retrospective.
 
+---
+
+## Engineering skills added 2026-05-14 — Red-E Play admin + game pipeline session
+
+8 new rules + 5 new skills + 2 context files from debugging the admin dashboard, game data pipeline, and iOS sync. See [`docs/master-plans/2026-05-14-redeyplay-admin-game-pipeline.md`](docs/master-plans/2026-05-14-redeyplay-admin-game-pipeline.md) for the full retrospective.
+
+### New rules
+
+| Rule | Path | Fire when |
+|------|------|----------|
+| **sidebar-nav-dual-list** | `rules/library/sidebar-nav-dual-list/body.md` | Adding a route to an admin/sidebar project with two nav files |
+| **format-measurements-for-display** | `rules/library/format-measurements-for-display/body.md` | Displaying height, weight, duration, BPM, or any unit value |
+| **mobile-jwt-ttl** | `rules/library/mobile-jwt-ttl/body.md` | Setting JWT TTL for any mobile client |
+| **stats-query-participation-not-creator** | `rules/library/stats-query-participation-not-creator/body.md` | Writing any SQL query that counts games/sessions for a player |
+| **all-participants-push-data** | `rules/library/all-participants-push-data/body.md` | Designing client-to-server sync for multi-player records |
+| **rebase-changelog-keep-both-sides** | `rules/library/rebase-changelog-keep-both-sides/body.md` | Running automated conflict resolution on CHANGELOG.md during rebase |
+| **agent-stray-files-guard** | `rules/library/agent-stray-files-guard/body.md` | Reviewing any PR created by a spawned agent |
+| **diagnosis-before-fix** | `rules/library/diagnosis-before-fix/body.md` | Debugging "stats show zeros" or "data not showing" |
+
+### New skills
+
+| Skill | Domain | Tool | Use when | Invoke |
+|-------|--------|------|----------|--------|
+| **data-pipeline-tracer** | engineering | Claude Code | Tracing end-to-end data loss: stats zeros, iOS data not on web, field missing from profile | "Use **data-pipeline-tracer**." |
+| **admin-completeness-audit** | engineering | Claude Code | Auditing whether a new admin page is fully wired across sidebar, nav config, backend, types, API helper | "Use **admin-completeness-audit**." |
+| **disk-hygiene** | engineering | Claude Code | Clearing disk space from stale worktree node_modules, DerivedData, build artifacts | "Use **disk-hygiene**." |
+| **migration-collision-recovery** | engineering | Claude Code | Fixing a duplicate migration prefix caught by CI guard | "Use **migration-collision-recovery**." |
+| **diagnosis-report** | engineering | Claude Code | Writing a structured diagnosis doc after SSH investigation: DB state, root causes, resolution checklist | "Use **diagnosis-report**." |
+
+### New context files
+
+| File | Use for |
+|------|---------|
+| `context/readyplay-admin-architecture.md` | Admin dual-nav pattern, formatPlayer serializer, route structure, measurement display, stats SQL |
+| `context/readyplay-game-data-pipeline.md` | Full game sync flow, JWT TTL config, participation SQL, activity_events vs game_sessions |
+
 ### New skills (`skills/engineering/`)
 
 | Skill | Use when | Invoke |
