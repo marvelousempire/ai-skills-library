@@ -15,5 +15,6 @@ Every artifact in this repo conforms to a small number of contracts. They're doc
 | [`plan-naming.md`](plan-naming.md) | Plan-file naming convention in `~/.claude/plans/` and `docs/master-plans/` |
 | [`doctor-script.md`](doctor-script.md) | What every infra skill's doctor script must check |
 | [`long-running-commands.md`](long-running-commands.md) | Timeout + monitoring policy for builds, deploys, polls |
+| [`chain-of-command.md`](chain-of-command.md) | The four-seat chain (Employee → Asst Mgr → Manager → Director) — who hands work to whom, who has authority to ship, who admits new standards |
 
 These are **enforced by rules** under `rules/library/` and **automated by checks** under `scripts/`. Adding a new artifact type → add a new standard here + a rule that enforces it + a script that lints it.

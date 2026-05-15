@@ -10,6 +10,10 @@ Operational agents that automate the recurring patterns in this repo. Each agent
 | [`gap-audit-runner/`](gap-audit-runner/) | After meaningful ship | Generates the audit file from a commit diff |
 | [`count-keeper/`](count-keeper/) | Any skill folder change | Updates SKILL-INDEX + README counts |
 | [`label-linter/`](label-linter/) | Compose file change | Verifies every service has the full `ai-skills-library.*` label schema |
+| [`chain-employee`](../agents/chain-employee.md) | Task brief from `nephew` | Work record (diff + proof + findings + blockers) + "candidate complete" marker |
+| [`chain-assistant-manager`](../agents/chain-assistant-manager.md) | Employee submits | Gap list (numbered) + Elevation list (lettered) + standards-check table + verdict |
+| [`chain-manager`](../agents/chain-manager.md) | Asst Mgr forwards | Boolean lead sheet + DRY method report + safety summary + ship dossier |
+| [`chain-director`](../agents/chain-director.md) | Manager forwards | Verdict (approved / approved-with-known-debt / return / rejected) + decision record + standards update |
 
 ## Status
 

@@ -20,6 +20,7 @@ Then:
 
 | Date | Scope | Audit |
 |---|---|---|
+| 2026-05-14 | brokerage make-shim / port-drift / Stack badge / Docker→Colima | [`2026-05-14-brokerage-make-shim-docker-colima.md`](2026-05-14-brokerage-make-shim-docker-colima.md) |
 | 2026-05-14 | SEEME 1.0 (CLI + MCP + Web UI + Docker) | [`2026-05-14-seeme-v1.md`](2026-05-14-seeme-v1.md) |
 | 2026-05-14 | SEEME Docker setup | [`2026-05-14-seeme-docker.md`](2026-05-14-seeme-docker.md) |
 | 2026-05-14 | Homelab Console | [`2026-05-14-homelab-console.md`](2026-05-14-homelab-console.md) |

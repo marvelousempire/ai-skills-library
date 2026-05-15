@@ -13,6 +13,10 @@ Central index of all decision records across the library. Records themselves liv
 | 2026-05-14 | Node 24 + `--experimental-strip-types` over Bun for SEEME | seeme | (implicit in `package.json`) |
 | 2026-05-14 | Tailscale Path A → WireGuard via Flint 2 Path B for sovereign-stack networking | self-hosted-git | [`wireguard-quickstart.md`](../../../skills/infra/self-hosted-git/templates/wireguard-quickstart.md) (functional decision doc) |
 
+| 2026-05-14 | launchd (not MCP scheduled tasks) for autonomous shell-script schedules | brokerage-prototype | [`0001-launchd-over-mcp-for-cron.md`](0001-launchd-over-mcp-for-cron.md) |
+| 2026-05-14 | Colima (not Docker Desktop) as docker runtime on macOS Tahoe + Apple Silicon | brokerage-prototype | [`0002-colima-over-docker-desktop.md`](0002-colima-over-docker-desktop.md) |
+| 2026-05-14 | Drop Ruflo Path A — not yet load-bearing for this workflow | brokerage-prototype | [`0003-drop-ruflo-not-yet-load-bearing.md`](0003-drop-ruflo-not-yet-load-bearing.md) |
+
 ## How to add a decision record
 
 1. Pick A over B? Write the record:
