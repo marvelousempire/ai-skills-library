@@ -7,6 +7,7 @@ Canonical stack docs for shipped repos. **Not** skills — use these when bootst
 | [automata-desktop.md](./automata-desktop.md) | [automata](https://github.com/marvelousempire/automata) | Tauri 2 + Vite + React 19 + WebGPU |
 | [automata-monorepo.md](./automata-monorepo.md) | automata | core, CLI, watcher, `automation/` tree |
 | [claude-archive-living-ingest.md](./claude-archive-living-ingest.md) | [claude-chat-reader](https://github.com/marvelousempire/claude-chat-reader) | `pnpm watch`, `pnpm harvest` |
+| [claude-archive-ui-patterns.md](./claude-archive-ui-patterns.md) | claude-chat-reader | Conversations list, Docker dev, SK-0141 |
 | [folder-watcher-cross-platform.md](./folder-watcher-cross-platform.md) | ccr + automata | fswatch, LaunchAgent, WireGuard/rsync |
 | [nephew-cloak-runtime.md](./nephew-cloak-runtime.md) | [nephew](https://github.com/marvelousempire/nephew) | witness, patrol, dispatch, quarry |
 | [grok-api.md](./grok-api.md) | nephew + ccr | xAI export ingest + reconstruction |
