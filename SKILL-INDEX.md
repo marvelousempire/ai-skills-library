@@ -6,11 +6,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-<<<<<<< HEAD
 - **144** total `SKILL.md` files under [`skills/`](skills/).
-=======
-- **144** total `SKILL.md` files under [`skills/`](skills/).)
->>>>>>> origin/main
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |

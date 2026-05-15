@@ -54,7 +54,7 @@ Items where we said "skipping for now." Each gap links back to the audit that su
 - [dockyard] **`dockyard.config.json` socket pin edited locally, not committed** — left as uncommitted change in `~/Developer/claude-chat-reader/dockyard/`. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
 - [brokerage-prototype] **`Modal.tsx` ESC handler uses document-level keydown** — could leak if Modal mounts twice. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
 - [brokerage-prototype] **`port-drift.sh` has no tests** — runs weekly; if PORTING_NOTES.md format changes, parser silently produces wrong reports. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
-- [host] **`ruflo-core` + `ruflo-federation` plugins still installed** — never invoked, ~628 always-on tokens/session. Run `claude plugin uninstall`. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [host] ~~`ruflo-core` + `ruflo-federation` plugins still installed~~ — **RESOLVED 2026-05-14**: documented as nephew's engine per `rules/library/plugin-economy/body.md`. ~628 always-on tokens is the price of full nephew dispatch; kept by design.
 
 ## Closed (footnote each in its audit)
 

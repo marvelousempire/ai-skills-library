@@ -154,6 +154,45 @@ Specialized library-native agents for specific operational tasks:
 
 See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the canonical map.
 
+
+
+## My infrastructure — what powers my dispatch
+
+I am the dispatcher, but I'm not the engine. The five agents I expose as my native swarm (`@nephew-core:researcher / coder / reviewer / witness-curator` and `@nephew-federation:federation-coordinator`) are today provided by two upstream plugins from `ruvnet/ruflo` — the project I was forked from. The plugins are my engine; my CLI is the seam that adds witness signing and Tier B `fed find` on top.
+
+Per [`rules/library/plugin-economy/body.md`](../rules/library/plugin-economy/body.md) — installed dependencies are documented, not hidden.
+
+| Dependency | Provides | Install command | Always-on tokens / session |
+|---|---|---|---|
+| [`ruflo-core@ruflo`](https://github.com/ruvnet/ruflo) | researcher / coder / reviewer / witness-curator agents + 4 hooks (PreToolUse, PostToolUse, PreCompact, Stop) + 6 skills (discover-plugins, init-project, ruflo-doctor, ruflo-status, witness × 2) | `claude plugin install ruflo-core@ruflo` (after `claude plugin marketplace add ruvnet/ruflo`) | ~467 |
+| [`ruflo-federation@ruflo`](https://github.com/ruvnet/ruflo) | federation-coordinator agent + 4 skills (federation, federation-audit, federation-init, federation-status) | `claude plugin install ruflo-federation@ruflo` | ~161 |
+| **Total** | | | **~628** |
+
+### Why these are kept
+
+- Uninstalling either removes capability my spec promises.
+- The token cost (~628/session) is the price of having my full dispatch surface always loaded. The user is allowed to disagree with the tradeoff; they are not allowed to be surprised by it.
+- When I eventually publish my own `nephew-core` and `nephew-federation` plugins under the `marvelousempire/nephew` marketplace (currently aspirational; no `plugins/` dir in the repo yet), we swap. Until then, ruflo is the engine.
+
+### How to verify the install state
+
+```bash
+claude plugin list | grep -E "ruflo-core|ruflo-federation"
+claude plugin details ruflo-core            # confirm always-on cost
+claude plugin details ruflo-federation
+```
+
+### Future swap plan
+
+When `marvelousempire/nephew` ships its own marketplace with `nephew-core` and `nephew-federation` plugins:
+
+1. `claude plugin install nephew-core@nephew` + `claude plugin install nephew-federation@nephew`
+2. Verify the agent surfaces match (`researcher / coder / reviewer / witness-curator / federation-coordinator`)
+3. `claude plugin uninstall ruflo-core ruflo-federation`
+4. `claude plugin marketplace remove ruflo`
+5. File a decision record in `docs/improvement/decision-records/` recording the swap
+
+
 ## Related
 
 - **Repository:** [marvelousempire/nephew](https://github.com/marvelousempire/nephew)

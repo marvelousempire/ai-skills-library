@@ -33,6 +33,21 @@ This document is the one-page map.
    └────────────────────┘   └────────────────────┘   └────────────────────┘
 ```
 
+## Engine note — what powers the native swarm today
+
+The 5 agents in the Native Swarm box (`researcher / coder / reviewer / witness-curator / federation-coordinator`) are currently provided by two upstream plugins from `ruvnet/ruflo`:
+
+| Plugin | Provides | Token cost |
+|---|---|---|
+| [`ruflo-core@ruflo`](https://github.com/ruvnet/ruflo) | researcher / coder / reviewer / witness-curator + 4 hooks + 6 skills | ~467 always-on tokens / session |
+| [`ruflo-federation@ruflo`](https://github.com/ruvnet/ruflo) | federation-coordinator + 4 federation skills | ~161 always-on tokens / session |
+
+Total: **~628 always-on tokens per session.** This is the price of nephew's full dispatch always being available.
+
+Per [`rules/library/plugin-economy/body.md`](../../rules/library/plugin-economy/body.md) — installed dependencies are documented, not hidden. When `marvelousempire/nephew` ships its own marketplace (currently aspirational), we swap to `nephew-core@nephew` and `nephew-federation@nephew` and document the swap in `docs/improvement/decision-records/`. Until then, ruflo is the engine.
+
+See [`agents/nephew.md`](../../agents/nephew.md) §"My infrastructure" for the full table + swap plan.
+
 ## The rule (RL-NEW · drafted in this commit)
 
 **No agent in `agents/` may be invoked outside nephew's dispatch.** Every other agent in the registry has a `Commissioned by nephew` clause in its spec. The chain of command, the utility team, and (where applicable) the native swarm are nephew's three dispatch patterns — not three orchestrators.

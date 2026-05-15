@@ -1,0 +1,8 @@
+{
+  "id": "plugin-economy",
+  "alwaysApply": true,
+  "globs": ["agents/**", "STACK.md", "rules/library/**"],
+  "category": "registry-discipline",
+  "owner": "ai-skills-library",
+  "version": "0.1.0"
+}
