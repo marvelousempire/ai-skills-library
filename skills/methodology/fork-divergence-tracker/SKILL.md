@@ -19,6 +19,9 @@ trigger: >-
 
 # fork-divergence-tracker — the symlink + rsync hybrid
 
+
+
+> **Parent pattern:** this skill is the canonical fork-of-git-repo instance of [`shadow-and-record`](../shadow-and-record/SKILL.md) — the general "symlink + rsync hybrid" pattern. If the external thing you're tracking is *not* a git fork (e.g., an API contract, a vendored doc, a third-party schema), use the parent skill instead.
 ## What this skill does
 
 Builds a fork-divergence tracker that gives a fork two unified surfaces:
@@ -90,6 +93,7 @@ Or naturally:
 
 ## Related
 
+- **Parent pattern:** [`shadow-and-record`](../shadow-and-record/SKILL.md) — the general "symlink + rsync hybrid" pattern. This skill is its canonical git-fork instance.
 - Rule: [`rules/library/add-agent-to-skills-library/body.md`](../../../rules/library/add-agent-to-skills-library/body.md) — pointer-not-replica
 - Rule: [`rules/library/plugin-economy/body.md`](../../../rules/library/plugin-economy/body.md) — documented dependencies
 - Skill: [`skills/methodology/cross-reference-rippling/SKILL.md`](../cross-reference-rippling/SKILL.md) — what to update downstream when the fork ships a new deviation
