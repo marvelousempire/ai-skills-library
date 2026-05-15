@@ -13,19 +13,25 @@ Do not create new skills under `~/.cursor/skills-cursor/` (reserved for Cursor-b
 
 ## Agent registry (`agents/`)
 
-Every agent in this library is part of **[`nephew`](agents/nephew.md)'s** dispatch — the Orchestrator Agent by Avery Goodman. Nephew is the front door; the agents below are the three sub-teams he commissions.
+Every agent in this library is part of **[`nephew`](agents/nephew.md)'s** dispatch — the Orchestrator Agent by Avery Goodman. Nephew is the front door; the agents below are organized into **three layers** that work together on every substantive change:
 
-See [`docs/standards/orchestration-hierarchy.md`](docs/standards/orchestration-hierarchy.md) for the canonical map.
+| Layer | Need it meets | Sub-table below |
+|---|---|---|
+| **1 · Workers** | *Who's thinking?* | Native swarm (in nephew's package) — `@nephew-core:*` and `@nephew-federation:*` |
+| **2 · Process** | *Who's signing?* | Chain of command — 4 seats, work flows 1 → 4 |
+| **3 · Specialists** | *What's executing?* | Utility team — 12 narrow, automated tools |
 
-### Front door
+A typical substantive change uses **all three layers in sequence**, not just one. See [`docs/standards/orchestration-hierarchy.md`](docs/standards/orchestration-hierarchy.md) for the canonical map, mental model, and worked example.
+
+### Front door — nephew
 
 | Agent | Role |
 |---|---|
 | [`nephew`](agents/nephew.md) | **The dealer.** Reads intent, commissions the right sub-team, returns the dossier. Multi-agent swarm + Ed25519-signed witness manifest (ADR-103) + cross-installation federation. Lives at `marvelousempire/nephew` (pointer here per [`rules/library/add-agent-to-skills-library/body.md`](rules/library/add-agent-to-skills-library/body.md)). |
 
-### Chain of command (one of nephew's three dispatch patterns)
+### Layer 2 — Process (the review chain)
 
-The four seats nephew deals to when a substantive change needs review-and-ship. See [`docs/standards/chain-of-command.md`](docs/standards/chain-of-command.md).
+Four seats. Each chair has a single authority (its "crown"). Work flows from seat 1 to seat 4. Process chairs don't do cognitive work themselves — they commission Layer-1 workers to do specific sub-tasks during their review. See [`docs/standards/chain-of-command.md`](docs/standards/chain-of-command.md).
 
 | Seat | Agent | Crown |
 |---|---|---|
@@ -34,9 +40,9 @@ The four seats nephew deals to when a substantive change needs review-and-ship. 
 | 3 | [`chain-manager`](agents/chain-manager.md) | *Ship-ready authority* — full failure-proof audit, lead sheet |
 | 4 | [`chain-director`](agents/chain-director.md) | *Sign-off + standards admission* — final approval, decision records |
 
-### Utility team (nephew's second dispatch pattern)
+### Layer 3 — Specialists (automated narrow tooling)
 
-Specialized library-native agents nephew commissions for specific operational tasks.
+Twelve one-shot tools. Each owns one well-defined recurring operational job. Idempotent, deterministic.
 
 | Agent | Purpose |
 |---|---|
@@ -53,9 +59,9 @@ Specialized library-native agents nephew commissions for specific operational ta
 | [`ship-auditor/`](agents/ship-auditor/) | Pre-commit verification gate — runs every check, blocks commit on failure |
 | [`question-decomposer/`](agents/question-decomposer/) | Two-part / FAQ-style intent disambiguation |
 
-### Native swarm (nephew's third dispatch pattern — lives in the nephew package)
+### Layer 1 — Workers (the cognitive engine — lives in nephew's package)
 
-These five agents are nephew's internal swarm. They live in `marvelousempire/nephew` and are surfaced via `@nephew-core:*` and `@nephew-federation:*` inside Claude Code. Per [`rules/library/add-agent-to-skills-library/body.md`](rules/library/add-agent-to-skills-library/body.md) (pointer-not-replica), they are NOT duplicated into this library; they are documented through [`agents/nephew.md`](agents/nephew.md).
+Five specialized minds doing the thinking-heavy lifting. Surfaced inside Claude Code via `@nephew-core:*` and `@nephew-federation:*`. Per [`rules/library/add-agent-to-skills-library/body.md`](rules/library/add-agent-to-skills-library/body.md) (pointer-not-replica), they are NOT duplicated into this library; they are documented through [`agents/nephew.md`](agents/nephew.md).
 
 | Invocation | Purpose |
 |---|---|

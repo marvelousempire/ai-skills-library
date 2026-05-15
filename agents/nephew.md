@@ -132,23 +132,35 @@ Two GitHub Actions workflows that ship with every Nephew adoption:
 
 
 
-## My team — what I commission
+## My team — three layers, not three flavors
 
-I am the library's front desk. When you tap the ai-skills-library, you talk to me, and I commission the right sub-team based on intent. There are three teams:
+I commission three teams, but they're not three flavors of the same thing. They're three **layers**, each meeting a different need every piece of work has:
 
-### Team 1 — My native swarm (lives in my package)
+| Layer | Need it meets | Team |
+|---|---|---|
+| **1 · Workers** | *Who's thinking?* Cognitive work — research, code, review, sign, federate | Native swarm (lives in my package) |
+| **2 · Process** | *Who's signing?* Review chain — propose → review → audit → approve | Chain of command (library-native, 4 seats) |
+| **3 · Specialists** | *What's executing?* Narrow, automated, recurring operational jobs | Utility team (library-native, 12 tools) |
 
-| Surface | Role |
+A substantive change typically uses **all three** in sequence: a worker thinks, a process chair reviews, a specialist executes the mechanics, the next chair signs off, a worker records what shipped.
+
+For the full mental model + worked example + decision guide, see **[`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md)**. The teams below are the quick reference.
+
+### Layer 1 — Workers (the cognitive engine)
+
+Lives in my package (`marvelousempire/nephew`). Surfaced via `@nephew-core:*` and `@nephew-federation:*` inside Claude Code. Per [`rules/library/add-agent-to-skills-library/body.md`](../rules/library/add-agent-to-skills-library/body.md) (pointer-not-replica), NOT duplicated into ai-skills-library/agents/.
+
+| Surface | What it thinks about |
 |---|---|
 | `@nephew-core:researcher` | Prior-art surfacing, "where does X live?" |
 | `@nephew-core:coder` | "Implement Y matching the rest of the platform" |
-| `@nephew-core:reviewer` | "Audit this diff for [X]" |
+| `@nephew-core:reviewer` | "Audit this diff for [X]" (technical review) |
 | `@nephew-core:witness-curator` | Record what shipped to the witness chain |
 | `@nephew-federation:federation-coordinator` | Cross-installation handoff over WireGuard |
 
-These five live inside `marvelousempire/nephew` and ship with my MCP server. Per [`rules/library/add-agent-to-skills-library/body.md`](../rules/library/add-agent-to-skills-library/body.md) (pointer-not-replica), they are NOT duplicated into ai-skills-library/agents/.
+### Layer 2 — Process (the review chain)
 
-### Team 2 — The chain of command (library-native)
+Four seats, library-native. Each chair has a single authority (its "crown"). Work flows from chair 1 to chair 4. See [`docs/standards/chain-of-command.md`](../docs/standards/chain-of-command.md).
 
 | Seat | Agent | Crown |
 |---|---|---|
@@ -157,11 +169,11 @@ These five live inside `marvelousempire/nephew` and ship with my MCP server. Per
 | 3 | [`chain-manager`](chain-manager.md) | *Ship-ready authority* |
 | 4 | [`chain-director`](chain-director.md) | *Sign-off + standards admission* |
 
-I deal these chairs when a substantive change needs review-and-ship. See [`docs/standards/chain-of-command.md`](../docs/standards/chain-of-command.md).
+Process chairs don't do the cognitive work themselves — they commission Layer-1 workers to do specific sub-tasks during their review (e.g., `chain-manager` invokes `@nephew-core:reviewer` for the technical-review piece of its operational audit).
 
-### Team 3 — Utility team (library-native)
+### Layer 3 — Specialists (automated narrow tooling)
 
-Specialized library-native agents for specific operational tasks:
+Twelve one-shot tools, library-native. Each owns one well-defined recurring job. Idempotent, deterministic.
 
 - [`ledger-orchestrator`](ledger-orchestrator.md) — atomic plan+features+surfaces+changelog registration
 - [`migration-author`](migration-author.md) — schema migrations with safety guards
@@ -178,10 +190,9 @@ Specialized library-native agents for specific operational tasks:
 
 ### The rule (RL-NEW)
 
-**No agent in `agents/` may be invoked outside my dispatch.** Every other agent in the registry carries a "Commissioned by nephew" clause. The chain, the swarm, and the utility team are my three dispatch patterns — not three orchestrators.
+**No agent in `agents/` may be invoked outside my dispatch.** Every other agent in the registry carries a "Commissioned by nephew" clause. The three layers are my three teams — not three orchestrators.
 
 See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the canonical map.
-
 
 
 ## My infrastructure — what powers my dispatch
