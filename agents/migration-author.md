@@ -8,6 +8,11 @@ model: opus
 
 # Agent: migration-author
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 ## Mission
 
 Given a description of schema changes needed, emit a single `*.sql` migration file that:

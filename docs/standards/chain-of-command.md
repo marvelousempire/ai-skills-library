@@ -1,6 +1,17 @@
 # Chain of Command — the four-seat operational standard
 
-Every substantive change passes through four chairs before it becomes the project's official truth. The chairs are agentic seats with explicit responsibilities, authority, and tooling — each captured in `agents/chain-*.md`. The Orchestrator (`agents/nephew.md`) commissions chairs based on the change's blast radius.
+Every substantive change passes through four chairs before it becomes the project's official truth. The chairs are agentic seats with explicit responsibilities, authority, and tooling — each captured in `agents/chain-*.md`.
+
+## Jurisdiction
+
+**This chain is one of [`nephew`](../../agents/nephew.md)'s three dispatch patterns.** Nephew is the dealer; the chairs are the seats nephew deals to. No chair commissions itself. No external agent invokes a chair without going through nephew.
+
+The other two dispatch patterns under nephew's jurisdiction:
+
+- **Native swarm** — `@nephew-core:researcher / coder / reviewer / witness-curator` and `@nephew-federation:federation-coordinator`. Lives in the nephew package.
+- **Utility team** — `ledger-orchestrator`, `migration-author`, `rebase-shepherd`, `ship-flow-runner`, `post-ship-auditor`, `count-keeper`, `label-linter`, `cross-reference-rippler`, `skill-scaffolder`, `gap-audit-runner`, `ship-auditor`, `question-decomposer`.
+
+See [`docs/standards/orchestration-hierarchy.md`](orchestration-hierarchy.md) for the full team map.
 
 ## The four chairs
 

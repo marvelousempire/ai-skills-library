@@ -1,5 +1,10 @@
 # Agent contract: skill-scaffolder
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 ## Trigger
 
 User asks to add a new skill, OR `agents/skill-scaffolder/ scaffold <family>/<slug>`

@@ -13,7 +13,30 @@ Do not create new skills under `~/.cursor/skills-cursor/` (reserved for Cursor-b
 
 ## Agent registry (`agents/`)
 
-Subagent specifications introduced 2026-05-14. Each is a self-contained markdown file with YAML front-matter (name + description + tools + model).
+Every agent in this library is part of **[`nephew`](agents/nephew.md)'s** dispatch — the Orchestrator Agent by Avery Goodman. Nephew is the front door; the agents below are the three sub-teams he commissions.
+
+See [`docs/standards/orchestration-hierarchy.md`](docs/standards/orchestration-hierarchy.md) for the canonical map.
+
+### Front door
+
+| Agent | Role |
+|---|---|
+| [`nephew`](agents/nephew.md) | **The dealer.** Reads intent, commissions the right sub-team, returns the dossier. Multi-agent swarm + Ed25519-signed witness manifest (ADR-103) + cross-installation federation. Lives at `marvelousempire/nephew` (pointer here per [`rules/library/add-agent-to-skills-library/body.md`](rules/library/add-agent-to-skills-library/body.md)). |
+
+### Chain of command (one of nephew's three dispatch patterns)
+
+The four seats nephew deals to when a substantive change needs review-and-ship. See [`docs/standards/chain-of-command.md`](docs/standards/chain-of-command.md).
+
+| Seat | Agent | Crown |
+|---|---|---|
+| 1 | [`chain-employee`](agents/chain-employee.md) | *Propose completion* — performs the task, records proof, hands upward |
+| 2 | [`chain-assistant-manager`](agents/chain-assistant-manager.md) | *Return for rework* — validates proof, gap+elevation pass |
+| 3 | [`chain-manager`](agents/chain-manager.md) | *Ship-ready authority* — full failure-proof audit, lead sheet |
+| 4 | [`chain-director`](agents/chain-director.md) | *Sign-off + standards admission* — final approval, decision records |
+
+### Utility team (nephew's second dispatch pattern)
+
+Specialized library-native agents nephew commissions for specific operational tasks.
 
 | Agent | Purpose |
 |---|---|
@@ -22,11 +45,26 @@ Subagent specifications introduced 2026-05-14. Each is a self-contained markdown
 | [`rebase-shepherd`](agents/rebase-shepherd.md) | Auto-resolve CHANGELOG / Feature Ledger / pbxproj / Codable conflicts |
 | [`ship-flow-runner`](agents/ship-flow-runner.md) | Full commit → CI → merge → deploy → smoke loop |
 | [`post-ship-auditor`](agents/post-ship-auditor.md) | Gap audit + elevation pass after every substantive ship |
-| [`nephew`](agents/nephew.md) | The Orchestrator Agent by Avery Gooman — multi-agent swarm + Ed25519-signed witness manifest (ADR-103) + cross-installation federation. Project-scoped MCP, native witness CLI, Tier B cross-repo `fed find` |
-| [`chain-employee`](agents/chain-employee.md) | **The doer** — performs the task, records proof, hands upward (chain of command, seat 1) |
-| [`chain-assistant-manager`](agents/chain-assistant-manager.md) | **First reviewer** — validates proof, gap+elevation pass, returns rework (chain of command, seat 2) |
-| [`chain-manager`](agents/chain-manager.md) | **Operational gate** — full failure-proof audit, lead sheet, ship-ready authority (chain of command, seat 3) |
-| [`chain-director`](agents/chain-director.md) | **Final authority** — sign-off, standards admission, known-debt acceptance (chain of command, seat 4) |
+| [`count-keeper/`](agents/count-keeper/) | Update SKILL-INDEX + README counts on any skill folder change |
+| [`label-linter/`](agents/label-linter/) | Verify every service has the full `ai-skills-library.*` label schema |
+| [`cross-reference-rippler/`](agents/cross-reference-rippler/) | Update SKILL-INDEX + root README + family README + downstream docs on skill add |
+| [`skill-scaffolder/`](agents/skill-scaffolder/) | Generate `SKILL.md` + `README.md` + folder structure for new skills |
+| [`gap-audit-runner/`](agents/gap-audit-runner/) | Generate the audit file from a commit diff |
+| [`ship-auditor/`](agents/ship-auditor/) | Pre-commit verification gate — runs every check, blocks commit on failure |
+| [`question-decomposer/`](agents/question-decomposer/) | Two-part / FAQ-style intent disambiguation |
+
+### Native swarm (nephew's third dispatch pattern — lives in the nephew package)
+
+These five agents are nephew's internal swarm. They live in `marvelousempire/nephew` and are surfaced via `@nephew-core:*` and `@nephew-federation:*` inside Claude Code. Per [`rules/library/add-agent-to-skills-library/body.md`](rules/library/add-agent-to-skills-library/body.md) (pointer-not-replica), they are NOT duplicated into this library; they are documented through [`agents/nephew.md`](agents/nephew.md).
+
+| Invocation | Purpose |
+|---|---|
+| `@nephew-core:researcher` | "Where does X live?" / prior-art surfacing |
+| `@nephew-core:coder` | "Implement Y matching the rest of the platform" |
+| `@nephew-core:reviewer` | "Audit this diff for [X]" |
+| `@nephew-core:witness-curator` | Record what shipped to the Ed25519-signed witness chain |
+| `@nephew-federation:federation-coordinator` | Cross-installation handoff via WireGuard |
+
 
 ## How to consume an agent
 

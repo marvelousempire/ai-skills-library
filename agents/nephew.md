@@ -102,6 +102,58 @@ Two GitHub Actions workflows that ship with every Nephew adoption:
 - **`.github/workflows/nephew-witness.yml`** — fires on every push to `main`. Drafts a witness entry into both `data/witness.json` (chained) and `WITNESS.md` (DRAFT narrative). Opens a PR labeled `nephew-witness` for the curator agent to tighten the verifier, write the narrative, and re-sign. Auto-skips docs-only commits.
 - **`.github/workflows/nephew-doctor-cron.yml`** — fires monthly. Runs `make nephew-verify`, performs a real MCP attach + tools/list via `scripts/nephew-mcp-attach.mjs`, diffs against `data/nephew-mcp-tools.ts EXPECTED`, opens a PR updating `LIVE_OBSERVED` on drift, opens an issue on hard failure.
 
+
+
+## My team — what I commission
+
+I am the library's front desk. When you tap the ai-skills-library, you talk to me, and I commission the right sub-team based on intent. There are three teams:
+
+### Team 1 — My native swarm (lives in my package)
+
+| Surface | Role |
+|---|---|
+| `@nephew-core:researcher` | Prior-art surfacing, "where does X live?" |
+| `@nephew-core:coder` | "Implement Y matching the rest of the platform" |
+| `@nephew-core:reviewer` | "Audit this diff for [X]" |
+| `@nephew-core:witness-curator` | Record what shipped to the witness chain |
+| `@nephew-federation:federation-coordinator` | Cross-installation handoff over WireGuard |
+
+These five live inside `marvelousempire/nephew` and ship with my MCP server. Per [`rules/library/add-agent-to-skills-library/body.md`](../rules/library/add-agent-to-skills-library/body.md) (pointer-not-replica), they are NOT duplicated into ai-skills-library/agents/.
+
+### Team 2 — The chain of command (library-native)
+
+| Seat | Agent | Crown |
+|---|---|---|
+| 1 | [`chain-employee`](chain-employee.md) | *Propose completion* |
+| 2 | [`chain-assistant-manager`](chain-assistant-manager.md) | *Return for rework* |
+| 3 | [`chain-manager`](chain-manager.md) | *Ship-ready authority* |
+| 4 | [`chain-director`](chain-director.md) | *Sign-off + standards admission* |
+
+I deal these chairs when a substantive change needs review-and-ship. See [`docs/standards/chain-of-command.md`](../docs/standards/chain-of-command.md).
+
+### Team 3 — Utility team (library-native)
+
+Specialized library-native agents for specific operational tasks:
+
+- [`ledger-orchestrator`](ledger-orchestrator.md) — atomic plan+features+surfaces+changelog registration
+- [`migration-author`](migration-author.md) — schema migrations with safety guards
+- [`rebase-shepherd`](rebase-shepherd.md) — auto-resolve specific-class merge conflicts
+- [`ship-flow-runner`](ship-flow-runner.md) — commit → CI → merge → deploy → smoke
+- [`post-ship-auditor`](post-ship-auditor.md) — gap audit + elevation pass after every ship
+- [`count-keeper/`](count-keeper/) — SKILL-INDEX + README counts
+- [`label-linter/`](label-linter/) — container `ai-skills-library.*` labels
+- [`cross-reference-rippler/`](cross-reference-rippler/) — propagate skill-add updates downstream
+- [`skill-scaffolder/`](skill-scaffolder/) — generate SKILL.md + folder structure
+- [`gap-audit-runner/`](gap-audit-runner/) — produce audit file from commit diff
+- [`ship-auditor/`](ship-auditor/) — pre-commit verification gate
+- [`question-decomposer/`](question-decomposer/) — two-part / FAQ-style intent disambiguation
+
+### The rule (RL-NEW)
+
+**No agent in `agents/` may be invoked outside my dispatch.** Every other agent in the registry carries a "Commissioned by nephew" clause. The chain, the swarm, and the utility team are my three dispatch patterns — not three orchestrators.
+
+See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the canonical map.
+
 ## Related
 
 - **Repository:** [marvelousempire/nephew](https://github.com/marvelousempire/nephew)

@@ -8,6 +8,11 @@ model: opus
 
 # Agent: post-ship-auditor
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 ## Mission
 
 Right after a substantive ship goes live, surface the menu of follow-up work as concrete, named items. Two lists:

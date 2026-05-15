@@ -1,5 +1,10 @@
 # Agent contract: cross-reference-rippler
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 ## Trigger
 
 Git pre-commit hook (planned) OR `agents/cross-reference-rippler/ check`

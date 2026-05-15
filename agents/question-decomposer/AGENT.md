@@ -12,6 +12,11 @@ goal: Every incoming question is immediately decomposed into its concise essence
 
 # Question Decomposer Agent
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 **Mission:** For every incoming question, prompt, or task request — before anything else runs — strip it to its concise core and classify its function type. Log both. Feed the clean signal to the router.
 
 ---

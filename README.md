@@ -5,6 +5,14 @@
 
 ---
 
+## Talking to the library
+
+The library has one front door: **[`nephew`](agents/nephew.md)** — the Orchestrator Agent by Avery Goodman. You don't pick a skill from the catalog. You describe what you're doing, and nephew commissions the right team — its native swarm (researcher, coder, reviewer, witness-curator, federation-coordinator), the chain-of-command chairs (Employee → Asst Mgr → Manager → Director), or one of the utility agents (ledger-orchestrator, migration-author, ship-flow-runner, etc.).
+
+The catalog below is the *under-the-hood* documentation — what products nephew can dispatch and where they live. New here? Start at [`docs/standards/orchestration-hierarchy.md`](docs/standards/orchestration-hierarchy.md) for the one-page map.
+
+---
+
 ## What a "Product" Is
 
 Everything in this library is a **product** — a discrete, shippable, identifiable unit of intelligence. Products are not files. Products are not folders. Products are the things the library manufactures and delivers: behaviors, processes, patterns, standards, checklists, templates, and agents.

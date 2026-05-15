@@ -8,6 +8,11 @@ model: opus
 
 # Agent: ledger-orchestrator
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 ## Mission
 
 Take a structured input describing a new plan + features and emit the seed migration, the Plan-X.md long-form doc, and the Feature Ledger.md mirror update — all in one atomic PR.

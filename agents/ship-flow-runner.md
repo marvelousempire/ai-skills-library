@@ -8,6 +8,11 @@ model: opus
 
 # Agent: ship-flow-runner
 
+
+## Commissioned by
+
+This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](nephew.md) (the Orchestrator Agent by Avery Goodman) based on intent fingerprint. See [`docs/standards/orchestration-hierarchy.md`](../docs/standards/orchestration-hierarchy.md) for the full team map.
+
 ## Mission
 
 Take a working branch with green local state and ship it to live. Run as a background agent so the main session can continue working on the next thing.
