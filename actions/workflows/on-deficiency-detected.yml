@@ -1,0 +1,51 @@
+name: on-deficiency-detected
+description: >-
+  An inspector agent flagged a slice as deficient — there's a capability the
+  library could absorb but doesn't yet. This workflow hands the deficiency to
+  Automata for the philosophical flow (Intent → Valid Intent → Concept →
+  Notion → Solvency → Micro-slice → Action). On success, a new product lands
+  in the library and `on-skill-shipped` fires automatically.
+
+on:
+  deficiency-detected:
+    payload:
+      slice_id: string             # The slice that was inspected.
+      deficiency: string           # Plain-language description of the gap.
+      proposed_type: enum?         # skill | rule | action | agent — inspector's hint.
+      severity: enum               # info | warn | error
+      origin_input_id: string?     # Optional — the input that produced the slice.
+
+dispatched_by: nephew
+governed_by:
+  - add-agent-to-skills-library
+  - plugin-economy
+
+jobs:
+
+  philosophical-flow:
+    swarm: solo                    # Automata runs single-threaded for validation.
+    steps:
+      - uses: ./actions/library/deficiency-to-microskill
+        with:
+          gap: ${{ inputs.deficiency }}
+          proposed_type: ${{ inputs.proposed_type }}
+          seed_input: ${{ inputs.origin_input_id }}
+        outputs:
+          product_id: string       # The new product's id.
+          product_type: enum       # What Automata decided to emit.
+          path: string             # Where it landed in the tree.
+
+      - uses: ./actions/library/witness-record
+        with:
+          summary: "Automata absorbed deficiency '${{ inputs.deficiency }}' as ${{ steps.philosophical-flow.outputs.product_id }}"
+          verifier: "exists:${{ steps.philosophical-flow.outputs.path }}"
+          narrative_ref: "WITNESS.md#${{ steps.philosophical-flow.outputs.product_id }}"
+
+  notify-shipped:
+    needs: [philosophical-flow]
+    swarm: solo
+    steps:
+      - emit: ${{ steps.philosophical-flow.outputs.product_type }}-shipped
+        payload:
+          product_id: ${{ steps.philosophical-flow.outputs.product_id }}
+          path: ${{ steps.philosophical-flow.outputs.path }}

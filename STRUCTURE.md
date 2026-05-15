@@ -11,6 +11,7 @@ This document is the authoritative answer to "where does X go in this repo?" Eve
 | `skills/` | Agent skills — invokable units of behavior with front-matter | `skills/<category>/<kebab-name>/SKILL.md` |
 | `rules/` | Codified one-paragraph rules with `body.md` + `meta.json` | `rules/library/<kebab-name>/{body.md, meta.json}` |
 | `agents/` | Subagent specifications — fuller agentic behavior than a skill | `agents/<kebab-name>.md` |
+| `actions/` | Composable pipelines — workflows + reusable action units. GitHub Actions analogue; dispatched by Nephew | `actions/workflows/<name>.yml` + `actions/library/<action-id>/{ACTION.md, README.md}` |
 | `templates/` | Reusable scaffolds for plans, migrations, CHANGELOG entries, etc. | `templates/<kebab-name>.{md,sql,json}` |
 | `checklists/` | One-screen lists for routine work moments (pre-commit, pre-merge, etc.) | `checklists/<kebab-name>.md` |
 | `context/` | Project-specific context files (product, vocabulary, brand) | `context/<project>-<topic>.md` |
@@ -102,6 +103,8 @@ When you add a new top-level directory (like `templates/` / `checklists/` / `age
 | A scaffold someone copies + edits | `templates/<name>` |
 | A one-screen list for a routine moment | `checklists/<name>.md` |
 | A fuller agent spec (multi-tool, agentic) | `agents/<name>.md` |
+| A reusable composable workflow step | `actions/library/<action-id>/{ACTION.md, README.md}` |
+| A triggered pipeline Nephew dispatches | `actions/workflows/<name>.yml` |
 | A retrospective from a substantive session | `docs/master-reports/YYYY-MM-DD-<slug>.md` |
 | A specific incident write-up | `docs/pain-journal/YYYY-MM-DD-<slug>.md` |
 | A step-by-step ops guide | `docs/playbooks/<slug>.md` |
@@ -119,4 +122,4 @@ When you add a new top-level directory (like `templates/` / `checklists/` / `age
 
 ## Origin
 
-This structure was formalized after the 2026-05-14 trainer-marketplace session, which surfaced the need for `templates/`, `checklists/`, `agents/`, `docs/master-reports/`, `docs/pain-journal/`, `docs/playbooks/`, and `docs/learning-systems/` as distinct, first-class directories. See [`docs/master-reports/2026-05-14-trainer-marketplace-session.md`](docs/master-reports/2026-05-14-trainer-marketplace-session.md) Section 4.
+This structure was formalized after the 2026-05-14 trainer-marketplace session, which surfaced the need for `templates/`, `checklists/`, `agents/`, `docs/master-reports/`, `docs/pain-journal/`, `docs/playbooks/`, and `docs/learning-systems/` as distinct, first-class directories. The 2026-05-15 Nephew-as-Dealer session added `actions/` (workflows + reusable action library) as the executable pipeline layer Nephew dispatches. See [`docs/master-reports/2026-05-14-trainer-marketplace-session.md`](docs/master-reports/2026-05-14-trainer-marketplace-session.md) Section 4.

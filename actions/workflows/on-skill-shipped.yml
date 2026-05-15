@@ -1,0 +1,37 @@
+name: on-skill-shipped
+description: >-
+  A new skill landed in skills/<family>/<slug>/. Ripple every dependent index
+  in the same workflow run so the catalog stays in sync — SKILL-INDEX.md count
+  + new row, root README.md routing tables, family README catalog row. The
+  rule already exists at RL-0009 (cross-reference-on-skill-add); this is its
+  executable form.
+
+on:
+  skill-shipped:
+    payload:
+      product_id: string
+      path: string                 # skills/<family>/<slug>/SKILL.md
+      family: string               # e.g. marketing, infra, methodology
+
+dispatched_by: nephew
+governed_by:
+  - cross-reference-on-skill-add   # RL-0009
+
+jobs:
+
+  ripple:
+    swarm: solo
+    steps:
+      - run: |
+          # 1. Bump SKILL-INDEX.md count.
+          # 2. Add a row to SKILL-INDEX.md.
+          # 3. Update root README.md (Fast Nav + AI Routing Cheat Sheet).
+          # 4. Update skills/<family>/README.md catalog row.
+          # 5. Update yousirjuan docs if anchored to a platform category.
+        outputs:
+          files_touched: array
+
+      - uses: ./actions/library/witness-record
+        with:
+          summary: "Rippled references for ${{ inputs.product_id }}"
+          verifier: "match:SKILL-INDEX.md:${{ inputs.product_id }}"
