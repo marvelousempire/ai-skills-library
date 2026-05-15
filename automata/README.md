@@ -1,14 +1,8 @@
-# Automata
+# Automata (pointer)
 
-**Living Automation Engine** for the AI Skills Library.
+**Implementation moved to [marvelousempire/automata](https://github.com/marvelousempire/automata).**
 
-Automata turns real-world frustrations into secure, fast, reusable automations using a biological hierarchy and deep philosophical validation.
+This folder is a legacy stub. Do not add Tauri or runtime code here.
 
-## Core Features
-- Intent → Valid Intent → Concept → Notion → Solvency → Micro-slice → Action
-- 3D Anatomical Body, Octopus, and 12-Pad MIDI interfaces
-- Hierarchical AI Agent Teams with multi-level review
-- Secure WireGuard + rsync between Mac and VPS
-- Real-time production updates (HMR-style)
-
-See `PRD.md` for the full specification.
+- Ticket / agent pointer: [`agents/automata-ticket.md`](../agents/automata-ticket.md)
+- Reconstruction skill: [`skills/methodology/automata-reconstructor/`](../skills/methodology/automata-reconstructor/SKILL.md)

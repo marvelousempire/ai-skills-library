@@ -1,1 +1,3 @@
-**Automata – Complete & Detailed Product Requirements Document** ... (full PRD content from previous messages)
+# PRD moved
+
+Full PRD: https://github.com/marvelousempire/automata/blob/main/PRD.md
