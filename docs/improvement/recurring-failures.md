@@ -117,3 +117,21 @@ pkill -f "buildx build|docker build" 2>/dev/null
 ## Pattern
 
 Every failure → preventative file + automated check (where possible) + recovery recipe. Document the failure here so the next agent doesn't repeat it.
+
+---
+
+## N. "Code shipped" treated as "feature shipped" — bug-let-through rate
+
+**Incidents:** 4 separate occurrences in the 2026-05-14 brokerage-make-shim-docker-colima session (port-drift never run during commit; `.dockerignore` excluded `nginx.conf`; Stack-badge close button + ESC + backdrop all failed initially; launchd output written to TCC-blocked `~/Documents/`).
+
+**Symptoms:** Typecheck passes. Lint passes. Commit goes through. User opens the feature → it doesn't work. "I don't see this in my Docker at all." "Did the modal close work?"
+
+**Root cause:** Code-correctness gates (typecheck, lint, syntax) fire before commit; behavior-correctness gates require running the feature. Easy to satisfy the former without the latter, especially when the runtime is broken (Docker Desktop wedged), the path is restricted (TCC), or the bug is framework-specific (AnimatePresence + portal).
+
+**Preventative now in place:**
+- Checklist: [`checklists/post-ship-live-verification.md`](../../checklists/post-ship-live-verification.md) — every meaningful ship gets the 4-row test
+- Pain journal: [`docs/pain-journal/2026-05-14-code-shipped-not-feature-shipped.md`](../pain-journal/2026-05-14-code-shipped-not-feature-shipped.md)
+- Rule (deferred to next session): `rules/library/probe-tool-before-assume/` — verify tooling assumption before relying on it
+
+**Future-me reminder:** if I'm about to write "✓ shipped" in a session summary and I haven't actually RUN the feature end-to-end since writing it, the answer is "✓ committed, live-verification pending."
+

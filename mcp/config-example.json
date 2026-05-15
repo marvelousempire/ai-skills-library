@@ -1,0 +1,10 @@
+{
+  "_comment": "Add this to ~/.claude/claude_desktop_config.json, .cursor/mcp.json, or ~/.claude/settings.json. Update the path to match your local ai-skills-library location.",
+  "mcpServers": {
+    "ai-skills-library": {
+      "command": "python3",
+      "args": ["/Users/YOURUSERNAME/Developer/ai-skills-library/mcp/server.py"],
+      "description": "AI Skills Library — 186 products as callable tools. Search, discover, and invoke skills, rules, and agents directly."
+    }
+  }
+}

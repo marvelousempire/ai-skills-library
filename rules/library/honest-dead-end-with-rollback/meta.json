@@ -1,0 +1,6 @@
+{
+  "id": "honest-dead-end-with-rollback",
+  "description": "When a tool/library/approach doesn't fit, surface the dead-end with a precise gap statement + literal rollback command + one-sentence recommendation. Never bury the gap, never leave inert installs.",
+  "alwaysApply": true,
+  "globs": ["**"]
+}

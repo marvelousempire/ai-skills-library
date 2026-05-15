@@ -42,6 +42,20 @@ Items where we said "skipping for now." Each gap links back to the audit that su
 - [repo] **No automated link checker for cross-references** — `scripts/check-cross-references.sh` is basic.
 - [repo] **No tracked "migration-guides index"** (e.g. `docs/migration-guides-index.md`) — guides are discoverable per-skill but not centrally indexed.
 
+
+### Brokerage make-shim / Docker / Colima session (2026-05-14)
+
+- [brokerage-prototype] **`Modal.tsx` has no exit animation** — stripped during AnimatePresence portal-unmount debug; functionally correct but visually instant close. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **Docker image 77.7 MB, not advertised ~25 MB** — `docs/` ships into image because SPA lazy-loads them; could split runtime docs from EIN/Trust SOPs. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **`src/data/tech-stack.ts` ↔ `STACK.md` drift inevitable** — manual sync only; in-app Stack badge will misrepresent stack as STACK.md evolves. Needs sync-check script. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **`port-drift.sh` v2 lacks target-file-existence check** — pending Flow 1 rows could auto-suggest ✅ if target paths exist in canonical. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **`com.brokerage.port-drift.plist` hardcodes `/Users/nivram`** — won't port between users. Render with `$HOME` at install time. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [system] **Dual-Homebrew problem not resolved** — `/opt/homebrew` unwritable + doesn't recognize macOS 26; routed around with direct binary install but brew still broken. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [dockyard] **`dockyard.config.json` socket pin edited locally, not committed** — left as uncommitted change in `~/Developer/claude-chat-reader/dockyard/`. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **`Modal.tsx` ESC handler uses document-level keydown** — could leak if Modal mounts twice. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [brokerage-prototype] **`port-drift.sh` has no tests** — runs weekly; if PORTING_NOTES.md format changes, parser silently produces wrong reports. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+- [host] **`ruflo-core` + `ruflo-federation` plugins still installed** — never invoked, ~628 always-on tokens/session. Run `claude plugin uninstall`. (audit: docs/improvement/audits/2026-05-14-brokerage-make-shim-docker-colima.md)
+
 ## Closed (footnote each in its audit)
 
 *(none yet — will accumulate as gaps are closed)*
