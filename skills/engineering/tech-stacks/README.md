@@ -4,6 +4,13 @@ Canonical stack docs for shipped repos. **Not** skills — use these when bootst
 
 | Doc | Repo | Stack |
 |-----|------|--------|
-| [automata-desktop.md](./automata-desktop.md) | [marvelousempire/automata](https://github.com/marvelousempire/automata) | Tauri 2 + Vite + React 19 + WebGPU |
+| [automata-desktop.md](./automata-desktop.md) | [automata](https://github.com/marvelousempire/automata) | Tauri 2 + Vite + React 19 + WebGPU |
+| [automata-monorepo.md](./automata-monorepo.md) | automata | core, CLI, watcher, `automation/` tree |
+| [claude-archive-living-ingest.md](./claude-archive-living-ingest.md) | [claude-chat-reader](https://github.com/marvelousempire/claude-chat-reader) | `pnpm watch`, `pnpm harvest` |
+| [folder-watcher-cross-platform.md](./folder-watcher-cross-platform.md) | ccr + automata | fswatch, LaunchAgent, WireGuard/rsync |
+| [nephew-cloak-runtime.md](./nephew-cloak-runtime.md) | [nephew](https://github.com/marvelousempire/nephew) | witness, patrol, dispatch, quarry |
+| [grok-api.md](./grok-api.md) | nephew + ccr | xAI export ingest + reconstruction |
 
-**Quarry note:** Grok chat asked for `engineering/tech-stacks/` at repo root; AISL convention is `skills/engineering/tech-stacks/` (this folder).
+**Simulated → witnessed map:** [QUARRY-SIMULATED-GAPS.md](./QUARRY-SIMULATED-GAPS.md)
+
+**Quarry note:** Grok asked for `engineering/tech-stacks/` at repo root; canonical path is `skills/engineering/tech-stacks/` (this folder).

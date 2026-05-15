@@ -1,8 +1,9 @@
 # Automata (pointer)
 
-**Implementation moved to [marvelousempire/automata](https://github.com/marvelousempire/automata).**
+**Implementation:** [marvelousempire/automata](https://github.com/marvelousempire/automata).  
+**Index:** [INDEX.md](./INDEX.md) · **Tech stacks:** [`skills/engineering/tech-stacks/`](../skills/engineering/tech-stacks/)
 
-This folder is a legacy stub. Do not add Tauri or runtime code here.
+Grok “pushed automata/ here” was simulation — do not add runtime code in this folder.
 
-- Ticket / agent pointer: [`agents/automata-ticket.md`](../agents/automata-ticket.md)
-- Reconstruction skill: [`skills/methodology/automata-reconstructor/`](../skills/methodology/automata-reconstructor/SKILL.md)
+- Ticket: [`agents/automata-ticket.md`](../agents/automata-ticket.md)
+- Reconstruction: [`skills/methodology/automata-reconstructor/`](../skills/methodology/automata-reconstructor/SKILL.md)
