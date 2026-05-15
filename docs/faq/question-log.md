@@ -47,3 +47,13 @@ Format:
 **Outcome:** pending
 
 ---
+
+## Q-0004 | 2026-05-15 | handle-request
+**Raw:** intake-batch Add questions here (one per line). They will be decomposed and logged automatically.
+**Concise:** Intake-batch Add questions (one per line). They decomposed logged automatically
+**Function:** handle-request → SK-0137 (catchall-processor)
+**Session:** intake-batch
+**Routed to:** ?
+**Outcome:** pending
+
+---

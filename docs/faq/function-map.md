@@ -31,3 +31,7 @@ This file is the routing intelligence of the library — it gets smarter every s
   Common forms:
   - "Intake-batch <!-- Add questions below line -->"
 
+**`handle-request`**: 1 use → SK-0137 (catchall-processor)
+  Common forms:
+  - "Intake-batch Add questions (one per line). They decomposed logged automatically"
+
