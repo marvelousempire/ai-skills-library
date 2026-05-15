@@ -34,7 +34,8 @@ description: "Corrective reconstruction when an AI (Grok, ChatGPT, etc.) simulat
 | 4. Curate | `python3 scripts/reconstruct_grok_archive.py curate --root docs/meta-library` (strip simulated commits) |
 | 5. Stubs (optional) | `python3 scripts/reconstruct_grok_archive.py emit-stubs --manifest reconstruction/manifest.json` |
 | 6. Quarry search | `python3 scripts/query_archive.py "Witness AND Bloat" --source grok` |
-| 7. Witness | `git add … && git commit && git push` — one slice per phase |
+| 7. CI verify | `bash scripts/ci/fidelity-check.sh` && `bash scripts/ci/bloat-officer-scan.sh` |
+| 8. Witness | `git add … && git commit && git push` — one slice per phase |
 
 Script lives in **[marvelousempire/nephew](https://github.com/marvelousempire/nephew)** → `scripts/reconstruct_grok_archive.py`.
 
