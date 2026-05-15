@@ -31,8 +31,10 @@ description: "Corrective reconstruction when an AI (Grok, ChatGPT, etc.) simulat
 | 1. Ingest | `cd claude-chat-reader && pnpm ingest ~/Downloads/grok-export.zip` |
 | 2. Inventory | `cd nephew && python3 scripts/reconstruct_grok_archive.py inventory --backend <path-to-prod-grok-backend.json> --out reconstruction` |
 | 3. Meta-library | `python3 scripts/reconstruct_grok_archive.py emit-meta --backend <same> --out docs/meta-library` |
-| 4. Stubs (optional) | `python3 scripts/reconstruct_grok_archive.py emit-stubs --manifest reconstruction/manifest.json` |
-| 5. Witness | `git add … && git commit && git push` — one slice per phase |
+| 4. Curate | `python3 scripts/reconstruct_grok_archive.py curate --root docs/meta-library` (strip simulated commits) |
+| 5. Stubs (optional) | `python3 scripts/reconstruct_grok_archive.py emit-stubs --manifest reconstruction/manifest.json` |
+| 6. Quarry search | `python3 scripts/query_archive.py "Witness AND Bloat" --source grok` |
+| 7. Witness | `git add … && git commit && git push` — one slice per phase |
 
 Script lives in **[marvelousempire/nephew](https://github.com/marvelousempire/nephew)** → `scripts/reconstruct_grok_archive.py`.
 
