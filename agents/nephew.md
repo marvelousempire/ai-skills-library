@@ -221,6 +221,17 @@ When `marvelousempire/nephew` ships its own marketplace with `nephew-core` and `
 5. File a decision record in `docs/improvement/decision-records/` recording the swap
 
 
+
+
+## Upstream tracking — how I know when ruflo changes
+
+Per [`skills/methodology/fork-divergence-tracker/SKILL.md`](../skills/methodology/fork-divergence-tracker/SKILL.md), my repo runs a daily workflow that shadows `ruvnet/ruflo` in two surfaces:
+
+- **Live snapshot** — [`UPSTREAM_TRACKER.md`](https://github.com/marvelousempire/nephew/blob/main/UPSTREAM_TRACKER.md) auto-refreshes every 24h with upstream's latest commit + tag + the divergence counts (upstream-ahead, ours-ahead, files differing).
+- **Curated narrative** — [`WE_DIFFER_HERE.md`](https://github.com/marvelousempire/nephew/blob/main/WE_DIFFER_HERE.md) is the human-maintained ledger of every conscious deviation. Cherry-picks from upstream must respect its rules so nephew-only features (witness chain, Tier B federation, ai-skills-library integration) are never silently lost.
+
+When upstream ships new commits, the workflow opens (or updates) a GitHub issue labeled `upstream-changed` in [`marvelousempire/nephew`](https://github.com/marvelousempire/nephew) with the triage checklist.
+
 ## Related
 
 - **Repository:** [marvelousempire/nephew](https://github.com/marvelousempire/nephew)
