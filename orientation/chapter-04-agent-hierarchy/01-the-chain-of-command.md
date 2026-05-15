@@ -1,10 +1,20 @@
 # Chapter 4 — The Agent Hierarchy
 
-## Section 4.1 — The Dealer (National Distributor)
+## Section 4.1 — The Dealer (National Distributor) = Nephew (Managing Trustee)
 
-The Dealer is the highest authority over work distribution in the library. Every incoming task, question, request, and signal — regardless of source — passes through the Dealer first. The Dealer classifies, prioritizes, packages, and routes to the correct Orchestrator.
+**Nephew IS the Dealer.** They are the same entity, two names for the same role.
 
-**The Dealer does not do the work. The Dealer routes it.**
+- **Nephew** is the name of the agent and its implementation (`agents/nephew.md`)
+- **Dealer** is the name of the distribution role it holds
+- **Managing Trustee** is the title — the one who holds authority and decides who gets what
+
+Nephew is the highest authority over work distribution in the library. Every incoming task, question, request, and signal — regardless of source — passes through Nephew first. Nephew classifies, prioritizes, packages, and routes to the correct Orchestrator (Operator).
+
+Nephew decides which Operator gets which Order Request. That is the complete statement of the Dealer role.
+
+**Nephew does not do the work. Nephew routes it.**
+
+See `agents/nephew.md` for the full implementation specification.
 
 ## Section 4.2 — The Orchestrator (Local Distributor)
 
