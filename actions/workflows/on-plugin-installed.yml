@@ -1,0 +1,66 @@
+name: on-plugin-installed
+description: >-
+  A new Claude Code plugin (or any external dependency that backs an agent's
+  capabilities) was installed. Per the plugin-economy rule, this is a
+  document-or-uninstall fork — there is no "leave it and figure it out
+  later" branch.
+
+on:
+  plugin-installed:
+    payload:
+      plugin_id: string            # e.g. ruflo-core@ruflo
+      install_command: string      # How it was installed.
+      backs_agent: string?         # Optional — the agent that depends on it.
+
+dispatched_by: nephew
+governed_by:
+  - plugin-economy
+
+jobs:
+
+  token-cost-probe:
+    swarm: solo
+    steps:
+      - run: |
+          # claude plugin details ${{ inputs.plugin_id }}
+          # Parse "Projected token cost — Always-on: ~N tok"
+        outputs:
+          always_on_tokens: number
+
+  branch-on-decision:
+    needs: [token-cost-probe]
+    swarm: solo
+    steps:
+      - ask: nephew
+        prompt: |
+          Plugin ${{ inputs.plugin_id }} was installed, costing ~${{ steps.token-cost-probe.outputs.always_on_tokens }} always-on tokens per session. Which path?
+          A. DOCUMENT — add to ${{ inputs.backs_agent }} agent spec + STACK.md
+          B. UNINSTALL — `claude plugin uninstall ${{ inputs.plugin_id }}`
+        outputs:
+          decision: enum            # document | uninstall
+
+  document:
+    needs: [branch-on-decision]
+    if: ${{ steps.branch-on-decision.outputs.decision == 'document' }}
+    swarm: solo
+    steps:
+      - run: |
+          # Edit agents/${{ inputs.backs_agent }}.md → "My infrastructure" section
+          # Edit STACK.md → add row
+        outputs:
+          files_touched: array
+      - uses: ./actions/library/witness-record
+        with:
+          summary: "Documented plugin ${{ inputs.plugin_id }} (${{ steps.token-cost-probe.outputs.always_on_tokens }} tok always-on)"
+
+  uninstall:
+    needs: [branch-on-decision]
+    if: ${{ steps.branch-on-decision.outputs.decision == 'uninstall' }}
+    swarm: solo
+    steps:
+      - run: claude plugin uninstall ${{ inputs.plugin_id }}
+      - run: |
+          # Note the removal in docs/improvement/decision-records/
+      - uses: ./actions/library/witness-record
+        with:
+          summary: "Uninstalled plugin ${{ inputs.plugin_id }} (silent-install policy violation)"

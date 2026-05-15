@@ -1,0 +1,75 @@
+name: on-input-arrives
+description: >-
+  Nephew's canonical entry workflow. Every input that lands at the front door
+  fires this workflow. Step 1 is always an inventory check: does the library
+  already have a rule, skill, or agent that handles this? If yes, route. If
+  no, hand the gap to Automata as a create-skill seed.
+
+on:
+  input-arrives:
+    payload:
+      input_id: string         # Stable identifier for this input.
+      raw_text: string         # The user's words, verbatim.
+      source: enum             # claude-code | cursor | api | shell | other
+      context_repo: string?    # Optional — the repo the input arrived in.
+
+dispatched_by: nephew
+governed_by:
+  - add-agent-to-skills-library    # RL-0046 — pointer-not-replica
+  - cross-reference-on-skill-add   # RL-0009 — ripple on add
+  - plugin-economy                 # RL — installed deps are documented
+
+jobs:
+
+  classify:
+    swarm: solo                    # No fan-out; Nephew alone classifies.
+    steps:
+      - uses: ./actions/library/inventory-check
+        with:
+          query: ${{ inputs.raw_text }}
+          surfaces: [rules, skills, agents, actions/library]
+        outputs:
+          match: bool
+          handler: string          # The matched product's id, when match=true.
+          handler_type: enum       # rule | skill | agent | action
+          deficiency_hint: string? # When match=false, why.
+
+  route-to-handler:
+    needs: [classify]
+    if: ${{ classify.outputs.match == true }}
+    swarm: piranha
+    steps:
+      - run: invoke ${{ classify.outputs.handler_type }}:${{ classify.outputs.handler }}
+        with:
+          input_id: ${{ inputs.input_id }}
+          raw_text: ${{ inputs.raw_text }}
+      - uses: ./actions/library/inspect-slice
+        with:
+          slice_id: ${{ steps.run.outputs.slice_id }}
+      - uses: ./actions/library/witness-record
+        with:
+          summary: "Routed ${{ inputs.input_id }} to ${{ classify.outputs.handler }}"
+          verifier: "exists:${{ classify.outputs.handler_type }}/${{ classify.outputs.handler }}"
+
+  create-on-miss:
+    needs: [classify]
+    if: ${{ classify.outputs.match == false }}
+    swarm: solo
+    steps:
+      - uses: ./actions/library/deficiency-to-microskill
+        with:
+          gap: ${{ classify.outputs.deficiency_hint }}
+          seed_input: ${{ inputs.raw_text }}
+        outputs:
+          product_id: string       # The new skill / rule / action id Automata emitted.
+      - uses: ./actions/library/witness-record
+        with:
+          summary: "Created ${{ steps.product.outputs.product_id }} from input ${{ inputs.input_id }}"
+          verifier: "exists:skills/${{ steps.product.outputs.product_id }} OR exists:rules/library/${{ steps.product.outputs.product_id }} OR exists:actions/library/${{ steps.product.outputs.product_id }}"
+      # Re-fire the original input now that capability exists.
+      - emit: input-arrives
+        payload:
+          input_id: ${{ inputs.input_id }}-retry
+          raw_text: ${{ inputs.raw_text }}
+          source: ${{ inputs.source }}
+          context_repo: ${{ inputs.context_repo }}
