@@ -209,6 +209,7 @@ Delivery:
 skills/
 ├── engineering/             Engineering patterns and tools
 │   ├── architecture/        Structural system decisions (bones, load-bearing patterns)
+│   ├── tech-stacks/         Witnessed product stacks (Tauri, Vite, etc.) — reference docs
 │   └── [flat]               Implementation skills, workflow skills, tooling skills
 ├── visual/
 │   └── design/
