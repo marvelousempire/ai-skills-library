@@ -2,8 +2,8 @@
 # finalize-skills-index.sh
 # ─────────────────────────────────────────────────────────────────────────────
 # Maintenance script for the ai-skills-library repo.
-# Scans skills/ for SKILL.md files, counts them, inserts any missing index
-# rows into SKILL-INDEX.md, and bumps the total count.
+# Scans skills/ for canonical uppercase SKILL.md files and syncs the top-level
+# count in SKILL-INDEX.md. This matches the pre-push hook.
 #
 # Idempotent — safe to run multiple times.
 # Self-testing — prints exactly what changed.
@@ -35,37 +35,8 @@ if [ "${1:-}" = "--check" ]; then CHECK_ONLY=1; fi
 bold "→ ai-skills-library: finalizing SKILL-INDEX.md"
 echo ""
 
-# ── Auto-detect all skills and their rows ─────────────────────────────────
+# ── Auto-detect canonical skills ──────────────────────────────────────────
 total_skill_count=$(find "$REPO_ROOT/skills" -name 'SKILL.md' 2>/dev/null | wc -l | tr -d ' ')
-
-# Build the expected row for each skill by reading its frontmatter
-declare -A SKILL_ROWS
-
-while IFS= read -r skill_file; do
-  name=$(grep '^name:' "$skill_file" | head -1 | sed 's/name: *//' | tr -d '"')
-  desc=$(awk '/^description:/{p=1; next} p && /^[a-z]/{p=0} p{print}' "$skill_file" \
-         | head -1 | sed 's/^ *//;s/ *$//')
-  rel_path=$(dirname "$skill_file" | sed "s|$REPO_ROOT/||")
-  folder=$(basename "$(dirname "$skill_file")")
-
-  if [ -z "$name" ]; then continue; fi
-
-  # Only generate rows for skills that aren't already indexed
-  if ! grep -q "\*\*${name}\*\*" "$INDEX"; then
-    # Determine the tool type from the path
-    if echo "$rel_path" | grep -q "marketing"; then
-      tool="Cursor + Claude"
-    elif echo "$rel_path" | grep -q "external"; then
-      tool="Generated bridge"
-    else
-      tool="Claude Code + Cursor"
-    fi
-
-    SKILL_ROWS["$name"]="| **${name}** | ${tool} | [\`${rel_path}/\`](${rel_path}/) | ${desc} | \"Use **${name}**.\" | — |"
-  fi
-done < <(find "$REPO_ROOT/skills" -name 'SKILL.md' | sort)
-
-missing_count=${#SKILL_ROWS[@]}
 
 # Check current count line
 count_current=$(grep -oE '^- \*\*[0-9]+\*\* total' "$INDEX" | grep -oE '[0-9]+' || echo "0")
@@ -76,11 +47,6 @@ dim "  Repo root:         $REPO_ROOT"
 dim "  Index:             $INDEX"
 dim "  Skills on disk:    $total_skill_count"
 dim "  Index count shows: $count_current"
-if [ $missing_count -eq 0 ]; then
-  green "  ✓ All rows present"
-else
-  echo "  • $missing_count row(s) missing"
-fi
 if [ $count_correct -eq 1 ]; then
   green "  ✓ Count already $total_skill_count"
 else
@@ -88,7 +54,7 @@ else
 fi
 echo ""
 
-if [ $missing_count -eq 0 ] && [ $count_correct -eq 1 ]; then
+if [ $count_correct -eq 1 ]; then
   green "Nothing to do. SKILL-INDEX is up to date."
   exit 0
 fi
@@ -109,23 +75,6 @@ if [ $count_correct -eq 0 ]; then
   rm -f "${INDEX}.tmp"
   green "  ✓ Count updated to $total_skill_count"
 fi
-
-# Insert missing rows — use self-hosted-git as the anchor
-ANCHOR='self-hosted-git'
-if ! grep -q "$ANCHOR" "$INDEX"; then
-  # Fallback: just append rows before the last | line in the table
-  ANCHOR=$(grep '^\| \*\*' "$INDEX" | tail -1 | cut -d'|' -f2 | tr -d ' *')
-fi
-
-for name in "${!SKILL_ROWS[@]}"; do
-  row="${SKILL_ROWS[$name]}"
-  awk -v anchor="$ANCHOR" -v row="$row" '
-    { print }
-    $0 ~ anchor && !inserted { print row; inserted=1 }
-  ' "$INDEX" > "${INDEX}.new"
-  mv "${INDEX}.new" "$INDEX"
-  green "  ✓ Inserted row for $name"
-done
 
 # Validate
 echo ""
