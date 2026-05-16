@@ -6,7 +6,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **157** total `SKILL.md` files under [`skills/`](skills/).
+- **158** total `SKILL.md` files under [`skills/`](skills/).
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
@@ -15,6 +15,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | **copy-language-audit** | Cursor + Claude | [`skills/marketing/copy-language-audit/`](skills/marketing/copy-language-audit/) | Audit copy for binding/contractual language (integrations, partners) → replace with compatibility/accommodate vocabulary | "Use **copy-language-audit**." | copy-editing, copywriting |
 | **session-retrospective** | Claude Code | [`skills/engineering/session-retrospective/`](skills/engineering/session-retrospective/) | Extract rules, skills, docs, and context files from a completed work session and file them into the library | "Use **session-retrospective**." | create-rule, create-skill |
 | **virtual-list-framer-motion** | Cursor + Claude | [`skills/engineering/virtual-list-framer-motion/`](skills/engineering/virtual-list-framer-motion/) | TanStack Virtual rows blank/stacked because Motion overwrites `translateY`; claude-chat-reader Docker dev port | "Use **virtual-list-framer-motion**." | ui-ux-pro-max |
+| **full-viewport-responsive-dashboard-shell** | Cursor + Claude | [`skills/engineering/tech-stacks/dashboards/`](skills/engineering/tech-stacks/dashboards/) | Browser dashboard shells, operator surfaces, responsive dashboard grids, sidebars, terminals, and wall / TV viewport layouts | "Use **full-viewport-responsive-dashboard-shell**." | ui-ux-pro-max |
 | **ui-ux-pro-max** | Cursor | [`skills/visual/design/ui-ux-pro-max/`](skills/visual/design/ui-ux-pro-max/) | Design, review, improve UI/UX; design systems | “Follow **ui-ux-pro-max** workflow.” | copywriting, page-cro |
 | **ascii-flow-diagrams** | Claude Code + Cursor | [`skills/visual/diagrams/ascii-flow-diagrams/`](skills/visual/diagrams/ascii-flow-diagrams/) | User asks for a visual / flow / architecture / "how does X talk to Y" | Auto (`alwaysApply` rule); or “Use **ascii-flow-diagrams**.” | `docs/system-flow.md` |
 | **seeme** | Node CLI | [`skills/visual/diagrams/seeme/`](skills/visual/diagrams/seeme/) | Generate diagrams from any text / file / idea — Ollama default, multi-provider | `seeme "..."` or “Use **seeme** on this.” | ascii-flow-diagrams |
