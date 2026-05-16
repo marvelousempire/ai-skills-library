@@ -12,6 +12,9 @@ def catalog_root(rel: str) -> Path:
 
 def write_catalog(rel: str, title: str, upstream_line: str) -> None:
     root = catalog_root(rel)
+    if not root.exists():
+        print(f"skip missing catalog root: {root.relative_to(ROOT)}")
+        return
     dirs = sorted(p for p in root.iterdir() if p.is_dir() and (p / "SKILL.md").exists())
     lines = [
         f"# {title}",

@@ -70,6 +70,17 @@ description: {desc_yaml}
 | **Skill packaging** | **Generated** in [`skills/external/{skill_name}/`](.) — {skill_origin} |
 | **Catalog** | [`../SKILL-CATALOG.md`](../SKILL-CATALOG.md) |
 
+## Bridge skill definition
+
+This is a **bridge skill**: a thin AI Skills Library routing file that teaches
+agents when and how to use the upstream product without copying the upstream
+product source into this repo.
+
+- **Artifact:** `{repo}` is the real product repository.
+- **Bridge:** `skills/external/{skill_name}/SKILL.md` is the agent playbook.
+- **Source of truth:** install, API, license, and release details stay upstream.
+- **Do not vendor:** this file should point to the product, not duplicate it.
+
 ## When to use this skill
 
 {triggers_md}

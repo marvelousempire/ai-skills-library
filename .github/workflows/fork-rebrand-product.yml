@@ -1,0 +1,83 @@
+name: Fork rebrand product skill
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "skills/engineering/fork-rebrand-product/**"
+      - ".github/workflows/fork-rebrand-product.yml"
+      - "scripts/validate-skill-frontmatter.py"
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "skills/engineering/fork-rebrand-product/**"
+      - ".github/workflows/fork-rebrand-product.yml"
+      - "scripts/validate-skill-frontmatter.py"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate skill frontmatter
+        run: python3 scripts/validate-skill-frontmatter.py
+
+      - name: Compile rebrand helper scripts
+        run: python3 -m py_compile skills/engineering/fork-rebrand-product/scripts/*.py
+
+      - name: Smoke test rebrand workflow scripts
+        run: |
+          set -euo pipefail
+          fixture="$(mktemp -d)"
+          mkdir -p "$fixture/.claude-plugin" "$fixture/docs"
+          cat > "$fixture/package.json" <<'JSON'
+          {
+            "name": "claude-mem",
+            "description": "Claude-mem package",
+            "bin": {
+              "claude-mem": "./dist/npx-cli/index.js"
+            }
+          }
+          JSON
+          cat > "$fixture/.claude-plugin/plugin.json" <<'JSON'
+          {
+            "name": "claude-mem",
+            "description": "Claude-mem plugin",
+            "interface": {
+              "displayName": "Claude-Mem"
+            }
+          }
+          JSON
+          cat > "$fixture/README.md" <<'MD'
+          # Claude-Mem
+
+          Use claude-mem with CLAUDE_MEM_DATA_DIR.
+          MD
+          cat > "$fixture/NOTICE.md" <<'MD'
+          Forked from thedotmack/claude-mem.
+          MD
+
+          python3 skills/engineering/fork-rebrand-product/scripts/rebrand_text.py \
+            --root "$fixture" \
+            --old-name claude-mem \
+            --new-name membadat \
+            --display-name Membadat \
+            --old-env-prefix CLAUDE_MEM \
+            --new-env-prefix MEMBADAT
+
+          python3 skills/engineering/fork-rebrand-product/scripts/normalize_json_metadata.py \
+            --root "$fixture" \
+            --new-name membadat \
+            --display-name Membadat \
+            --target-repo marvelousempire/membadat \
+            --maintainer marvelousempire \
+            --upstream-author thedotmack
+
+          python3 skills/engineering/fork-rebrand-product/scripts/verify_rebrand.py \
+            --root "$fixture" \
+            --old-name claude-mem \
+            --new-name membadat \
+            --allowed-old-path NOTICE.md \
+            --require-path package.json \
+            --require-path README.md

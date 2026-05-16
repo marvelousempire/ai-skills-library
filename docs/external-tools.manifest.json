@@ -16,7 +16,7 @@
         "LLM scraping pipeline",
         "structured data from websites"
       ],
-      "install_pointer": "Follow https://github.com/ScrapeGraphAI/Scrapegraph-ai \u2014 package install, API keys, and examples in upstream README.",
+      "install_pointer": "Follow https://github.com/ScrapeGraphAI/Scrapegraph-ai — package install, API keys, and examples in upstream README.",
       "compliance_notes": [
         "Respect robots.txt, site terms, and applicable law; do not bypass paywalls or authentication without authorization.",
         "Rate-limit requests; prefer official APIs when they exist."
@@ -36,8 +36,29 @@
         "remember across Claude sessions",
         "session memory plugin"
       ],
-      "install_pointer": "Install as a Claude Code plugin per https://github.com/thedotmack/claude-mem \u2014 upstream may ship its own skill or plugin metadata.",
+      "install_pointer": "Install as a Claude Code plugin per https://github.com/thedotmack/claude-mem — upstream may ship its own skill or plugin metadata.",
       "compliance_notes": [
+        "Clarify what is stored locally vs sent to models; follow org policy for code and secrets in memory."
+      ]
+    },
+    {
+      "id": "membadat",
+      "display_name": "Membadat",
+      "repo": "marvelousempire/membadat",
+      "section": "Agents, memory & orchestration",
+      "artifact_type": "plugin",
+      "upstream_publishes_skill": false,
+      "summary": "Membadat is SYNTHIA's memory tissue: a branded claude-mem fork that captures sessions, compresses memories, and injects recall into future coding sessions.",
+      "triggers": [
+        "Membadat",
+        "SYNTHIA memory tissue",
+        "Nephew memory",
+        "memory tissue inside the brain",
+        "session memory plugin"
+      ],
+      "install_pointer": "Install from https://github.com/marvelousempire/membadat after the fork/rebrand verification is complete; upstream attribution remains in NOTICE.md.",
+      "compliance_notes": [
+        "Preserve Apache-2.0 upstream attribution from thedotmack/claude-mem.",
         "Clarify what is stored locally vs sent to models; follow org policy for code and secrets in memory."
       ]
     },
@@ -66,7 +87,7 @@
       "section": "Agents, memory & orchestration",
       "artifact_type": "platform",
       "upstream_publishes_skill": false,
-      "summary": "Nephew \u2014 the Orchestrator Agent by Avery Gooman. Multi-agent orchestration for Claude Code (forked from Ruflo) with an Ed25519-signed witness manifest (ADR-103), Tier B cross-repo federation, WireGuard-only mesh defaults, and per-repo `.mcp.json` set-and-forget integration.",
+      "summary": "Nephew — the Orchestrator Agent by Avery Gooman. Multi-agent orchestration for Claude Code (forked from Ruflo) with an Ed25519-signed witness manifest (ADR-103), Tier B cross-repo federation, WireGuard-only mesh defaults, and per-repo `.mcp.json` set-and-forget integration.",
       "triggers": [
         "Nephew",
         "Orchestrator Agent",
@@ -78,7 +99,7 @@
       ],
       "install_pointer": "Set-and-forget: drop the project .mcp.json at https://github.com/marvelousempire/nephew (engine currently shims to upstream ruflo until nephew@latest is published to npm). Full runbook in the consuming repo's NEPHEW.md (see family-office-platform).",
       "compliance_notes": [
-        "Private repo during bring-up \u2014 flip to public before broad adoption.",
+        "Private repo during bring-up — flip to public before broad adoption.",
         "Ed25519 private key lives on the operator's machine; back up to a password manager.",
         "Federation transport default is WireGuard; do not import tailnet patterns without explicit opt-in."
       ]
@@ -115,7 +136,7 @@
         "Open Generative AI",
         "local image video generation stack"
       ],
-      "install_pointer": "Clone and configure per https://github.com/Anil-matcha/Open-Generative-AI \u2014 model keys and content policies are upstream.",
+      "install_pointer": "Clone and configure per https://github.com/Anil-matcha/Open-Generative-AI — model keys and content policies are upstream.",
       "compliance_notes": [
         "Generated media may be restricted by law, platform rules, and model licenses; the operator is responsible for policy."
       ]
@@ -224,7 +245,7 @@
         "C TTS Voxtral",
         "embedded Voxtral speech"
       ],
-      "install_pointer": "Build from https://github.com/mudler/voxtral-tts.c \u2014 check upstream for model weights and licensing.",
+      "install_pointer": "Build from https://github.com/mudler/voxtral-tts.c — check upstream for model weights and licensing.",
       "compliance_notes": []
     }
   ]

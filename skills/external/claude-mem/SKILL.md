@@ -1,12 +1,5 @@
 ---
 name: claude-mem
-keywords: [integrate-claude, check-mem, file-claude]
-goal: Deliver claude mem output correctly and completely.
-hash: f307e99
-relations: []
-before: []
-governed_by: [global]
-meta: dynamic
 description: "claude-mem \u2014 Claude Code plugin that captures session work, compresses it, and injects context into later sessions. Use when the user mentions or needs: long-term memory for Claude Code; claude-mem; remember across Claude sessions; session memory plugin."
 ---
 
@@ -18,6 +11,17 @@ description: "claude-mem \u2014 Claude Code plugin that captures session work, c
 | **Artifact type** | **plugin** (tool / product — not shipped inside this repo) |
 | **Skill packaging** | **Generated** in [`skills/external/claude-mem/`](.) — Upstream may publish plugin or skill metadata — prefer upstream for install truth. |
 | **Catalog** | [`../SKILL-CATALOG.md`](../SKILL-CATALOG.md) |
+
+## Bridge skill definition
+
+This is a **bridge skill**: a thin AI Skills Library routing file that teaches
+agents when and how to use the upstream product without copying the upstream
+product source into this repo.
+
+- **Artifact:** `thedotmack/claude-mem` is the real product repository.
+- **Bridge:** `skills/external/claude-mem/SKILL.md` is the agent playbook.
+- **Source of truth:** install, API, license, and release details stay upstream.
+- **Do not vendor:** this file should point to the product, not duplicate it.
 
 ## When to use this skill
 

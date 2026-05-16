@@ -19,6 +19,11 @@ When more than one skill matches your wording, the model **does not** run a guar
 
 In a codebase, add `.cursor/rules/skills-precedence.mdc` with project-specific overrides.
 
+## Engineering rebrands
+
+- **Repo/product fork:** Use **fork-rebrand-product** when the work includes a fork, package identity, repo remotes, attribution, compatibility fallbacks, docs, and verification.
+- **Local token cleanup:** Use **bulk-rename-tokens** when the work is only a scoped string/path rename inside an existing product boundary.
+
 ## Marketing bundle (coreyhaines31/marketingskills)
 
 - **Foundation:** `product-marketing-context` — run or refresh before big marketing passes when upstream skills chain context.

@@ -10,6 +10,7 @@ Vendored from `~/.cursor/skills-cursor/`.
 | **create-rule** | [create-rule/SKILL.md](create-rule/SKILL.md) |
 | **create-skill** | [create-skill/SKILL.md](create-skill/SKILL.md) |
 | **create-subagent** | [create-subagent/SKILL.md](create-subagent/SKILL.md) |
+| **fork-rebrand-product** | [fork-rebrand-product/SKILL.md](fork-rebrand-product/SKILL.md) |
 | **migrate-to-skills** | [migrate-to-skills/SKILL.md](migrate-to-skills/SKILL.md) |
 | **sdk** | [sdk/SKILL.md](sdk/SKILL.md) |
 | **shell** | [shell/SKILL.md](shell/SKILL.md) |

@@ -6,7 +6,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **159** total `SKILL.md` files under [`skills/`](skills/).
+- **164** total `SKILL.md` files under [`skills/`](skills/).
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
@@ -14,6 +14,8 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | **Marketing** (42) | Cursor + Claude | [`skills/marketing/`](skills/marketing/) · [catalog](skills/marketing/SKILL-CATALOG.md) | CRO, SEO, copy, ads, ASO, email, research, launch… | **`product-marketing-context`** first → name skill (e.g. **page-cro**) | ui-ux-pro-max, canvas |
 | **copy-language-audit** | Cursor + Claude | [`skills/marketing/copy-language-audit/`](skills/marketing/copy-language-audit/) | Audit copy for binding/contractual language (integrations, partners) → replace with compatibility/accommodate vocabulary | "Use **copy-language-audit**." | copy-editing, copywriting |
 | **session-retrospective** | Claude Code | [`skills/engineering/session-retrospective/`](skills/engineering/session-retrospective/) | Extract rules, skills, docs, and context files from a completed work session and file them into the library | "Use **session-retrospective**." | create-rule, create-skill |
+| **fork-rebrand-product** | Cursor + Claude | [`skills/engineering/fork-rebrand-product/`](skills/engineering/fork-rebrand-product/) | Fork and rebrand an upstream product repo with scripts, attribution, compatibility fallbacks, docs, and stale-name verification | "Use **fork-rebrand-product**." | bulk-rename-tokens, decision-records, verification-gates |
+| **membadat** bridge skill | Cursor + Claude | [`skills/external/membadat/`](skills/external/membadat/) · [external catalog](skills/external/SKILL-CATALOG.md) | Route agents to the Membadat upstream plugin without vendoring the product source; use for SYNTHIA memory tissue, Nephew memory, and session memory plugin work | "Use **membadat**." | fork-rebrand-product, claude-mem |
 | **prd-journal-page-splitter** | Cursor + Claude | [`skills/methodology/prd-journal-page-splitter/`](skills/methodology/prd-journal-page-splitter/) | Parse PRD Journals, chat exports, and long planning docs into page/topic folders with one markdown file per section | "Use **prd-journal-page-splitter**." | ai-chat-archive-reconstruction, automata-reconstructor |
 | **virtual-list-framer-motion** | Cursor + Claude | [`skills/engineering/virtual-list-framer-motion/`](skills/engineering/virtual-list-framer-motion/) | TanStack Virtual rows blank/stacked because Motion overwrites `translateY`; claude-chat-reader Docker dev port | "Use **virtual-list-framer-motion**." | ui-ux-pro-max |
 | **full-viewport-responsive-dashboard-shell** | Cursor + Claude | [`skills/engineering/full-viewport-responsive-dashboard-shell/`](skills/engineering/full-viewport-responsive-dashboard-shell/) | Browser dashboard shells, operator surfaces, responsive dashboard grids, sidebars, terminals, and wall / TV viewport layouts | "Use **full-viewport-responsive-dashboard-shell**." | ui-ux-pro-max |
@@ -46,7 +48,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | **worktree-janitor** | Claude Code | [`skills/mobile/ios/worktree-janitor/`](skills/mobile/ios/worktree-janitor/) | Audit and remove stale merged worktrees; reclaim disk before builds | "Use **worktree-janitor**." | ios-build-doctor |
 | **swift-api-migration** | Claude Code + Cursor | [`skills/mobile/ios/swift-api-migration/`](skills/mobile/ios/swift-api-migration/) | When a Swift API changes, find all callers and update every site in the same PR | "Use **swift-api-migration**." | ios-build-doctor |
 | **Canonical rules** (Cursor + Claude codegen) | Cursor + Claude | [`rules/README.md`](rules/README.md) · [`docs/rules-pipeline.md`](docs/rules-pipeline.md) | Repo-wide discipline; generate into `.cursor/rules` + `.claude/rules` | Run `./scripts/sync-rules-into-repo.sh` | — |
-| **External tools** (generated bridges, 11) | Cursor + Claude | [`skills/external/`](skills/external/) · [catalog](skills/external/SKILL-CATALOG.md) · [index](docs/related-github-projects.md) | Third-party GitHub tools (scraping, voice, MCP, local Claude Code…) | Name the skill id (e.g. **kokoro-fastapi**, **blender-mcp**) or open the index table | varies by tool |
+| **External tools** (generated bridges, 13) | Cursor + Claude | [`skills/external/`](skills/external/) · [catalog](skills/external/SKILL-CATALOG.md) · [index](docs/related-github-projects.md) | Third-party GitHub tools (scraping, voice, MCP, local Claude Code…) | Name the skill id (e.g. **kokoro-fastapi**, **blender-mcp**) or open the index table | varies by tool |
 
 ## Product context (not a skill folder)
 

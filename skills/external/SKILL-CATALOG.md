@@ -9,6 +9,8 @@ Each `SKILL.md` is **generated** from the manifest (bridge docs; upstream repos 
 | **claude-mem** | [claude-mem/SKILL.md](claude-mem/SKILL.md) |
 | **kokoro-fastapi** | [kokoro-fastapi/SKILL.md](kokoro-fastapi/SKILL.md) |
 | **ltx-2** | [ltx-2/SKILL.md](ltx-2/SKILL.md) |
+| **membadat** | [membadat/SKILL.md](membadat/SKILL.md) |
+| **nephew** | [nephew/SKILL.md](nephew/SKILL.md) |
 | **open-generative-ai** | [open-generative-ai/SKILL.md](open-generative-ai/SKILL.md) |
 | **ruflo** | [ruflo/SKILL.md](ruflo/SKILL.md) |
 | **scrapegraph-ai** | [scrapegraph-ai/SKILL.md](scrapegraph-ai/SKILL.md) |
