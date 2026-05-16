@@ -39,4 +39,4 @@ Then manually resize the dashboard from phone width to fullscreen. Horizontal ov
 
 For the full checklist and reference implementation, read:
 
-- [`full-viewport-responsive-dashboard-shell.md`](./full-viewport-responsive-dashboard-shell.md)
+- [`../tech-stacks/dashboards/full-viewport-responsive-dashboard-shell.md`](../tech-stacks/dashboards/full-viewport-responsive-dashboard-shell.md)

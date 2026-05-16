@@ -6,5 +6,5 @@ Layouts and responsiveness for **browser dashboards** built with the stacks inde
 
 | Doc | Scope |
 |-----|--------|
-| [SKILL.md](./SKILL.md) | Discoverable Cursor / Claude skill entrypoint |
+| [full-viewport-responsive-dashboard-shell skill](../../full-viewport-responsive-dashboard-shell/SKILL.md) | Discoverable Cursor / Claude skill entrypoint |
 | [full-viewport-responsive-dashboard-shell](./full-viewport-responsive-dashboard-shell.md) | Shell + grid checklist: full viewport from phone to wall / TV |
