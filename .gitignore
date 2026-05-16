@@ -1,5 +1,6 @@
 .DS_Store
 vendor/**/.DS_Store
+.claude/
 
 # Python cruft from vendored UI Pro
 __pycache__/
