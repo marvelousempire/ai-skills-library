@@ -1,6 +1,7 @@
 # Methodology skills
 
-How we work, not what we build. 12 methodology skills extracted from the 2026-05-14 sovereign-stack session, codifying the patterns that produced clean shipments.
+How we work, not what we build. Methodology skills codify the patterns that
+produce clean shipments and reusable knowledge artifacts.
 
 | Skill | What it codifies |
 |---|---|
@@ -16,6 +17,7 @@ How we work, not what we build. 12 methodology skills extracted from the 2026-05
 | [`graceful-degradation/`](graceful-degradation/) | "Down → pill, not crash" |
 | [`migration-guide-format/`](migration-guide-format/) | "From X to Y" guides |
 | [`doctor-script-pattern/`](doctor-script-pattern/) | Bash doctor scripts with color codes |
+| [`prd-journal-page-splitter/`](prd-journal-page-splitter/) | Split long PRD Journals into page folders and section files |
 
 ## Why a methodology family
 
@@ -23,4 +25,5 @@ The repo is a master report / study / training / improvement / filing system. Th
 
 ## Status
 
-All 12 ship as **stubs with full frontmatter + intro** in this commit. Bodies flesh out over future sessions as we use each pattern more. The stubs are tracked so future agents know the name exists and can complete them.
+Methodology skills are living operating methods. Prefer extending these skills
+over copying one-off instructions into consumer repos.
