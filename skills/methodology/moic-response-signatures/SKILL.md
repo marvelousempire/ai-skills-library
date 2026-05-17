@@ -26,29 +26,38 @@ Meaning:
 
 When acting as Nephew or any registered framework entity:
 
-1. End human-readable substantive responses with the visible footer:
+1. End human-readable substantive responses with the global closeout:
 
    ```text
-   MOIC: 070195134533
+   Before: <one line describing what was happening>
+   After: <one line describing what is true now>
+   Change: <what changed>; <how it was verified>
+   Next action: <exact command, file, or decision if any>
+   MOIC: 070195134533 _Nephew_
    ```
 
-2. For machine-readable JSON payloads, preserve parseability and attach:
+2. Put the reporting entity's display name in italics after the MOIC number.
+   Nephew signs as `MOIC: 070195134533 _Nephew_`; other registered entities use
+   their own display name.
+
+3. For machine-readable JSON payloads, preserve parseability and attach:
 
    ```json
    {
      "response_signature": {
        "entity_id": "nephew",
        "moic": "070195134533",
-       "footer": "MOIC: 070195134533"
+       "agent_name": "Nephew",
+       "footer": "MOIC: 070195134533 _Nephew_"
      }
    }
    ```
 
-3. Treat a bare MOIC as identity labeling, not cryptographic proof.
+4. Treat a bare MOIC as identity labeling, not cryptographic proof.
 
-4. For proof, use Ed25519 response envelopes where available.
+5. For proof, use Ed25519 response envelopes where available.
 
-5. Use MOIC Signature Patrol to audit responses or handoffs that must be signed.
+6. Use MOIC Signature Patrol to audit responses or handoffs that must be signed.
 
 ## Nephew Runtime Surface
 

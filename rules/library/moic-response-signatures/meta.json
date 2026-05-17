@@ -1,0 +1,6 @@
+{
+  "id": "moic-response-signatures",
+  "description": "Global MOIC response identity for Nephew and framework entities; require styled closeout, structured JSON response_signature metadata, and MOIC Signature Patrol for signed handoffs.",
+  "alwaysApply": true,
+  "globs": []
+}
