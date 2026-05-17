@@ -14,7 +14,7 @@ Every piece of work that the library produces needs three things to be real:
 |---|---|---|
 | **Someone to do the cognitive work** — research the codebase, write the code, audit the diff, sign the manifest, federate to another machine | **Workers** | *Who's doing the thinking?* |
 | **Someone to review and approve it** — catch gaps before merge, audit standards, decide whether it ships, admit new conventions | **Process** | *Who's signing off?* |
-| **Specific machinery to make it durable** — register the plan, run the migration, run the ship pipeline, refresh the index | **Specialists** | *What automated tooling executes the narrow, well-defined steps?* |
+| **Specific machinery to make it durable** — register the plan, run the migration, run the ship pipeline, refresh the index, verify signature drift | **Specialists** | *What automated tooling executes the narrow, well-defined steps?* |
 
 Those three needs map to nephew's three teams. Not three flavors of the same thing — **three layers that work together on every substantive change.**
 
@@ -33,7 +33,7 @@ Those three needs map to nephew's three teams. Not three flavors of the same thi
    ║   the cognitive       ║   ║   the review chain    ║   ║   automated narrow    ║
    ║   engine              ║   ║                       ║   ║   tooling             ║
    ║                       ║   ║                       ║   ║                       ║
-   ║   Five specialized    ║   ║   Four chairs work    ║   ║   Twelve one-shot     ║
+   ║   Five specialized    ║   ║   Four chairs work    ║   ║   Thirteen one-shot   ║
    ║   minds doing the     ║   ║   flows through —     ║   ║   tools for narrow,   ║
    ║   thinking-heavy      ║   ║   from proposal to    ║   ║   well-defined jobs   ║
    ║   lifting             ║   ║   final sign-off      ║   ║                       ║
@@ -111,6 +111,7 @@ When a task arrives, nephew runs three reads in this order:
 | Run the gap audit from a commit diff | `gap-audit-runner` |
 | Pre-commit verification gate | `ship-auditor` |
 | Two-part / FAQ-style intent disambiguation | `question-decomposer` |
+| Keep MOIC receipt signatures and `response_signature` metadata aligned | `moic-receipt-signature-agent` |
 
 A given task usually triggers **one row from each read**. Sometimes the three reads activate simultaneously (a typo fix triggers no chairs and no specialists, just a coder edit). Sometimes a complex task triggers multiple specialists in sequence (the Makefile example used `ship-flow-runner` + `ledger-orchestrator` + `count-keeper` + `cross-reference-rippler`).
 
@@ -163,6 +164,7 @@ Library-native. Each handles one well-defined, recurring operational job. Idempo
 | [`gap-audit-runner`](../../agents/gap-audit-runner/) | Generate the audit file from a commit diff |
 | [`ship-auditor`](../../agents/ship-auditor/) | Pre-commit verification gate — runs every check, blocks commit on failure |
 | [`question-decomposer`](../../agents/question-decomposer/) | Two-part / FAQ-style intent disambiguation |
+| [`moic-receipt-signature-agent`](../../agents/moic-receipt-signature-agent/) | Keep MOIC receipt signatures, metadata schema, patrol expectations, and bridge copies aligned |
 
 ---
 

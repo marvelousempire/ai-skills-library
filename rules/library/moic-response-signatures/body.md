@@ -51,6 +51,11 @@ If auditing a Nephew response or handoff that must be signed, use MOIC Signature
 Patrol: `nephew_signature_check` or `src/signature-patrol.js` in the Nephew repo.
 Missing required signatures are fail-closed.
 
+For recurring drift checks or cross-surface propagation, Nephew commissions the
+[`moic-receipt-signature-agent`](../../../agents/moic-receipt-signature-agent/)
+specialist. This rule remains the always-on policy; the agent owns the audit and
+update loop.
+
 ## Bridge contract
 
 This rule body is canonical in AI Skills Library. Consumers receive generated or

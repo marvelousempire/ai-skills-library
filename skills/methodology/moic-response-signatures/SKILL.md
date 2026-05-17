@@ -71,6 +71,14 @@ Canonical implementation in the Nephew repo:
 - Patrol runtime: `src/signature-patrol.js`
 - MCP tool: `nephew_signature_check`
 
+## Agent Owner
+
+Use [`moic-receipt-signature-agent`](../../../agents/moic-receipt-signature-agent/)
+when this skill needs to become an operational audit: checking drift across
+AISL, Nephew runtime, Cursor rules, Claude skills, meta-library records, or PR
+receipt copy. The skill teaches the behavior; the agent owns recurring
+verification and propagation.
+
 ## When Auditing
 
 If the user asks whether MOIC is active, permanent, missing, spoofable, or

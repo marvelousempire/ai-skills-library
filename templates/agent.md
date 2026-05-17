@@ -12,6 +12,16 @@ model: opus
 
 <One paragraph stating the agent's purpose and the boundary of what it does vs doesn't do.>
 
+## Commissioned by
+
+This agent is part of **Nephew's** dispatch — it does not commission itself.
+Name the dispatch layer: Layer 1 worker, Layer 2 process chair, Layer 3
+specialist, or pointer agent.
+
+## Trigger
+
+<Exact trigger phrases, commands, hooks, or runtime conditions that commission this agent.>
+
 ## Inputs expected
 
 ```yaml
@@ -33,6 +43,12 @@ model: opus
 
 - <When the agent hands back to human>
 - <Failure modes that escalate>
+
+## Verification
+
+```bash
+<literal command proving the agent contract or implementation works>
+```
 
 ## Related
 

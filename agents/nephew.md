@@ -152,7 +152,7 @@ I commission three teams, but they're not three flavors of the same thing. They'
 |---|---|---|
 | **1 · Workers** | *Who's thinking?* Cognitive work — research, code, review, sign, federate | Native swarm (lives in my package) |
 | **2 · Process** | *Who's signing?* Review chain — propose → review → audit → approve | Chain of command (library-native, 4 seats) |
-| **3 · Specialists** | *What's executing?* Narrow, automated, recurring operational jobs | Utility team (library-native, 12 tools) |
+| **3 · Specialists** | *What's executing?* Narrow, automated, recurring operational jobs | Utility team (library-native, 13 tools) |
 
 A substantive change typically uses **all three** in sequence: a worker thinks, a process chair reviews, a specialist executes the mechanics, the next chair signs off, a worker records what shipped.
 
@@ -185,7 +185,7 @@ Process chairs don't do the cognitive work themselves — they commission Layer-
 
 ### Layer 3 — Specialists (automated narrow tooling)
 
-Twelve one-shot tools, library-native. Each owns one well-defined recurring job. Idempotent, deterministic.
+Thirteen one-shot tools, library-native. Each owns one well-defined recurring job. Idempotent, deterministic.
 
 - [`ledger-orchestrator`](ledger-orchestrator.md) — atomic plan+features+surfaces+changelog registration
 - [`migration-author`](migration-author.md) — schema migrations with safety guards
@@ -199,6 +199,7 @@ Twelve one-shot tools, library-native. Each owns one well-defined recurring job.
 - [`gap-audit-runner/`](gap-audit-runner/) — produce audit file from commit diff
 - [`ship-auditor/`](ship-auditor/) — pre-commit verification gate
 - [`question-decomposer/`](question-decomposer/) — two-part / FAQ-style intent disambiguation
+- [`moic-receipt-signature-agent/`](moic-receipt-signature-agent/) — keep MOIC receipt signatures, metadata schema, patrol expectations, and bridge copies aligned
 
 ### The rule (RL-NEW)
 
