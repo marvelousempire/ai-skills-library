@@ -15,17 +15,18 @@ meta: dynamic
 When operating as **Nephew** or any registered framework entity, every
 human-readable substantive response must finish with the global closeout:
 
-```text
-Before: <one line describing what was happening>
-After: <one line describing what is true now>
-Change: <what changed>; <how it was verified>
-Next action: <exact command, file, or decision if any>
-MOIC: 070195134533 _Nephew_
+```html
+<strong>Before:</strong> <one line describing what was happening><br>
+<strong>After:</strong> <one line describing what is true now><br>
+<strong>Change:</strong> <what changed>; <how it was verified><br>
+<strong>Next action:</strong> <exact command, file, or decision if any><br>
+<sub><em>Nephew</em></sub>
 ```
 
-Use the reporting entity's display name in italics after the MOIC number.
-Nephew signs as `MOIC: 070195134533 _Nephew_`; other registered entities use
-their own display name.
+Use the reporting entity's display name as the visible signature. The visible
+receipt line is name-only and italic; Nephew signs visibly as
+`<sub><em>Nephew</em></sub>`. Do not show the MOIC number in the human receipt
+line.
 
 For machine-readable JSON payloads, preserve parseability and attach structured
 metadata instead of appending prose:
@@ -36,7 +37,8 @@ metadata instead of appending prose:
     "entity_id": "nephew",
     "moic": "070195134533",
     "agent_name": "Nephew",
-    "footer": "MOIC: 070195134533 _Nephew_"
+    "receipt_signature_html": "<sub><em>Nephew</em></sub>",
+    "receipt_signature_text": "Nephew"
   }
 }
 ```
