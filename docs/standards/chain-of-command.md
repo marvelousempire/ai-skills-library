@@ -9,7 +9,7 @@ Every substantive change passes through four chairs before it becomes the projec
 The other two dispatch patterns under nephew's jurisdiction:
 
 - **Native swarm** — `@nephew-core:researcher / coder / reviewer / witness-curator` and `@nephew-federation:federation-coordinator`. Lives in the nephew package.
-- **Utility team** — `ledger-orchestrator`, `migration-author`, `rebase-shepherd`, `ship-flow-runner`, `post-ship-auditor`, `count-keeper`, `label-linter`, `cross-reference-rippler`, `skill-scaffolder`, `gap-audit-runner`, `ship-auditor`, `question-decomposer`.
+- **Utility team** — `ledger-orchestrator`, `migration-author`, `rebase-shepherd`, `ship-flow-runner`, `post-ship-auditor`, `count-keeper`, `label-linter`, `cross-reference-rippler`, `skill-scaffolder`, `gap-audit-runner`, `ship-auditor`, `question-decomposer`, `moic-receipt-signature-agent`.
 
 See [`docs/standards/orchestration-hierarchy.md`](orchestration-hierarchy.md) for the full team map.
 

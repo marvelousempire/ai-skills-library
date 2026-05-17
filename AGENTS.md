@@ -19,7 +19,7 @@ Every agent in this library is part of **[`nephew`](agents/nephew.md)'s** dispat
 |---|---|---|
 | **1 · Workers** | *Who's thinking?* | Native swarm (in nephew's package) — `@nephew-core:*` and `@nephew-federation:*` |
 | **2 · Process** | *Who's signing?* | Chain of command — 4 seats, work flows 1 → 4 |
-| **3 · Specialists** | *What's executing?* | Utility team — 12 narrow, automated tools |
+| **3 · Specialists** | *What's executing?* | Utility team — 13 narrow, automated tools |
 
 A typical substantive change uses **all three layers in sequence**, not just one. See [`docs/standards/orchestration-hierarchy.md`](docs/standards/orchestration-hierarchy.md) for the canonical map, mental model, and worked example.
 
@@ -42,7 +42,7 @@ Four seats. Each chair has a single authority (its "crown"). Work flows from sea
 
 ### Layer 3 — Specialists (automated narrow tooling)
 
-Twelve one-shot tools. Each owns one well-defined recurring operational job. Idempotent, deterministic.
+Thirteen one-shot tools. Each owns one well-defined recurring operational job. Idempotent, deterministic.
 
 | Agent | Purpose |
 |---|---|
@@ -58,6 +58,7 @@ Twelve one-shot tools. Each owns one well-defined recurring operational job. Ide
 | [`gap-audit-runner/`](agents/gap-audit-runner/) | Generate the audit file from a commit diff |
 | [`ship-auditor/`](agents/ship-auditor/) | Pre-commit verification gate — runs every check, blocks commit on failure |
 | [`question-decomposer/`](agents/question-decomposer/) | Two-part / FAQ-style intent disambiguation |
+| [`moic-receipt-signature-agent/`](agents/moic-receipt-signature-agent/) | Keep MOIC receipt signatures, `response_signature` metadata, patrol expectations, and bridge copies aligned |
 
 ### Layer 1 — Workers (the cognitive engine — lives in nephew's package)
 

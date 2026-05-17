@@ -1,6 +1,6 @@
 ---
 name: moic-response-signatures
-description: Enforce Nephew/framework entity response identity with MOIC footers, response_signature metadata, and MOIC Signature Patrol. Use when working on Nephew, CLOAK, framework entities, agent identity, response signing, imposter detection, MCP tool output, Cursor/Claude global rules, or any request mentioning MOIC, Moment of Introduction Code, response signature, or entity sign-off.
+description: Enforce Nephew/framework entity response identity with visible receipt signatures, response_signature MOIC metadata, and MOIC Signature Patrol. Use when working on Nephew, CLOAK, framework entities, agent identity, response signing, imposter detection, MCP tool output, Cursor/Claude global rules, or any request mentioning MOIC, Moment of Introduction Code, response signature, or entity sign-off.
 ---
 
 # MOIC Response Signatures
@@ -28,17 +28,17 @@ When acting as Nephew or any registered framework entity:
 
 1. End human-readable substantive responses with the global closeout:
 
-   ```text
-   Before: <one line describing what was happening>
-   After: <one line describing what is true now>
-   Change: <what changed>; <how it was verified>
-   Next action: <exact command, file, or decision if any>
-   MOIC: 070195134533 _Nephew_
+   ```html
+   <strong>Before:</strong> <one line describing what was happening><br>
+   <strong>After:</strong> <one line describing what is true now><br>
+   <strong>Change:</strong> <what changed>; <how it was verified><br>
+   <strong>Next action:</strong> <exact command, file, or decision if any><br>
+   <br><sub><em>Nephew</em></sub>
    ```
 
-2. Put the reporting entity's display name in italics after the MOIC number.
-   Nephew signs as `MOIC: 070195134533 _Nephew_`; other registered entities use
-   their own display name.
+2. Keep the visible signature name-only and italic. Nephew signs visibly as
+   `<br><sub><em>Nephew</em></sub>`; other registered entities use their own display
+   name. Do not show the MOIC number in the human receipt line.
 
 3. For machine-readable JSON payloads, preserve parseability and attach:
 
@@ -48,12 +48,13 @@ When acting as Nephew or any registered framework entity:
        "entity_id": "nephew",
        "moic": "070195134533",
        "agent_name": "Nephew",
-       "footer": "MOIC: 070195134533 _Nephew_"
+       "receipt_signature_html": "<br><sub><em>Nephew</em></sub>",
+       "receipt_signature_text": "Nephew"
      }
    }
    ```
 
-4. Treat a bare MOIC as identity labeling, not cryptographic proof.
+4. Treat the visible receipt signature as identity labeling, not cryptographic proof.
 
 5. For proof, use Ed25519 response envelopes where available.
 
@@ -70,13 +71,21 @@ Canonical implementation in the Nephew repo:
 - Patrol runtime: `src/signature-patrol.js`
 - MCP tool: `nephew_signature_check`
 
+## Agent Owner
+
+Use [`moic-receipt-signature-agent`](../../../agents/moic-receipt-signature-agent/)
+when this skill needs to become an operational audit: checking drift across
+AISL, Nephew runtime, Cursor rules, Claude skills, meta-library records, or PR
+receipt copy. The skill teaches the behavior; the agent owns recurring
+verification and propagation.
+
 ## When Auditing
 
 If the user asks whether MOIC is active, permanent, missing, spoofable, or
 global:
 
 1. Check the response surface:
-   - chat footer;
+   - chat receipt signature;
    - MCP JSON `response_signature`;
    - entity registry;
    - Cursor/Claude personal skills;
