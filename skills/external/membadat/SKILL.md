@@ -1,6 +1,6 @@
 ---
 name: membadat
-description: "Membadat \u2014 Membadat is SYNTHIA's memory tissue: a branded claude-mem fork that captures sessions, compresses memories, and injects recall into future coding sessions. Use when the user mentions or needs: Membadat; SYNTHIA memory tissue; Nephew memory; memory tissue inside the brain; session memory plugin."
+description: "Membadat \u2014 Membadat is SYNTHIA's private memory repo: a branded claude-mem fork bridged into the Memory Fabric for session capture, compression, recall, and context injection. Use when the user mentions or needs: Membadat; SYNTHIA memory tissue; Nephew memory; private memory repo bridged into the brain; memory tissue inside the brain; session memory plugin."
 ---
 
 # Membadat
@@ -28,6 +28,7 @@ product source into this repo.
 - Membadat
 - SYNTHIA memory tissue
 - Nephew memory
+- private memory repo bridged into the brain
 - memory tissue inside the brain
 - session memory plugin
 
@@ -40,7 +41,7 @@ product source into this repo.
 
 ## Install / operations
 
-Install from https://github.com/marvelousempire/membadat after the fork/rebrand verification is complete; upstream attribution remains in NOTICE.md.
+Install from the private repo https://github.com/marvelousempire/membadat after the fork/rebrand verification is complete; upstream attribution remains in NOTICE.md. Bridge into SYNTHIA through Memory Fabric adapters, not by vendoring source into Nephew.
 
 ## Compliance & safety
 
