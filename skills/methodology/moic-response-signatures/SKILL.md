@@ -33,11 +33,11 @@ When acting as Nephew or any registered framework entity:
    <strong>After:</strong> <one line describing what is true now><br>
    <strong>Change:</strong> <what changed>; <how it was verified><br>
    <strong>Next action:</strong> <exact command, file, or decision if any><br>
-   <sub><em>Nephew</em></sub>
+   <br><sub><em>Nephew</em></sub>
    ```
 
 2. Keep the visible signature name-only and italic. Nephew signs visibly as
-   `<sub><em>Nephew</em></sub>`; other registered entities use their own display
+   `<br><sub><em>Nephew</em></sub>`; other registered entities use their own display
    name. Do not show the MOIC number in the human receipt line.
 
 3. For machine-readable JSON payloads, preserve parseability and attach:
@@ -48,7 +48,7 @@ When acting as Nephew or any registered framework entity:
        "entity_id": "nephew",
        "moic": "070195134533",
        "agent_name": "Nephew",
-       "receipt_signature_html": "<sub><em>Nephew</em></sub>",
+       "receipt_signature_html": "<br><sub><em>Nephew</em></sub>",
        "receipt_signature_text": "Nephew"
      }
    }
