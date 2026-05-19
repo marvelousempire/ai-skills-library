@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "question-decomposer",
+  "name": "Question Decomposer",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The intake layer for the AI Skills Library. Before any skill or rule is invoked, the question decomposer strips the raw input to its \u226420-word concise essence\u2026",
+  "description": "The intake layer for the AI Skills Library. Before any skill or rule is invoked, the question decomposer strips the raw input to its \u226420-word concise essence and classifies its function type (a verb-object label that maps to a skill). Logs both to docs/faq/question-log.md. Triggers on \"decompose this question\", \"strip this request\", \"what type of question is this\", \"normalize this input\", \"classify this request\", \"what function is this\", \"clean up this prompt before routing\", \"two-part question\".",
+  "skill_id": "SK-0138",
+  "skill_path": "skills/engineering/question-decomposer",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-question",
+    "check-decomposer",
+    "file-question"
+  ],
+  "keywords": [
+    "run-question",
+    "check-decomposer",
+    "file-question"
+  ],
+  "overlap": [],
+  "relations": [
+    "catchall-processor",
+    "gap-audit-and-elevation"
+  ],
+  "governed_by": [
+    "RL-0045",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **question-decomposer**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "2c7f4a1",
+  "goal": "Every incoming question has a clean concise form and a function label before any routing happens so the system matches from signal not noise."
+}

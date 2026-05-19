@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "create-subagent",
+  "name": "Create Subagent",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Create custom subagents for specialized AI tasks. Use when you want to create a new type of subagent, set up task-specific agents, configure code reviewers,\u2026",
+  "description": "Create custom subagents for specialized AI tasks. Use when you want to create a new type of subagent, set up task-specific agents, configure code reviewers, debuggers, or domain-specific assistants with custom prompts.",
+  "skill_id": "SK-0022",
+  "skill_path": "skills/engineering/create-subagent",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "create-agent",
+    "define-role",
+    "configure-subagent"
+  ],
+  "keywords": [
+    "create-agent",
+    "define-role",
+    "configure-subagent"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **create-subagent**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "2f43527",
+  "goal": "Deliver create subagent output correctly and completely."
+}

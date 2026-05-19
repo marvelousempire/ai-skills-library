@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "signup-flow-cro",
+  "name": "Signup Flow Cro",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\"\u2026",
+  "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" \"account creation flow,\" \"people aren't signing up,\" \"signup abandonment,\" \"trial conversion rate,\" \"nobody completes registration,\" \"too many steps to sign up,\" or \"simplify our signup.\" Use this whenever the user has a signup or registration flow that isn't performing. For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.",
+  "skill_id": "SK-0103",
+  "skill_path": "skills/marketing/signup-flow-cro",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-signup",
+    "check-flow",
+    "build-cro"
+  ],
+  "keywords": [
+    "write-signup",
+    "check-flow",
+    "build-cro"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **signup-flow-cro**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "ac5a7cc",
+  "goal": "Deliver signup flow cro output correctly and completely."
+}

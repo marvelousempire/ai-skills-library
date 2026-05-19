@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "community-marketing",
+  "name": "Community Marketing",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a community strategy, grow a Discord or\u2026",
+  "description": "Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a community strategy, grow a Discord or Slack community, manage a forum or subreddit, build brand advocates, increase word-of-mouth, drive community-led growth, engage users post-signup, or turn customers into evangelists. Trigger phrases: \\\"build a community,\\\" \\\"community strategy,\\\" \\\"Discord community,\\\" \\\"Slack community,\\\" \\\"community-led growth,\\\" \\\"brand advocates,\\\" \\\"user community,\\\" \\\"forum strategy,\\\" \\\"community engagement,\\\" \\\"grow our community,\\\" \\\"ambassador program,\\\" \\\"community flywheel.\\\"",
+  "skill_id": "SK-0072",
+  "skill_path": "skills/marketing/community-marketing",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-community",
+    "check-marketing",
+    "file-community"
+  ],
+  "keywords": [
+    "write-community",
+    "check-marketing",
+    "file-community"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **community-marketing**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "7fea391",
+  "goal": "Deliver community marketing output correctly and completely."
+}

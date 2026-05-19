@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "open-generative-ai",
+  "name": "Open Generative Ai",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "Open Generative AI \\u2014 Self-hosted generative image and video studio aggregating many third-party models (see upstream for list and terms). Use when the\u2026",
+  "description": "Open Generative AI \\u2014 Self-hosted generative image and video studio aggregating many third-party models (see upstream for list and terms). Use when the user mentions or needs: self-hosted AI video studio; Open Generative AI; local image video generation stack.",
+  "skill_id": null,
+  "skill_path": "skills/external/open-generative-ai",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use open-generative-ai"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **open-generative-ai**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

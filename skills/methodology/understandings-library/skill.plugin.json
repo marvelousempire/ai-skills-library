@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "understandings-library",
+  "name": "Understandings Library",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Create README-local understandings folders with numbered explanation entries. Use when the user asks to capture an understanding, save an explanation, create\u2026",
+  "description": "Create README-local understandings folders with numbered explanation entries. Use when the user asks to capture an understanding, save an explanation, create an understandings folder, preserve a chat explanation, or make README-local knowledge easy for future AIs and humans to read.",
+  "skill_id": null,
+  "skill_path": "skills/methodology/understandings-library",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use understandings-library"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **understandings-library**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

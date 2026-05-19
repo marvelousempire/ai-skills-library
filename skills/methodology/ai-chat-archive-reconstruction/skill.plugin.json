@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ai-chat-archive-reconstruction",
+  "name": "Ai Chat Archive Reconstruction",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Corrective reconstruction when an AI (Grok, ChatGPT, etc.) simulated git pushes but work lived only in chat. Ingest export into claude-chat-reader, run\u2026",
+  "description": "Corrective reconstruction when an AI (Grok, ChatGPT, etc.) simulated git pushes but work lived only in chat. Ingest export into claude-chat-reader, run Nephew's reconstruct_grok_archive.py, emit meta-library + docs, commit witnessed slices to marvelousempire/nephew. Triggers: Grok archive, simulated commits, rebuild nephew from chat, archive reconstruction.",
+  "skill_id": "SK-ARCH-RECON",
+  "skill_path": "skills/methodology/ai-chat-archive-reconstruction",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "reconstruct-archive",
+    "grok-export",
+    "nephew-rebuild",
+    "chat-to-repo",
+    "simulated-commits"
+  ],
+  "keywords": [
+    "reconstruct-archive",
+    "grok-export",
+    "nephew-rebuild",
+    "chat-to-repo",
+    "simulated-commits"
+  ],
+  "overlap": [],
+  "relations": [
+    "gap-audit-and-elevation",
+    "plan-first",
+    "nephew-cloak-amending-mission"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ai-chat-archive-reconstruction**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "pending",
+  "goal": "Rebuild a target repo from ingested AI chat exports with witnessed git commits \u2014 never claim push without SHA."
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "existing-repo-alignment",
+  "name": "Existing Repo Alignment",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Non-destructively reshape an existing GitHub repo to align with the AVERY GOODMAN standard \u2014 without deleting what's already there. Diagnose the repo,\u2026",
+  "description": "Non-destructively reshape an existing GitHub repo to align with the AVERY GOODMAN standard \u2014 without deleting what's already there. Diagnose the repo, identify its type, produce a change manifest, then execute carefully. Use when someone says \"align this repo\", \"reshape this project\", \"bring this into our standard\", \"audit this existing repo\", \"make this match our structure\", \"convert this repo to our standard\", \"this old repo needs to follow our rules\".",
+  "skill_id": "SK-0136",
+  "skill_path": "skills/engineering/existing-repo-alignment",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "failure-proof-audit",
+    "gap-audit-and-elevation"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "align-repo",
+    "reshape-structure",
+    "audit-existing"
+  ],
+  "keywords": [
+    "align-repo",
+    "reshape-structure",
+    "audit-existing"
+  ],
+  "overlap": [],
+  "relations": [
+    "new-repo-setup",
+    "avery-goodman-repo-standard",
+    "failure-proof-audit"
+  ],
+  "governed_by": [
+    "RL-0039",
+    "RL-0045",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **existing-repo-alignment**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "9d4e1b8",
+  "goal": "Any existing repo can be reshaped to the AVERY GOODMAN standard without destroying what is already there."
+}

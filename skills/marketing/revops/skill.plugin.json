@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "revops",
+  "name": "Revops",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions\u2026",
+  "description": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' 'data hygiene,' 'leads aren't getting to sales,' 'pipeline management,' 'lead qualification,' or 'when should marketing hand off to sales.' Use this for anything involving the systems and processes that connect marketing to revenue. For cold outreach emails, see cold-email. For email drip campaigns, see email-sequence. For pricing decisions, see pricing-strategy.",
+  "skill_id": "SK-0099",
+  "skill_path": "skills/marketing/revops",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-revops"
+  ],
+  "keywords": [
+    "write-revops"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **revops**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "df82b16",
+  "goal": "Deliver revops output correctly and completely."
+}

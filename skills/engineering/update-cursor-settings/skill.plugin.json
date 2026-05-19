@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "update-cursor-settings",
+  "name": "Update Cursor Settings",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Modify Cursor/VSCode user settings in settings.json. Use when you want to change editor settings, preferences, configuration, themes, font size, tab size,\u2026",
+  "description": "Modify Cursor/VSCode user settings in settings.json. Use when you want to change editor settings, preferences, configuration, themes, font size, tab size, format on save, auto save, keybindings, or any settings.json values.",
+  "skill_id": "SK-0049",
+  "skill_path": "skills/engineering/update-cursor-settings",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "update-settings",
+    "configure-cursor",
+    "set-preference"
+  ],
+  "keywords": [
+    "update-settings",
+    "configure-cursor",
+    "set-preference"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **update-cursor-settings**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "476519b",
+  "goal": "Deliver update cursor settings output correctly and completely."
+}

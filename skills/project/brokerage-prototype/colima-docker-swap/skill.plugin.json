@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "colima-docker-swap",
+  "name": "Colima Docker Swap",
+  "pack": "project/brokerage-prototype",
+  "pack_label": "Brokerage prototype",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Detect a wedged Docker Desktop on macOS Tahoe + Apple Silicon and swap in Colima as the docker runtime \u2014 native arm64, same docker socket, no Electron VM.\u2026",
+  "description": "Detect a wedged Docker Desktop on macOS Tahoe + Apple Silicon and swap in Colima as the docker runtime \u2014 native arm64, same docker socket, no Electron VM. Installs colima + lima as direct binaries to `~/.local/bin/` (no brew, no sudo) when Homebrew is broken. Pairs with Dockyard for the UI. Use when `docker info` hangs, Docker Desktop won't start, or the user says \"Docker is broken / I don't see anything in Docker.\"",
+  "skill_id": null,
+  "skill_path": "skills/project/brokerage-prototype/colima-docker-swap",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use colima-docker-swap"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **colima-docker-swap**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

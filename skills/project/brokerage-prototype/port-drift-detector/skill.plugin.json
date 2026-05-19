@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "port-drift-detector",
+  "name": "Port Drift Detector",
+  "pack": "project/brokerage-prototype",
+  "pack_label": "Brokerage prototype",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Cross-repo drift detection between paired implementations (e.g., prototype + canonical). Reads a markdown ledger (PORTING_NOTES.md or similar) + recent git\u2026",
+  "description": "Cross-repo drift detection between paired implementations (e.g., prototype + canonical). Reads a markdown ledger (PORTING_NOTES.md or similar) + recent git history of both repos. Pure git + awk + bash, no LLM cost. Three states: quiet, capture-needed (new commits not in ledger), backlog-growing (pending count went up). Pairs with a weekly launchd job for autonomous reporting.",
+  "skill_id": null,
+  "skill_path": "skills/project/brokerage-prototype/port-drift-detector",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use port-drift-detector"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **port-drift-detector**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

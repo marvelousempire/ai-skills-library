@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "multi-surface-design",
+  "name": "Multi Surface Design",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "One engine, many faces. Build the core (`generate()`) once and expose it as CLI + MCP + Web UI + Docker so every user/agent finds the right entry point.\u2026",
+  "description": "One engine, many faces. Build the core (`generate()`) once and expose it as CLI + MCP + Web UI + Docker so every user/agent finds the right entry point. Changes propagate; tests cover everything. Triggers on \"multi-surface\", \"one engine many faces\", \"CLI + MCP + Web UI\", \"expose this for agents\". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/workflows/multi-surface-build.md`.",
+  "skill_id": "SK-0117",
+  "skill_path": "skills/methodology/multi-surface-design",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "design-surface",
+    "coordinate-ui",
+    "align-platform"
+  ],
+  "keywords": [
+    "design-surface",
+    "coordinate-ui",
+    "align-platform"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **multi-surface-design**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "10c6575",
+  "goal": "Deliver multi surface design output correctly and completely."
+}

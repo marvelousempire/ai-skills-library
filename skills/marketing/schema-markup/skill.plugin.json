@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "schema-markup",
+  "name": "Schema Markup",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured\u2026",
+  "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" \"breadcrumb schema,\" \"Google rich results,\" \"knowledge panel,\" \"star ratings in search,\" or \"add structured data.\" Use this whenever someone wants their pages to show enhanced results in Google. For broader SEO issues, see seo-audit. For AI search optimization, see ai-seo.",
+  "skill_id": "SK-0101",
+  "skill_path": "skills/marketing/schema-markup",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-schema",
+    "check-markup",
+    "file-schema"
+  ],
+  "keywords": [
+    "write-schema",
+    "check-markup",
+    "file-schema"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **schema-markup**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "4ed8ac7",
+  "goal": "Deliver schema markup output correctly and completely."
+}

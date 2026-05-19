@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "product-repo-architecture",
+  "name": "Product Repo Architecture",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The opinionated git repo structure, Makefile interface, GitHub Actions auto-release workflow, version-tracking pattern, git branch and PR naming conventions,\u2026",
+  "description": "The opinionated git repo structure, Makefile interface, GitHub Actions auto-release workflow, version-tracking pattern, git branch and PR naming conventions, folder hierarchy, and single-source-of-truth file discipline for any macOS developer tool or local-first web app that ships via git clone + make. This is a git + GitHub-specific pattern: uses gh CLI, GitHub Actions for auto-tagging releases on every squash-merge to main, git branch naming that embeds the version number, and GitHub Releases for distribution. Covers: Makefile as primary UX, kVersion in one canonical file, squash-merge + auto-tag, numbered append-only plan docs, PR body format, and the make check CI gate. Triggers on \"set up this git repo\", \"git repo structure\", \"GitHub repo architecture\", \"GitHub Actions release workflow\", \"auto-release on merge\", \"git branch naming\", \"version tracking in git\", \"how should I set up this repo\", \"Makefile conventions\", \"where do plans go\", \"GitHub releases\", \"single source of truth for version\", \"how did we organize the DustPan repo\".",
+  "skill_id": "SK-0007",
+  "skill_path": "skills/engineering/architecture/product-repo-architecture",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "setup-repo",
+    "configure-release",
+    "name-branch"
+  ],
+  "keywords": [
+    "setup-repo",
+    "configure-release",
+    "name-branch"
+  ],
+  "overlap": [],
+  "relations": [
+    "avery-goodman-repo-standard",
+    "make-check-defense-in-depth"
+  ],
+  "governed_by": [
+    "RL-0039",
+    "RL-0032",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **product-repo-architecture**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "8e05ad7",
+  "goal": "Every git repo starts with the right structure from the first commit so no architectural debt accumulates."
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "faq-cataloger",
+  "name": "Faq Cataloger",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Catalogs processed questions into individual MD files in docs/faq/ \u2014 one file per question TYPE forming a structured database. Each file accumulates examples,\u2026",
+  "description": "Catalogs processed questions into individual MD files in docs/faq/ \u2014 one file per question TYPE forming a structured database. Each file accumulates examples, the canonical answer, how many times asked, first seen, and last seen. Triggers on \"catalog this question\", \"add to FAQ database\", \"create a FAQ entry\", \"log this to the FAQ\", \"build the FAQ\", \"update the FAQ file\".",
+  "skill_id": "SK-0140",
+  "skill_path": "skills/engineering/faq-cataloger",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "question-decomposer"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-faq",
+    "check-cataloger",
+    "file-faq"
+  ],
+  "keywords": [
+    "run-faq",
+    "check-cataloger",
+    "file-faq"
+  ],
+  "overlap": [],
+  "relations": [
+    "question-decomposer",
+    "catchall-processor"
+  ],
+  "governed_by": [
+    "RL-0045",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **faq-cataloger**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "6c4d9e1",
+  "goal": "Every processed question type has its own MD file in the FAQ database so repeated questions are immediately answered from the catalog without re-processing."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "library-plus-doc-template",
+  "name": "Library Plus Doc Template",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Any curated library (code scripts, cleaners, rules, prompts, fixtures, examples) must pair each entry with a companion doc that captures: what it does, the\u2026",
+  "description": "Any curated library (code scripts, cleaners, rules, prompts, fixtures, examples) must pair each entry with a companion doc that captures: what it does, the specific moment or pain that prompted it, the native UI/API patterns it uses, how to invoke it, variations to try, and what was deliberately NOT done. The doc is what makes the library teachable, searchable, and growable by others \u2014 including AI agents proposing new entries. Triggers on \"add a doc alongside this\", \"what prompted this\", \"the moment that prompted it\", \"library doc template\", \"companion doc for this script/cleaner\", \"teachable library\", \"document this so future me understands\", \"every entry needs a story\".",
+  "skill_id": "SK-0024",
+  "skill_path": "skills/engineering/library-plus-doc-template",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-doc",
+    "capture-moment",
+    "pair-with-artifact"
+  ],
+  "keywords": [
+    "write-doc",
+    "capture-moment",
+    "pair-with-artifact"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **library-plus-doc-template**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "5e5bf4c",
+  "goal": "Every library entry has a companion doc that captures what it does and the moment that prompted it."
+}

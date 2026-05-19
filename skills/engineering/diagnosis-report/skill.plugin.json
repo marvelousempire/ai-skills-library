@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "diagnosis-report",
+  "name": "Diagnosis Report",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Create a structured diagnosis document for a system failure, data pipeline issue, or recurring bug. Use when the user asks: 'write a diagnosis report,'\u2026",
+  "description": "Create a structured diagnosis document for a system failure, data pipeline issue, or recurring bug. Use when the user asks: 'write a diagnosis report,' 'document what we found,' 'record the root cause,' 'file an incident report,' 'make a post-mortem,' 'document this bug for the team,' 'save what we learned about this failure,' 'create a diagnosis doc for the admin,' 'document the game sync issue,' 'record root causes.' Also use after any SSH-level investigation that revealed multiple root causes. Files the report where operators can read it and includes DB state at time of diagnosis, numbered root causes with code evidence, a resolution checklist, and verification commands.",
+  "skill_id": null,
+  "skill_path": "skills/engineering/diagnosis-report",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use diagnosis-report"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **diagnosis-report**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

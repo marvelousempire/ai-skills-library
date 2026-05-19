@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "plan-mode-runbook",
+  "name": "Plan Mode Runbook",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Run plan mode end-to-end: Phase 1 (parallel Explore agents), Phase 2 (Plan agent for design), Phase 3 (AskUserQuestion for clarifications), Phase 4 (write\u2026",
+  "description": "Run plan mode end-to-end: Phase 1 (parallel Explore agents), Phase 2 (Plan agent for design), Phase 3 (AskUserQuestion for clarifications), Phase 4 (write plan file), Phase 5 (ExitPlanMode). Includes the AskUserQuestion-failure fallback.",
+  "skill_id": "SK-0031",
+  "skill_path": "skills/engineering/plan-mode-runbook",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-plan",
+    "execute-steps",
+    "verify-output"
+  ],
+  "keywords": [
+    "run-plan",
+    "execute-steps",
+    "verify-output"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **plan-mode-runbook**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "8416391",
+  "goal": "Deliver plan mode runbook output correctly and completely."
+}

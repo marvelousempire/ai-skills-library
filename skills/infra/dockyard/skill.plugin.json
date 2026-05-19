@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "dockyard",
+  "name": "Dockyard",
+  "pack": "infra",
+  "pack_label": "Infra",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Wire the ai-skills-library stacks into Dockyard \u2014 the user's Python-stdlib local-first Docker manager UI that replaces Docker Desktop's GUI. Talks any Docker\u2026",
+  "description": "Wire the ai-skills-library stacks into Dockyard \u2014 the user's Python-stdlib local-first Docker manager UI that replaces Docker Desktop's GUI. Talks any Docker socket (Colima \u2192 OrbStack \u2192 Docker Desktop), default Compose-project view, 12 MCP tools for AI agents, Caddy HTTPS front-door. This skill ships the install + standalone-compose templates, the canonical label schema every library container must follow, an integration checklist, and a Docker Desktop \u2192 Colima migration guide. Triggers on \"set up Dockyard\", \"use Dockyard with ai-skills-library\", \"Docker UI\", \"Colima manager\", \"Dockyard MCP\", \"Docker Desktop replacement\", \"self-hosted Docker UI\", \"labels for Dockyard\".",
+  "skill_id": "SK-0062",
+  "skill_path": "skills/infra/dockyard",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "setup-dockyard"
+  ],
+  "keywords": [
+    "setup-dockyard"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **dockyard**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "7f4ab7a",
+  "goal": "Deliver dockyard output correctly and completely."
+}

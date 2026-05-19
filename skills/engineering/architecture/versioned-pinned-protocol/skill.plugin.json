@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "versioned-pinned-protocol",
+  "name": "Versioned Pinned Protocol",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Design a curriculum, rubric, scoring system, or protocol where the version is pinned to each artifact that uses it. Once activated, the version row is\u2026",
+  "description": "Design a curriculum, rubric, scoring system, or protocol where the version is pinned to each artifact that uses it. Once activated, the version row is read-only \u2014 a v2 ships as a new row. Mirrors how Stripe API versions, PostgreSQL pg_dump format versions, and ISO standards work.",
+  "skill_id": "SK-0012",
+  "skill_path": "skills/engineering/architecture/versioned-pinned-protocol",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "pin-version",
+    "lock-dependency",
+    "set-version"
+  ],
+  "keywords": [
+    "pin-version",
+    "lock-dependency",
+    "set-version"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **versioned-pinned-protocol**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "83c44a0",
+  "goal": "Deliver versioned pinned protocol output correctly and completely."
+}

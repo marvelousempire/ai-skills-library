@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ai-proposal-review-inbox",
+  "name": "Ai Proposal Review Inbox",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Pattern for letting an AI agent \"grow\" a hand-curated source file (cleaners, rules, fixtures, prompts, library entries) without ever auto-mutating it. AI\u2026",
+  "description": "Pattern for letting an AI agent \"grow\" a hand-curated source file (cleaners, rules, fixtures, prompts, library entries) without ever auto-mutating it. AI proposes \u2192 record lands in a review inbox \u2192 user accepts \u2192 server generates a paste-ready snippet \u2192 user pastes into source and commits. Canonical source stays human-authored. Triggers on \"AI proposes new\", \"let the AI add to\", \"review inbox\", \"paste-ready snippet\", \"never auto-edit source\", \"AI suggestion queue\", \"human-in-the-loop AI tool\", \"self-extending library\", \"propose new cleaner\", \"propose new rule\", \"propose new fixture\".",
+  "skill_id": "SK-0001",
+  "skill_path": "skills/engineering/ai-proposal-review-inbox",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "review-proposal",
+    "accept-snippet",
+    "dismiss-proposal"
+  ],
+  "keywords": [
+    "review-proposal",
+    "accept-snippet",
+    "dismiss-proposal"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ai-proposal-review-inbox**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "d792928",
+  "goal": "AI agents can grow curated source files through a review inbox without ever auto-mutating the source."
+}

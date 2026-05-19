@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "worktree-janitor",
+  "name": "Worktree Janitor",
+  "pack": "mobile/ios",
+  "pack_label": "iOS",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Audit, clean, and reclaim disk space from stale git worktrees in a multi-agent monorepo. Triggered by \"clean up worktrees\", \"free disk space\", \"worktrees are\u2026",
+  "description": "Audit, clean, and reclaim disk space from stale git worktrees in a multi-agent monorepo. Triggered by \"clean up worktrees\", \"free disk space\", \"worktrees are full\", \"remove stale branches\", \"disk is full before build\", or proactively when disk < 3 GB before any iOS build. Identifies merged branches, removes them safely, frees DerivedData, and reports space gained.",
+  "skill_id": null,
+  "skill_path": "skills/mobile/ios/worktree-janitor",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use worktree-janitor"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **worktree-janitor**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

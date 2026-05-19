@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "full-viewport-responsive-dashboard-shell",
+  "name": "Full Viewport Responsive Dashboard Shell",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Build and review browser dashboard shells that fill the viewport cleanly across phone, laptop, ultrawide, and wall/TV displays. Use when creating or auditing\u2026",
+  "description": "Build and review browser dashboard shells that fill the viewport cleanly across phone, laptop, ultrawide, and wall/TV displays. Use when creating or auditing operator dashboards, product hubs, dense tools pages, responsive dashboard grids, sidebar layouts, or full-viewport web app shells.",
+  "skill_id": null,
+  "skill_path": "skills/engineering/full-viewport-responsive-dashboard-shell",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use full-viewport-responsive-dashboard-shell"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **full-viewport-responsive-dashboard-shell**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

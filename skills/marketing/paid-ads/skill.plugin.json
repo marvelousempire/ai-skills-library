@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "paid-ads",
+  "name": "Paid Ads",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.2.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when\u2026",
+  "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' 'Facebook ads,' 'LinkedIn ads,' 'ad budget,' 'cost per click,' 'ad spend,' or 'should I run ads.' Use this for campaign strategy, audience targeting, bidding, and optimization. For bulk ad creative generation and iteration, see ad-creative. For landing page optimization, see page-cro.",
+  "skill_id": "SK-0092",
+  "skill_path": "skills/marketing/paid-ads",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-paid",
+    "check-ads",
+    "file-paid"
+  ],
+  "keywords": [
+    "write-paid",
+    "check-ads",
+    "file-paid"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **paid-ads**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "de057b6",
+  "goal": "Deliver paid ads output correctly and completely."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ios-realitykit-4-patterns",
+  "name": "Ios Realitykit 4 Patterns",
+  "pack": "project/yousirjuan",
+  "pack_label": "You-Sir Juan",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three\u2026",
+  "description": "SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three immersion levels (L1 SwiftUI / L2 hybrid RealityView / L3 full physics).",
+  "skill_id": "SK-0128",
+  "skill_path": "skills/project/yousirjuan/ios-realitykit-4-patterns",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-ios",
+    "check-realitykit",
+    "build-patterns"
+  ],
+  "keywords": [
+    "run-ios",
+    "check-realitykit",
+    "build-patterns"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ios-realitykit-4-patterns**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "65d0e0b",
+  "goal": "Deliver ios realitykit 4 patterns output correctly and completely."
+}

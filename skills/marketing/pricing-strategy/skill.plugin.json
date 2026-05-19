@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "pricing-strategy",
+  "name": "Pricing Strategy",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,'\u2026",
+  "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' or 'should I offer a free plan.' Use this whenever someone is figuring out what to charge or how to structure their plans. For in-app upgrade screens, see paywall-upgrade-cro.",
+  "skill_id": "SK-0095",
+  "skill_path": "skills/marketing/pricing-strategy",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-pricing",
+    "check-strategy",
+    "file-pricing"
+  ],
+  "keywords": [
+    "write-pricing",
+    "check-strategy",
+    "file-pricing"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **pricing-strategy**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "ba2c534",
+  "goal": "Deliver pricing strategy output correctly and completely."
+}

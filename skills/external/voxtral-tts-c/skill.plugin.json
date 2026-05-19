@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "voxtral-tts-c",
+  "name": "Voxtral Tts C",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "voxtral-tts.c \\u2014 Pure C implementation of Voxtral TTS for lightweight embedded or server-side synthesis (per upstream). Use when the user mentions or\u2026",
+  "description": "voxtral-tts.c \\u2014 Pure C implementation of Voxtral TTS for lightweight embedded or server-side synthesis (per upstream). Use when the user mentions or needs: voxtral-tts.c; C TTS Voxtral; embedded Voxtral speech.",
+  "skill_id": null,
+  "skill_path": "skills/external/voxtral-tts-c",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use voxtral-tts-c"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **voxtral-tts-c**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

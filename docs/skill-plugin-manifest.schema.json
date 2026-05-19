@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marvelousempire.github.io/ai-skills-library/skill-plugin-manifest.schema.json",
+  "title": "AI Skills Library — skill plugin manifest",
+  "description": "WordPress-plugin-style metadata for one skill folder. Lives beside SKILL.md as skill.plugin.json.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slug",
+    "name",
+    "pack",
+    "version",
+    "status",
+    "summary",
+    "description",
+    "skill_path",
+    "skill_md"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "pack": { "type": "string" },
+    "pack_label": { "type": "string" },
+    "version": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["stable", "beta", "stub", "deprecated", "bridge"]
+    },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["skill", "bridge", "pack", "template"]
+    },
+    "summary": { "type": "string", "maxLength": 160 },
+    "description": { "type": "string" },
+    "skill_id": { "type": ["string", "null"] },
+    "skill_path": { "type": "string" },
+    "skill_md": { "type": "string", "const": "SKILL.md" },
+    "lead_sheet_md": { "type": "string", "const": "skill.plugin.md" },
+    "author": { "type": "string" },
+    "author_uri": { "type": "string" },
+    "license": { "type": "string" },
+    "repository": { "type": ["string", "null"] },
+    "homepage": { "type": ["string", "null"] },
+    "requires": { "type": "array", "items": { "type": "string" } },
+    "tools": { "type": "array", "items": { "type": "string" } },
+    "triggers": { "type": "array", "items": { "type": "string" } },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "overlap": { "type": "array", "items": { "type": "string" } },
+    "relations": { "type": "array", "items": { "type": "string" } },
+    "governed_by": { "type": "array", "items": { "type": "string" } },
+    "philosophy": { "type": ["string", "null"] },
+    "philosophy_tagline": { "type": ["string", "null"] },
+    "invoke": { "type": "string" },
+    "icon": { "type": ["string", "null"] },
+    "featured": { "type": "boolean" },
+    "generated_at": { "type": "string" },
+    "hash": { "type": ["string", "null"] },
+    "goal": { "type": ["string", "null"] }
+  }
+}

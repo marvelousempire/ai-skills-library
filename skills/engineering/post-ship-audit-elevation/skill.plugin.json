@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "post-ship-audit-elevation",
+  "name": "Post Ship Audit Elevation",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "After every substantive PR merges, run a 2-pass audit: (1) Gap pass \u2014 what's incomplete, deferred, fragile, untested in what just shipped; (2) Elevation pass\u2026",
+  "description": "After every substantive PR merges, run a 2-pass audit: (1) Gap pass \u2014 what's incomplete, deferred, fragile, untested in what just shipped; (2) Elevation pass \u2014 what would the most ambitious version of this feature look like. Present as numbered lists; wait for user pick before implementing.",
+  "skill_id": "SK-0032",
+  "skill_path": "skills/engineering/post-ship-audit-elevation",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "audit-ship",
+    "elevate-output",
+    "file-findings"
+  ],
+  "keywords": [
+    "audit-ship",
+    "elevate-output",
+    "file-findings"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **post-ship-audit-elevation**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "e61afbb",
+  "goal": "Deliver post ship audit elevation output correctly and completely."
+}

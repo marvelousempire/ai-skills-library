@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "fork-divergence-tracker",
+  "name": "Fork Divergence Tracker",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When a project is a fork of an upstream that ships rapidly, build a \"symlink + rsync hybrid\" tracker so the fork knows when upstream changes AND maintains a\u2026",
+  "description": "When a project is a fork of an upstream that ships rapidly, build a \"symlink + rsync hybrid\" tracker so the fork knows when upstream changes AND maintains a curated ledger of its own deviations. Two surfaces: UPSTREAM_TRACKER.md (auto-refreshed live snapshot) + WE_DIFFER_HERE.md (curated narrative). One daily GitHub Action keeps both honest. Triggers on \"fork tracking\", \"shadow upstream\", \"track fork divergence\", \"we forked X and want to know when X changes\".",
+  "skill_id": null,
+  "skill_path": "skills/methodology/fork-divergence-tracker",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use fork-divergence-tracker"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **fork-divergence-tracker**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

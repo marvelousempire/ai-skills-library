@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "seo-audit",
+  "name": "Seo Audit",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.2.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not\u2026",
+  "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" \"SEO health check,\" \"my traffic dropped,\" \"lost rankings,\" \"not showing up in Google,\" \"site isn't ranking,\" \"Google update hit me,\" \"page speed,\" \"core web vitals,\" \"crawl errors,\" or \"indexing issues.\" Use this even if the user just says something vague like \"my SEO is bad\" or \"help with SEO\" \u2014 start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup. For AI search optimization, see ai-seo.",
+  "skill_id": "SK-0102",
+  "skill_path": "skills/marketing/seo-audit",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-seo",
+    "check-audit",
+    "file-seo"
+  ],
+  "keywords": [
+    "write-seo",
+    "check-audit",
+    "file-seo"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **seo-audit**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "40ed022",
+  "goal": "Deliver seo audit output correctly and completely."
+}

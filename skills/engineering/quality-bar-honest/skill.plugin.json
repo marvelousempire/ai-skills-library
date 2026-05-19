@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "quality-bar-honest",
+  "name": "Quality Bar Honest",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When a user demands \"100% delivery\" or \"ship everything now\" on scope that exceeds session capacity at quality bar, reply with the honest-scope framing:\u2026",
+  "description": "When a user demands \"100% delivery\" or \"ship everything now\" on scope that exceeds session capacity at quality bar, reply with the honest-scope framing: explicit what-I-can-ship vs what's-deferred. Cite the quality-bar rule. Don't ship hacks.",
+  "skill_id": "SK-0035",
+  "skill_path": "skills/engineering/quality-bar-honest",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "set-quality",
+    "enforce-bar",
+    "reject-shortcut"
+  ],
+  "keywords": [
+    "set-quality",
+    "enforce-bar",
+    "reject-shortcut"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **quality-bar-honest**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "14500b3",
+  "goal": "Deliver quality bar honest output correctly and completely."
+}

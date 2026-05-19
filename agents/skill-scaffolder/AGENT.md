@@ -15,7 +15,12 @@ User asks to add a new skill, OR `agents/skill-scaffolder/ scaffold <family>/<sl
 
 ## Output
 
-New files under `skills/<family>/<slug>/`. Updates parent `README.md` if family-level catalog exists. Bumps SKILL-INDEX count.
+New files under `skills/<family>/<slug>/`:
+
+- `SKILL.md` (YAML frontmatter + body)
+- `skill.plugin.json` + `skill.plugin.md` (run `python3 scripts/generate-skill-plugin-manifests.py` after scaffold)
+
+Updates parent `README.md` if family-level catalog exists. Bumps SKILL-INDEX count.
 
 ## Side effects
 

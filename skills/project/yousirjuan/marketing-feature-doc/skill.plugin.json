@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "marketing-feature-doc",
+  "name": "Marketing Feature Doc",
+  "pack": "project/yousirjuan",
+  "pack_label": "You-Sir Juan",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works,\u2026",
+  "description": "Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works, who it's for.",
+  "skill_id": "SK-0129",
+  "skill_path": "skills/project/yousirjuan/marketing-feature-doc",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-marketing",
+    "check-feature",
+    "build-doc"
+  ],
+  "keywords": [
+    "write-marketing",
+    "check-feature",
+    "build-doc"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **marketing-feature-doc**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "1aa97d5",
+  "goal": "Deliver marketing feature doc output correctly and completely."
+}

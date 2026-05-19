@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "competitor-alternatives",
+  "name": "Competitor Alternatives",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs\u2026",
+  "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'battle card,' or 'competitor teardown.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For sales-specific competitor docs, see sales-enablement.",
+  "skill_id": "SK-0073",
+  "skill_path": "skills/marketing/competitor-alternatives",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-competitor",
+    "check-alternatives",
+    "file-competitor"
+  ],
+  "keywords": [
+    "write-competitor",
+    "check-alternatives",
+    "file-competitor"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **competitor-alternatives**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "bf85326",
+  "goal": "Deliver competitor alternatives output correctly and completely."
+}

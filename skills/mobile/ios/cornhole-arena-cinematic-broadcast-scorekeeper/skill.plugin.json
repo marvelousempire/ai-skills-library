@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "cornhole-arena-cinematic-broadcast-scorekeeper",
+  "name": "Cornhole Arena Cinematic Broadcast Scorekeeper",
+  "pack": "mobile/ios",
+  "pack_label": "iOS",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Builds Cornhole Arena, an immersive iOS RealityKit 4 cinematic broadcast scorekeeper using SwiftUI, RealityView, Metal post-processing, HealthKit, WHOOP data,\u2026",
+  "description": "Builds Cornhole Arena, an immersive iOS RealityKit 4 cinematic broadcast scorekeeper using SwiftUI, RealityView, Metal post-processing, HealthKit, WHOOP data, physics, particles, spatial audio, and haptics.",
+  "skill_id": "SK-0121",
+  "skill_path": "skills/mobile/ios/cornhole-arena-cinematic-broadcast-scorekeeper",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "build-cornhole",
+    "check-arena",
+    "build-cinematic"
+  ],
+  "keywords": [
+    "build-cornhole",
+    "check-arena",
+    "build-cinematic"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **cornhole-arena-cinematic-broadcast-scorekeeper**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "30dd96f",
+  "goal": "Deliver cornhole arena cinematic broadcast scorekeeper output correctly and completely."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "create-hook",
+  "name": "Create Hook",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Create Cursor hooks. Use when you want to create a hook, write hooks.json, add hook scripts, or automate behavior around agent events.",
+  "description": "Create Cursor hooks. Use when you want to create a hook, write hooks.json, add hook scripts, or automate behavior around agent events.",
+  "skill_id": "SK-0019",
+  "skill_path": "skills/engineering/create-hook",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "create-hook",
+    "configure-trigger",
+    "wire-event"
+  ],
+  "keywords": [
+    "create-hook",
+    "configure-trigger",
+    "wire-event"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **create-hook**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "20ddce2",
+  "goal": "Deliver create hook output correctly and completely."
+}

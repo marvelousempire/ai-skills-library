@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "migration-collision-recovery",
+  "name": "Migration Collision Recovery",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Recover from a database migration number collision \u2014 two migration files sharing the same numeric prefix. Use when: 'migration number collision,' 'duplicate\u2026",
+  "description": "Recover from a database migration number collision \u2014 two migration files sharing the same numeric prefix. Use when: 'migration number collision,' 'duplicate migration prefix,' 'guard check failed on migration,' 'CI is failing on migration uniqueness check,' 'two migrations with the same number,' 'migration file conflict,' 'next-migration-number gave me a number that's already taken.' Also use proactively whenever you discover a collision during a rebase or PR review. Returns renamed files, updated references, and a clean commit.",
+  "skill_id": null,
+  "skill_path": "skills/engineering/migration-collision-recovery",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use migration-collision-recovery"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **migration-collision-recovery**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

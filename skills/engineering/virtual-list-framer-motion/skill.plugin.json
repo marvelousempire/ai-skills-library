@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "virtual-list-framer-motion",
+  "name": "Virtual List Framer Motion",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Fix blank or stacked virtual lists when TanStack Virtual and Framer Motion share one element. Motion's x/y animation overwrites translateY used for row\u2026",
+  "description": "Fix blank or stacked virtual lists when TanStack Virtual and Framer Motion share one element. Motion's x/y animation overwrites translateY used for row positioning. Use a plain wrapper for translateY; animate opacity only, or drop virtualization under ~5k rows. Also covers claude-chat-reader Docker dev overlay when localhost:3000 shows empty UI after prod rebuild. Triggers on \"virtual list blank\", \"conversations page empty\", \"all rows stacked\", \"translateY motion conflict\", \"tanstack virtual framer\", \"docker compose port 3000 not working\".",
+  "skill_id": "SK-0141",
+  "skill_path": "skills/engineering/virtual-list-framer-motion",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "tanstack-virtual",
+    "framer-motion",
+    "motion",
+    "translateY",
+    "blank-list",
+    "stacked-rows"
+  ],
+  "keywords": [
+    "tanstack-virtual",
+    "framer-motion",
+    "motion",
+    "translateY",
+    "blank-list",
+    "stacked-rows"
+  ],
+  "overlap": [],
+  "relations": [
+    "post-sse-via-fetch-readablestream"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **virtual-list-framer-motion**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "claude-archive-2026-05",
+  "goal": "Virtualized React lists stay visible when using Motion \u2014 transform on the positioning layer, opacity-only inside."
+}

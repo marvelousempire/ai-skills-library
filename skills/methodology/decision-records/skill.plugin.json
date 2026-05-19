@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "decision-records",
+  "name": "Decision Records",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When picking A over B (Forgejo vs GitLab CE, Colima vs Docker Desktop, etc.), write a decision record at `skills/<family>/<slug>/references/<X-vs-Y>.md` with\u2026",
+  "description": "When picking A over B (Forgejo vs GitLab CE, Colima vs Docker Desktop, etc.), write a decision record at `skills/<family>/<slug>/references/<X-vs-Y>.md` with options, pros/cons, decision, rationale, trigger for revisiting, cost of being wrong. Index in `decision-records/INDEX.md`. Triggers on \"pick A or B\", \"why this not that\", \"decision record\". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/templates/decision-record.md.template`.",
+  "skill_id": "SK-0110",
+  "skill_path": "skills/methodology/decision-records",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "record-decision",
+    "document-why",
+    "log-decision"
+  ],
+  "keywords": [
+    "record-decision",
+    "document-why",
+    "log-decision"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **decision-records**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "f7f6fcd",
+  "goal": "Deliver decision records output correctly and completely."
+}

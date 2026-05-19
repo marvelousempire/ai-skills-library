@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ui-ux-pro-max",
+  "name": "Ui Ux Pro Max",
+  "pack": "visual/design/ui-ux-pro-max",
+  "pack_label": "Design / UI",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Comprehensive design guide for web and mobile applications. Covers styles, color palettes, font pairings, UX guidelines, and chart types across multiple\u2026",
+  "description": "Comprehensive design guide for web and mobile applications. Covers styles, color palettes, font pairings, UX guidelines, and chart types across multiple stacks; searchable priority-based recommendations. Use when improving UI/UX, design systems, visual design, or when the user mentions ui-ux-pro-max, uipro-cli, or design review workflows.",
+  "skill_id": "SK-0132",
+  "skill_path": "skills/visual/design/ux/ui-ux-pro-max",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "design-ui",
+    "review-ux",
+    "apply-guidelines"
+  ],
+  "keywords": [
+    "design-ui",
+    "review-ux",
+    "apply-guidelines"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ui-ux-pro-max**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "1e75ad9",
+  "goal": "Deliver ui ux pro max output correctly and completely."
+}

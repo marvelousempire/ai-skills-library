@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "nephew-cloak-amending-mission",
+  "name": "Nephew Cloak Amending Mission",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Nephew CLOAK executive layer \u2014 full Amending Mission. When Grok or another AI designed systems (whitepapers, agents, repos, merges) but only simulated git,\u2026",
+  "description": "Nephew CLOAK executive layer \u2014 full Amending Mission. When Grok or another AI designed systems (whitepapers, agents, repos, merges) but only simulated git, systematically verify every claim against GitHub, rebuild missing artifacts, witness commits, and maintain a green-check ledger. Internalizes Automata as Layer-0 belief system. Triggers: Amending Mission, simulated pushes, fix Grok lies, CLOAK activation, turn chat into real repos, Nephew enforcer of truth.",
+  "skill_id": "SK-CLOAK-AMEND",
+  "skill_path": "skills/methodology/nephew-cloak-amending-mission",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "ai-chat-archive-reconstruction"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "nephew-cloak",
+    "amending-mission",
+    "simulated-commits",
+    "grok-simulation",
+    "witness-truth",
+    "automata-reconstruction"
+  ],
+  "keywords": [
+    "nephew-cloak",
+    "amending-mission",
+    "simulated-commits",
+    "grok-simulation",
+    "witness-truth",
+    "automata-reconstruction"
+  ],
+  "overlap": [],
+  "relations": [
+    "ai-chat-archive-reconstruction",
+    "automata-reconstructor",
+    "gap-audit-and-elevation",
+    "plan-first"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **nephew-cloak-amending-mission**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "pending",
+  "goal": "Permanently convert simulated AI work into witnessed GitHub truth across Nephew, Automata, and sibling repos \u2014 never claim ship without SHA."
+}

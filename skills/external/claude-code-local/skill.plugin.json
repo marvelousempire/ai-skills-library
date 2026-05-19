@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "claude-code-local",
+  "name": "Claude Code Local",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "Claude Code Local \\u2014 Run Claude Code against local models on Apple Silicon using an MLX-oriented, Anthropic-API-compatible server; offline-oriented. Use\u2026",
+  "description": "Claude Code Local \\u2014 Run Claude Code against local models on Apple Silicon using an MLX-oriented, Anthropic-API-compatible server; offline-oriented. Use when the user mentions or needs: Claude Code offline; local Claude Code Apple Silicon; MLX Claude API compatible server; airgap Claude Code.",
+  "skill_id": null,
+  "skill_path": "skills/external/claude-code-local",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use claude-code-local"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **claude-code-local**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

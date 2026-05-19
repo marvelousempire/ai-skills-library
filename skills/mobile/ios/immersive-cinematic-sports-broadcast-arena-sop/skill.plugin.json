@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "immersive-cinematic-sports-broadcast-arena-sop",
+  "name": "Immersive Cinematic Sports Broadcast Arena Sop",
+  "pack": "mobile/ios",
+  "pack_label": "iOS",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Reusable SOP and PRD skill for building premium immersive iOS scorekeeping and stats apps for any sport using SwiftUI, RealityKit 4, RealityView, Metal,\u2026",
+  "description": "Reusable SOP and PRD skill for building premium immersive iOS scorekeeping and stats apps for any sport using SwiftUI, RealityKit 4, RealityView, Metal, HealthKit, WHOOP, physics, particles, spatial audio, and haptics.",
+  "skill_id": "SK-0122",
+  "skill_path": "skills/mobile/ios/immersive-cinematic-sports-broadcast-arena-sop",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "build-immersive",
+    "check-cinematic",
+    "build-sports"
+  ],
+  "keywords": [
+    "build-immersive",
+    "check-cinematic",
+    "build-sports"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **immersive-cinematic-sports-broadcast-arena-sop**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "57bc3fc",
+  "goal": "Deliver immersive cinematic sports broadcast arena sop output correctly and completely."
+}

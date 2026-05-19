@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "product-marketing-context",
+  "name": "Product Marketing Context",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set\u2026",
+  "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills \u2014 it creates `.agents/product-marketing-context.md` that all other skills reference for product, audience, and positioning context.",
+  "skill_id": "SK-0096",
+  "skill_path": "skills/marketing/product-marketing-context",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-product",
+    "check-marketing",
+    "build-context"
+  ],
+  "keywords": [
+    "write-product",
+    "check-marketing",
+    "build-context"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **product-marketing-context**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "b72bd30",
+  "goal": "Deliver product marketing context output correctly and completely."
+}

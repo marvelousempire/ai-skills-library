@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "save-plan",
+  "name": "Save Plan",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Save the current session's plan to docs/Plan-<Name>.md and verify ledger alignment. Use after shipping any new plan. Ensures every plan has a committed doc in\u2026",
+  "description": "Save the current session's plan to docs/Plan-<Name>.md and verify ledger alignment. Use after shipping any new plan. Ensures every plan has a committed doc in Git so future sessions can find it.",
+  "skill_id": "SK-0040",
+  "skill_path": "skills/engineering/save-plan",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "save-plan",
+    "write-plan",
+    "file-decision"
+  ],
+  "keywords": [
+    "save-plan",
+    "write-plan",
+    "file-decision"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **save-plan**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "6432331",
+  "goal": "Deliver save plan output correctly and completely."
+}

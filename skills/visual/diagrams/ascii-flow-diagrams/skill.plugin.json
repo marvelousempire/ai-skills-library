@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ascii-flow-diagrams",
+  "name": "Ascii Flow Diagrams",
+  "pack": "visual",
+  "pack_label": "Visual",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user asks for a visual of a flow, system, architecture, request lifecycle, or how parts talk to each other \u2014 render a Unicode box-and-arrow diagram\u2026",
+  "description": "When the user asks for a visual of a flow, system, architecture, request lifecycle, or how parts talk to each other \u2014 render a Unicode box-and-arrow diagram in a fenced text block. Triggers on phrases like \"show me a visual\", \"draw the flow\", \"diagram this\", \"how does X talk to Y\", \"what does the architecture look like\".",
+  "skill_id": "SK-0133",
+  "skill_path": "skills/visual/diagrams/ascii-flow-diagrams",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "draw-diagram",
+    "map-flow",
+    "visualize-architecture"
+  ],
+  "keywords": [
+    "draw-diagram",
+    "map-flow",
+    "visualize-architecture"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ascii-flow-diagrams**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "b02ed88",
+  "goal": "Deliver ascii flow diagrams output correctly and completely."
+}

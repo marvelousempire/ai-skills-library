@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "secure-data-flow-protocol",
+  "name": "Secure Data Flow Protocol",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Walk the 8-question checklist for any new field that flows iOS \u2192 API \u2192 DB \u2192 API \u2192 reader. Catches the \"doesn't show up everywhere\" gap. Adopted from\u2026",
+  "description": "Walk the 8-question checklist for any new field that flows iOS \u2192 API \u2192 DB \u2192 API \u2192 reader. Catches the \"doesn't show up everywhere\" gap. Adopted from red-e-play's Plan-Secure-Data-Flow-Protocol after 5 back-to-back PRs hit the same root cause.",
+  "skill_id": "SK-0009",
+  "skill_path": "skills/engineering/architecture/secure-data-flow-protocol",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "secure-flow",
+    "encrypt-data",
+    "validate-transfer"
+  ],
+  "keywords": [
+    "secure-flow",
+    "encrypt-data",
+    "validate-transfer"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **secure-data-flow-protocol**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "4aeed7c",
+  "goal": "Deliver secure data flow protocol output correctly and completely."
+}

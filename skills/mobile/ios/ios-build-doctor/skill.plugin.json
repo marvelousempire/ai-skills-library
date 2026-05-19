@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ios-build-doctor",
+  "name": "Ios Build Doctor",
+  "pack": "mobile/ios",
+  "pack_label": "iOS",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Systematically diagnose and fix iOS build errors in a multi-agent Xcode repo. Triggered when the user says \"fix the iOS build\", \"build is broken\", \"xcodebuild\u2026",
+  "description": "Systematically diagnose and fix iOS build errors in a multi-agent Xcode repo. Triggered when the user says \"fix the iOS build\", \"build is broken\", \"xcodebuild is failing\", \"get to BUILD SUCCEEDED\", \"iOS errors\". Runs a structured six-phase protocol: disk-check \u2192 enumerate ALL errors \u2192 classify by type \u2192 fix in dependency order \u2192 verify clean \u2192 PR. Never starts fixing individual errors without first seeing the full error set.",
+  "skill_id": null,
+  "skill_path": "skills/mobile/ios/ios-build-doctor",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use ios-build-doctor"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ios-build-doctor**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

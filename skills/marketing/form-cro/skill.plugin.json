@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "form-cro",
+  "name": "Form Cro",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms,\u2026",
+  "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" \"contact form,\" \"nobody fills out our form,\" \"form abandonment,\" \"too many fields,\" \"demo request form,\" or \"lead form isn't converting.\" Use this for any non-signup form that captures information. For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
+  "skill_id": "SK-0083",
+  "skill_path": "skills/marketing/form-cro",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-form",
+    "check-cro",
+    "file-form"
+  ],
+  "keywords": [
+    "write-form",
+    "check-cro",
+    "file-form"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **form-cro**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "da5bf52",
+  "goal": "Deliver form cro output correctly and completely."
+}

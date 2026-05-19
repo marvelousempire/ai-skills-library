@@ -52,6 +52,7 @@ When Bishop **creates, scaffolds, or registers** any agent:
 2. **Philosophy is operational** — not marketing copy.
 3. **Propagate** to `agents/<name>.md`, companion `SKILL.md` frontmatter `philosophy:` if any, and `bridge.manifest.json`.
 4. **Audit command:** grep new files for `## Philosophy`; fail if absent.
+5. **Plugin manifest:** every `skills/**/SKILL.md` folder must have `skill.plugin.json` + `skill.plugin.md` (run `generate-skill-plugin-manifests.py`).
 
 ### Canonical example
 

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "doctrine-decanter-sorting-agent",
+  "name": "Doctrine Decanter Sorting Agent",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Sorts messy PRDs, doctrine dumps, and chat-export planning files into a professional docs tree: re-number stable IDs, de-duplicate (canonical on top,\u2026",
+  "description": "Sorts messy PRDs, doctrine dumps, and chat-export planning files into a professional docs tree: re-number stable IDs, de-duplicate (canonical on top, duplicates at bottom with clear spacing), split monoliths into bible/shaders/ product folders, preserve archives, and wire README indexes. Use when the user asks to structure a project folder, break into folders, split a PRD, decanter, de-duplicate, re-number requirements, move doubles to the bottom, organize cinematic fluid experience-style docs, or clean up combined single-file dumps.",
+  "skill_id": null,
+  "skill_path": "skills/methodology/doctrine-decanter-sorting-agent",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use doctrine-decanter-sorting-agent"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **doctrine-decanter-sorting-agent**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

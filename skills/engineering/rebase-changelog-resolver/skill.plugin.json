@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "rebase-changelog-resolver",
+  "name": "Rebase Changelog Resolver",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Auto-resolve CHANGELOG.md merge conflicts during rebase by keeping both entries with newest-first ordering. Pattern is mechanical \u2014 every PR adds an entry at\u2026",
+  "description": "Auto-resolve CHANGELOG.md merge conflicts during rebase by keeping both entries with newest-first ordering. Pattern is mechanical \u2014 every PR adds an entry at the top, so every rebase produces the same shape of conflict. Tested 3 times in the trainer-marketplace session.",
+  "skill_id": "SK-0037",
+  "skill_path": "skills/engineering/rebase-changelog-resolver",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "rebase-branch",
+    "resolve-conflict",
+    "update-changelog"
+  ],
+  "keywords": [
+    "rebase-branch",
+    "resolve-conflict",
+    "update-changelog"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **rebase-changelog-resolver**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "dd1afce",
+  "goal": "Deliver rebase changelog resolver output correctly and completely."
+}

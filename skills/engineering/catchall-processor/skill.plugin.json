@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "catchall-processor",
+  "name": "Catchall Processor",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The AI Skills Library catchall \u2014 when no skill, rule, agent, or context matches a request, log it to the catchall queue and let the processor handle it. Like\u2026",
+  "description": "The AI Skills Library catchall \u2014 when no skill, rule, agent, or context matches a request, log it to the catchall queue and let the processor handle it. Like a domain's catch-all email address. Unmatched requests become skill proposals. The library grows from its own gaps. Triggers on \"nothing matches this\", \"log this to catchall\", \"no skill found\", \"add to catchall queue\", \"the library can't handle this yet\", \"unmatched request\", \"what do we do when no skill fits\", \"library gap found\".",
+  "skill_id": "SK-0137",
+  "skill_path": "skills/engineering/catchall-processor",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-catchall",
+    "check-processor",
+    "file-catchall"
+  ],
+  "keywords": [
+    "run-catchall",
+    "check-processor",
+    "file-catchall"
+  ],
+  "overlap": [],
+  "relations": [
+    "gap-audit-and-elevation",
+    "create-skill",
+    "ai-proposal-review-inbox"
+  ],
+  "governed_by": [
+    "RL-0045",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **catchall-processor**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "e4b9c3f",
+  "goal": "Every unmatched request either finds the right skill or files a proposal so the library grows to handle it next time."
+}

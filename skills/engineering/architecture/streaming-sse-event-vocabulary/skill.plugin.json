@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "streaming-sse-event-vocabulary",
+  "name": "Streaming Sse Event Vocabulary",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The canonical set of SSE event types for an AI agent streaming interface. Every event has a defined shape, a defined moment it fires, and a defined client\u2026",
+  "description": "The canonical set of SSE event types for an AI agent streaming interface. Every event has a defined shape, a defined moment it fires, and a defined client behavior. Use this vocabulary when building or extending any AI chat endpoint. Triggers on \"what SSE events should my AI agent emit\", \"AI streaming event types\", \"agent SSE vocabulary\", \"what events does the AI send\", \"tool_use_start event shape\", \"assistant_text_delta\", \"tool_approval_needed SSE\", \"design the streaming protocol\".",
+  "skill_id": "SK-0010",
+  "skill_path": "skills/engineering/architecture/streaming-sse-event-vocabulary",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "define-events",
+    "route-messages",
+    "handle-stream"
+  ],
+  "keywords": [
+    "define-events",
+    "route-messages",
+    "handle-stream"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **streaming-sse-event-vocabulary**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "ab17480",
+  "goal": "Every AI agent stream uses the same named events so any frontend can consume any agent."
+}

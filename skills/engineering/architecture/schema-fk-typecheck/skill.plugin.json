@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "schema-fk-typecheck",
+  "name": "Schema Fk Typecheck",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Before writing a CREATE TABLE column with a REFERENCES clause, look up the parent table's column type so the FK declaration matches. Catches BIGINT vs UUID,\u2026",
+  "description": "Before writing a CREATE TABLE column with a REFERENCES clause, look up the parent table's column type so the FK declaration matches. Catches BIGINT vs UUID, SERIAL vs BIGSERIAL, INTEGER vs TEXT mismatches at write time \u2014 not at production deploy.",
+  "skill_id": "SK-0008",
+  "skill_path": "skills/engineering/architecture/schema-fk-typecheck",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "check-schema",
+    "validate-fk",
+    "verify-types"
+  ],
+  "keywords": [
+    "check-schema",
+    "validate-fk",
+    "verify-types"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **schema-fk-typecheck**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "115ec03",
+  "goal": "Deliver schema fk typecheck output correctly and completely."
+}

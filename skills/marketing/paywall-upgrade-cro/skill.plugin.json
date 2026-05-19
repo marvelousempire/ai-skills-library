@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "paywall-upgrade-cro",
+  "name": "Paywall Upgrade Cro",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\"\u2026",
+  "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" \"in-app pricing,\" \"free users won't upgrade,\" \"trial to paid conversion,\" or \"how do I get users to pay.\" Use this for any in-product moment where you're asking users to upgrade. Distinct from public pricing pages (see page-cro) \u2014 this focuses on in-product upgrade moments where the user has already experienced value. For pricing decisions, see pricing-strategy.",
+  "skill_id": "SK-0093",
+  "skill_path": "skills/marketing/paywall-upgrade-cro",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-paywall",
+    "check-upgrade",
+    "build-cro"
+  ],
+  "keywords": [
+    "write-paywall",
+    "check-upgrade",
+    "build-cro"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **paywall-upgrade-cro**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "21dd161",
+  "goal": "Deliver paywall upgrade cro output correctly and completely."
+}

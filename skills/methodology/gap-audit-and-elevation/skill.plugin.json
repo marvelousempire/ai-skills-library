@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "gap-audit-and-elevation",
+  "name": "Gap Audit And Elevation",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "After every meaningful ship, run the gap audit (specific incomplete items, named) + elevation pass (ambitious extensions). File the audit at\u2026",
+  "description": "After every meaningful ship, run the gap audit (specific incomplete items, named) + elevation pass (ambitious extensions). File the audit at `docs/improvement/audits/<date>-<scope>.md` and append open items to `gaps-open.md` / `elevations-deferred.md`. Triggers on \"audit the gaps\", \"after-ship audit\", \"what's left to close\", \"propose elevations\". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/workflows/audit-and-elevate.md`.",
+  "skill_id": "SK-0113",
+  "skill_path": "skills/methodology/gap-audit-and-elevation",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "audit-gaps",
+    "propose-elevations",
+    "file-audit"
+  ],
+  "keywords": [
+    "audit-gaps",
+    "propose-elevations",
+    "file-audit"
+  ],
+  "overlap": [],
+  "relations": [
+    "post-ship-elevation-pass",
+    "failure-proof-audit"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **gap-audit-and-elevation**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "e3563ad",
+  "goal": "Every ship is followed by a named gap list and an ambitious elevation proposal."
+}

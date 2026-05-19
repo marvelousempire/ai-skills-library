@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "shadow-and-record",
+  "name": "Shadow And Record",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "General pattern for tracking your relationship to anything outside your control. Two surfaces that work together: a live shadow (auto-refreshed snapshot of\u2026",
+  "description": "General pattern for tracking your relationship to anything outside your control. Two surfaces that work together: a live shadow (auto-refreshed snapshot of the external thing) and a curated record (human-maintained ledger of how you intentionally differ). One file you read to know what it is right now; another you read to know what you'll never let it overwrite. Use whenever you need both awareness and intent persisted in one unified system. Triggers on \"track upstream\", \"shadow X\", \"watch for changes\", \"record our deviations\", \"we forked / vendored / depend on X and want to know when it changes.\"",
+  "skill_id": null,
+  "skill_path": "skills/methodology/shadow-and-record",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use shadow-and-record"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **shadow-and-record**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

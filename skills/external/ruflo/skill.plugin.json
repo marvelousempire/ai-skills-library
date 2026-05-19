@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ruflo",
+  "name": "Ruflo",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "Ruflo \\u2014 Agent orchestration platform: multi-agent swarms, workflows, RAG; Claude Code / Codex integration (per upstream). Use when the user mentions or\u2026",
+  "description": "Ruflo \\u2014 Agent orchestration platform: multi-agent swarms, workflows, RAG; Claude Code / Codex integration (per upstream). Use when the user mentions or needs: Ruflo; agent swarm orchestration; multi-agent Claude workflows.",
+  "skill_id": null,
+  "skill_path": "skills/external/ruflo",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use ruflo"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ruflo**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

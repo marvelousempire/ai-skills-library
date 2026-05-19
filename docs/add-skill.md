@@ -12,7 +12,8 @@
 
 1. Use Cursor **create-skill** (or follow vendor docs).
 2. Prefer **narrow triggers** in frontmatter `description:` so the skill does not steal every “improve” task.
-3. Add to index + overlap docs as above.
+3. Run `python3 scripts/generate-skill-plugin-manifests.py` — creates **`skill.plugin.json`** + **`skill.plugin.md`** (WordPress-style plugin card metadata) beside `SKILL.md`.
+4. Add to index + overlap docs as above.
 
 ## Rescan
 

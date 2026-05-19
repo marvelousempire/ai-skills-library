@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "multi-surface-single-engine",
+  "name": "Multi Surface Single Engine",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "One core engine \u2014 a shell script, AppleScript, API, or binary \u2014 wrapped by multiple UX surfaces that each reach different users: a web dashboard, a CLI\u2026",
+  "description": "One core engine \u2014 a shell script, AppleScript, API, or binary \u2014 wrapped by multiple UX surfaces that each reach different users: a web dashboard, a CLI command, a Shortcut, a menu-bar widget, a background agent, an SSH-safe headless mode. Each surface is a thin adapter. The engine never changes to accommodate a surface. Triggers on \"multiple ways to run this\", \"add a CLI for this tool\", \"same tool as a Shortcut and a web UI\", \"don't duplicate the logic\", \"headless mode for CI\", \"menu bar and dashboard\", \"single source of truth for the cleanup logic\".",
+  "skill_id": "SK-0006",
+  "skill_path": "skills/engineering/architecture/multi-surface-single-engine",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "route-surface",
+    "call-engine",
+    "adapt-output"
+  ],
+  "keywords": [
+    "route-surface",
+    "call-engine",
+    "adapt-output"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **multi-surface-single-engine**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "7dc96a6",
+  "goal": "One engine powers every surface \u2014 the logic is never duplicated across CLI, web, Shortcut, or launchd."
+}

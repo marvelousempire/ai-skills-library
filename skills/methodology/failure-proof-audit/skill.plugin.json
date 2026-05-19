@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "failure-proof-audit",
+  "name": "Failure Proof Audit",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "A multi-pass audit methodology for any repo, project, workflow, prompt, or system. Run it as if the system already shipped six months ago and failed \u2014 then\u2026",
+  "description": "A multi-pass audit methodology for any repo, project, workflow, prompt, or system. Run it as if the system already shipped six months ago and failed \u2014 then surface every hidden gap, root cause, and rework source, convert every finding into a Boolean-testable lead sheet item (Yes/No pass/fail), and apply a chain-of-command accountability review before final sign-off. Four passes: Primary, Hidden Gap Double-Check, Six-Month Failure Simulation, Future-Proofing. Triggers on \"audit this system\", \"failure-proof this\", \"run a full audit\", \"Boolean lead sheet\", \"find hidden gaps\", \"what would break after six months\", \"accountability review\", \"gap and failure review\", \"make this production-safe\", \"repo audit before shipping\".",
+  "skill_id": "SK-0112",
+  "skill_path": "skills/methodology/failure-proof-audit",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "gap-audit-and-elevation",
+    "plan-first-substantive-changes"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-audit",
+    "check-gaps",
+    "build-leadsheet"
+  ],
+  "keywords": [
+    "run-audit",
+    "check-gaps",
+    "build-leadsheet"
+  ],
+  "overlap": [],
+  "relations": [
+    "conversation-retrospective-extraction",
+    "post-ship-elevation-pass"
+  ],
+  "governed_by": [
+    "RL-0039",
+    "RL-0044",
+    "RL-0043"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **failure-proof-audit**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "c9e9f47",
+  "goal": "Every system is hardened against the failure modes that six months of real-world use would expose."
+}

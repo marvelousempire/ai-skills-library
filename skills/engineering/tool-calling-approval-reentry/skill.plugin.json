@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "tool-calling-approval-reentry",
+  "name": "Tool Calling Approval Reentry",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Multi-turn AI tool-calling loop where destructive tools surface an approval card BEFORE running. The stream emits `tool_approval_needed`, closes cleanly, the\u2026",
+  "description": "Multi-turn AI tool-calling loop where destructive tools surface an approval card BEFORE running. The stream emits `tool_approval_needed`, closes cleanly, the client renders an approval card pulling description + cost text from CURATED source (not AI-generated), the user clicks \u2713 or \u2715, the client re-POSTs with `pending_tool_results`, and the loop resumes from the same message state. Hard cap on rounds to prevent runaway. Works across Anthropic Messages API and OpenAI function-calling. Triggers on \"AI tool approval flow\", \"approval card for destructive tool\", \"pending_tool_results re-entry\", \"tool_approval_needed\", \"AI agent action gate\", \"human-in-the-loop tool use\", \"BYO key AI agent destructive operations\".",
+  "skill_id": "SK-0047",
+  "skill_path": "skills/engineering/tool-calling-approval-reentry",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "pause-tool",
+    "show-approval",
+    "resume-loop"
+  ],
+  "keywords": [
+    "pause-tool",
+    "show-approval",
+    "resume-loop"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **tool-calling-approval-reentry**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "2d95a38",
+  "goal": "AI agents with destructive tools always pause for human approval before running, then resume cleanly."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "sandboxed-filesystem-peek",
+  "name": "Sandboxed Filesystem Peek",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Give an AI agent or third-party tool read-only filesystem access via a strict allowlist + hard-deny + symlink-resolution validator. Path-traversal proof.\u2026",
+  "description": "Give an AI agent or third-party tool read-only filesystem access via a strict allowlist + hard-deny + symlink-resolution validator. Path-traversal proof. Returns metadata (size, is_dir) but never file contents. Designed for AI agents that need to investigate the user's machine without becoming a data-exfiltration vector. Triggers on \"AI filesystem access\", \"let the agent look around\", \"filesystem peek sandbox\", \"ALLOWED_ROOTS DENY_ROOTS\", \"path-traversal protection for agent\", \"list_directory tool\", \"measure_path tool\", \"filesystem read sandbox\", \"AI agent can't see system files\".",
+  "skill_id": "SK-0039",
+  "skill_path": "skills/engineering/sandboxed-filesystem-peek",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "read-path",
+    "measure-size",
+    "list-directory"
+  ],
+  "keywords": [
+    "read-path",
+    "measure-size",
+    "list-directory"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **sandboxed-filesystem-peek**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "331b625",
+  "goal": "AI agents can read the filesystem safely without becoming a data-exfiltration vector."
+}

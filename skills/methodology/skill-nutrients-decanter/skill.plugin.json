@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "skill-nutrients-decanter",
+  "name": "Skill Nutrients Decanter",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "A \"Skill Nutrient\" is a learning moment that is critically vital and net positive \u2014 a plus, not a minus or zero. The Decanter is the process that scrapes,\u2026",
+  "description": "A \"Skill Nutrient\" is a learning moment that is critically vital and net positive \u2014 a plus, not a minus or zero. The Decanter is the process that scrapes, filters, and compounds only those nutrients from any conversation, session, or project arc into permanent repo improvements. Not everything extracted from a session is a nutrient \u2014 only what genuinely adds strength, clarity, reusability, or safety. This skill defines both the concept (what counts as a nutrient) and the decanting process (how to extract, filter, and file them). Triggers on \"skill nutrients\", \"decant the lessons\", \"what are the nutrients from this session\", \"only keep what's a plus\", \"compound the learning\", \"filter what's worth filing\", \"nutrient extraction\", \"what genuinely adds value here\", \"Skill Nutrients Decanter\".",
+  "skill_id": "SK-0119",
+  "skill_path": "skills/methodology/skill-nutrients-decanter",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "filter-nutrients",
+    "extract-lessons",
+    "compound-learning"
+  ],
+  "keywords": [
+    "filter-nutrients",
+    "extract-lessons",
+    "compound-learning"
+  ],
+  "overlap": [],
+  "relations": [
+    "conversation-retrospective-extraction",
+    "create-skill"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **skill-nutrients-decanter**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "dbf1517",
+  "goal": "Only net-positive lessons \u2014 nutrients \u2014 make it into the library; noise is filtered out."
+}

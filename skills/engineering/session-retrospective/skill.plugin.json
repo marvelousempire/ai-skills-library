@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "session-retrospective",
+  "name": "Session Retrospective",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Run a structured retrospective on a completed work session to extract rules, skills, docs, context files, and workflow improvements that should be filed into\u2026",
+  "description": "Run a structured retrospective on a completed work session to extract rules, skills, docs, context files, and workflow improvements that should be filed into the AI skills library. Use when the user asks to 'read backward through the conversation,' 'what did we learn,' 'file everything we learned,' 'what can we extract from this session,' 'grow the skills library from this,' 'add to the library from our work,' or 'what rules or skills did this session produce.' Use proactively at the end of any session that hit a meaningful bug, made a non-obvious architectural decision, introduced new vocabulary or copy standards, or had to navigate a multi-step debugging arc. This is the meta-skill that keeps the library growing \u2014 every session that doesn't produce at least one library artifact is a session whose lessons evaporate.",
+  "skill_id": "SK-0042",
+  "skill_path": "skills/engineering/session-retrospective",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "extract-lessons",
+    "file-skill",
+    "update-library"
+  ],
+  "keywords": [
+    "extract-lessons",
+    "file-skill",
+    "update-library"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **session-retrospective**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "6f5034e",
+  "goal": "Deliver session retrospective output correctly and completely."
+}

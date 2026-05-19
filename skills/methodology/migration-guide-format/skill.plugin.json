@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "migration-guide-format",
+  "name": "Migration Guide Format",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When swapping one tool for another (Docker Desktop \u2192 Colima, Forgejo \u2192 GitLab CE), write a step-by-step migration guide at\u2026",
+  "description": "When swapping one tool for another (Docker Desktop \u2192 Colima, Forgejo \u2192 GitLab CE), write a step-by-step migration guide at `skills/<family>/<slug>/references/switching-from-<old>.md` covering: preserve vs migrate, pre-flight, backup, install new, switch, verify, reclaim space, rollback. Triggers on \"migration guide\", \"switching from X to Y\", \"rip and replace\". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/templates/migration-guide.md.template` and `docs/workflows/rip-and-replace-a-tool.md`.",
+  "skill_id": "SK-0116",
+  "skill_path": "skills/methodology/migration-guide-format",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-migration",
+    "document-steps",
+    "format-guide"
+  ],
+  "keywords": [
+    "write-migration",
+    "document-steps",
+    "format-guide"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **migration-guide-format**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "5690e57",
+  "goal": "Deliver migration guide format output correctly and completely."
+}

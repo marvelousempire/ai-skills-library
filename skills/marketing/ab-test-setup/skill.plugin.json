@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ab-test-setup",
+  "name": "Ab Test Setup",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.2.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B\u2026",
+  "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\" \"which version is better,\" \"test two versions,\" \"statistical significance,\" \"how long should I run this test,\" \"growth experiments,\" \"experiment velocity,\" \"experiment backlog,\" \"ICE score,\" \"experimentation program,\" or \"experiment playbook.\" Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro.",
+  "skill_id": "SK-0064",
+  "skill_path": "skills/marketing/ab-test-setup",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-test",
+    "check-setup",
+    "file-test"
+  ],
+  "keywords": [
+    "write-test",
+    "check-setup",
+    "file-test"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ab-test-setup**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "9ba1085",
+  "goal": "Deliver ab test setup output correctly and completely."
+}

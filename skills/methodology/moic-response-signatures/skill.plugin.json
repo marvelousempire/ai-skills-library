@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "moic-response-signatures",
+  "name": "Moic Response Signatures",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Enforce Nephew/framework entity response identity with visible receipt signatures, response_signature MOIC metadata, and MOIC Signature Patrol. Use when\u2026",
+  "description": "Enforce Nephew/framework entity response identity with visible receipt signatures, response_signature MOIC metadata, and MOIC Signature Patrol. Use when working on Nephew, CLOAK, framework entities, agent identity, response signing, imposter detection, MCP tool output, Cursor/Claude global rules, or any request mentioning MOIC, Moment of Introduction Code, response signature, or entity sign-off.",
+  "skill_id": null,
+  "skill_path": "skills/methodology/moic-response-signatures",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use moic-response-signatures"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **moic-response-signatures**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

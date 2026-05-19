@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "avery-goodman-repo-standard",
+  "name": "Avery Goodman Repo Standard",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The branded git repo schema for every project under AVERY GOODMAN. Works on any git platform (GitHub, GitLab, Gitea, Bitbucket) \u2014 the README blueprint,\u2026",
+  "description": "The branded git repo schema for every project under AVERY GOODMAN. Works on any git platform (GitHub, GitLab, Gitea, Bitbucket) \u2014 the README blueprint, one-word folder labels, and brand mark are platform-agnostic; GitHub is the primary reference implementation. Defines: the brand mark format (\"# App Name\" followed by \"**managed by the duty and order of AVERY GOODMAN**\"), 10 one-word README section labels (IDENTITY \u00b7 PURPOSE \u00b7 START \u00b7 SURFACE \u00b7 COMMANDS \u00b7 ENGINE \u00b7 INSTALL \u00b7 STANDARDS \u00b7 RELEASES \u00b7 CREDIT), 13 folder labels (THINKING \u00b7 KNOWLEDGE \u00b7 PITCH \u00b7 BRAIN \u00b7 FACE \u00b7 HANDS \u00b7 STORIES \u00b7 PATTERNS \u00b7 TOOLS \u00b7 SKIN \u00b7 KEYS \u00b7 CLOCK \u00b7 BADGE), and the drop-in README template. Triggers on \"set up this git repo the AVERY GOODMAN way\", \"brand this git repo\", \"apply the repo standard\", \"create the README\", \"how should our repos look\", \"AVERY GOODMAN repo template\", \"repo schema\", \"brand mark\", \"portfolio repos\", \"GitHub repo branding\", \"README blueprint\", \"one-word folder labels\", \"make this repo recognizable\".",
+  "skill_id": "SK-0003",
+  "skill_path": "skills/engineering/architecture/avery-goodman-repo-standard",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "product-repo-architecture"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "brand-repo",
+    "label-folder",
+    "write-readme"
+  ],
+  "keywords": [
+    "brand-repo",
+    "label-folder",
+    "write-readme"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **avery-goodman-repo-standard**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "daba578",
+  "goal": "Every AVERY GOODMAN repo is immediately recognizable \u2014 branded, labeled, and structured identically."
+}

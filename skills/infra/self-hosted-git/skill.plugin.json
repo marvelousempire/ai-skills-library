@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "self-hosted-git",
+  "name": "Self Hosted Git",
+  "pack": "infra",
+  "pack_label": "Infra",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Stand up a private GitLab CE Git server on a Mac mini (or any spare box) with Docker Compose, Caddy auto-HTTPS, and a Tailscale-or-WireGuard tunnel for remote\u2026",
+  "description": "Stand up a private GitLab CE Git server on a Mac mini (or any spare box) with Docker Compose, Caddy auto-HTTPS, and a Tailscale-or-WireGuard tunnel for remote access. Includes GitHub-Actions-equivalent CI/CD via GitLab Runners (5 ready-to-use .gitlab-ci.yml templates + a tutorial), a self-contained CI overview dashboard, container registry, GitHub repo migration, daily backups to Backblaze B2, and an upgrade-stepping checklist. Anchors in the yousirjuan platform Category 11 (Governance, GitOps & Operational Memory). Triggers on \"set up private git\", \"self-host git\", \"GitLab on Mac mini\", \"private git server\", \"private repo hosting\", \"migrate from GitHub\", \"self-hosted GitHub Actions\", \"private CI/CD\", \"GitLab CI\", \"replace GitHub Actions\".",
+  "skill_id": "SK-0063",
+  "skill_path": "skills/infra/self-hosted-git",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "setup-gitlab",
+    "configure-ci",
+    "host-git"
+  ],
+  "keywords": [
+    "setup-gitlab",
+    "configure-ci",
+    "host-git"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **self-hosted-git**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "26943d5",
+  "goal": "Deliver self hosted git output correctly and completely."
+}

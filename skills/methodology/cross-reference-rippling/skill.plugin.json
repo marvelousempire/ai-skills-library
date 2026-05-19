@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "cross-reference-rippling",
+  "name": "Cross Reference Rippling",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When adding any artifact (skill, rule, family, container, template), update every dependent index in lockstep: SKILL-INDEX, root README, family README,\u2026",
+  "description": "When adding any artifact (skill, rule, family, container, template), update every dependent index in lockstep: SKILL-INDEX, root README, family README, yousirjuan docs, integration checklists. Triggers on \"cross-reference\", \"ripple updates\", \"don't forget the index\". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/cross-references.md` and `docs/checklists/cross-reference.md`.",
+  "skill_id": "SK-0109",
+  "skill_path": "skills/methodology/cross-reference-rippling",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "ripple-update",
+    "sync-reference",
+    "propagate-change"
+  ],
+  "keywords": [
+    "ripple-update",
+    "sync-reference",
+    "propagate-change"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **cross-reference-rippling**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "b8e6dbb",
+  "goal": "Deliver cross reference rippling output correctly and completely."
+}

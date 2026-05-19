@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "nephew-mcp-cloak",
+  "name": "Nephew Mcp Cloak",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Use Nephew's native MCP server for dispatch evaluate, fidelity check, orchestration plan, and Grok archive search. Triggers: nephew mcp, CLOAK MCP tools,\u2026",
+  "description": "Use Nephew's native MCP server for dispatch evaluate, fidelity check, orchestration plan, and Grok archive search. Triggers: nephew mcp, CLOAK MCP tools, dispatch gate in Claude Code, fidelity before witness.",
+  "skill_id": "SK-NEPHEW-MCP",
+  "skill_path": "skills/methodology/nephew-mcp-cloak",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "nephew-cloak-amending-mission"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "nephew",
+    "mcp",
+    "cloak",
+    "dispatch",
+    "fidelity",
+    "orchestrate",
+    "model-context-protocol"
+  ],
+  "keywords": [
+    "nephew",
+    "mcp",
+    "cloak",
+    "dispatch",
+    "fidelity",
+    "orchestrate",
+    "model-context-protocol"
+  ],
+  "overlap": [],
+  "relations": [
+    "nephew-cloak-amending-mission"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **nephew-mcp-cloak**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "pending",
+  "goal": "Wire Claude Code and other MCP clients to Nephew CLOAK native tools before opening the full skills library."
+}

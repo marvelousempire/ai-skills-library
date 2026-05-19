@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "claude-mem",
+  "name": "Claude Mem",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "claude-mem \\u2014 Claude Code plugin that captures session work, compresses it, and injects context into later sessions. Use when the user mentions or needs:\u2026",
+  "description": "claude-mem \\u2014 Claude Code plugin that captures session work, compresses it, and injects context into later sessions. Use when the user mentions or needs: long-term memory for Claude Code; claude-mem; remember across Claude sessions; session memory plugin.",
+  "skill_id": null,
+  "skill_path": "skills/external/claude-mem",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use claude-mem"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **claude-mem**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

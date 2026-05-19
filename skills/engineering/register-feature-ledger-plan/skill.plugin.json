@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "register-feature-ledger-plan",
+  "name": "Register Feature Ledger Plan",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Register a new plan + N features atomically in a database-backed admin ledger. Emits the seed migration, the long-form Plan-X.md doc, and the Feature\u2026",
+  "description": "Register a new plan + N features atomically in a database-backed admin ledger. Emits the seed migration, the long-form Plan-X.md doc, and the Feature Ledger.md mirror update \u2014 all idempotent, all in one PR. The canonical \"every feature is a product\" registration unit.",
+  "skill_id": "SK-0038",
+  "skill_path": "skills/engineering/register-feature-ledger-plan",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "register-feature",
+    "log-plan",
+    "track-ledger"
+  ],
+  "keywords": [
+    "register-feature",
+    "log-plan",
+    "track-ledger"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **register-feature-ledger-plan**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "e172751",
+  "goal": "Deliver register feature ledger plan output correctly and completely."
+}

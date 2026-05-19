@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ship-flow",
+  "name": "Ship Flow",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Run the full commit \u2192 push \u2192 PR \u2192 CI watch \u2192 merge \u2192 deploy \u2192 smoke-test pipeline. Names the pipeline stage at every step. Stops + reports if anything fails\u2026",
+  "description": "Run the full commit \u2192 push \u2192 PR \u2192 CI watch \u2192 merge \u2192 deploy \u2192 smoke-test pipeline. Names the pipeline stage at every step. Stops + reports if anything fails (CI red, conflict, deploy failure, smoke gap). Pre-authorized for backend/admin/marketing per red-e-play CLAUDE.md.",
+  "skill_id": "SK-0044",
+  "skill_path": "skills/engineering/ship-flow",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "plan-first-substantive-changes",
+    "make-check-defense-in-depth"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "open-pr",
+    "merge-pr",
+    "verify-deploy"
+  ],
+  "keywords": [
+    "open-pr",
+    "merge-pr",
+    "verify-deploy"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ship-flow**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "43ef420",
+  "goal": "Deliver ship flow output correctly and completely."
+}

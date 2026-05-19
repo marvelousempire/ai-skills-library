@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "make-check-defense-in-depth",
+  "name": "Make Check Defense In Depth",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Extend `make check` (or any CI gate) so it catches silent-regression bugs beyond just \"does the code parse.\" Verify every file referenced by docs/ Makefile\u2026",
+  "description": "Extend `make check` (or any CI gate) so it catches silent-regression bugs beyond just \"does the code parse.\" Verify every file referenced by docs/ Makefile actually exists; verify renamed strings have updated consumers (the v0.21.0-class regression); verify Python modules import; verify every script in your library still compiles. Anti-pattern: a `make check` that just runs syntax. Triggers on \"make check\", \"CI gate\", \"silent regression\", \"rebrand broke things\", \"renamed file but didn't update consumers\", \"test that the install works\", \"string rename audit\", \"broken references after refactor\".",
+  "skill_id": "SK-0025",
+  "skill_path": "skills/engineering/make-check-defense-in-depth",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "plan-first-substantive-changes"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-check",
+    "verify-references",
+    "catch-regression"
+  ],
+  "keywords": [
+    "run-check",
+    "verify-references",
+    "catch-regression"
+  ],
+  "overlap": [],
+  "relations": [
+    "confirm-ship-clearly",
+    "make-update-make-doctor"
+  ],
+  "governed_by": [
+    "RL-0039",
+    "RL-0043",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **make-check-defense-in-depth**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "8dd3416",
+  "goal": "No renamed string or broken reference ships undetected \u2014 CI catches the whole regression class."
+}

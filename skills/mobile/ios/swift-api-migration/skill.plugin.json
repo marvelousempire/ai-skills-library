@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "swift-api-migration",
+  "name": "Swift Api Migration",
+  "pack": "mobile/ios",
+  "pack_label": "iOS",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Audit and update all callers when a Swift API signature changes \u2014 struct init, function parameters, protocol requirements, or enum cases. Triggered by \"I\u2026",
+  "description": "Audit and update all callers when a Swift API signature changes \u2014 struct init, function parameters, protocol requirements, or enum cases. Triggered by \"I changed this function signature\", \"callers are broken\", \"who uses this init\", \"find all callers of\", \"update callers for renamed function\", or any Swift compile error with 'extra arguments' or 'missing argument'. Produces a complete caller map and updates every site in the same PR.",
+  "skill_id": null,
+  "skill_path": "skills/mobile/ios/swift-api-migration",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use swift-api-migration"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **swift-api-migration**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

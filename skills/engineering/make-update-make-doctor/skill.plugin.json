@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "make-update-make-doctor",
+  "name": "Make Update Make Doctor",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Every developer-facing tool that ships via `git clone + make` needs two safety-net Makefile targets: `make update` (safely pull latest from main no matter\u2026",
+  "description": "Every developer-facing tool that ships via `git clone + make` needs two safety-net Makefile targets: `make update` (safely pull latest from main no matter what branch state, refuses with stash/status hints if dirty) and `make doctor` (one-shot diagnostic \u2014 branch, git status, version, deps, build state, disk free). Prevents the \"git pull says 'no tracking information'\" UX paper-cut for non-git-expert users. Triggers on \"git pull fails\", \"no tracking information for the current branch\", \"user-friendly update command\", \"make doctor diagnostic\", \"git workflow paper-cut\", \"stale branch after squash-merge\", \"self-update Makefile target\".",
+  "skill_id": "SK-0026",
+  "skill_path": "skills/engineering/make-update-make-doctor",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "pull-latest",
+    "diagnose-install",
+    "check-version"
+  ],
+  "keywords": [
+    "pull-latest",
+    "diagnose-install",
+    "check-version"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **make-update-make-doctor**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "ae623a7",
+  "goal": "Any user can safely update and diagnose a git-clone-and-make tool regardless of branch state."
+}

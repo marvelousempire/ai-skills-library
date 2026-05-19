@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "game-pipeline-debug",
+  "name": "Game Pipeline Debug",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Debug why game sessions are not being recorded in the database or not appearing in stats. Use when: 'game stats show zero,' 'game history missing from web,'\u2026",
+  "description": "Debug why game sessions are not being recorded in the database or not appearing in stats. Use when: 'game stats show zero,' 'game history missing from web,' 'games not syncing,' 'no games in database,' 'played games don\\'t show up,' 'player stats are all zeros,' 'game sessions table empty,' 'game push failing silently,' 'play-by-play missing,' 'leaderboard shows wrong game count.' Runs a 7-step diagnostic across the DB layer, JWT config, iOS sync code, UserDefaults tracking, DB flags, participation SQL, and activity-vs-game confusion.",
+  "skill_id": null,
+  "skill_path": "skills/engineering/game-pipeline-debug",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use game-pipeline-debug"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **game-pipeline-debug**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

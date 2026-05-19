@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "data-pipeline-tracer",
+  "name": "Data Pipeline Tracer",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Trace end-to-end data flow to find where data is lost between the client and the UI. Use when the user asks: 'trace where data is lost,' 'why are stats zero,'\u2026",
+  "description": "Trace end-to-end data flow to find where data is lost between the client and the UI. Use when the user asks: 'trace where data is lost,' 'why are stats zero,' 'iOS data not showing on web,' 'field not reaching the database,' 'trace the data flow,' 'player profile not updating,' 'data written on iOS but not visible on web,' 'sync looks like it worked but data is missing.' Walks through 8 sequential diagnostic steps to identify the exact gap \u2014 DB layer, push layer, API layer, serializer, public endpoint, frontend helper, component render, or cache. Returns a diagnosis with the exact broken link and the fix.",
+  "skill_id": null,
+  "skill_path": "skills/engineering/data-pipeline-tracer",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use data-pipeline-tracer"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **data-pipeline-tracer**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "forensic-case-investigation",
+  "name": "Forensic Case Investigation",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Military-grade forensic investigation for any defect, drift, or unknown. Every action is a Search-and-Rescue transaction with declared Intent, expected\u2026",
+  "description": "Military-grade forensic investigation for any defect, drift, or unknown. Every action is a Search-and-Rescue transaction with declared Intent, expected Product, pre-flight checklist, return validation, and IFTTT failure branches. Mandates case folders, immutable Ground Zero, YAML metadata, parent/child transaction chains for backward trace, hypothesis ledger, and journalist-grade exhibits. Use for formal investigations, cross-surface bugs, incident dossiers, forensic reports, case logs, Ground Zero, chain of custody, SAR transactions, or when the user requires every move logged and grep-traceable backward to intake.",
+  "skill_id": "SK-0200",
+  "skill_path": "skills/methodology/forensic-case-investigation",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use forensic-case-investigation"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": "My goal is to have the diligence of one tracking the footprints of an ant in the jungle.",
+  "philosophy_tagline": "Ant-in-the-jungle diligence",
+  "invoke": "Use **forensic-case-investigation**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "idempotent-commands",
+  "name": "Idempotent Commands",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Design Makefile + CLI commands so they're safe to re-run forever. `make ui` boots whatever is down + opens the browser, same result every time. Pre-flight\u2026",
+  "description": "Design Makefile + CLI commands so they're safe to re-run forever. `make ui` boots whatever is down + opens the browser, same result every time. Pre-flight checks, pgrep guards, bounded waits. Triggers on \"make ui pattern\", \"one command\", \"idempotent\", \"safe to re-run\". See `docs/standards/` and `docs/improvement/recurring-wins.md` for context. Pairs with the canonical reference: `docs/standards/plan-naming.md` and `docs/templates/Makefile.template`.",
+  "skill_id": "SK-0115",
+  "skill_path": "skills/methodology/idempotent-commands",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-idempotent",
+    "check-state",
+    "skip-if-done"
+  ],
+  "keywords": [
+    "run-idempotent",
+    "check-state",
+    "skip-if-done"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **idempotent-commands**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "4e8ec9e",
+  "goal": "Deliver idempotent commands output correctly and completely."
+}

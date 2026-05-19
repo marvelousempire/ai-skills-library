@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "scrapegraph-ai",
+  "name": "Scrapegraph Ai",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "ScrapeGraph AI \\u2014 Python AI-assisted web scraping and structured extraction for LLM/RAG pipelines. Use when the user mentions or needs: ScrapeGraph; AI\u2026",
+  "description": "ScrapeGraph AI \\u2014 Python AI-assisted web scraping and structured extraction for LLM/RAG pipelines. Use when the user mentions or needs: ScrapeGraph; AI web scraping; LLM scraping pipeline; structured data from websites.",
+  "skill_id": null,
+  "skill_path": "skills/external/scrapegraph-ai",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use scrapegraph-ai"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **scrapegraph-ai**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

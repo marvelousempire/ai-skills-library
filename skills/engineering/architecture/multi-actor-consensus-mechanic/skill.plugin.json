@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "multi-actor-consensus-mechanic",
+  "name": "Multi Actor Consensus Mechanic",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Designs an anti-fraud trust signal from N independent actors. Bakes in: distinct actors (by id), distinct organizations (by business_tax_id or equivalent),\u2026",
+  "description": "Designs an anti-fraud trust signal from N independent actors. Bakes in: distinct actors (by id), distinct organizations (by business_tax_id or equivalent), cooldown between attempts, rolling time window, cohesion gate (median +/- band). Generalizes Sound Score; applies to any signal you want to make hard to fake.",
+  "skill_id": "SK-0005",
+  "skill_path": "skills/engineering/architecture/multi-actor-consensus-mechanic",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "build-consensus",
+    "coordinate-actors",
+    "resolve-conflict"
+  ],
+  "keywords": [
+    "build-consensus",
+    "coordinate-actors",
+    "resolve-conflict"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **multi-actor-consensus-mechanic**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "43e1848",
+  "goal": "Deliver multi actor consensus mechanic output correctly and completely."
+}

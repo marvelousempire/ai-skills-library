@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "fork-rebrand-product",
+  "name": "Fork Rebrand Product",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Fork and rebrand a product repo without losing attribution, compatibility, package behavior, or routing docs. Use when the user says \"fork and rebrand\",\u2026",
+  "description": "Fork and rebrand a product repo without losing attribution, compatibility, package behavior, or routing docs. Use when the user says \"fork and rebrand\", \"rename this repo\", \"turn upstream into our product\", \"make a branded fork\", \"rebrand claude-mem to Membadat\", or asks to capture a rebrand process as a reusable skill.",
+  "skill_id": "SK-0142",
+  "skill_path": "skills/engineering/fork-rebrand-product",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "plan-first-substantive-changes"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-fork",
+    "check-rebrand",
+    "build-product"
+  ],
+  "keywords": [
+    "run-fork",
+    "check-rebrand",
+    "build-product"
+  ],
+  "overlap": [],
+  "relations": [
+    "cross-reference-rippling",
+    "verification-gates",
+    "decision-records"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **fork-rebrand-product**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "c7f405e",
+  "goal": "Every fork/rebrand ships as a traceable product rename with attribution, compatibility, docs, skills, and verification intact."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "emergency-auto-navigate-on-condition",
+  "name": "Emergency Auto Navigate On Condition",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When a system metric crosses a critical threshold (disk at zero, error rate spiking, health check failing), automatically navigate the UI to the relevant\u2026",
+  "description": "When a system metric crosses a critical threshold (disk at zero, error rate spiking, health check failing), automatically navigate the UI to the relevant surface without user action. The SADPA pattern: monitor continuously via a live data channel, detect the threshold crossing, call setActiveTab() or equivalent immediately. Two tiers \u2014 critical (auto-navigate now) and warning (kick off background prep so the destination is ready when they arrive). Triggers on \"auto-navigate when disk is low\", \"navigate to emergency panel automatically\", \"SADPA pattern\", \"monitor and redirect\", \"auto-switch tab on condition\", \"proactive UI navigation\", \"detect threshold and respond\".",
+  "skill_id": "SK-0023",
+  "skill_path": "skills/engineering/emergency-auto-navigate-on-condition",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "monitor-metric",
+    "navigate-surface",
+    "detect-threshold"
+  ],
+  "keywords": [
+    "monitor-metric",
+    "navigate-surface",
+    "detect-threshold"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **emergency-auto-navigate-on-condition**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "b4007a6",
+  "goal": "The UI takes the user to the right surface automatically when a system crosses a critical threshold."
+}

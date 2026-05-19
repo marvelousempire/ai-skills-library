@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "cost-annotation-discipline",
+  "name": "Cost Annotation Discipline",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Every destructive action (delete, clean, reset, migrate, prune, archive, format, revoke) must declare its plain-English cost to the user BEFORE the button is\u2026",
+  "description": "Every destructive action (delete, clean, reset, migrate, prune, archive, format, revoke) must declare its plain-English cost to the user BEFORE the button is clicked. Not after, not in fine print, not \"trust me.\" Curated text living in source, never AI-generated at runtime. Reusable for any tool that performs reversible damage. Triggers on \"destructive action\", \"are you sure\", \"irreversible operation\", \"what does this delete\", \"before deleting\", \"before the click\", \"cleanup tool\", \"what's the cost of this\", \"make this safer\", \"every button needs a warning\".",
+  "skill_id": "SK-0018",
+  "skill_path": "skills/engineering/cost-annotation-discipline",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "annotate-cost",
+    "classify-tier",
+    "label-action"
+  ],
+  "keywords": [
+    "annotate-cost",
+    "classify-tier",
+    "label-action"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **cost-annotation-discipline**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "2ecc801",
+  "goal": "Every destructive action tells the user exactly what they will lose before they click."
+}

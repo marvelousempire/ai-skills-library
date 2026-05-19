@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "image",
+  "name": "Image",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to create, generate, edit, or optimize images for marketing \u2014 blog heroes, social graphics, product mockups, profile banners, listing\u2026",
+  "description": "When the user wants to create, generate, edit, or optimize images for marketing \u2014 blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets. Also use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' 'product mockup,' 'hero image,' 'social media graphic,' 'banner image,' 'cover photo,' 'profile banner,' 'listing screenshot,' 'Flux,' 'Midjourney,' 'DALL-E,' 'GPT Image,' 'Ideogram,' 'Gemini image,' 'Canva,' 'Figma,' 'image optimization,' 'compress images,' 'WebP,' or 'OG image.' Use this for general-purpose marketing image creation and optimization. For paid ad image creative and platform-specific ad specs, see ad-creative. For video production, see video.",
+  "skill_id": "SK-0085",
+  "skill_path": "skills/marketing/image",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-image"
+  ],
+  "keywords": [
+    "write-image"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **image**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "9df05be",
+  "goal": "Deliver image output correctly and completely."
+}

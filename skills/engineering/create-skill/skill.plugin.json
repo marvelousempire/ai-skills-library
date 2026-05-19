@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "create-skill",
+  "name": "Create Skill",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The complete unified standard for authoring any product in the AI Skills Library \u2014 covering schema structure, writing voice, action keywords, and all eight\u2026",
+  "description": "The complete unified standard for authoring any product in the AI Skills Library \u2014 covering schema structure, writing voice, action keywords, and all eight body sections. Use when creating a new skill, writing a new rule, adding any product, or when someone asks \"how do I write a skill\", \"what goes in a SKILL.md\", \"skill frontmatter format\", \"how should this be structured\", \"writing voice for skills\", \"what are the required sections\", \"eight-answer test for skills\", \"Boolean clarity for skills\", \"how do I add a product to the library\".",
+  "skill_id": "SK-0021",
+  "skill_path": "skills/engineering/create-skill",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "skill-nutrients-decanter",
+    "gap-audit-and-elevation"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-skill",
+    "define-schema",
+    "stamp-product"
+  ],
+  "keywords": [
+    "write-skill",
+    "define-schema",
+    "stamp-product"
+  ],
+  "overlap": [],
+  "relations": [
+    "conversation-retrospective-extraction",
+    "plan-first-substantive-changes"
+  ],
+  "governed_by": [
+    "RL-0039",
+    "RL-0044",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **create-skill**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "7f3a9b2",
+  "goal": "Every new product is correctly structured, voiced, and ready to route before it enters the library."
+}

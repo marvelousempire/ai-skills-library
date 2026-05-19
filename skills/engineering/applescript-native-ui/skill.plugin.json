@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "applescript-native-ui",
+  "name": "Applescript Native Ui",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Author AppleScripts that use native macOS UI (display alert, display dialog, progress block, display notification, choose from list, set the clipboard)\u2026",
+  "description": "Author AppleScripts that use native macOS UI (display alert, display dialog, progress block, display notification, choose from list, set the clipboard) instead of Terminal output. Reference patterns, anti-patterns, sound matrix, icon tone matrix, the default-answer-selectable-text trick, the never-run-sudo boundary, and the belt-and-suspenders notification + alert pattern. Triggers on \"write an AppleScript\", \"macOS automation script\", \"native Mac dialog\", \"AppleScript progress bar\", \"AppleScript notification\", \"display alert vs display dialog\", \"macOS one-tap action\", \"Mac Shortcut script\", \"make this feel like macOS not a dev tool\".",
+  "skill_id": "SK-0002",
+  "skill_path": "skills/engineering/applescript-native-ui",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-applescript",
+    "show-dialog",
+    "send-notification"
+  ],
+  "keywords": [
+    "write-applescript",
+    "show-dialog",
+    "send-notification"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **applescript-native-ui**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "a9299ae",
+  "goal": "Deliver applescript native ui output correctly and completely."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "never-run-sudo-from-app",
+  "name": "Never Run Sudo From App",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Security + UX boundary \u2014 when a tool needs elevated privileges (sudo, ownership transfer, system file modification, password unlock), it MUST NOT prompt for\u2026",
+  "description": "Security + UX boundary \u2014 when a tool needs elevated privileges (sudo, ownership transfer, system file modification, password unlock), it MUST NOT prompt for the user's password itself or use `with administrator privileges`. Instead: show the exact command via native dialog with a Copy button. The OS password prompt in Terminal is the correct consent gate for irreversible operations. Triggers on \"sudo from app\", \"needs admin privileges\", \"chown recovery\", \"permission error\", \"ownership transfer\", \"irreversible operation\", \"macOS password prompt\", \"with administrator privileges\", \"elevation boundary\", \"consent gate for permanent change\".",
+  "skill_id": "SK-0029",
+  "skill_path": "skills/engineering/never-run-sudo-from-app",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "show-command",
+    "copy-command",
+    "open-terminal"
+  ],
+  "keywords": [
+    "show-command",
+    "copy-command",
+    "open-terminal"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **never-run-sudo-from-app**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "774b137",
+  "goal": "No app ever asks for a Mac password \u2014 the OS password prompt is always the consent gate."
+}

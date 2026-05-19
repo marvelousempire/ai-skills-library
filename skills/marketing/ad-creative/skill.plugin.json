@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "ad-creative",
+  "name": "Ad Creative",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.1.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising\u2026",
+  "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see paid-ads. For landing page copy, see copywriting.",
+  "skill_id": "SK-0065",
+  "skill_path": "skills/marketing/ad-creative",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-creative"
+  ],
+  "keywords": [
+    "write-creative"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **ad-creative**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "5bd39a2",
+  "goal": "Deliver ad creative output correctly and completely."
+}

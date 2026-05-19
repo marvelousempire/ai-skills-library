@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "admin-completeness-audit",
+  "name": "Admin Completeness Audit",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Audit whether an admin page or nav route is fully wired up across all required layers. Use when the user asks: 'check if admin page is wired up,' 'why doesn't\u2026",
+  "description": "Audit whether an admin page or nav route is fully wired up across all required layers. Use when the user asks: 'check if admin page is wired up,' 'why doesn't the nav show,' 'admin route missing,' 'menu item not appearing,' 'admin page exists but I can't navigate to it,' 'new admin section not in sidebar,' 'admin search doesn't find the route,' 'breadcrumbs broken on admin page,' 'admin feature missing.' Runs a structured 5-step audit across nav config, sidebar, backend endpoint, TypeScript types, and API helper, then generates a remediation list.",
+  "skill_id": null,
+  "skill_path": "skills/engineering/admin-completeness-audit",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use admin-completeness-audit"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **admin-completeness-audit**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

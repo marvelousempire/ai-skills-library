@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "console",
+  "name": "Console",
+  "pack": "infra",
+  "pack_label": "Infra",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Homelab console \u2014 single unified UI + Makefile-driven control plane for the entire sovereign stack (SEEME, GitLab CE, GitLab Runners, Ollama, CI dashboard).\u2026",
+  "description": "Homelab console \u2014 single unified UI + Makefile-driven control plane for the entire sovereign stack (SEEME, GitLab CE, GitLab Runners, Ollama, CI dashboard). Polls every service in parallel, shows up/down status, recent pipelines across all projects, and quick-launch links. One-page operational view of yousirjuan Category 11 + 12 in motion. Triggers on \"homelab dashboard\", \"console UI\", \"unified UI\", \"stack overview\", \"make start everything\", \"show me what's running\", \"homelab status\".",
+  "skill_id": "SK-0061",
+  "skill_path": "skills/infra/console",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "setup-console"
+  ],
+  "keywords": [
+    "setup-console"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **console**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "5b0c9c6",
+  "goal": "Deliver console output correctly and completely."
+}

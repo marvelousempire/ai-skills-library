@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "blender-mcp",
+  "name": "Blender Mcp",
+  "pack": "external",
+  "pack_label": "External bridge",
+  "version": "1.0.0",
+  "status": "bridge",
+  "artifact_type": "bridge",
+  "summary": "Blender MCP \\u2014 Model Context Protocol bridge so agents can drive Blender scenes and operations. Use when the user mentions or needs: Blender MCP; control\u2026",
+  "description": "Blender MCP \\u2014 Model Context Protocol bridge so agents can drive Blender scenes and operations. Use when the user mentions or needs: Blender MCP; control Blender from Claude; MCP Blender integration.",
+  "skill_id": null,
+  "skill_path": "skills/external/blender-mcp",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use blender-mcp"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **blender-mcp**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

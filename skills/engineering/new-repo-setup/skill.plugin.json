@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "new-repo-setup",
+  "name": "New Repo Setup",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Start any new repo from scratch following the AVERY GOODMAN standard. Pick a type (TYPE-001 through TYPE-007), scaffold the folder structure, install the\u2026",
+  "description": "Start any new repo from scratch following the AVERY GOODMAN standard. Pick a type (TYPE-001 through TYPE-007), scaffold the folder structure, install the README template, wire up the Makefile, and confirm the first commit is clean. Use when someone says \"start a new repo\", \"set up a new project\", \"create a repo from scratch\", \"how do I start this project\", \"new app repo\", \"new library repo\", \"new guide repo\", \"initialize a repo\", \"scaffold this project\".",
+  "skill_id": "SK-0135",
+  "skill_path": "skills/engineering/new-repo-setup",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "plan-first-substantive-changes"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "setup-repo",
+    "scaffold-structure",
+    "initialize-standard"
+  ],
+  "keywords": [
+    "setup-repo",
+    "scaffold-structure",
+    "initialize-standard"
+  ],
+  "overlap": [],
+  "relations": [
+    "avery-goodman-repo-standard",
+    "product-repo-architecture",
+    "make-check-defense-in-depth"
+  ],
+  "governed_by": [
+    "RL-0039",
+    "RL-0045",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **new-repo-setup**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "f2a7c3d",
+  "goal": "Every new repo is correctly typed, structured, and committed on the first try with no structural debt."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "confirm-ship-clearly",
+  "name": "Confirm Ship Clearly",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Every shipping confirmation must be unambiguous. Show all four: release tag, PR state+mergedAt, commit hash on main, and kVersion in the canonical file. Never\u2026",
+  "description": "Every shipping confirmation must be unambiguous. Show all four: release tag, PR state+mergedAt, commit hash on main, and kVersion in the canonical file. Never say \"it should be shipped\" or \"the merge went through\" \u2014 show the receipts. Triggers on \"is it shipped\", \"confirm delivery\", \"did it merge\", \"verify it went through\", \"show me the release\", \"is the tag fired\", \"confirm ship state\", \"check if it landed\".",
+  "skill_id": "SK-0016",
+  "skill_path": "skills/engineering/confirm-ship-clearly",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "check-tag",
+    "verify-merge",
+    "show-receipts"
+  ],
+  "keywords": [
+    "check-tag",
+    "verify-merge",
+    "show-receipts"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "RL-0043",
+    "RL-0039",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **confirm-ship-clearly**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "93fd5bd",
+  "goal": "Every ship is confirmed with four receipts \u2014 tag, PR state, commit, and version \u2014 before declaring done."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "feature-marketing-md",
+  "name": "Feature Marketing Md",
+  "pack": "marketing",
+  "pack_label": "Marketing",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Write one Markdown file per shipped feature, in a `docs/marketing/` folder inside the product repo, using a strict eight-section template. Each MD is\u2026",
+  "description": "Write one Markdown file per shipped feature, in a `docs/marketing/` folder inside the product repo, using a strict eight-section template. Each MD is self-contained: any future blog post, launch tweet, Show HN comment, or contributor brief can be sourced from one file without hunting through README + CHANGELOG + PR history. Comes with paste-ready channel copy variants per platform. Triggers on \"marketing folder\", \"feature MD\", \"docs/marketing/\", \"self-contained feature brief\", \"channel copy variants\", \"paste-ready Reddit / Show HN / LinkedIn / Tweet\", \"marketing library for this product\", \"one file per feature\".",
+  "skill_id": "SK-0082",
+  "skill_path": "skills/marketing/feature-marketing-md",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "write-feature-md",
+    "generate-copy",
+    "document-feature"
+  ],
+  "keywords": [
+    "write-feature-md",
+    "generate-copy",
+    "document-feature"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **feature-marketing-md**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "b510e2d",
+  "goal": "Every shipped feature has a self-contained marketing brief ready to power any launch on any channel."
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "automata-reconstructor",
+  "name": "Automata Reconstructor",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Nephew CLOAK executor skill for the Automata belief system. When a Grok or other AI thread designed Automata (Tauri Pad, WebGPU body, philosophical flow,\u2026",
+  "description": "Nephew CLOAK executor skill for the Automata belief system. When a Grok or other AI thread designed Automata (Tauri Pad, WebGPU body, philosophical flow, security, tickets) but only simulated git history, scrape quarry via claude-chat-reader, emit real files to marvelousempire/automata, update agents/automata-ticket.md pointer, witness each slice. Triggers: Automata reconstruction, Grok Automata simulated, fix automata repo, Nephew CLOAK handoff, automata pad not on github.",
+  "skill_id": "SK-AUTOMATA-RECON",
+  "skill_path": "skills/methodology/automata-reconstructor",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "ai-chat-archive-reconstruction"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "automata-rebuild",
+    "grok-automata",
+    "nephew-cloak",
+    "chat-to-automata",
+    "simulated-commits"
+  ],
+  "keywords": [
+    "automata-rebuild",
+    "grok-automata",
+    "nephew-cloak",
+    "chat-to-automata",
+    "simulated-commits"
+  ],
+  "overlap": [],
+  "relations": [
+    "ai-chat-archive-reconstruction",
+    "nephew-cloak-amending-mission",
+    "gap-audit-and-elevation"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **automata-reconstructor**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "pending",
+  "goal": "Rebuild and maintain marvelousempire/automata from archive quarry with witnessed commits \u2014 never simulate pushes."
+}

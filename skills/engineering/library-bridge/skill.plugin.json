@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "library-bridge",
+  "name": "Library Bridge",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "The four bridge layers that give any AI automatic access to the full AI Skills Library without manual context injection. Use when setting up a new AI\u2026",
+  "description": "The four bridge layers that give any AI automatic access to the full AI Skills Library without manual context injection. Use when setting up a new AI integration, asking \"how do I connect the library to an AI\", \"make this AI use the library automatically\", \"auto-possess this AI\", \"what's the MCP config\", \"how do I inject the library as a system prompt\", \"connect the brain to any AI\".",
+  "skill_id": "SK-0139",
+  "skill_path": "skills/engineering/library-bridge",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-library",
+    "check-bridge",
+    "file-library"
+  ],
+  "keywords": [
+    "run-library",
+    "check-bridge",
+    "file-library"
+  ],
+  "overlap": [],
+  "relations": [
+    "catchall-processor",
+    "question-decomposer",
+    "new-repo-setup"
+  ],
+  "governed_by": [
+    "RL-0045",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **library-bridge**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "3a8f2b1",
+  "goal": "Any AI \u2014 Claude, GPT, Gemini, or anything else \u2014 gets the full library as its operating brain on startup with zero manual injection."
+}

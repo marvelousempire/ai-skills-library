@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "seeme",
+  "name": "Seeme",
+  "pack": "visual",
+  "pack_label": "Visual",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "AI visual interpreter \u2014 turn any text, file, or idea into a Unicode box-and-arrow diagram in the ascii-flow-diagrams style. Defaults to local Ollama; supports\u2026",
+  "description": "AI visual interpreter \u2014 turn any text, file, or idea into a Unicode box-and-arrow diagram in the ascii-flow-diagrams style. Defaults to local Ollama; supports OpenAI, Anthropic Claude, Google Gemini, Perplexity. Five-rule lint loop, prompt caching, MCP server, SVG export, file-watch mode, iterative refinement, multi-step chains. Triggers on \"diagram this with seeme\", \"use seeme on X\", \"seeme: explain Y\", \"generate a visual of Z\", \"draw the architecture of W\".",
+  "skill_id": "SK-0134",
+  "skill_path": "skills/visual/diagrams/seeme",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "generate-diagram",
+    "visualize-idea",
+    "draw-flow"
+  ],
+  "keywords": [
+    "generate-diagram",
+    "visualize-idea",
+    "draw-flow"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **seeme**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "33e0bea",
+  "goal": "Deliver seeme output correctly and completely."
+}

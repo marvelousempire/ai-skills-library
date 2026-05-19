@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "real-time-honest-signaling",
+  "name": "Real Time Honest Signaling",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Never fake completion, progress, or measurement. Wire every UI signal to the real event source \u2014 the kernel-reported freed-GB after a subprocess exits, the\u2026",
+  "description": "Never fake completion, progress, or measurement. Wire every UI signal to the real event source \u2014 the kernel-reported freed-GB after a subprocess exits, the actual SSE done event from a background process, the real disk usage from df/du not an estimate. Anti-pattern: setTimeout(1500) to mark a card done while the rm -rf is still running. Also covers: freed-GB from the OS delta not from counters; streaming from the real SSE done event; per-command elapsed timers that start on click and stop on actual completion. Triggers on \"fake completion\", \"real-time feedback\", \"setTimeout for done state\", \"freed GB counter\", \"live disk updates\", \"progress is lying\", \"the UI says done but it is still running\", \"honest progress bar\", \"actual measurement not estimate\".",
+  "skill_id": "SK-0036",
+  "skill_path": "skills/engineering/real-time-honest-signaling",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "wire-event",
+    "track-freed",
+    "report-completion"
+  ],
+  "keywords": [
+    "wire-event",
+    "track-freed",
+    "report-completion"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **real-time-honest-signaling**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "ed5b43c",
+  "goal": "Every UI signal reflects what the system actually reports \u2014 no faked completion, no estimated measurements."
+}

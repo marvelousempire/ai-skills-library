@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "conversation-retrospective-extraction",
+  "name": "Conversation Retrospective Extraction",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "After any substantive Claude conversation \u2014 a build session, a design sprint, a debugging arc \u2014 read the full conversation backward, extract every reusable\u2026",
+  "description": "After any substantive Claude conversation \u2014 a build session, a design sprint, a debugging arc \u2014 read the full conversation backward, extract every reusable lesson, and file each finding into the correct structure inside the AI Skills Library repo: skills, rules, context files, agents, templates, docs, checklists, workflows, and repo standards. Produces a fully-delivered master report that makes the team permanently better. Never leaves lessons loose, vague, unnamed, or unfiled. Triggers on \"extract lessons from this conversation\", \"what can we add to the skills library\", \"grow the library from what we built\", \"file what we learned\", \"skills library retrospective\", \"master report from this session\", \"what should become a skill from this\", \"knowledge extraction from chat\".",
+  "skill_id": "SK-0017",
+  "skill_path": "skills/engineering/conversation-retrospective-extraction",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "skill-nutrients-decanter"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "read-conversation",
+    "classify-finding",
+    "file-skill"
+  ],
+  "keywords": [
+    "read-conversation",
+    "classify-finding",
+    "file-skill"
+  ],
+  "overlap": [],
+  "relations": [
+    "create-skill",
+    "failure-proof-audit",
+    "gap-audit-and-elevation"
+  ],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **conversation-retrospective-extraction**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "2717e37",
+  "goal": "Every significant session produces permanent library improvements that make the next session smarter."
+}

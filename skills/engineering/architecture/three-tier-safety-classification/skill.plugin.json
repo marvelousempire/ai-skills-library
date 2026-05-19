@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "three-tier-safety-classification",
+  "name": "Three Tier Safety Classification",
+  "pack": "engineering/architecture",
+  "pack_label": "Engineering \u00b7 Architecture",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Classify every destructive action into exactly one of three safety tiers: safe (always reclaimable, rebuild is trivial), probably_safe (rebuild exists but\u2026",
+  "description": "Classify every destructive action into exactly one of three safety tiers: safe (always reclaimable, rebuild is trivial), probably_safe (rebuild exists but takes noticeable time or effort), caution (irreplaceable or high-risk data \u2014 surface it, never auto-clean it). The tier is a structural guarantee in code, not just a label. \"Clean ALL safe\" affordances must never reach the caution tier. Triggers on \"safety tier\", \"safe vs caution\", \"clean all safe\", \"never auto-delete this\", \"tier classification for destructive actions\", \"how safe is this cleanup\", \"irreplaceable data flag\", \"auto-clean boundary\".",
+  "skill_id": "SK-0011",
+  "skill_path": "skills/engineering/architecture/three-tier-safety-classification",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "classify-tier",
+    "enforce-safety",
+    "gate-action"
+  ],
+  "keywords": [
+    "classify-tier",
+    "enforce-safety",
+    "gate-action"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **three-tier-safety-classification**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "7a877e9",
+  "goal": "No auto-clean ever reaches irreplaceable data \u2014 the safety tier is a structural code guarantee."
+}

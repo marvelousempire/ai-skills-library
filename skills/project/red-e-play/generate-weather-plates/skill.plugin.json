@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "generate-weather-plates",
+  "name": "Generate Weather Plates",
+  "pack": "project/red-e-play",
+  "pack_label": "Red-E Play",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Generate the 16 cinematic weather background plates (8 conditions \u00d7 day/night) for the Red-E Play HomeView hero by calling OpenAI's gpt-image-1. Drops the\u2026",
+  "description": "Generate the 16 cinematic weather background plates (8 conditions \u00d7 day/night) for the Red-E Play HomeView hero by calling OpenAI's gpt-image-1. Drops the resulting JPGs straight into the iOS Assets.xcassets/WeatherPlates/ imagesets, ready for SwiftUI Image(...). Re-runnable for any subset (regenerate just one kind by passing its name as an arg). Reusable for any future \"I need N AI-generated plates that match a brand prompt\" task.",
+  "skill_id": "SK-0123",
+  "skill_path": "skills/project/red-e-play/generate-weather-plates",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "generate-plates",
+    "create-assets",
+    "render-weather"
+  ],
+  "keywords": [
+    "generate-plates",
+    "create-assets",
+    "render-weather"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **generate-weather-plates**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "d95abbf",
+  "goal": "Deliver generate weather plates output correctly and completely."
+}

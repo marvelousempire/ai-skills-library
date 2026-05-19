@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "post-sse-via-fetch-readablestream",
+  "name": "Post Sse Via Fetch Readablestream",
+  "pack": "engineering",
+  "pack_label": "Engineering",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "EventSource (the standard SSE client) is GET-only. When your streaming endpoint requires a POST body (e.g. sending conversation history to an AI chat\u2026",
+  "description": "EventSource (the standard SSE client) is GET-only. When your streaming endpoint requires a POST body (e.g. sending conversation history to an AI chat endpoint), use fetch() + ReadableStream + a manual SSE line parser. Produces the same {event, data} objects as streamSSE(). ~80 lines. Triggers on \"POST endpoint with SSE\", \"EventSource is GET-only\", \"stream from POST request\", \"SSE with request body\", \"chat endpoint streaming\", \"can't send body with EventSource\".",
+  "skill_id": "SK-0034",
+  "skill_path": "skills/engineering/post-sse-via-fetch-readablestream",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "stream-post",
+    "parse-sse",
+    "handle-events"
+  ],
+  "keywords": [
+    "stream-post",
+    "parse-sse",
+    "handle-events"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **post-sse-via-fetch-readablestream**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": "507a320",
+  "goal": "POST endpoints can stream SSE without EventSource \u2014 any AI chat backend works with any frontend."
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "launcher-makefile-shim",
+  "name": "Launcher Makefile Shim",
+  "pack": "project/brokerage-prototype",
+  "pack_label": "Brokerage prototype",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Add a thin Makefile shim over an existing `./go`-style launcher so `make`, `make go`, `make dev`, `make restart`, `make ports`, `make doctor`, `make build`,\u2026",
+  "description": "Add a thin Makefile shim over an existing `./go`-style launcher so `make`, `make go`, `make dev`, `make restart`, `make ports`, `make doctor`, `make build`, `make clean`, and `make help` all work \u2014 without touching the underlying launcher's logic. Includes `.claude/launch.json` for Claude Code Preview integration and a README troubleshooting block.",
+  "skill_id": null,
+  "skill_path": "skills/project/brokerage-prototype/launcher-makefile-shim",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "Use launcher-makefile-shim"
+  ],
+  "keywords": [],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **launcher-makefile-shim**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-19T19:05:57Z",
+  "hash": null,
+  "goal": null
+}

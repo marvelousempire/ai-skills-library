@@ -19,7 +19,7 @@ Consumer monorepos (e.g. red-e-play-app) vendor it as `vendor/ai-skills-library`
                                     ▼
                          <project>/.cursor/skills/<name> → library
 
-validate-skill-frontmatter.py → git commit → push-all-remotes.sh
+generate-skill-plugin-manifests.py → validate (frontmatter + plugin manifests) → git commit → push-all-remotes.sh
                                       ├── origin (GitHub)
                                       └── gitlab (self-hosted, optional)
 ```
@@ -34,7 +34,9 @@ bash scripts/either-host/publish-and-push-ai-skills-library.sh
 
 # Library only (inside vendor/ai-skills-library)
 ./scripts/vendor-skills-from-home.sh
+./scripts/generate-skill-plugin-manifests.py
 ./scripts/validate-skill-frontmatter.py
+./scripts/validate-skill-plugin-manifests.py
 ./scripts/push-all-remotes.sh
 
 # Watch skills/ + agents/ (requires fswatch)
