@@ -10,6 +10,7 @@ Canonical stack docs for shipped repos. **Not** skills — use these when bootst
 | [claude-archive-ui-patterns.md](./claude-archive-ui-patterns.md) | claude-chat-reader | Conversations list, Docker dev, SK-0141 |
 | [folder-watcher-cross-platform.md](./folder-watcher-cross-platform.md) | ccr + automata | fswatch, LaunchAgent, WireGuard/rsync |
 | [nephew-cloak-runtime.md](./nephew-cloak-runtime.md) | [nephew](https://github.com/marvelousempire/nephew) | witness, patrol, dispatch, quarry |
+| [nephew-operator-lora.md](./nephew-operator-lora.md) | [nephew](https://github.com/marvelousempire/nephew) | DGX LoRA export, Ollama register, local DSMRP stack |
 | [grok-api.md](./grok-api.md) | nephew + ccr | xAI export ingest + reconstruction |
 
 **Simulated → witnessed map:** [QUARRY-SIMULATED-GAPS.md](./QUARRY-SIMULATED-GAPS.md)
