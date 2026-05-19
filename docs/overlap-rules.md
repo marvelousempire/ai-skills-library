@@ -24,6 +24,14 @@ In a codebase, add `.cursor/rules/skills-precedence.mdc` with project-specific o
 - **Repo/product fork:** Use **fork-rebrand-product** when the work includes a fork, package identity, repo remotes, attribution, compatibility fallbacks, docs, and verification.
 - **Local token cleanup:** Use **bulk-rename-tokens** when the work is only a scoped string/path rename inside an existing product boundary.
 
+## Doctrine / PRD documentation sorting
+
+- **Full sort (renumber + dedupe + folders):** **doctrine-decanter-sorting-agent** — use when the dump has repeated PRD drafts, overlapping bibles, and the user wants non-doubles at the top and duplicates moved to the bottom with clear spacing.
+- **Split only:** **prd-journal-page-splitter** — page folders and section files without the full renumber/dedupe/archive pass.
+- **Session lessons, not file layout:** **skill-nutrients-decanter** — net-positive learnings into the library; not PRD folder explosion.
+
+> Use **doctrine-decanter-sorting-agent** for structure + dedupe. Use **prd-journal-page-splitter** only when you explicitly do not need renumbering or bottom cleared zones.
+
 ## Marketing bundle (coreyhaines31/marketingskills)
 
 - **Foundation:** `product-marketing-context` — run or refresh before big marketing passes when upstream skills chain context.

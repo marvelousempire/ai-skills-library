@@ -156,3 +156,7 @@ After splitting:
 4. Confirm no unrelated repo files were changed.
 5. Tell the user which output folder was created and any sections that need
    human review.
+
+## Related skills
+
+- [`doctrine-decanter-sorting-agent`](../doctrine-decanter-sorting-agent/) — adds re-numbering, bottom cleared-zone dedupe, `archive/`, and full `docs/` tree (use when the dump is messier than a straight page split).

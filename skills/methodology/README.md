@@ -18,6 +18,7 @@ produce clean shipments and reusable knowledge artifacts.
 | [`migration-guide-format/`](migration-guide-format/) | "From X to Y" guides |
 | [`doctor-script-pattern/`](doctor-script-pattern/) | Bash doctor scripts with color codes |
 | [`prd-journal-page-splitter/`](prd-journal-page-splitter/) | Split long PRD Journals into page folders and section files |
+| [`doctrine-decanter-sorting-agent/`](doctrine-decanter-sorting-agent/) | Renumber + dedupe (top/bottom) + explode doctrine/PRD dumps into `docs/` tree |
 | [`understandings-library/`](understandings-library/) | README-local numbered understandings for future AIs and humans |
 
 ## Why a methodology family
