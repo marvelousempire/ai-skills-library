@@ -30,8 +30,11 @@ fi
 run_validate() {
   echo "── $(date -u '+%Y-%m-%dT%H:%M:%SZ') validate"
   python3 "${ROOT}/scripts/generate-skill-plugin-manifests.py"
+  python3 "${ROOT}/scripts/generate-agent-plugin-manifests.py"
+  python3 "${ROOT}/scripts/generate-library-plugin-catalog.py"
   python3 "${ROOT}/scripts/validate-skill-frontmatter.py"
   python3 "${ROOT}/scripts/validate-skill-plugin-manifests.py"
+  python3 "${ROOT}/scripts/validate-agent-plugin-manifests.py"
 }
 
 run_push() {

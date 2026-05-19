@@ -8,7 +8,9 @@ Every skill folder under `skills/` is treated like a **WordPress plugin**: machi
 | `skill.plugin.json` | Machine manifest — grid UIs, Bishop audits, tooling |
 | `skill.plugin.md` | Human lead sheet — card header + tables |
 
-**Master grid:** [`../SKILLS-PLUGIN-DIRECTORY.md`](../SKILLS-PLUGIN-DIRECTORY.md) (168 plugins, regenerated).
+**Unified catalog (skills + agents):** [`../LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md)
+
+**Skills-only grid:** [`../SKILLS-PLUGIN-DIRECTORY.md`](../SKILLS-PLUGIN-DIRECTORY.md) (regenerated).
 
 **Schema:** [`skill-plugin-manifest.schema.json`](skill-plugin-manifest.schema.json)
 

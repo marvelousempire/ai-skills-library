@@ -2,6 +2,8 @@
 
 Operational agents that automate the recurring patterns in this repo. Each agent has a defined trigger, input, output, and corresponding rule/standard.
 
+**Plugin catalog (WordPress-style):** every agent on disk has `*.plugin.json` + `*.plugin.md` — browse [`AGENTS-PLUGIN-DIRECTORY.md`](../AGENTS-PLUGIN-DIRECTORY.md) or the unified [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md). Bishop requires both files on every **new** agent.
+
 | Agent | Triggers when | Output |
 |---|---|---|
 | [`skill-scaffolder/`](skill-scaffolder/) | New skill needed | Generates `SKILL.md` + `README.md` + folder structure |
@@ -33,9 +35,15 @@ Every agent in this folder includes:
 
 ```
 agents/<slug>/
-├── README.md       # human-readable: what it does, when it fires, what it outputs
-├── AGENT.md        # machine-readable: input schema, output schema, side effects
+├── README.md           # human-readable: what it does, when it fires, what it outputs
+├── AGENT.md            # machine-readable: input schema, output schema, side effects
+├── agent.plugin.json   # WordPress-style catalog card (machine)
+├── agent.plugin.md     # lead sheet (human)
 └── (eventual) implementation files
+
+agents/<slug>.md          # flat layout (bishop, nephew, forensic-case-investigator, …)
+agents/<slug>.plugin.json # plugin card beside flat .md
+agents/<slug>.plugin.md
 ```
 
 ## Why agents (not just scripts)

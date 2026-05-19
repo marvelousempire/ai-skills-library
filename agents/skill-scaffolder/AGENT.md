@@ -19,6 +19,7 @@ New files under `skills/<family>/<slug>/`:
 
 - `SKILL.md` (YAML frontmatter + body)
 - `skill.plugin.json` + `skill.plugin.md` (run `python3 scripts/generate-skill-plugin-manifests.py` after scaffold)
+- `agent.plugin.json` + `agent.plugin.md` if scaffolding an agent folder (run `generate-agent-plugin-manifests.py`)
 
 Updates parent `README.md` if family-level catalog exists. Bumps SKILL-INDEX count.
 

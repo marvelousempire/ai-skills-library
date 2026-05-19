@@ -33,9 +33,29 @@ Does not run lead investigation (that is forensic-case-investigator / Nephew dis
 
 ## Agent creation standard (mandatory)
 
-When Bishop **creates, scaffolds, or registers** any agent:
+When Bishop **creates, scaffolds, or registers** any agent, treat the agent like a **WordPress plugin** — same catalog model as skills in this library.
 
-### Required shape
+### Required deliverables (every new agent)
+
+| Artifact | Flat layout (`agents/<slug>.md`) | Folder layout (`agents/<slug>/AGENT.md`) |
+|----------|----------------------------------|------------------------------------------|
+| Contract | `agents/<slug>.md` | `agents/<slug>/AGENT.md` + `README.md` |
+| Machine card | `agents/<slug>.plugin.json` | `agents/<slug>/agent.plugin.json` |
+| Human lead sheet | `agents/<slug>.plugin.md` | `agents/<slug>/agent.plugin.md` |
+| Philosophy | `## Philosophy` blockquote in contract | same |
+| Skill bridge (if any) | `skills/.../bridge.manifest.json` | same |
+
+After writing the contract, run:
+
+```bash
+python3 scripts/generate-agent-plugin-manifests.py
+python3 scripts/generate-library-plugin-catalog.py
+python3 scripts/validate-agent-plugin-manifests.py
+```
+
+The agent must appear in **[`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md)** (unified skills + agents grid) before Bishop signs off.
+
+### Required shape (contract body)
 
 ```markdown
 ## Philosophy (mandatory)
@@ -52,7 +72,9 @@ When Bishop **creates, scaffolds, or registers** any agent:
 2. **Philosophy is operational** — not marketing copy.
 3. **Propagate** to `agents/<name>.md`, companion `SKILL.md` frontmatter `philosophy:` if any, and `bridge.manifest.json`.
 4. **Audit command:** grep new files for `## Philosophy`; fail if absent.
-5. **Plugin manifest:** every `skills/**/SKILL.md` folder must have `skill.plugin.json` + `skill.plugin.md` (run `generate-skill-plugin-manifests.py`).
+5. **Skill plugin manifest:** every `skills/**/SKILL.md` folder must have `skill.plugin.json` + `skill.plugin.md` (run `generate-skill-plugin-manifests.py`).
+6. **Agent plugin manifest:** every agent must have `*.plugin.json` + `*.plugin.md` beside its source (run `generate-agent-plugin-manifests.py`). Bishop compares agents to WordPress plugins — if the card is missing, reject registration.
+7. **Catalog visibility:** skills and agents both show in [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md) — the library’s “Plugins” screen.
 
 ### Canonical example
 
@@ -88,4 +110,6 @@ verdict: approve | reject | needs_rework
 
 - Skill: [`forensic-case-investigation`](../skills/methodology/forensic-case-investigation/SKILL.md)
 - Template: [`templates/agent.md`](../templates/agent.md) — includes Philosophy section
+- Plugin template: [`templates/agent.plugin.json`](../templates/agent.plugin.json)
+- Catalog: [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md) · [`AGENTS-PLUGIN-DIRECTORY.md`](../AGENTS-PLUGIN-DIRECTORY.md)
 - Chain: [`chain-manager`](chain-manager.md) — ship-ready authority (complementary)

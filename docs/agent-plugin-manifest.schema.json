@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marvelousempire.github.io/ai-skills-library/agent-plugin-manifest.schema.json",
+  "title": "AI Skills Library — agent plugin manifest",
+  "description": "WordPress-plugin-style metadata for one agent. Flat: agents/<slug>.plugin.json; folder: agents/<slug>/agent.plugin.json.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slug",
+    "name",
+    "team",
+    "version",
+    "status",
+    "summary",
+    "description",
+    "agent_path",
+    "agent_md",
+    "artifact_type"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "team": { "type": "string" },
+    "team_label": { "type": "string" },
+    "layer": { "type": ["string", "null"] },
+    "version": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["stable", "beta", "stub", "deprecated", "needs_philosophy"]
+    },
+    "artifact_type": { "type": "string", "const": "agent" },
+    "summary": { "type": "string", "maxLength": 160 },
+    "description": { "type": "string" },
+    "agent_path": { "type": "string" },
+    "agent_dir": { "type": "string" },
+    "agent_md": { "type": "string" },
+    "lead_sheet_md": { "type": "string" },
+    "layout": { "type": "string", "enum": ["flat", "folder"] },
+    "philosophy": { "type": ["string", "null"] },
+    "philosophy_required": { "type": "boolean" },
+    "philosophy_tagline": { "type": ["string", "null"] },
+    "commissioned_by": { "type": "string" },
+    "model": { "type": ["string", "null"] },
+    "tools": { "type": "array", "items": { "type": "string" } },
+    "invoke": { "type": "string" },
+    "icon": { "type": ["string", "null"] },
+    "featured": { "type": "boolean" },
+    "generated_at": { "type": "string" }
+  }
+}

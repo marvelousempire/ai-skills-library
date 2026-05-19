@@ -8,6 +8,20 @@ model: opus
 
 # Agent: <agent-name>
 
+## Plugin card (mandatory — WordPress-style)
+
+Bishop treats every agent like a **WordPress plugin**. After this file exists, generate:
+
+- **Flat:** `agents/<slug>.plugin.json` + `agents/<slug>.plugin.md` (beside `agents/<slug>.md`)
+- **Folder:** `agents/<slug>/agent.plugin.json` + `agent.plugin.md` (beside this `AGENT.md`)
+
+```bash
+python3 scripts/generate-agent-plugin-manifests.py
+python3 scripts/validate-agent-plugin-manifests.py
+```
+
+The agent must appear in [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md). Template: [`templates/agent.plugin.json`](../templates/agent.plugin.json).
+
 ## Philosophy (mandatory)
 
 > **<One sentence — the agent's north star. Bishop rejects agents without this section.>**

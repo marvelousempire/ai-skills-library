@@ -11,6 +11,8 @@ The library has one front door: **[`nephew`](agents/nephew.md)** — the Orchest
 
 The catalog below is the *under-the-hood* documentation — what products nephew can dispatch and where they live. New here? Start at [`docs/standards/orchestration-hierarchy.md`](docs/standards/orchestration-hierarchy.md) for the one-page map.
 
+**Browse like WordPress Plugins:** [`LIBRARY-PLUGIN-CATALOG.md`](LIBRARY-PLUGIN-CATALOG.md) — unified grid of every **skill** and **agent** (`*.plugin.json` + lead sheet per item). See [`docs/library-plugin-catalog.md`](docs/library-plugin-catalog.md).
+
 ---
 
 ## What a "Product" Is
