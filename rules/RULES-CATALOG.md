@@ -26,5 +26,6 @@ Edit a rule in `rules/library/<id>/` then re-run [`scripts/sync-rules-into-repo.
 | `port-alignment` | Ports defined once in .env.example, read everywhere | error |
 | `marketing-doc-per-feature` | Every shipped feature gets docs/marketing/NN-name.md | warning |
 | `hardware-before-installer` | Write hardware compat doc before writing the installer | warning |
+| `yousirjuan-skills-pack-path` | You-Sir Juan skills only under `skills/yousirjuan/` — never `skills/project/yousirjuan/` | error |
 
 Full rule bodies: `rules/library/<rule-id>/body.md`

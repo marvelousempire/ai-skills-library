@@ -25,7 +25,7 @@ PACK_LABELS = {
     "ide/cursor": "Cursor IDE",
     "project/red-e-play": "Red-E Play",
     "project/brokerage-prototype": "Brokerage prototype",
-    "project/yousirjuan": "You-Sir Juan",
+    "yousirjuan": "You-Sir Juan",
     "mobile/ios": "iOS",
     "visual/design/ui-ux-pro-max": "Design / UI",
 }

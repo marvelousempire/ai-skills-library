@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "slug": "associate-agent-system",
   "name": "Associate Agent System",
-  "pack": "project/yousirjuan",
+  "pack": "yousirjuan",
   "pack_label": "You-Sir Juan",
   "version": "1.0.0",
   "status": "stable",
@@ -10,7 +10,7 @@
   "summary": "The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label\u2026",
   "description": "The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label vocabulary, and persistent memory. Same backend functions, radically different presentation.",
   "skill_id": "SK-0125",
-  "skill_path": "skills/project/yousirjuan/associate-agent-system",
+  "skill_path": "skills/yousirjuan/associate-agent-system",
   "skill_md": "SKILL.md",
   "lead_sheet_md": "skill.plugin.md",
   "author": "marvelousempire",
@@ -43,7 +43,7 @@
   "invoke": "Use **associate-agent-system**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-19T22:56:07Z",
   "hash": "749b06e",
   "goal": "Deliver associate agent system output correctly and completely."
 }

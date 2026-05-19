@@ -14,7 +14,9 @@ From **this library’s** root, after `git pull`:
 ./scripts/install-repo-skills-to-cursor-project.sh /path/to/your-monorepo
 ```
 
-That creates `/path/to/your-monorepo/.cursor/skills/` and **symlinks** each skill folder into a **flat** list (67 entries as of last catalog). Re-run after you refresh `skills/` from `vendor-skills-from-home.sh`.
+That creates `/path/to/your-monorepo/.cursor/skills/` and **symlinks** each skill folder into a **flat** list. Packs include **marketing**, **engineering**, **methodology**, **ide/cursor**, **`yousirjuan`** (six platform skills), **red-e-play**, **external**, and **ui-ux-pro-max**. Re-run after you refresh `skills/` from `vendor-skills-from-home.sh`.
+
+**You-Sir Juan monorepo:** run against the repo root so all six `skills/yousirjuan/*` skills link into `.cursor/skills/`. Library path is `skills/yousirjuan/` — never `skills/project/yousirjuan/`.
 
 - **Collisions** (same skill id from two packs) abort the script; resolve manually.
 - The script **does not** delete unrelated folders already in `.cursor/skills/` — only adds or refreshes symlinks for ids in this repo.

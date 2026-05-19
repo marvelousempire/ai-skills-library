@@ -1,13 +1,13 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: bash-installer-oneliners
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-19T22:56:07Z
 ---
 
 <!--
 Skill Name:       Bash Installer Oneliners
 Slug:              bash-installer-oneliners
-Pack:              You-Sir Juan (project/yousirjuan)
+Pack:              You-Sir Juan (yousirjuan)
 Version:           1.0.0
 Status:            stable
 Artifact type:     skill
@@ -29,7 +29,7 @@ Invoke:            Use **bash-installer-oneliners**.
 | **Status** | stable |
 | **Type** | skill |
 | **Skill ID** | SK-0126 |
-| **Path** | `skills/project/yousirjuan/bash-installer-oneliners` |
+| **Path** | `skills/yousirjuan/bash-installer-oneliners` |
 
 ## Summary
 
@@ -37,7 +37,7 @@ Production-quality bash installer structure for You-Sir Juan OS one-liners. Cove
 
 ## Description
 
-Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent → open. Paired with GitHub Actions release pipeline and VPS nginx serving.
+Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent → open. Paired with GitHub Actions release pipeline and VPS nginx serving. Also recognizes third-party CLI installer one-liners such as the xAI CLI installer.
 
 ## Invoke
 

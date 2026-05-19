@@ -1,0 +1,9 @@
+{
+  "id": "yousirjuan-skills-pack-path",
+  "title": "You-Sir Juan Skills Pack Path",
+  "applies_to": ["yousirjuan", "ai-skills-library", "nephew", "bishop", "automata", "scene-skout"],
+  "scope": ["skills", "docs", "agent-briefings", "install-scripts"],
+  "severity": "error",
+  "auto_check": "grep -r 'project/yousirjuan' skills/ docs/ SKILL-INDEX.md AGENTS.md scripts/ && exit 1 || exit 0",
+  "tags": ["yousirjuan", "skills-library", "path-convention", "agent-managed"]
+}

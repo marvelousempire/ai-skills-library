@@ -7,7 +7,7 @@
 # Default TARGET_DIR is the current working directory.
 #
 # Packs merged (order matters for collision messages): marketing → engineering →
-# methodology → ide/cursor → ui-ux-pro-max → red-e-play → external (generated bridges).
+# methodology → ide/cursor → yousirjuan → ui-ux-pro-max → red-e-play → external (generated bridges).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -54,7 +54,7 @@ echo "# Install repo skills → ${SKILL_ROOT}"
 mkdir -p "$SKILL_ROOT"
 
 # Multi-skill packs: every immediate child dir containing SKILL.md
-for pack_rel in skills/marketing skills/engineering skills/methodology "skills/ide/cursor" skills/external "skills/project/red-e-play"; do
+for pack_rel in skills/marketing skills/engineering skills/methodology "skills/ide/cursor" skills/yousirjuan skills/external "skills/project/red-e-play"; do
   pack_dir="${ROOT}/${pack_rel}"
   [[ -d "$pack_dir" ]] || continue
   label="${pack_rel#skills/}"

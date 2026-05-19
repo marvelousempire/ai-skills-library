@@ -8,7 +8,7 @@ relations: []
 before: []
 governed_by: [global]
 meta: dynamic
-domain: project/yousirjuan
+domain: yousirjuan
 status: Active
 tool: Claude Code
 description: >

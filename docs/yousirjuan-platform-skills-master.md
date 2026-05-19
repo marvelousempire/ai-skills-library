@@ -639,7 +639,7 @@ How to start, how to parallelize, how to close, and how to file learnings.
 
 | Pattern | When to use | Reference |
 |---|---|---|
-| **Parallel agent coordination** | Any session touching iOS + web + backend | `skills/project/yousirjuan/parallel-agent-coordination/SKILL.md` |
+| **Parallel agent coordination** | Any session touching iOS + web + backend | `skills/yousirjuan/parallel-agent-coordination/SKILL.md` |
 | **After-action report** | End of any session that produced significant work | `skills/templates/after-action/TEMPLATE.md` |
 | **Pre-PR checklist** | Before opening any PR | `checklists/pre-pr.md` |
 | **New session checklist** | Start of every session | `checklists/new-session.md` |
@@ -665,7 +665,7 @@ them via the GitHub Actions → GitHub Releases → VPS nginx pipeline.
 1. Write hardware doc → docs/hardware/<machine>.md
    (template: skills/templates/hardware-doc/TEMPLATE.md)
 2. Write installer → installers/<platform>/install.sh
-   (reference: skills/project/yousirjuan/bash-installer-oneliners/SKILL.md)
+   (reference: skills/yousirjuan/bash-installer-oneliners/SKILL.md)
 3. Write GitHub Actions workflow → .github/workflows/release-<platform>.yml
 4. Write VPS nginx config → vps/nginx-<platform>-installer.conf
 5. Tag a release → workflow publishes to yousirjuan-ai

@@ -1,13 +1,13 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: hardware-compat-doc
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-19T22:56:07Z
 ---
 
 <!--
 Skill Name:       Hardware Compat Doc
 Slug:              hardware-compat-doc
-Pack:              You-Sir Juan (project/yousirjuan)
+Pack:              You-Sir Juan (yousirjuan)
 Version:           1.0.0
 Status:            stable
 Artifact type:     skill
@@ -29,7 +29,7 @@ Invoke:            Use **hardware-compat-doc**.
 | **Status** | stable |
 | **Type** | skill |
 | **Skill ID** | SK-0127 |
-| **Path** | `skills/project/yousirjuan/hardware-compat-doc` |
+| **Path** | `skills/yousirjuan/hardware-compat-doc` |
 
 ## Summary
 

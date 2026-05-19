@@ -44,6 +44,18 @@ Every `SKILL.md` must start with YAML frontmatter (`name`, `description`). The v
 
 For a **one-off** new folder under `~/.claude/skills/`, copy it into `skills/project/red-e-play/<name>/` and document in `SKILL-INDEX.md`.
 
+## You-Sir Juan platform skills (agent-managed)
+
+**Canonical path only:** `skills/yousirjuan/<skill-id>/` with frontmatter `domain: yousirjuan`.
+
+**Never** create or link `skills/project/yousirjuan/` — that layout is retired. See [`rules/library/yousirjuan-skills-pack-path/body.md`](../rules/library/yousirjuan-skills-pack-path/body.md).
+
+After add or move:
+
+1. `python3 scripts/generate-skill-plugin-manifests.py`
+2. Ripple SKILL-INDEX + [`skills/yousirjuan/README.md`](../skills/yousirjuan/README.md) + [`docs/yousirjuan-platform-skills-master.md`](yousirjuan-platform-skills-master.md)
+3. `./scripts/install-repo-skills-to-cursor-project.sh /path/to/yousirjuan`
+
 ## External GitHub tool → generated bridge skill
 
 1. Add an entry to [`external-tools.manifest.json`](external-tools.manifest.json) (see schema: [`external-tools.manifest.schema.json`](external-tools.manifest.schema.json)).

@@ -75,6 +75,7 @@ The agent must appear in **[`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATAL
 5. **Skill plugin manifest:** every `skills/**/SKILL.md` folder must have `skill.plugin.json` + `skill.plugin.md` (run `generate-skill-plugin-manifests.py`).
 6. **Agent plugin manifest:** every agent must have `*.plugin.json` + `*.plugin.md` beside its source (run `generate-agent-plugin-manifests.py`). Bishop compares agents to WordPress plugins — if the card is missing, reject registration.
 7. **Catalog visibility:** skills and agents both show in [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md) — the library’s “Plugins” screen.
+8. **You-Sir Juan pack path:** platform skills live only at `skills/yousirjuan/<slug>/` — reject any scaffold or doc that uses `skills/project/yousirjuan/` ([`yousirjuan-skills-pack-path`](../rules/library/yousirjuan-skills-pack-path/body.md)).
 
 ### Canonical example
 

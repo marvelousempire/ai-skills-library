@@ -1,13 +1,13 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: parallel-agent-coordination
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-19T22:56:07Z
 ---
 
 <!--
 Skill Name:       Parallel Agent Coordination
 Slug:              parallel-agent-coordination
-Pack:              You-Sir Juan (project/yousirjuan)
+Pack:              You-Sir Juan (yousirjuan)
 Version:           1.0.0
 Status:            stable
 Artifact type:     skill
@@ -29,7 +29,7 @@ Invoke:            Use **parallel-agent-coordination**.
 | **Status** | stable |
 | **Type** | skill |
 | **Skill ID** | SK-0130 |
-| **Path** | `skills/project/yousirjuan/parallel-agent-coordination` |
+| **Path** | `skills/yousirjuan/parallel-agent-coordination` |
 
 ## Summary
 

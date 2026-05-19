@@ -15,7 +15,7 @@ User asks to add a new skill, OR `agents/skill-scaffolder/ scaffold <family>/<sl
 
 ## Output
 
-New files under `skills/<family>/<slug>/`:
+New files under `skills/<family>/<slug>/` (You-Sir Juan platform skills: **`skills/yousirjuan/<slug>/` only** — never `skills/project/yousirjuan/`):
 
 - `SKILL.md` (YAML frontmatter + body)
 - `skill.plugin.json` + `skill.plugin.md` (run `python3 scripts/generate-skill-plugin-manifests.py` after scaffold)

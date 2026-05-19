@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "slug": "hardware-compat-doc",
   "name": "Hardware Compat Doc",
-  "pack": "project/yousirjuan",
+  "pack": "yousirjuan",
   "pack_label": "You-Sir Juan",
   "version": "1.0.0",
   "status": "stable",
@@ -10,7 +10,7 @@
   "summary": "How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings,\u2026",
   "description": "How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings, recommended .env block, and role assignment in the hardware topology.",
   "skill_id": "SK-0127",
-  "skill_path": "skills/project/yousirjuan/hardware-compat-doc",
+  "skill_path": "skills/yousirjuan/hardware-compat-doc",
   "skill_md": "SKILL.md",
   "lead_sheet_md": "skill.plugin.md",
   "author": "marvelousempire",
@@ -43,7 +43,7 @@
   "invoke": "Use **hardware-compat-doc**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-19T22:56:07Z",
   "hash": "0fa6669",
   "goal": "Deliver hardware compat doc output correctly and completely."
 }

@@ -10,6 +10,23 @@ This repo is a **skills library**, not a shipped application.
 
 Do not create new skills under `~/.cursor/skills-cursor/` (reserved for Cursor-built-in skills); author project or personal skills per Cursor **create-skill** in [`skills/ide/cursor/create-skill/SKILL.md`](skills/ide/cursor/create-skill/SKILL.md).
 
+### You-Sir Juan platform skills (`skills/yousirjuan/`)
+
+Six **agent-managed** skills for the You-Sir Juan OS platform. Canonical path: **`skills/yousirjuan/<skill-id>/SKILL.md`** — never `skills/project/yousirjuan/` (retired).
+
+| Skill | Purpose |
+|---|---|
+| [`associate-agent-system`](skills/yousirjuan/associate-agent-system/SKILL.md) | 4-persona Associate Agent architecture |
+| [`bash-installer-oneliners`](skills/yousirjuan/bash-installer-oneliners/SKILL.md) | One-liner installers (You-Sir Juan + third-party e.g. xAI Grok CLI) |
+| [`hardware-compat-doc`](skills/yousirjuan/hardware-compat-doc/SKILL.md) | Hardware compatibility docs |
+| [`ios-realitykit-4-patterns`](skills/yousirjuan/ios-realitykit-4-patterns/SKILL.md) | iOS kiosk RealityKit 4 patterns |
+| [`marketing-feature-doc`](skills/yousirjuan/marketing-feature-doc/SKILL.md) | Shipped feature marketing docs |
+| [`parallel-agent-coordination`](skills/yousirjuan/parallel-agent-coordination/SKILL.md) | Multi-surface agent coordination |
+
+**Rule:** [`rules/library/yousirjuan-skills-pack-path/body.md`](rules/library/yousirjuan-skills-pack-path/body.md) — Nephew, Bishop, Automata, Scene Skout, and all library agents must cite and edit this pack only under `skills/yousirjuan/`.
+
+**Cursor install:** `./scripts/install-repo-skills-to-cursor-project.sh /path/to/yousirjuan`
+
 ---
 
 ## Agent registry (`agents/`)

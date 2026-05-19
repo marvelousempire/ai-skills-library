@@ -78,12 +78,12 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 | Skill | Domain | Tool | Use when | Invoke |
 |---|---|---|---|---|
-| **parallel-agent-coordination** | project/yousirjuan | Claude Code | Multi-surface build: iOS + web + backend simultaneously | "Use **parallel-agent-coordination** pattern." |
-| **associate-agent-system** | project/yousirjuan | Claude Code | Referencing or extending the 4-persona paradigm architecture | "See **associate-agent-system** skill." |
-| **bash-installer-oneliners** | project/yousirjuan | Claude Code | Writing a new one-liner installer for a hardware platform | "Use **bash-installer-oneliners** pattern." |
-| **hardware-compat-doc** | project/yousirjuan | Claude Code | Documenting a new machine for You-Sir Juan OS | "Use **hardware-compat-doc** skill." |
-| **marketing-feature-doc** | project/yousirjuan | Claude Code | Writing docs/marketing/NN-feature.md for a shipped feature | "Use **marketing-feature-doc** skill." |
-| **ios-realitykit-4-patterns** | project/yousirjuan | Claude Code | Building RealityKit 4 components for the iOS kiosk | "Use **ios-realitykit-4-patterns** skill." |
+| **parallel-agent-coordination** | yousirjuan | Claude Code | Multi-surface build: iOS + web + backend simultaneously | "Use **parallel-agent-coordination** pattern." |
+| **associate-agent-system** | yousirjuan | Claude Code | Referencing or extending the 4-persona paradigm architecture | "See **associate-agent-system** skill." |
+| **bash-installer-oneliners** | yousirjuan | Claude Code | Writing a new one-liner installer for a hardware platform | "Use **bash-installer-oneliners** pattern." |
+| **hardware-compat-doc** | yousirjuan | Claude Code | Documenting a new machine for You-Sir Juan OS | "Use **hardware-compat-doc** skill." |
+| **marketing-feature-doc** | yousirjuan | Claude Code | Writing docs/marketing/NN-feature.md for a shipped feature | "Use **marketing-feature-doc** skill." |
+| **ios-realitykit-4-patterns** | yousirjuan | Claude Code | Building RealityKit 4 components for the iOS kiosk | "Use **ios-realitykit-4-patterns** skill." |
 
 ## Templates added 2026-05-14
 

@@ -6,7 +6,7 @@ WordPress-style plugin cards for every skill in this library. Each folder under 
 - `skill.plugin.json` — machine manifest (grid UIs, Bishop audits)
 - `skill.plugin.md` — human lead sheet
 
-**Total plugins:** 168 · **Generated:** 2026-05-19 19:05 UTC
+**Total plugins:** 168 · **Generated:** 2026-05-19 22:56 UTC
 
 Regenerate: `python3 scripts/generate-skill-plugin-manifests.py`
 
@@ -206,12 +206,12 @@ Regenerate: `python3 scripts/generate-skill-plugin-manifests.py`
 
 | Plugin | Ver | Status | Summary | Invoke |
 |--------|-----|--------|---------|--------|
-| [**Associate Agent System**](skills/project/yousirjuan/associate-agent-system/skill.plugin.md) | 1.0.0 | stable | The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label… | Use **associate-agent-system**. |
-| [**Bash Installer Oneliners**](skills/project/yousirjuan/bash-installer-oneliners/skill.plugin.md) | 1.0.0 | stable | Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent… | Use **bash-installer-oneliners**. |
-| [**Hardware Compat Doc**](skills/project/yousirjuan/hardware-compat-doc/skill.plugin.md) | 1.0.0 | stable | How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings,… | Use **hardware-compat-doc**. |
-| [**Ios Realitykit 4 Patterns**](skills/project/yousirjuan/ios-realitykit-4-patterns/skill.plugin.md) | 1.0.0 | stable | SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three… | Use **ios-realitykit-4-patterns**. |
-| [**Marketing Feature Doc**](skills/project/yousirjuan/marketing-feature-doc/skill.plugin.md) | 1.0.0 | stable | Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works,… | Use **marketing-feature-doc**. |
-| [**Parallel Agent Coordination**](skills/project/yousirjuan/parallel-agent-coordination/skill.plugin.md) | 1.0.0 | stable | Split large builds across independent background agents by surface (iOS, web, backend), brief each agent with full terminology + member context up front, and… | Use **parallel-agent-coordination**. |
+| [**Associate Agent System**](skills/yousirjuan/associate-agent-system/skill.plugin.md) | 1.0.0 | stable | The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label… | Use **associate-agent-system**. |
+| [**Bash Installer Oneliners**](skills/yousirjuan/bash-installer-oneliners/skill.plugin.md) | 1.0.0 | stable | Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent… | Use **bash-installer-oneliners**. |
+| [**Hardware Compat Doc**](skills/yousirjuan/hardware-compat-doc/skill.plugin.md) | 1.0.0 | stable | How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings,… | Use **hardware-compat-doc**. |
+| [**Ios Realitykit 4 Patterns**](skills/yousirjuan/ios-realitykit-4-patterns/skill.plugin.md) | 1.0.0 | stable | SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three… | Use **ios-realitykit-4-patterns**. |
+| [**Marketing Feature Doc**](skills/yousirjuan/marketing-feature-doc/skill.plugin.md) | 1.0.0 | stable | Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works,… | Use **marketing-feature-doc**. |
+| [**Parallel Agent Coordination**](skills/yousirjuan/parallel-agent-coordination/skill.plugin.md) | 1.0.0 | stable | Split large builds across independent background agents by surface (iOS, web, backend), brief each agent with full terminology + member context up front, and… | Use **parallel-agent-coordination**. |
 
 ## iOS (5)
 
