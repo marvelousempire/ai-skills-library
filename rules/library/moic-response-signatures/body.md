@@ -20,12 +20,13 @@ human-readable substantive response must finish with the global closeout:
 <strong>After:</strong> <one line describing what is true now><br>
 <strong>Change:</strong> <what changed>; <how it was verified><br>
 <strong>Next action:</strong> <exact command, file, or decision if any><br>
-<br><sub><em>Nephew</em></sub>
+<sub><em>Nephew</em></sub>
 ```
 
 Use the reporting entity's display name as the visible signature. The visible
 receipt line is name-only and italic; Nephew signs visibly as
-`<br><sub><em>Nephew</em></sub>`. Do not show the MOIC number in the human receipt
+`<sub><em>Nephew</em></sub>` after the `Next action` line break. Do not add a blank
+line between `Next action` and the receipt signature. Do not show the MOIC number in the human receipt
 line.
 
 For machine-readable JSON payloads, preserve parseability and attach structured
@@ -37,7 +38,7 @@ metadata instead of appending prose:
     "entity_id": "nephew",
     "moic": "070195134533",
     "agent_name": "Nephew",
-    "receipt_signature_html": "<br><sub><em>Nephew</em></sub>",
+    "receipt_signature_html": "<sub><em>Nephew</em></sub>",
     "receipt_signature_text": "Nephew"
   }
 }
