@@ -2,7 +2,9 @@
 
 **Canonical repo:** [`marvelousempire/ai-skills-library`](https://github.com/marvelousempire/ai-skills-library)
 
-Consumer monorepos (e.g. red-e-play-app) vendor it as `vendor/ai-skills-library` and symlink into `.cursor/skills/`.
+Consumer monorepos (e.g. red-e-play-app) **bridge** this repo via symlinks — they do not own skills/agents. See [`consumer-bridge.md`](consumer-bridge.md).
+
+Preferred authoring checkout: `~/Developer/ai-skills-library`. Optional consumer pin: `vendor/ai-skills-library` submodule.
 
 ## Flow
 

@@ -8,7 +8,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **168** total `SKILL.md` files under [`skills/`](skills/) (each with `skill.plugin.json` + `skill.plugin.md`).
+- **165** total `SKILL.md` files under [`skills/`](skills/) (each with `skill.plugin.json` + `skill.plugin.md`).
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
