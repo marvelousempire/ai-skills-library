@@ -7,7 +7,7 @@
 # Default TARGET_DIR is the current working directory.
 #
 # Packs merged (order matters for collision messages): marketing → engineering →
-# ui-ux-pro-max → red-e-play project skills → external (generated bridges).
+# methodology → ide/cursor → ui-ux-pro-max → red-e-play → external (generated bridges).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -34,9 +34,12 @@ link_one() {
       echo "  ok (already linked) ${pack}/${name}"
       return 0
     fi
-    die "skill name collision: '${name}' already linked from elsewhere
-  existing: ${dest} -> $(readlink "$dest" 2>/dev/null || echo '?')
-  wanted:   ${abs_src} (${pack})"
+    # Re-link stale symlinks (e.g. VPS /opt/readyplay paths on a Mac checkout).
+    local old
+    old="$(readlink "$dest" 2>/dev/null || echo '?')"
+    ln -sfn "$abs_src" "$dest"
+    echo "  ↻ relinked ${pack}/${name} (was → ${old})"
+    return 0
   fi
 
   if [[ -e "$dest" ]]; then
@@ -51,7 +54,7 @@ echo "# Install repo skills → ${SKILL_ROOT}"
 mkdir -p "$SKILL_ROOT"
 
 # Multi-skill packs: every immediate child dir containing SKILL.md
-for pack_rel in skills/marketing "skills/engineering" skills/external "skills/project/red-e-play"; do
+for pack_rel in skills/marketing skills/engineering skills/methodology "skills/ide/cursor" skills/external "skills/project/red-e-play"; do
   pack_dir="${ROOT}/${pack_rel}"
   [[ -d "$pack_dir" ]] || continue
   label="${pack_rel#skills/}"

@@ -1,0 +1,58 @@
+{
+  "skill_id": "forensic-case-investigation",
+  "version": "1.0.0",
+  "philosophy": "My goal is to have the diligence of one tracking the footprints of an ant in the jungle.",
+  "philosophy_tagline": "Ant-in-the-jungle diligence",
+  "canonical_path": "skills/methodology/forensic-case-investigation/SKILL.md",
+  "agents": {
+    "forensic-case-investigator": {
+      "role": "lead_investigator",
+      "agent_path": "agents/forensic-case-investigator.md",
+      "philosophy_required": true,
+      "triggers": [
+        "forensic",
+        "investigation",
+        "case log",
+        "Ground Zero",
+        "chain of custody",
+        "SAR transaction",
+        "ant in the jungle"
+      ]
+    },
+    "bishop": {
+      "role": "verification_authority",
+      "agent_path": "agents/bishop.md",
+      "mandates": [
+        "Every new agent MUST include a Philosophy section before Bishop signs off.",
+        "Reference philosophy: forensic-case-investigation (ant-in-the-jungle diligence)."
+      ],
+      "triggers": [
+        "create agent",
+        "scaffold agent",
+        "validate investigation",
+        "audit case folder"
+      ]
+    },
+    "nephew": {
+      "role": "orchestrator_dispatch",
+      "triggers": ["formal investigation", "forensic case", "open case"],
+      "receipt": "moic-response-signatures"
+    },
+    "cursor_agent": {
+      "install": "ln -sfn vendor/ai-skills-library/skills/methodology/forensic-case-investigation .cursor/skills/forensic-case-investigation",
+      "invoke": "Use forensic-case-investigation."
+    },
+    "claude_code": {
+      "install": "vendor-skills-from-home.sh or symlink into ~/.claude/skills/",
+      "invoke": "Use forensic-case-investigation."
+    }
+  },
+  "required_artifacts": [
+    "000-ground-zero.md",
+    "001-charter.md",
+    "002-hypothesis-ledger.md",
+    "003-evidence-index.md",
+    "004-decision-trees.md",
+    "README.md"
+  ]
+}

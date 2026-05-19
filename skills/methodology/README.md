@@ -20,6 +20,7 @@ produce clean shipments and reusable knowledge artifacts.
 | [`prd-journal-page-splitter/`](prd-journal-page-splitter/) | Split long PRD Journals into page folders and section files |
 | [`doctrine-decanter-sorting-agent/`](doctrine-decanter-sorting-agent/) | Renumber + dedupe (top/bottom) + explode doctrine/PRD dumps into `docs/` tree |
 | [`understandings-library/`](understandings-library/) | README-local numbered understandings for future AIs and humans |
+| [`forensic-case-investigation/`](forensic-case-investigation/) | SAR transactions, case folders, IFTTT trees, ant-in-the-jungle diligence |
 
 ## Why a methodology family
 

@@ -8,6 +8,16 @@ model: opus
 
 # Agent: <agent-name>
 
+## Philosophy (mandatory)
+
+> **<One sentence — the agent's north star. Bishop rejects agents without this section.>**
+
+### What this means in practice
+
+- <3–7 bullets: how philosophy changes behavior on the job>
+
+**Canonical example:** [`agents/forensic-case-investigator.md`](../agents/forensic-case-investigator.md) — *ant-in-the-jungle diligence.*
+
 ## Mission
 
 <One paragraph stating the agent's purpose and the boundary of what it does vs doesn't do.>

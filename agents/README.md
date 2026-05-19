@@ -15,6 +15,8 @@ Operational agents that automate the recurring patterns in this repo. Each agent
 | [`chain-assistant-manager`](../agents/chain-assistant-manager.md) | Employee submits | Gap list (numbered) + Elevation list (lettered) + standards-check table + verdict |
 | [`chain-manager`](../agents/chain-manager.md) | Asst Mgr forwards | Boolean lead sheet + DRY method report + safety summary + ship dossier |
 | [`chain-director`](../agents/chain-director.md) | Manager forwards | Verdict (approved / approved-with-known-debt / return / rejected) + decision record + standards update |
+| [`forensic-case-investigator`](../agents/forensic-case-investigator.md) | Formal case opened | Case folder + SAR transaction log + classification |
+| [`bishop`](../agents/bishop.md) | New agent or investigation close | Philosophy gate + investigation audit verdict |
 
 ## Status
 

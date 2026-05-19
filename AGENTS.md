@@ -59,6 +59,8 @@ Thirteen one-shot tools. Each owns one well-defined recurring operational job. I
 | [`ship-auditor/`](agents/ship-auditor/) | Pre-commit verification gate — runs every check, blocks commit on failure |
 | [`question-decomposer/`](agents/question-decomposer/) | Two-part / FAQ-style intent disambiguation |
 | [`moic-receipt-signature-agent/`](agents/moic-receipt-signature-agent/) | Keep MOIC receipt signatures, `response_signature` metadata, patrol expectations, and bridge copies aligned |
+| [`forensic-case-investigator`](agents/forensic-case-investigator.md) | SAR case folders, Ground Zero, backward trace, ant-in-the-jungle diligence |
+| [`bishop`](agents/bishop.md) | Mandatory Philosophy on new agents; investigation close audit before fix ship |
 
 ### Layer 1 — Workers (the cognitive engine — lives in nephew's package)
 
@@ -91,5 +93,6 @@ Or, more naturally, the calling agent invokes the agent by name.
 
 1. Copy [`templates/agent.md`](templates/agent.md) to `agents/<kebab-name>.md`
 2. Fill in the front-matter (name / description / tools / model) and body sections
-3. Update this file's registry table
-4. Update [`SKILL-INDEX.md`](SKILL-INDEX.md) if the agent has a companion skill
+3. **Include mandatory `## Philosophy`** — Bishop rejects agents without it (see [`agents/bishop.md`](agents/bishop.md); example: [`forensic-case-investigator`](agents/forensic-case-investigator.md))
+4. Update this file's registry table
+5. Update [`SKILL-INDEX.md`](SKILL-INDEX.md) if the agent has a companion skill
