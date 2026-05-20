@@ -1,0 +1,4 @@
+# Deprecated — use ledger/capabilities.yaml
+# Kept for redirect only; SRIC and guardian read ledger/capabilities.yaml
+redirect: ledger/capabilities.yaml
+stack_id: cinematic-reality-ui

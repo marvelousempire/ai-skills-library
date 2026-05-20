@@ -9,7 +9,7 @@ WordPress-style plugin cards for every **agent** in this library (same model as 
 
 **Unified catalog (skills + agents):** [`LIBRARY-PLUGIN-CATALOG.md`](LIBRARY-PLUGIN-CATALOG.md)
 
-**Total agent plugins:** 24 · **Generated:** 2026-05-20 06:24 UTC
+**Total agent plugins:** 24 · **Generated:** 2026-05-20 07:03 UTC
 
 Regenerate: `python3 scripts/generate-agent-plugin-manifests.py`
 
@@ -51,7 +51,7 @@ Regenerate: `python3 scripts/generate-agent-plugin-manifests.py`
 | Agent | Ver | Status | Philosophy | Summary | Invoke |
 |-------|-----|--------|------------|---------|--------|
 | [**Automata**](agents/automata.plugin.md) | 1.0.0 | needs_philosophy | — | Automata — living automation engine and belief system (Layer 0 under Nephew). Philosophical flow, biological hierarchy, Automata Pad desktop app, patrol… | Commission **automata** via Nephew dispatch. |
-| [**Cinematic Fluid Stack Guardian**](agents/cinematic-fluid-stack-guardian.plugin.md) | 1.0.0 | stable | ✓ | SRIC-enforced guardian for the Cinematic Fluid Experience tech stack. Audits requests against the Master Cinematic Quality Bible and… | Commission **cinematic-fluid-stack-guardian** via Nephew dispatch. |
+| [**Cinematic Reality Ui Guardian**](agents/cinematic-reality-ui-guardian.plugin.md) | 1.0.0 | stable | ✓ | SRIC-enforced guardian for the Cinematic Reality UI sealed tech stack. Audits requests against stack.ledger.yaml (dependencies, ui-kits, payloads,… | Commission **cinematic-reality-ui-guardian** via Nephew dispatch. |
 | [**Dealer**](agents/dealer/agent.plugin.md) | 1.0.0 | needs_philosophy | — | Dealer — National Distributor of ALL Work *(Implemented by: **Nephew** — the Managing Trustee)* | Commission **dealer** via Nephew dispatch. |
 | [**Gap Audit Runner**](agents/gap-audit-runner/agent.plugin.md) | 1.0.0 | needs_philosophy | — | This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery… | Commission **gap-audit-runner** via Nephew dispatch. |
 | [**Label Linter**](agents/label-linter/agent.plugin.md) | 1.0.0 | needs_philosophy | — | This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery… | Commission **label-linter** via Nephew dispatch. |

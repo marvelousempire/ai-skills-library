@@ -1,0 +1,14 @@
+# Kit constitution index — pointers to sealed ledger files
+schema_version: "1.0"
+stack_id: cinematic-reality-ui
+title: Cinematic Reality UI
+surfaces: [web, ios, docs, product]
+enforcement: closed
+ledger_files:
+  dependencies: ledger/dependencies.yaml
+  ui_kits: ledger/ui-kits.yaml
+  payloads: ledger/payloads.yaml
+  capabilities: ledger/capabilities.yaml
+plugin_card: stack.plugin.json
+sric: SRIC.md
+doctrine_root: doctrine/

@@ -1,0 +1,40 @@
+schema_version: "1.0"
+stack_id: cinematic-reality-ui
+policy: closed
+package_managers: [pnpm]
+
+allow_packages:
+  - "@react-three/drei"
+  - "@react-three/fiber"
+  - "@react-three/postprocessing"
+  - "motion"
+  - "postprocessing"
+  - "react"
+  - "react-dom"
+  - "three"
+  - "zustand"
+
+allow_dev_packages:
+  - "@types/react"
+  - "@types/react-dom"
+  - "@types/three"
+  - "@vitejs/plugin-react"
+  - "@webgpu/types"
+  - "typescript"
+  - "vite"
+
+forbidden_patterns:
+  - "next"
+  - "@angular/*"
+  - "flutter"
+  - "tailwindcss"
+  - "@mui/*"
+  - "chakra-ui"
+
+reference_lockfiles:
+  - decanter/apps/cinematic-fluid-hero/package.json
+  - decanter/apps/milk-pour/package.json
+
+notes: >
+  Closed ledger. Agents and CI may not add npm packages not listed above.
+  Swift/RealityKit native deps are documented under ui_kits.yaml surfaces.ios.

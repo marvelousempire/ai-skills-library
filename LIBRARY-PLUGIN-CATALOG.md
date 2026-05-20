@@ -1,21 +1,23 @@
 # AI Skills Library — Plugin catalog
 
-Like the **WordPress Plugins** screen: every **skill** and **agent** is a plugin with
+Like the **WordPress Plugins** screen: every **skill**, **agent**, and **tech stack** is a plugin with
 `*.plugin.json` (machine card) + `*.plugin.md` (human lead sheet).
 
 | Kind | Count | Directory |
 |------|-------|-----------|
 | **Skills** | 168 | [`SKILLS-PLUGIN-DIRECTORY.md`](SKILLS-PLUGIN-DIRECTORY.md) |
-| **Agents** | 23 | [`AGENTS-PLUGIN-DIRECTORY.md`](AGENTS-PLUGIN-DIRECTORY.md) |
-| **Total** | 191 | this file |
+| **Agents** | 24 | [`AGENTS-PLUGIN-DIRECTORY.md`](AGENTS-PLUGIN-DIRECTORY.md) |
+| **Tech stacks** | 1 | [`skills/engineering/tech-stacks/TECH-STACKS-PLUGIN-DIRECTORY.md`](skills/engineering/tech-stacks/TECH-STACKS-PLUGIN-DIRECTORY.md) |
+| **Total** | 193 | this file |
 
-**Generated:** 2026-05-19 19:14 UTC
+**Generated:** 2026-05-20 07:03 UTC
 
 Regenerate everything:
 
 ```bash
 python3 scripts/generate-skill-plugin-manifests.py
 python3 scripts/generate-agent-plugin-manifests.py
+python3 scripts/generate-stack-plugin-manifests.py
 python3 scripts/generate-library-plugin-catalog.py
 ```
 
@@ -37,6 +39,7 @@ python3 scripts/generate-library-plugin-catalog.py
 | agent | **Chain Manager** | Orchestration | 1.0.0 | needs_philosophy | The operational gate in the four-seat chain. Validates both prior reviews, checks repo safety, scalability, maintainability, and the full Boolean lead sheet.… · Phil: — | [chain-manager](agents/chain-manager.plugin.md) |
 | agent | **Nephew** | Orchestration | 1.0.0 | stable | Nephew — the Orchestrator Agent by Avery Gooman. Multi-agent orchestration for Claude Code (forked from Ruflo) — researcher / coder / reviewer /… · Phil: — | [nephew](agents/nephew.plugin.md) |
 | agent | **Automata** | Utility | 1.0.0 | needs_philosophy | Automata — living automation engine and belief system (Layer 0 under Nephew). Philosophical flow, biological hierarchy, Automata Pad desktop app, patrol… · Phil: — | [automata](agents/automata.plugin.md) |
+| agent | **Cinematic Reality Ui Guardian** | Utility | 1.0.0 | stable | SRIC-enforced guardian for the Cinematic Reality UI sealed tech stack. Audits requests against stack.ledger.yaml (dependencies, ui-kits, payloads,… · Phil: ✓ | [cinematic-reality-ui-guardian](agents/cinematic-reality-ui-guardian.plugin.md) |
 | agent | **Dealer** | Utility | 1.0.0 | needs_philosophy | Dealer — National Distributor of ALL Work *(Implemented by: **Nephew** — the Managing Trustee)* · Phil: — | [dealer](agents/dealer/agent.plugin.md) |
 | agent | **Gap Audit Runner** | Utility | 1.0.0 | needs_philosophy | This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery… · Phil: — | [gap-audit-runner](agents/gap-audit-runner/agent.plugin.md) |
 | agent | **Label Linter** | Utility | 1.0.0 | needs_philosophy | This agent is part of **nephew's** dispatch — it does not commission itself. Invocation flows from [`nephew`](../nephew.md) (the Orchestrator Agent by Avery… · Phil: — | [label-linter](agents/label-linter/agent.plugin.md) |
@@ -206,16 +209,17 @@ python3 scripts/generate-library-plugin-catalog.py
 | skill | **Port Drift Detector** | Brokerage prototype | 1.0.0 | stable | Cross-repo drift detection between paired implementations (e.g., prototype + canonical). Reads a markdown ledger (PORTING_NOTES.md or similar) + recent git… | [port-drift-detector](skills/project/brokerage-prototype/port-drift-detector/skill.plugin.md) |
 | skill | **Generate Weather Plates** | Red-E Play | 1.0.0 | stable | Generate the 16 cinematic weather background plates (8 conditions × day/night) for the Red-E Play HomeView hero by calling OpenAI's gpt-image-1. Drops the… | [generate-weather-plates](skills/project/red-e-play/generate-weather-plates/skill.plugin.md) |
 | skill | **Verify Ship** | Red-E Play | 1.0.0 | stable | Audit whether work has actually shipped — committed, pushed, merged, deployed. Use when the user asks variants of "did it ship", "is it on origin", "are we… | [verify-ship](skills/project/red-e-play/verify-ship/skill.plugin.md) |
+| skill | **Ascii Flow Diagrams** | Visual | 1.0.0 | stable | When the user asks for a visual of a flow, system, architecture, request lifecycle, or how parts talk to each other — render a Unicode box-and-arrow diagram… | [ascii-flow-diagrams](skills/visual/diagrams/ascii-flow-diagrams/skill.plugin.md) |
+| skill | **Seeme** | Visual | 1.0.0 | stable | AI visual interpreter — turn any text, file, or idea into a Unicode box-and-arrow diagram in the ascii-flow-diagrams style. Defaults to local Ollama; supports… | [seeme](skills/visual/diagrams/seeme/skill.plugin.md) |
+| skill | **Emil Design Eng** | Design / UI | 1.0.0 | stable | Encodes Emil Kowalski's design engineering philosophy for UI polish, component design, animation decisions, and invisible details that make software feel great. | [emil-design-eng](skills/visual/design/architecture/emil-design-eng/skill.plugin.md) |
+| skill | **Ui Ux Pro Max** | Design / UI | 1.0.0 | stable | Comprehensive design guide for web and mobile applications. Covers styles, color palettes, font pairings, UX guidelines, and chart types across multiple… | [ui-ux-pro-max](skills/visual/design/ux/ui-ux-pro-max/skill.plugin.md) |
 | skill | **Associate Agent System** | You-Sir Juan | 1.0.0 | stable | The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label… | [associate-agent-system](skills/yousirjuan/associate-agent-system/skill.plugin.md) |
 | skill | **Bash Installer Oneliners** | You-Sir Juan | 1.0.0 | stable | Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent… | [bash-installer-oneliners](skills/yousirjuan/bash-installer-oneliners/skill.plugin.md) |
 | skill | **Hardware Compat Doc** | You-Sir Juan | 1.0.0 | stable | How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings,… | [hardware-compat-doc](skills/yousirjuan/hardware-compat-doc/skill.plugin.md) |
 | skill | **Ios Realitykit 4 Patterns** | You-Sir Juan | 1.0.0 | stable | SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three… | [ios-realitykit-4-patterns](skills/yousirjuan/ios-realitykit-4-patterns/skill.plugin.md) |
 | skill | **Marketing Feature Doc** | You-Sir Juan | 1.0.0 | stable | Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works,… | [marketing-feature-doc](skills/yousirjuan/marketing-feature-doc/skill.plugin.md) |
 | skill | **Parallel Agent Coordination** | You-Sir Juan | 1.0.0 | stable | Split large builds across independent background agents by surface (iOS, web, backend), brief each agent with full terminology + member context up front, and… | [parallel-agent-coordination](skills/yousirjuan/parallel-agent-coordination/skill.plugin.md) |
-| skill | **Ascii Flow Diagrams** | Visual | 1.0.0 | stable | When the user asks for a visual of a flow, system, architecture, request lifecycle, or how parts talk to each other — render a Unicode box-and-arrow diagram… | [ascii-flow-diagrams](skills/visual/diagrams/ascii-flow-diagrams/skill.plugin.md) |
-| skill | **Seeme** | Visual | 1.0.0 | stable | AI visual interpreter — turn any text, file, or idea into a Unicode box-and-arrow diagram in the ascii-flow-diagrams style. Defaults to local Ollama; supports… | [seeme](skills/visual/diagrams/seeme/skill.plugin.md) |
-| skill | **Emil Design Eng** | Design / UI | 1.0.0 | stable | Encodes Emil Kowalski's design engineering philosophy for UI polish, component design, animation decisions, and invisible details that make software feel great. | [emil-design-eng](skills/visual/design/architecture/emil-design-eng/skill.plugin.md) |
-| skill | **Ui Ux Pro Max** | Design / UI | 1.0.0 | stable | Comprehensive design guide for web and mobile applications. Covers styles, color palettes, font pairings, UX guidelines, and chart types across multiple… | [ui-ux-pro-max](skills/visual/design/ux/ui-ux-pro-max/skill.plugin.md) |
+| tech_stack | **Cinematic Reality UI** | cinematic, immersive | 1.0.0 | stable | Sealed cinematic theme: RealityKit + WebGPU fluid + ACES bible — mood and ledger, not a single app. | [cinematic-reality-ui](skills/engineering/tech-stacks/cinematic-reality-ui/stack.plugin.md) |
 
 ---
 

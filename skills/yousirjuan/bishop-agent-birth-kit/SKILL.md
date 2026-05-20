@@ -30,9 +30,9 @@ description: >
 ## SRIC on every birth
 
 - Template ships `SRIC.md` + `OPERATING_RULES.md` decline discipline.
-- Manifest may set `stack_bible_path` (AISL tech-stack SRIC) and `sric_capabilities` (registry ids). If `stack_bible_path` is set, `sric_capabilities` must be non-empty.
+- Manifest may set `stack_bible_path` (AISL tech-stack **ledger index** — `stack.ledger.yaml`) and `sric_capabilities` (ids from `ledger/capabilities.yaml`). If `stack_bible_path` is set, `sric_capabilities` must be non-empty.
 - Generic `capabilities` on manifest must be non-empty (e.g. `chat`, `task_execution`).
-- Cinematic stack example: `skills/engineering/tech-stacks/cinematic-fluid-experience/SRIC.md`
+- Cinematic stack example: `skills/engineering/tech-stacks/cinematic-reality-ui/stack.ledger.yaml` + `SRIC.md`
 
 ## DRY paths (do not duplicate)
 

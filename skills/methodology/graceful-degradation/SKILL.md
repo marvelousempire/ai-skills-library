@@ -38,7 +38,7 @@ Codified from the 2026-05-14 sovereign-stack session. Used repeatedly across SEE
 
 When an agent is bound to a tech stack bible, use the **Strict Registered Intent & Capabilities** decline shape instead of silent failure or improvisation:
 
-- Canonical spec: [`skills/engineering/tech-stacks/cinematic-fluid-experience/SRIC.md`](../../engineering/tech-stacks/cinematic-fluid-experience/SRIC.md)
+- Canonical spec: [`skills/engineering/tech-stacks/cinematic-reality-ui/SRIC.md`](../../engineering/tech-stacks/cinematic-reality-ui/SRIC.md)
 - Required fields: `status: declined`, `reason`, `missing_resources[]`, `in_scope_alternatives[]`
 - Bishop-born agents: generic copy in `bishop/agents/manifests/_template/AI_AGENT_RULES/SRIC.md`
 

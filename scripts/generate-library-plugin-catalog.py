@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 AGENTS = ROOT / "agents"
+TECH_STACKS = ROOT / "skills" / "engineering" / "tech-stacks"
 CATALOG_MD = ROOT / "LIBRARY-PLUGIN-CATALOG.md"
 
 
@@ -33,6 +34,18 @@ def collect_skills() -> list[dict]:
     return items
 
 
+def collect_stacks() -> list[dict]:
+    items: list[dict] = []
+    for stack_dir in sorted(TECH_STACKS.iterdir()):
+        p = stack_dir / "stack.plugin.json"
+        m = load_json(p)
+        if m and m.get("artifact_type") == "tech_stack":
+            m["_catalog_kind"] = "tech_stack"
+            m["_lead_path"] = f"{m['stack_path']}/stack.plugin.md"
+            items.append(m)
+    return items
+
+
 def collect_agents() -> list[dict]:
     items: list[dict] = []
     for p in sorted(AGENTS.glob("*.plugin.json")):
@@ -53,19 +66,22 @@ def collect_agents() -> list[dict]:
 def main() -> int:
     skills = collect_skills()
     agents = collect_agents()
+    stacks = collect_stacks()
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    total = len(skills) + len(agents) + len(stacks)
 
     lines = [
         "# AI Skills Library — Plugin catalog",
         "",
-        "Like the **WordPress Plugins** screen: every **skill** and **agent** is a plugin with",
+        "Like the **WordPress Plugins** screen: every **skill**, **agent**, and **tech stack** is a plugin with",
         "`*.plugin.json` (machine card) + `*.plugin.md` (human lead sheet).",
         "",
         "| Kind | Count | Directory |",
         "|------|-------|-----------|",
         f"| **Skills** | {len(skills)} | [`SKILLS-PLUGIN-DIRECTORY.md`](SKILLS-PLUGIN-DIRECTORY.md) |",
         f"| **Agents** | {len(agents)} | [`AGENTS-PLUGIN-DIRECTORY.md`](AGENTS-PLUGIN-DIRECTORY.md) |",
-        f"| **Total** | {len(skills) + len(agents)} | this file |",
+        f"| **Tech stacks** | {len(stacks)} | [`skills/engineering/tech-stacks/TECH-STACKS-PLUGIN-DIRECTORY.md`](skills/engineering/tech-stacks/TECH-STACKS-PLUGIN-DIRECTORY.md) |",
+        f"| **Total** | {total} | this file |",
         "",
         f"**Generated:** {now}",
         "",
@@ -74,6 +90,7 @@ def main() -> int:
         "```bash",
         "python3 scripts/generate-skill-plugin-manifests.py",
         "python3 scripts/generate-agent-plugin-manifests.py",
+        "python3 scripts/generate-stack-plugin-manifests.py",
         "python3 scripts/generate-library-plugin-catalog.py",
         "```",
         "",
@@ -85,10 +102,17 @@ def main() -> int:
         "|------|------|-------------|-----|--------|---------|------|",
     ]
 
-    all_items = [{"sort": f"0-{m['slug']}", **m} for m in skills] + [{"sort": f"1-{m['slug']}", **m} for m in agents]
-    for m in sorted(all_items, key=lambda x: (x["_catalog_kind"], x.get("pack") or x.get("team", ""), x["slug"])):
+    all_items = (
+        [{"sort": f"0-{m['slug']}", **m} for m in skills]
+        + [{"sort": f"1-{m['slug']}", **m} for m in agents]
+        + [{"sort": f"2-{m['slug']}", **m} for m in stacks]
+    )
+    for m in sorted(all_items, key=lambda x: (x["_catalog_kind"], x.get("pack") or x.get("team") or x.get("mood", [""])[0], x["slug"])):
         kind = m["_catalog_kind"]
-        group = m.get("pack_label") or m.get("team_label") or "—"
+        if kind == "tech_stack":
+            group = ", ".join((m.get("mood") or [])[:2]) or "—"
+        else:
+            group = m.get("pack_label") or m.get("team_label") or "—"
         phil = ""
         if kind == "agent":
             phil = " · Phil: ✓" if m.get("philosophy") else " · Phil: —"
@@ -116,7 +140,7 @@ def main() -> int:
     )
 
     CATALOG_MD.write_text("\n".join(lines), encoding="utf-8")
-    print(f"generate-library-plugin-catalog: OK ({len(skills)} skills + {len(agents)} agents)")
+    print(f"generate-library-plugin-catalog: OK ({len(skills)} skills + {len(agents)} agents + {len(stacks)} stacks)")
     print(f"  catalog: {CATALOG_MD.relative_to(ROOT)}")
     return 0
 

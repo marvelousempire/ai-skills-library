@@ -2,7 +2,7 @@
 
 Example of this skill applied end-to-end. **Canonical (AISL):**
 
-`skills/engineering/tech-stacks/cinematic-fluid-experience/doctrine/`
+`skills/engineering/tech-stacks/cinematic-reality-ui/doctrine/`
 
 Nephew stub: `skills/new-tech-stack-depository/README.md` (redirect only).
 

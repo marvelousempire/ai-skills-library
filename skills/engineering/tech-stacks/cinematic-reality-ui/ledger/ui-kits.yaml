@@ -1,0 +1,51 @@
+schema_version: "1.0"
+stack_id: cinematic-reality-ui
+
+mood:
+  - cinematic
+  - immersive
+  - broadcast
+  - premium-dark
+  - fluid-motion
+
+technology_stack:
+  web:
+    - WebGPU
+    - three.js
+    - react-three-fiber
+    - "@react-three/drei"
+    - "@react-three/postprocessing"
+    - postprocessing
+    - motion
+    - ACES
+    - screen-space-fluid
+    - modern-css
+    - design-tokens
+  ios:
+    - RealityKit
+    - RealityKit4
+    - SwiftUI
+    - Metal
+  shared:
+    - Master Cinematic Quality Bible
+
+design_token_paths:
+  - doctrine/docs/quality/bible/design-tokens.md
+  - decanter/apps/cinematic-fluid-hero/src/tokens.ts
+
+bible_paths:
+  - doctrine/docs/quality/master-cinematic-quality-bible.md
+  - doctrine/docs/quality/bible/hard-rules.md
+  - doctrine/docs/quality/bible/post-processing-pipeline.md
+  - doctrine/docs/quality/shaders/
+  - doctrine/docs/quality/fluid-sim/
+
+rendering_paths:
+  - doctrine/docs/rendering/aces-tone-mapping.md
+  - doctrine/docs/rendering/screen-space-fluid-rendering.md
+
+forbidden_ui_frameworks:
+  - tailwindcss
+  - bootstrap
+  - material-ui
+  - chakra-ui

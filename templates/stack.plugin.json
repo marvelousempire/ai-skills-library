@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "tech_stack",
+  "slug": "your-stack-id",
+  "name": "Your Stack Name",
+  "version": "1.0.0",
+  "status": "stable",
+  "summary": "One line for catalog (mood + sealed ledger, not a single app).",
+  "mood": ["cinematic"],
+  "technology_stack": ["WebGPU", "three.js"],
+  "surfaces": ["web", "docs"],
+  "stack_path": "skills/engineering/tech-stacks/your-stack-id",
+  "ledger_path": "stack.ledger.yaml",
+  "guardian_agent": "your-stack-id-guardian",
+  "icon": "assets/icon.svg",
+  "featured": false,
+  "install_invoke": "Use stack your-stack-id — build only from ledger; decline off-ledger deps.",
+  "generated_at": "2026-01-01T00:00:00Z"
+}

@@ -1,0 +1,37 @@
+{
+  "artifact_type": "tech_stack",
+  "slug": "cinematic-reality-ui",
+  "name": "Cinematic Reality UI",
+  "version": "1.0.0",
+  "status": "stable",
+  "summary": "Sealed cinematic theme: RealityKit + WebGPU fluid + ACES bible \u2014 mood and ledger, not a single app.",
+  "mood": [
+    "cinematic",
+    "immersive",
+    "broadcast",
+    "premium-dark"
+  ],
+  "technology_stack": [
+    "RealityKit",
+    "SwiftUI",
+    "WebGPU",
+    "three.js",
+    "react-three-fiber",
+    "postprocessing",
+    "motion",
+    "ACES",
+    "screen-space-fluid"
+  ],
+  "surfaces": [
+    "web",
+    "ios",
+    "docs"
+  ],
+  "stack_path": "skills/engineering/tech-stacks/cinematic-reality-ui",
+  "ledger_path": "stack.ledger.yaml",
+  "guardian_agent": "cinematic-reality-ui-guardian",
+  "icon": "assets/icon.svg",
+  "featured": true,
+  "install_invoke": "Use stack cinematic-reality-ui \u2014 build only from ledger; decline off-ledger deps.",
+  "generated_at": "2026-05-20T07:03:19Z"
+}

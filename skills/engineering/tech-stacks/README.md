@@ -12,7 +12,9 @@ Canonical stack docs for shipped repos. **Not** skills — use these when bootst
 | [nephew-cloak-runtime.md](./nephew-cloak-runtime.md) | [nephew](https://github.com/marvelousempire/nephew) | witness, patrol, dispatch, quarry |
 | [nephew-operator-lora.md](./nephew-operator-lora.md) | [nephew](https://github.com/marvelousempire/nephew) | DGX LoRA export, Ollama register, local DSMRP stack |
 | [grok-api.md](./grok-api.md) | nephew + ccr | xAI export ingest + reconstruction |
-| [cinematic-fluid-experience.md](./cinematic-fluid-experience.md) | AISL + nephew plans | WebGPU fluid, Master Cinematic Quality Bible, SRIC guardian |
+| [cinematic-reality-ui.md](./cinematic-reality-ui.md) | AISL + nephew plans | Sealed ledger kit: RealityKit + WebGPU cinematic UI |
+| [DEPOSITORY.md](./DEPOSITORY.md) | AISL | Sealed kit convention — ledger is the allowlist |
+| [TECH-STACKS-PLUGIN-DIRECTORY.md](./TECH-STACKS-PLUGIN-DIRECTORY.md) | AISL | WordPress-style stack catalog |
 
 **Simulated → witnessed map:** [QUARRY-SIMULATED-GAPS.md](./QUARRY-SIMULATED-GAPS.md)
 

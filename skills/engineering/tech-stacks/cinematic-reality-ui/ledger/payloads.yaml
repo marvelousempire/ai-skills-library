@@ -1,0 +1,39 @@
+schema_version: "1.0"
+stack_id: cinematic-reality-ui
+
+payloads:
+  webgpu_fluid_hero:
+    description: Cinematic fluid hero reference web app (Vite + WebGPU + ACES)
+    surfaces: [web]
+    reference_path: decanter/apps/cinematic-fluid-hero/
+    type: reference_app
+
+  milk_pour_prototype:
+    description: Milk-pour WebGPU interaction prototype
+    surfaces: [web]
+    reference_path: decanter/apps/milk-pour/
+    type: reference_app
+
+  arena_blueprint_doc:
+    description: Native Cinematic Broadcast Arena blueprint (documentation)
+    surfaces: [ios]
+    reference_path: doctrine/docs/arena/cinematic-broadcast-arena.md
+    type: doctrine
+
+  bible_audit_report:
+    description: Pass/fail audit against hard-rules and design tokens
+    surfaces: [web, ios]
+    reference_path: doctrine/docs/quality/bible/
+    type: audit_output
+
+  prd_answer:
+    description: Product scope answers from canonical PRD only
+    surfaces: [product]
+    reference_path: doctrine/docs/product/canonical-prd.md
+    type: doctrine
+
+  decanter_artifacts:
+    description: Parse/group/clean decanter pipeline outputs
+    surfaces: [docs]
+    reference_path: decanter/
+    type: docs

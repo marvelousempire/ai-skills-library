@@ -17,8 +17,11 @@ if [ "$COUNT" != "$INDEX_COUNT" ]; then
   echo "   Run ./scripts/finalize-skills-index.sh to fix, then re-push."
   exit 1
 fi
+python3 "$REPO/scripts/validate-stack-ledger.py" || exit 1
+python3 "$REPO/scripts/validate-stack-plugin-manifests.py" || exit 1
 HOOK
 
 chmod +x "$REPO/.git/hooks/pre-push"
 echo "✅ pre-push hook installed at $REPO/.git/hooks/pre-push"
 echo "   It will reject pushes when SKILL-INDEX.md count doesn't match the on-disk total."
+echo "   It also runs validate-stack-ledger.py and validate-stack-plugin-manifests.py."

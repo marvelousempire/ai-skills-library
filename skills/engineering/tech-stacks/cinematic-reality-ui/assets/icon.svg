@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cinematic Reality UI">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c5cff"/>
+      <stop offset="50%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#ff6b35"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0a0c10"/>
+  <circle cx="32" cy="28" r="14" fill="url(#g)" opacity="0.9"/>
+  <path d="M12 48 Q32 38 52 48" stroke="url(#g)" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>
