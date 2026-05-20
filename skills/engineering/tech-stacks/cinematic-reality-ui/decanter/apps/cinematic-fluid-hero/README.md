@@ -5,7 +5,7 @@ Bible-aligned cinematic interactive web showcase (Plan 0037). Vite, React 19, R3
 ## Run
 
 ```bash
-cd skills/engineering/tech-stacks/cinematic-fluid-experience/decanter/apps/cinematic-fluid-hero
+cd skills/engineering/tech-stacks/cinematic-reality-ui/decanter/apps/cinematic-fluid-hero
 make ui
 ```
 

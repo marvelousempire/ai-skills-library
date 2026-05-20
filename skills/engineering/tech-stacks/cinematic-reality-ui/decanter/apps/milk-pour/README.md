@@ -5,7 +5,7 @@ Plan **0034** slice 1: Vite + React + TypeScript + React Three Fiber proof for t
 ## Run
 
 ```bash
-cd skills/engineering/tech-stacks/cinematic-fluid-experience/decanter/apps/milk-pour
+cd skills/engineering/tech-stacks/cinematic-reality-ui/decanter/apps/milk-pour
 pnpm install
 pnpm dev
 ```
