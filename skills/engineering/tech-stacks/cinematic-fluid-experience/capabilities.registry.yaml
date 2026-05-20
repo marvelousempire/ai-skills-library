@@ -1,0 +1,67 @@
+# Cinematic Fluid Experience — SRIC capability registry (curated; hand-maintained)
+schema_version: "1.0"
+stack_id: cinematic-fluid-experience
+bible_root: doctrine/docs/quality
+
+capabilities:
+  bible_token_audit:
+    description: Audit UI/code against design tokens and hard-rules
+    requires_files:
+      - doctrine/docs/quality/bible/hard-rules.md
+      - doctrine/docs/quality/bible/design-tokens.md
+    surfaces: [web]
+
+  aces_pipeline_review:
+    description: Review or explain ACES tone-mapping per stack docs
+    requires_files:
+      - doctrine/docs/rendering/aces-tone-mapping.md
+    surfaces: [web]
+
+  screen_space_fluid_review:
+    description: Review screen-space fluid rendering approach
+    requires_files:
+      - doctrine/docs/rendering/screen-space-fluid-rendering.md
+      - doctrine/docs/quality/fluid-sim/README.md
+    surfaces: [web]
+
+  webgpu_fluid_hero:
+    description: Implement or modify cinematic-fluid-hero reference app
+    requires_files:
+      - decanter/apps/cinematic-fluid-hero/package.json
+      - doctrine/docs/quality/bible/design-tokens.md
+    requires_tools: [webgpu, node, pnpm]
+    surfaces: [web]
+
+  milk_pour_prototype:
+    description: Work on milk-pour WebGPU prototype
+    requires_files:
+      - decanter/apps/milk-pour/package.json
+    requires_tools: [webgpu, node, pnpm]
+    surfaces: [web]
+
+  prd_scope_answer:
+    description: Answer product scope questions from canonical PRD only
+    requires_files:
+      - doctrine/docs/product/canonical-prd.md
+    surfaces: [product]
+
+  arena_blueprint_answer:
+    description: Explain native Cinematic Broadcast Arena blueprint (no Xcode ship unless registered)
+    requires_files:
+      - doctrine/docs/arena/cinematic-broadcast-arena.md
+    surfaces: [ios]
+
+  decanter_pipeline:
+    description: Run or explain fluid-simulation-decanter stages (parse, group, clean)
+    requires_files:
+      - decanter/README.md
+    surfaces: [docs]
+
+decline_examples:
+  - request: "Build Unreal Engine fluid simulation"
+    reason: "Not in capability registry; stack is WebGPU + screen-space fluid"
+    alternatives: [screen_space_fluid_review, webgpu_fluid_hero]
+
+  - request: "Ship TestFlight arena app"
+    reason: "arena_blueprint_answer is docs-only; no ios_build capability registered"
+    alternatives: [arena_blueprint_answer, webgpu_fluid_hero]

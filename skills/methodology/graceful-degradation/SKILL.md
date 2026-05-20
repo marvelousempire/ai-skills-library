@@ -34,6 +34,16 @@ Codified from the 2026-05-14 sovereign-stack session. Used repeatedly across SEE
 - **Checklist (if applicable):** see `docs/checklists/`
 - **Drill (if applicable):** see `docs/training/drills/`
 
+## SRIC decline (stack-bound agents)
+
+When an agent is bound to a tech stack bible, use the **Strict Registered Intent & Capabilities** decline shape instead of silent failure or improvisation:
+
+- Canonical spec: [`skills/engineering/tech-stacks/cinematic-fluid-experience/SRIC.md`](../../engineering/tech-stacks/cinematic-fluid-experience/SRIC.md)
+- Required fields: `status: declined`, `reason`, `missing_resources[]`, `in_scope_alternatives[]`
+- Bishop-born agents: generic copy in `bishop/agents/manifests/_template/AI_AGENT_RULES/SRIC.md`
+
+Do not duplicate the full template here—link and follow SRIC at decline time.
+
 ## Status
 
 Stub. Body to be fleshed out as patterns are exercised in future sessions. Frontmatter is authoritative for agent triggering.

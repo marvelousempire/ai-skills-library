@@ -1,8 +1,10 @@
 # Reference — cinematic_fluid_experience sort (May 2026)
 
-Example of this skill applied end-to-end in **Nephew** (`marvelousempire/nephew`):
+Example of this skill applied end-to-end. **Canonical (AISL):**
 
-`skills/new-tech-stack-depository/cinematic_fluid_experience/`
+`skills/engineering/tech-stacks/cinematic-fluid-experience/doctrine/`
+
+Nephew stub: `skills/new-tech-stack-depository/README.md` (redirect only).
 
 ## Before
 

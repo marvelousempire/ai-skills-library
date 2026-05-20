@@ -1,0 +1,121 @@
+:root {
+  --bg: #08080f;
+  --fg: #e8eaef;
+  --fg-dim: #9aa3b5;
+  --accent: #6ec4ff;
+  --hud-bg: rgba(12, 14, 22, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    "SF Pro Text",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.hud {
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hud-panel {
+  pointer-events: auto;
+  background: var(--hud-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.hud-top-left {
+  top: 16px;
+  left: 16px;
+  max-width: 280px;
+}
+
+.hud-top-right {
+  top: 16px;
+  right: 16px;
+  min-width: 160px;
+}
+
+.hud-bottom {
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--fg-dim);
+  font-size: 12px;
+}
+
+.hud h1 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.hud p {
+  margin: 0 0 8px;
+  color: var(--fg-dim);
+}
+
+.hud label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hud input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
+.status-supported {
+  color: #5ee89a;
+}
+
+.status-unsupported {
+  color: var(--warn, #f0b429);
+}
+
+.status-checking {
+  color: var(--fg-dim);
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metric strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.fallback-banner {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(240, 180, 41, 0.12);
+  border: 1px solid rgba(240, 180, 41, 0.35);
+  color: #f5d78e;
+  font-size: 12px;
+}
