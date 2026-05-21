@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "bishop-agent-birth-kit",
+  "name": "Bishop Agent Birth Kit",
+  "pack": "yousirjuan",
+  "pack_label": "You-Sir Juan",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "When Bishop creates an agent, always issue certificate-of-origin.md, memory.md, and AI_AGENT_RULES/. Single DRY path via bishop/manager.py and\u2026",
+  "description": "When Bishop creates an agent, always issue certificate-of-origin.md, memory.md, and AI_AGENT_RULES/. Single DRY path via bishop/manager.py and core/agent_birth_kit.py.",
+  "skill_id": "SK-0127",
+  "skill_path": "skills/yousirjuan/bishop-agent-birth-kit",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-bishop",
+    "check-agent",
+    "build-birth"
+  ],
+  "keywords": [
+    "run-bishop",
+    "check-agent",
+    "build-birth"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **bishop-agent-birth-kit**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "7685c2c",
+  "goal": "Scaffold Bishop-born agents with birth certificate, memory, and rules binder."
+}

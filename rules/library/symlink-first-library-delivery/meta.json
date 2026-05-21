@@ -1,0 +1,8 @@
+{
+  "id": "symlink-first-library-delivery",
+  "title": "Symlink-First Library Delivery",
+  "applies_to": ["nephew", "bishop", "ai-skills-library", "yousirjuan", "scene-skout", "dustpan", "automata", "clinic"],
+  "scope": ["skills", "rules", "cursor", "claude", "mcp", "install-scripts"],
+  "severity": "error",
+  "tags": ["symlink", "skills-library", "dry", "install-repo-skills", "library-bridge", "mcp"]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "workspace-front-door-host",
+  "title": "Workspace Front-Door Host",
+  "applies_to": ["nephew", "bishop", "scene-skout", "dustpan", "automata", "clinic", "yousirjuan"],
+  "scope": ["cursor", "claude", "agents-md", "ai-agent-rules", "identity"],
+  "severity": "error",
+  "tags": ["workspace-host", "lead-sheet", "identity", "bishop-birth-kit", "nephew-cloak"]
+}
