@@ -1,0 +1,6 @@
+{
+  "id": "forensic-investigation-rule",
+  "description": "Formal investigations use docs/investigations case folders and forensic-case-investigation skill. Commandment pointer; full procedure in methodology skill.",
+  "alwaysApply": false,
+  "globs": ["docs/investigations/**"]
+}
