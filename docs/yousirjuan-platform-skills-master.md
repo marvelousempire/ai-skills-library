@@ -177,7 +177,7 @@ Turns files, text, images, transcripts, and records into searchable memory.
 | ChromaDB | vector DB | lightweight vector DB | prototypes and experiments | Candidate |
 | FAISS | vector search | fast local similarity search | custom retrieval experiments | Candidate |
 | LlamaIndex | retrieval framework | document/query pipelines | structured memory workflows | Candidate |
-| LangChain | orchestration/RAG | chains, tools, retrievers | workflow and tool integration | Candidate |
+| LangChain | orchestration/RAG | chains, tools, retrievers | workflow and tool integration | Candidate — see skill **agent-orchestration-frameworks** (LEAD-SHEET default; no Bishop/Nephew dep until plan) |
 | SentenceTransformers | embeddings | local embedding generation | document and memory embeddings | Active |
 | bge-large | embedding model | strong semantic retrieval | enterprise-grade embeddings | Approved |
 | nomic-embed | embedding model | local embedding model | private memory embeddings | Approved |
