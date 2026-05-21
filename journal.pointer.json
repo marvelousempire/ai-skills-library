@@ -1,0 +1,10 @@
+{
+  "schema_id": "nephew.journal.pointer",
+  "schema_version": "1.0.0",
+  "agent_id": "ai-skills-library",
+  "display_name": "AI Skills Library",
+  "upstream_node": "Journal/by-agent/ai-skills-library/",
+  "nephew_root_env": "NEPHEW_ROOT",
+  "default_report_hint": "Journal/reports/",
+  "rule": "NEPHEW_ROOT/AI_AGENT_RULES/NEPHEW_JOURNAL_RULE.md"
+}

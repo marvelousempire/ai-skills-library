@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "wayback-site-reviver",
+  "name": "Wayback Site Reviver",
+  "pack": "yousirjuan",
+  "pack_label": "You-Sir Juan",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "DEPRECATED \u2014 use scene-skout-wayback-restore. Wayback restore moved to Scene Skout; archive-reviver is staff under scene-skout.",
+  "description": "DEPRECATED \u2014 use scene-skout-wayback-restore. Wayback restore moved to Scene Skout; archive-reviver is staff under scene-skout.",
+  "skill_id": "SK-0126",
+  "skill_path": "skills/yousirjuan/wayback-site-reviver",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "run-wayback",
+    "check-site",
+    "build-reviver"
+  ],
+  "keywords": [
+    "run-wayback",
+    "check-site",
+    "build-reviver"
+  ],
+  "overlap": [],
+  "relations": [],
+  "governed_by": [
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **wayback-site-reviver**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "24a8cec",
+  "goal": "Deliver wayback site reviver output correctly and completely."
+}

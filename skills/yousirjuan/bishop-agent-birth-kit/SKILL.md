@@ -18,19 +18,35 @@ status: Active
 tool: Cursor
 description: >
   When Bishop creates an agent, always issue certificate-of-origin.md, memory.md,
-  and AI_AGENT_RULES/. Single DRY path via bishop/manager.py and core/agent_birth_kit.py.
+  AI_AGENT_RULES/ (with LEAD-SHEET.md), Core/, Talents/, and Skills/. Single DRY path via
+  kingdom/manager.py, core/agent_birth_kit.py, and core/agent_surfaces_kit.py.
 ---
 
 # Bishop Agent Birth Kit
 
-## Mandatory on every birth
+## Mandatory on every birth (football team kit)
+
+Bishop **dresses the whole team**. Every change in `_template` **must trickle down** via `make agents-sync-all` to **every** agent under `bishop/agents/`.
+
+| Gear | Artifacts | Role |
+|------|-----------|------|
+| **Helmet** | `AI_AGENT_RULES/` + `LEAD-SHEET.md` + `SRIC.md` | Law binder (child of Nephew master schema) |
+| **Shoulder pads** | `WORKSPACE_HOST.json` + `AI_AGENT_RULES/WORKSPACE_FRONT_DOOR_RULE.md` | Agent answers **own door** — not Nephew, not Bishop factory |
+| **Wristbands** | `.cursor/rules/<agent>-workspace-host.mdc`, `AGENTS.md`, `CLAUDE.md` | IDE surfaces show host identity |
+| **Lessons** | `Profile/Lessons/` + `journal.pointer.json` | Reasoning library — symlinks to `NEPHEW_ROOT/Journal/learnings/` on `make agents-sync-all` |
 
 | File | Role |
 |------|------|
 | `certificate-of-origin.md` | Immutable birth certificate |
 | `memory.md` | Mutable facts (not rules) |
-| `AI_AGENT_RULES/` | Must-follow law (child of Nephew master schema) |
-| `AI_AGENT_RULES/SRIC.md` | **Mandatory** — Strict Registered Intent & Capabilities; decline out-of-scope with reason + alternatives |
+| `Core/api`, `Core/mcp`, `Core/brain` | **Core add-ons** — `CORE_FOLDER_RULE.md` (not under `Tools/`) |
+| `Talents/*.md` | Capability shop — product cards; acquire → equip `Skills/` |
+| `Skills/<skill_id>/` | Equipped skills (after acquiring a talent) |
+| `Skills/<skill>/Tools/<tool>/Actions/...` | **Workflow tools** per APPLICATION_STRUCTURE (intents at bottom) |
+
+**Front door:** Host greets users in this agent card. Use `pass_to_nephew` / `pass_to_bishop` to relay — do not impersonate upstream.
+
+**Core vs Tools:** Core = birth kit (`Core/api|mcp|brain`). **Tools/** reserved only under `Skills/.../Tools/.../Actions/...`. See `CORE_FOLDER_RULE.md` and `bishop/AI_AGENT_RULES/APPLICATION_STRUCTURE.md`.
 
 ## SRIC on every birth
 
@@ -41,8 +57,23 @@ description: >
 
 ## DRY paths (do not duplicate)
 
-- `bishop/bishop/manager.py` → `create_agent()`
+- `bishop/kingdom/manager.py` → `create_agent()`
 - `bishop/core/agent_birth_kit.py` → `install_birth_kit()`
+- `bishop/core/agent_surfaces_kit.py` → `Core/` add-ons
+- `bishop/core/agent_structure_kit.py` → validate folder tree
+- `bishop/core/agent_canonical_sync.py` → backfill existing agents
+- `bishop/core/workspace_host_kit.py` → shoulder pads + wristbands (`install_workspace_host`)
+- `bishop/core/agent_lessons_kit.py` → `Profile/Lessons/` symlinks from Nephew `Journal/learnings/`
+
+## Fast spawn (Makefile soldiers)
+
+```bash
+cd ~/Developer/bishop
+make agent-soldier AGENT=scout-alpha          # one pure node
+make agent-soldiers AGENTS='alpha bravo'      # batch
+make agents-sync-all                          # upgrade every existing agent
+make agents-validate                          # structure check only
+```
 - `bishop/core/certificate_of_origin.py` → render certificate
 - `bishop/agents/manifests/_template/` → clone source
 
@@ -54,11 +85,23 @@ python scripts/backfill-agent-birth-kit.py --dry-run
 python scripts/backfill-agent-birth-kit.py
 ```
 
-## Docs
+## Docs (canonical in Bishop only)
 
-- `bishop/docs/agent-anatomy.md`
+- `bishop/AI_AGENT_RULES/APPLICATION_STRUCTURE.md` — six-level hierarchy + dual Tool paths
+- `bishop/docs/agent-birth-canal.md` — **primary** born-agent structure + play-by-play
+- `bishop/docs/agent-anatomy.md` — short summary
 - `bishop/docs/nephew-alignment.md`
 - `bishop/AI_AGENT_RULES/OPERATING_RULES.md`
+
+Product repos (e.g. scene-skout) must **bridge** to Bishop — not duplicate structure docs.
+
+## Legacy layout
+
+Agents born before Plan 0006 may have `api/`, `mcp/`, `brain/` at agent root. Migrate:
+
+```bash
+python scripts/migrate-agent-tools-layout.py --dry-run
+```
 
 ## Not passports
 

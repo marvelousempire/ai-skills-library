@@ -28,5 +28,7 @@ Edit a rule in `rules/library/<id>/` then re-run [`scripts/sync-rules-into-repo.
 | `marketing-doc-per-feature` | Every shipped feature gets docs/marketing/NN-name.md | warning |
 | `hardware-before-installer` | Write hardware compat doc before writing the installer | warning |
 | `yousirjuan-skills-pack-path` | You-Sir Juan skills only under `skills/yousirjuan/` — never `skills/project/yousirjuan/` | error |
+| `workspace-front-door-host` | LEAD-SHEET manager answers own door; Nephew/Bishop not default greeters | error |
+| `symlink-first-library-delivery` | AISL skills via symlink install; MCP/API discovery only; manifests for binder/host | error |
 
 Full rule bodies: `rules/library/<rule-id>/body.md`
