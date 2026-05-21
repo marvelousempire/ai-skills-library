@@ -1,5 +1,12 @@
 ---
 name: claude-code-local
+keywords: [integrate-claude, check-code, build-local]
+hash: 225fe27
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver claude code local output correctly and completely.
 description: "Claude Code Local \u2014 Run Claude Code against local models on Apple Silicon using an MLX-oriented, Anthropic-API-compatible server; offline-oriented. Use when the user mentions or needs: Claude Code offline; local Claude Code Apple Silicon; MLX Claude API compatible server; airgap Claude Code."
 ---
 

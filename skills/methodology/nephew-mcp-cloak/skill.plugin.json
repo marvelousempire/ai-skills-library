@@ -26,22 +26,14 @@
     "claude"
   ],
   "triggers": [
-    "nephew",
-    "mcp",
-    "cloak",
-    "dispatch",
-    "fidelity",
-    "orchestrate",
-    "model-context-protocol"
+    "audit-nephew",
+    "check-mcp",
+    "build-cloak"
   ],
   "keywords": [
-    "nephew",
-    "mcp",
-    "cloak",
-    "dispatch",
-    "fidelity",
-    "orchestrate",
-    "model-context-protocol"
+    "audit-nephew",
+    "check-mcp",
+    "build-cloak"
   ],
   "overlap": [],
   "relations": [
@@ -55,7 +47,7 @@
   "invoke": "Use **nephew-mcp-cloak**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "pending",
   "goal": "Wire Claude Code and other MCP clients to Nephew CLOAK native tools before opening the full skills library."
 }

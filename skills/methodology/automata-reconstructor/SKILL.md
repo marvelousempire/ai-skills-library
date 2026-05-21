@@ -1,7 +1,7 @@
 ---
 name: automata-reconstructor
 id: SK-AUTOMATA-RECON
-keywords: [automata-rebuild, grok-automata, nephew-cloak, chat-to-automata, simulated-commits]
+keywords: [audit-automata, check-reconstructor, file-automata]
 goal: Rebuild and maintain marvelousempire/automata from archive quarry with witnessed commits — never simulate pushes.
 hash: pending
 relations: [ai-chat-archive-reconstruction, nephew-cloak-amending-mission, gap-audit-and-elevation]

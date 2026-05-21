@@ -1,7 +1,7 @@
 ---
 name: add-agent-to-skills-library
 id: RL-0046
-keywords: [register-agent, link-not-copy, ripple-catalog]
+keywords: [enforce-agent, check-skills, build-library]
 goal: When an agent (or any standalone product repo) is added to ai-skills-library, register it as a POINTER, never as a copy. The library catalogues; the upstream repo engines.
 hash: 730fd56
 relations: [cross-reference-on-skill-add]

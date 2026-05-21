@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: nephew-cloak-amending-mission
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **nephew-cloak-amending-mission**.
 
 ## Triggers / keywords
 
-`nephew-cloak`, `amending-mission`, `simulated-commits`, `grok-simulation`, `witness-truth`, `automata-reconstruction`
+`audit-nephew`, `check-cloak`, `build-amending`
 
 ## Requires (run first)
 

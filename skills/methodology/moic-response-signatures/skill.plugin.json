@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use moic-response-signatures"
+    "audit-moic",
+    "check-response",
+    "build-signatures"
   ],
-  "keywords": [],
+  "keywords": [
+    "audit-moic",
+    "check-response",
+    "build-signatures"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **moic-response-signatures**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "6f5f43d",
+  "goal": "Deliver moic response signatures output correctly and completely."
 }

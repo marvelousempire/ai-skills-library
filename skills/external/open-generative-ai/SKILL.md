@@ -1,5 +1,12 @@
 ---
 name: open-generative-ai
+keywords: [integrate-open, check-generative, file-open]
+hash: c77236a
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver open generative ai output correctly and completely.
 description: "Open Generative AI \u2014 Self-hosted generative image and video studio aggregating many third-party models (see upstream for list and terms). Use when the user mentions or needs: self-hosted AI video studio; Open Generative AI; local image video generation stack."
 ---
 

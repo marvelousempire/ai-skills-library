@@ -26,20 +26,14 @@
     "claude"
   ],
   "triggers": [
-    "nephew-cloak",
-    "amending-mission",
-    "simulated-commits",
-    "grok-simulation",
-    "witness-truth",
-    "automata-reconstruction"
+    "audit-nephew",
+    "check-cloak",
+    "build-amending"
   ],
   "keywords": [
-    "nephew-cloak",
-    "amending-mission",
-    "simulated-commits",
-    "grok-simulation",
-    "witness-truth",
-    "automata-reconstruction"
+    "audit-nephew",
+    "check-cloak",
+    "build-amending"
   ],
   "overlap": [],
   "relations": [
@@ -56,7 +50,7 @@
   "invoke": "Use **nephew-cloak-amending-mission**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "pending",
   "goal": "Permanently convert simulated AI work into witnessed GitHub truth across Nephew, Automata, and sibling repos \u2014 never claim ship without SHA."
 }

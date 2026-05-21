@@ -49,7 +49,7 @@
   "invoke": "Use **faq-cataloger**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "6c4d9e1",
   "goal": "Every processed question type has its own MD file in the FAQ database so repeated questions are immediately answered from the catalog without re-processing."
 }

@@ -1,3 +1,15 @@
+---
+name: stats-query-participation-not-creator
+id: RL-0056
+hash: f53b0da
+keywords: [enforce-stats, check-query, build-participation]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver stats query participation not creator output correctly and completely.
+---
+
 # Stats query — participation check, not creator check
 
 Any SQL query counting "games played by a player" must use full participation

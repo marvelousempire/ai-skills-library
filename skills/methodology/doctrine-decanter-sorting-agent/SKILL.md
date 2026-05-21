@@ -1,5 +1,12 @@
 ---
 name: doctrine-decanter-sorting-agent
+keywords: [audit-doctrine, check-decanter, build-sorting]
+hash: abc37c9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver doctrine decanter sorting agent output correctly and completely.
 description: >-
   Sorts messy PRDs, doctrine dumps, and chat-export planning files into a
   professional docs tree: re-number stable IDs, de-duplicate (canonical on top,

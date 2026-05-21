@@ -1,3 +1,15 @@
+---
+name: mobile-jwt-ttl
+id: RL-0034
+hash: c285193
+keywords: [enforce-mobile, check-jwt, build-ttl]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver mobile jwt ttl output correctly and completely.
+---
+
 # Mobile JWT TTL — access tokens must be ≥ 24h for mobile clients
 
 JWT access tokens for mobile apps must be at least 24 hours. The recommended

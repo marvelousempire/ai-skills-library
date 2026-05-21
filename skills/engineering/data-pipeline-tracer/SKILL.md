@@ -1,5 +1,12 @@
 ---
 name: data-pipeline-tracer
+keywords: [run-data, check-pipeline, build-tracer]
+hash: d6082b4
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver data pipeline tracer output correctly and completely.
 description: "Trace end-to-end data flow to find where data is lost between the client and the UI. Use when the user asks: 'trace where data is lost,' 'why are stats zero,' 'iOS data not showing on web,' 'field not reaching the database,' 'trace the data flow,' 'player profile not updating,' 'data written on iOS but not visible on web,' 'sync looks like it worked but data is missing.' Walks through 8 sequential diagnostic steps to identify the exact gap — DB layer, push layer, API layer, serializer, public endpoint, frontend helper, component render, or cache. Returns a diagnosis with the exact broken link and the fix."
 metadata:
   version: 1.0.0

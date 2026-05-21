@@ -1,5 +1,12 @@
 ---
 name: nephew
+keywords: [integrate-nephew]
+hash: 0bd2764
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver nephew output correctly and completely.
 description: "Nephew \u2014 Nephew \u2014 the Orchestrator Agent by Avery Gooman. Multi-agent orchestration for Claude Code (forked from Ruflo) with an Ed25519-signed witness manifest (ADR-103), Tier B cross-repo federation, WireGuard-only mesh defaults, and per-repo `.mcp.json` set-and-forget integration. Use when the user mentions or needs: Nephew; Orchestrator Agent; Avery Gooman; witness manifest; ADR-103; cross-repo witness chain; \u2026."
 ---
 

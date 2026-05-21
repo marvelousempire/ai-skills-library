@@ -1,5 +1,12 @@
 ---
 name: moic-response-signatures
+keywords: [audit-moic, check-response, build-signatures]
+hash: 6f5f43d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver moic response signatures output correctly and completely.
 description: Enforce Nephew/framework entity response identity with visible receipt signatures, response_signature MOIC metadata, and MOIC Signature Patrol. Use when working on Nephew, CLOAK, framework entities, agent identity, response signing, imposter detection, MCP tool output, Cursor/Claude global rules, or any request mentioning MOIC, Moment of Introduction Code, response signature, or entity sign-off.
 ---
 

@@ -1,5 +1,12 @@
 ---
 name: forensic-case-investigation
+keywords: [audit-forensic, check-case, build-investigation]
+hash: fe7b9e4
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver forensic case investigation output correctly and completely.
 id: SK-0200
 philosophy: "My goal is to have the diligence of one tracking the footprints of an ant in the jungle."
 philosophy_tagline: "Ant-in-the-jungle diligence"

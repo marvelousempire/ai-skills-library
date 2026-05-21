@@ -43,7 +43,7 @@
   "invoke": "Use **never-run-sudo-from-app**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "774b137",
   "goal": "No app ever asks for a Mac password \u2014 the OS password prompt is always the consent gate."
 }

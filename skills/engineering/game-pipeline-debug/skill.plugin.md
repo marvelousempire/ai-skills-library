@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: game-pipeline-debug
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **game-pipeline-debug**.
 
 ## Triggers / keywords
 
-`Use game-pipeline-debug`
+`run-game`, `check-pipeline`, `build-debug`
 
 ## Requires (run first)
 

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "metadata-post-or-product-mode",
+  "name": "Metadata Post Or Product Mode",
+  "pack": "methodology",
+  "pack_label": "Methodology",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Teaches Post mode (folder post-meta + lead sheet) vs Product mode (plugin.json catalog cards) before writing metadata. Use when asked \"post or product\u2026",
+  "description": "Teaches Post mode (folder post-meta + lead sheet) vs Product mode (plugin.json catalog cards) before writing metadata. Use when asked \"post or product metadata\", \"WordPress plugin card\", \"WooCommerce product card\", \"how do I metadata this\", \"post-meta.json\", or when scaffolding skills, agents, rules, or Tower products.",
+  "skill_id": "SK-0142",
+  "skill_path": "skills/methodology/metadata-post-or-product-mode",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "author_uri": "https://github.com/marvelousempire",
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "requires": [
+    "create-skill"
+  ],
+  "tools": [
+    "cursor",
+    "claude"
+  ],
+  "triggers": [
+    "audit-metadata",
+    "check-product",
+    "build-mode"
+  ],
+  "keywords": [
+    "audit-metadata",
+    "check-product",
+    "build-mode"
+  ],
+  "overlap": [],
+  "relations": [
+    "create-skill"
+  ],
+  "governed_by": [
+    "RL-0047",
+    "skill-frontmatter",
+    "global"
+  ],
+  "philosophy": null,
+  "philosophy_tagline": null,
+  "invoke": "Use **metadata-post-or-product-mode**.",
+  "icon": null,
+  "featured": false,
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "b8e4f1a2",
+  "goal": "Teach agents to choose Post vs Product metadata mode and ship the correct file set every time."
+}

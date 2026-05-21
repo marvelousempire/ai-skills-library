@@ -48,7 +48,7 @@
   "invoke": "Use **post-ship-elevation-pass**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "1451c13",
   "goal": "Every shipped feature is immediately audited for gaps and extended with its most ambitious version."
 }

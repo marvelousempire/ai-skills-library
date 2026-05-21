@@ -48,7 +48,7 @@
   "invoke": "Use **product-repo-architecture**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "8e05ad7",
   "goal": "Every git repo starts with the right structure from the first commit so no architectural debt accumulates."
 }

@@ -1,5 +1,12 @@
 ---
 name: diagnosis-report
+keywords: [run-diagnosis, check-report, file-diagnosis]
+hash: deea299
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver diagnosis report output correctly and completely.
 description: "Create a structured diagnosis document for a system failure, data pipeline issue, or recurring bug. Use when the user asks: 'write a diagnosis report,' 'document what we found,' 'record the root cause,' 'file an incident report,' 'make a post-mortem,' 'document this bug for the team,' 'save what we learned about this failure,' 'create a diagnosis doc for the admin,' 'document the game sync issue,' 'record root causes.' Also use after any SSH-level investigation that revealed multiple root causes. Files the report where operators can read it and includes DB state at time of diagnosis, numbered root causes with code evidence, a resolution checklist, and verification commands."
 metadata:
   version: 1.0.0

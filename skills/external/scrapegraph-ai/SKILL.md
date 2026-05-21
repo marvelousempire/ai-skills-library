@@ -1,5 +1,12 @@
 ---
 name: scrapegraph-ai
+keywords: [integrate-scrapegraph]
+hash: 94c9bb8
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver scrapegraph ai output correctly and completely.
 description: "ScrapeGraph AI \u2014 Python AI-assisted web scraping and structured extraction for LLM/RAG pipelines. Use when the user mentions or needs: ScrapeGraph; AI web scraping; LLM scraping pipeline; structured data from websites."
 ---
 

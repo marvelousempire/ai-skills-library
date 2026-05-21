@@ -1,5 +1,12 @@
 ---
 name: claude-mem
+keywords: [integrate-claude, check-mem, file-claude]
+hash: 1e97c76
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver claude mem output correctly and completely.
 description: "claude-mem \u2014 Claude Code plugin that captures session work, compresses it, and injects context into later sessions. Use when the user mentions or needs: long-term memory for Claude Code; claude-mem; remember across Claude sessions; session memory plugin."
 ---
 

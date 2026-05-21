@@ -1,5 +1,12 @@
 ---
 name: voxtral-tts-c
+keywords: [integrate-voxtral, check-tts, file-voxtral]
+hash: 8432f45
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver voxtral tts c output correctly and completely.
 description: "voxtral-tts.c \u2014 Pure C implementation of Voxtral TTS for lightweight embedded or server-side synthesis (per upstream). Use when the user mentions or needs: voxtral-tts.c; C TTS Voxtral; embedded Voxtral speech."
 ---
 

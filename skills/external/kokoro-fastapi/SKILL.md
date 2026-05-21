@@ -1,5 +1,12 @@
 ---
 name: kokoro-fastapi
+keywords: [integrate-kokoro, check-fastapi, file-kokoro]
+hash: ba11f69
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver kokoro fastapi output correctly and completely.
 description: "Kokoro FastAPI \u2014 Docker-friendly FastAPI wrapper for Kokoro TTS with CPU ONNX and optional GPU PyTorch paths. Use when the user mentions or needs: Kokoro TTS API; Kokoro FastAPI; self-hosted TTS OpenAI compatible."
 ---
 

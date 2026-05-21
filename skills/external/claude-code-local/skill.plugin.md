@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: claude-code-local
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **claude-code-local**.
 
 ## Triggers / keywords
 
-`Use claude-code-local`
+`integrate-claude`, `check-code`, `build-local`
 
 ## Requires (run first)
 

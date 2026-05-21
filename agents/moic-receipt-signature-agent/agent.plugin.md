@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from agent source. Edit agent.plugin.json for card/grid metadata.
 agent_slug: moic-receipt-signature-agent
-generated_at: 2026-05-19T19:14:26Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--

@@ -51,7 +51,7 @@
   "invoke": "Use **new-repo-setup**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "f2a7c3d",
   "goal": "Every new repo is correctly typed, structured, and committed on the first try with no structural debt."
 }

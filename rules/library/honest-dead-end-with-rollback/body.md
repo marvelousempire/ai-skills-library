@@ -1,3 +1,15 @@
+---
+name: honest-dead-end-with-rollback
+id: RL-0025
+hash: d17c032
+keywords: [enforce-honest, check-dead, build-end]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver honest dead end with rollback output correctly and completely.
+---
+
 When evaluating a tool / library / plugin / approach that doesn't fit, **surface the dead-end honestly with a concrete rollback path** — don't pretend it works, don't bury the gap, and don't silently keep the inert install around taxing future sessions.
 
 The pattern has three parts:

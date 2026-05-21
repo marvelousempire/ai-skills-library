@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use data-pipeline-tracer"
+    "run-data",
+    "check-pipeline",
+    "build-tracer"
   ],
-  "keywords": [],
+  "keywords": [
+    "run-data",
+    "check-pipeline",
+    "build-tracer"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **data-pipeline-tracer**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "d6082b4",
+  "goal": "Deliver data pipeline tracer output correctly and completely."
 }

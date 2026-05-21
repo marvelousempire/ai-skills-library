@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: doctrine-decanter-sorting-agent
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **doctrine-decanter-sorting-agent**.
 
 ## Triggers / keywords
 
-`Use doctrine-decanter-sorting-agent`
+`audit-doctrine`, `check-decanter`, `build-sorting`
 
 ## Requires (run first)
 

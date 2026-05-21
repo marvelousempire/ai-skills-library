@@ -1,5 +1,12 @@
 ---
 name: game-pipeline-debug
+keywords: [run-game, check-pipeline, build-debug]
+hash: 4e900f5
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver game pipeline debug output correctly and completely.
 description: "Debug why game sessions are not being recorded in the database or not appearing in stats. Use when: 'game stats show zero,' 'game history missing from web,' 'games not syncing,' 'no games in database,' 'played games don\'t show up,' 'player stats are all zeros,' 'game sessions table empty,' 'game push failing silently,' 'play-by-play missing,' 'leaderboard shows wrong game count.' Runs a 7-step diagnostic across the DB layer, JWT config, iOS sync code, UserDefaults tracking, DB flags, participation SQL, and activity-vs-game confusion."
 metadata:
   version: 1.0.0

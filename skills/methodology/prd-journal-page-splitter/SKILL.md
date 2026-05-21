@@ -1,5 +1,12 @@
 ---
 name: prd-journal-page-splitter
+keywords: [audit-prd, check-journal, build-page]
+hash: 03457e1
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver prd journal page splitter output correctly and completely.
 description: >-
   Parses long PRD Journal, chat-export, planning, or single-file doctrine
   documents into organized documentation folders. Use when the user mentions

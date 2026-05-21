@@ -48,7 +48,7 @@
   "invoke": "Use **plan-first-substantive-changes**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "b3b89e5",
   "goal": "Every substantive change is planned, approved, and documented before a single line of code is written."
 }

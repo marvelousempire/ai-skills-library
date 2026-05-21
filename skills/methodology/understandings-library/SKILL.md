@@ -1,5 +1,12 @@
 ---
 name: understandings-library
+keywords: [audit-understandings, check-library, file-understandings]
+hash: 6329275
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver understandings library output correctly and completely.
 description: Create README-local understandings folders with numbered explanation entries. Use when the user asks to capture an understanding, save an explanation, create an understandings folder, preserve a chat explanation, or make README-local knowledge easy for future AIs and humans to read.
 ---
 

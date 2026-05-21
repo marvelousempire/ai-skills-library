@@ -1,3 +1,15 @@
+---
+name: format-measurements-for-display
+id: RL-0020
+hash: 28ae6d7
+keywords: [enforce-format, check-measurements, build-display]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver format measurements for display output correctly and completely.
+---
+
 # Format measurements for display — never show raw numbers
 
 Raw numeric values must never be displayed without unit formatting. A raw

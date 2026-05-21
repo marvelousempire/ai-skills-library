@@ -1,5 +1,12 @@
 ---
 name: shadow-and-record
+keywords: [audit-shadow, check-record, file-shadow]
+hash: 0ba41b9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver shadow and record output correctly and completely.
 description: >-
   General pattern for tracking your relationship to anything outside your
   control. Two surfaces that work together: a live shadow (auto-refreshed

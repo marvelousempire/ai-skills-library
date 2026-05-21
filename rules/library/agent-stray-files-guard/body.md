@@ -1,3 +1,15 @@
+---
+name: agent-stray-files-guard
+id: RL-0003
+hash: 911401b
+keywords: [enforce-agent, check-stray, build-files]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver agent stray files guard output correctly and completely.
+---
+
 # Agent stray files guard — verify the diff before merging any agent PR
 
 When spawning an agent (with isolation: worktree or otherwise), the agent

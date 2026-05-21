@@ -1,5 +1,12 @@
 ---
 name: membadat
+keywords: [integrate-membadat]
+hash: 2970fb9
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver membadat output correctly and completely.
 description: "Membadat \u2014 Membadat is SYNTHIA's private memory repo: a branded claude-mem fork bridged into the Memory Fabric for session capture, compression, recall, and context injection. Use when the user mentions or needs: Membadat; SYNTHIA memory tissue; Nephew memory; private memory repo bridged into the brain; memory tissue inside the brain; session memory plugin."
 ---
 

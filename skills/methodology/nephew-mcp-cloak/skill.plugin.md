@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: nephew-mcp-cloak
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **nephew-mcp-cloak**.
 
 ## Triggers / keywords
 
-`nephew`, `mcp`, `cloak`, `dispatch`, `fidelity`, `orchestrate`, `model-context-protocol`
+`audit-nephew`, `check-mcp`, `build-cloak`
 
 ## Requires (run first)
 

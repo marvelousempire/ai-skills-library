@@ -1,7 +1,7 @@
 ---
 name: virtual-list-framer-motion
 id: SK-0141
-keywords: [tanstack-virtual, framer-motion, motion, translateY, blank-list, stacked-rows]
+keywords: [run-virtual, check-list, build-framer]
 goal: Virtualized React lists stay visible when using Motion — transform on the positioning layer, opacity-only inside.
 hash: claude-archive-2026-05
 relations: [post-sse-via-fetch-readablestream]
