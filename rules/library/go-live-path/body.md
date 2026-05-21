@@ -14,51 +14,44 @@ meta: dynamic
 
 When this repo’s work **ships** (code, migrations, config that affects production), you **must** treat **“what you need to do to see it live”** as part of the **same deliverable** as the implementation—not a follow-up chat, not “documentation later.”
 
+Git/PR/deploy law (Red-E Play and aligned repos): Nephew `AI_AGENT_RULES/GIT_REPO_COMMIT_MERGE_AND_SQUASH_PUSH_PR_MR_RULE.md` — branch, heredoc commit/PR, squash merge, **zero GitHub Actions**, laptop `make deploy-*`.
+
 ## Mandatory behavior
 
-1. **State the go-live path in your response** before considering the task done: which surfaces changed (**backend** / **admin** / **marketing** / **iOS**), **Postgres migrations** (run `migrate` / which new `.sql` files), **deploy mechanism** (merge to `main`, then **Actions → Run workflow** on `deploy-{backend,admin,marketing}.yml` → `pm2 reload` on success), and **how to verify** (URLs, admin pages, API curls).
-2. **Do this immediately** in the same turn as the code/docs—do not wait for the user to ask.
-3. **No exceptions for “forced” or urgent ships.** Hotfix, emergency merge, or “just push it” **still** require the go-live checklist in writing. Forcing live does not remove the obligation to name migrations, deploy targets, and smoke checks—it tightens the need for clarity so nobody merges blind.
+1. **Execute the full ship cycle in one pass** when authorized: code → explicit-path stage → heredoc commit → push → heredoc `gh pr create` → `gh pr merge --squash --delete-branch` → **`make deploy-<surface>`** from the Mac (Red-E Play) or repo-documented SSH deploy → smoke-test live URLs.
+2. **State** which surfaces changed (**backend** / **admin** / **marketing** / **player-web** / **iOS**), **Postgres migrations**, and **how to verify** (URLs, curls, admin paths).
+3. **Do this immediately** in the same turn as the code/docs—do not wait for the user to ask.
+4. **No exceptions for forced or urgent ships** — deploy + smoke still required.
+
+## Forbidden
+
+- `gh workflow run`, `gh run watch`, waiting on GitHub Actions for deploy or merge gates
+- “Merge when ready; CI will deploy”
 
 ## Align with pipeline truth
 
-Per [`dev-discipline.mdc`](dev-discipline.mdc), name the real stage: **committed → pushed → PR’d → merged → deployed**. “Done” without a stage is not status. If you only committed locally, say so and give **`git push`** / **PR** / **migrate** as the next steps.
+Per `dev-discipline`: **committed → pushed → PR’d → merged → deployed**. “Done” without a stage is not status.
 
 ## Minimum checklist shape
 
-Adapt to the diff; always hit these when relevant:
+- **DB:** `npm run migrate` on production during backend deploy; name new migration files.
+- **API:** `make deploy-backend` from laptop (Red-E Play).
+- **Web:** `make deploy-admin` / `make deploy-marketing` / `make deploy-player-web`; local `pnpm build` before push when rules require it.
+- **Verify:** concrete curls and version checks.
 
-- **DB:** `npm run migrate` (or project equivalent) on **production**; name new migration files.
-- **API:** run **Deploy backend** workflow after merge; `pm2` is handled inside the workflow.
-- **Web:** run **Deploy admin** / **Deploy marketing** workflows after merge; **`pnpm build`** for `marketing/**` when rules require it before push.
-- **Verify:** concrete checks (e.g. `GET /public/…`, admin page path, feature flag).
+## Version confirmation
 
-If production access is not available from the agent environment, **still** publish the exact steps so the operator can run them in order—same requirement.
-
-## Version confirmation step (added 2026-05-14)
-
-After deploy CI shows green, **confirm the live version matches your commit
-before calling the work done or debugging any reported issue:**
+After deploy, confirm live version before calling work done:
 
 ```bash
-curl -s “https://readyplay.app/” | grep -o ‘[0-9]\+\.[0-9]\+\.[0-9]\+’
+curl -s "https://readyplay.app/" | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+'
 ```
 
-The smoke test checks HTTP 200. It does NOT check which version is responding
-or whether the specific change works. A deploy can show green while the VPS
-still serves an old build.
-
-If a user reports “still broken” after a green deploy — check the version
-first. If the version is old, the deploy didn’t fully land. If the version
-is correct and the bug persists, the fix is wrong.
-See [`live-version-before-debug`](live-version-before-debug.mdc) and
-[`root-cause-not-symptom`](root-cause-not-symptom.mdc).
+See `live-version-before-debug` and `root-cause-not-symptom`.
 
 ## Anti-patterns
 
-- Shipping a migration file without saying **where** it must run and **after** which deploy step.
-- Closing with “merge when ready” without **migrate + reload + smoke** when the change isn’t live until those run.
-- Assuming “CI handles it” without naming **which workflow** and **what green means** for this change.
-- Reporting “deployed” without confirming the live version matches the deployed commit.
+- Assuming CI or Actions handles deploy
+- Reporting “deployed” without `make deploy-*` smoke proof
 
-This rule applies to **Cursor, Claude Code, ChatGPT, or any assistant** operating under this repo’s rules: **go-live discipline is not optional.**
+This rule applies to every assistant under this repo’s rules: **go-live discipline is not optional.**
