@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "bishop-seven-houses-pipeline",
+  "name": "Bishop Seven Houses pipeline",
+  "pack": "yousirjuan",
+  "pack_label": "You-Sir Juan",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "Seven Houses stub in core/houses.py; Automata pipeline names documented; LangGraph Phase 2.",
+  "skill_id": "SK-0132",
+  "skill_path": "skills/yousirjuan/bishop-seven-houses-pipeline",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "license": "MIT",
+  "tools": ["cursor", "claude"],
+  "triggers": ["run-houses", "check-pipeline", "build-decision"],
+  "keywords": ["run-houses", "check-pipeline", "build-decision"],
+  "governed_by": ["global"],
+  "invoke": "Use **bishop-seven-houses-pipeline**.",
+  "goal": "Run or extend Bishop Seven Houses pipeline with documented Automata mapping."
+}

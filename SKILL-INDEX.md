@@ -8,7 +8,7 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 
 ## Coverage
 
-- **169** total `SKILL.md` files under [`skills/`](skills/) (each with `skill.plugin.json` + `skill.plugin.md`).
+- **172** total `SKILL.md` files under [`skills/`](skills/) (each with `skill.plugin.json` + `skill.plugin.md`).
 - Run [`scripts/rescan-skills.sh`](scripts/rescan-skills.sh) on a machine to compare live `~/` installs vs this repo.
 
 | Skill / pack | Tool | In this repo | Use when | Invoke | Overlap |
@@ -85,6 +85,14 @@ Quick reference: **what it is**, **where it lives in this repo**, **when to use 
 | **hardware-compat-doc** | yousirjuan | Claude Code | Documenting a new machine for You-Sir Juan OS | "Use **hardware-compat-doc** skill." |
 | **marketing-feature-doc** | yousirjuan | Claude Code | Writing docs/marketing/NN-feature.md for a shipped feature | "Use **marketing-feature-doc** skill." |
 | **ios-realitykit-4-patterns** | yousirjuan | Claude Code | Building RealityKit 4 components for the iOS kiosk | "Use **ios-realitykit-4-patterns** skill." |
+
+## Skills added 2026-05-21 — Bishop Pydantic / orchestration ingest
+
+| Skill | Domain | Tool | Use when | Invoke |
+|---|---|---|---|---|
+| **bishop-pydantic-manifest-validation** | yousirjuan | Cursor / Claude | Editing `manifest.json`, kingdom API models, birth validation | "Use **bishop-pydantic-manifest-validation**." |
+| **bishop-seven-houses-pipeline** | yousirjuan | Cursor / Claude | Seven Houses stub, Automata step names, optional `house_runner` | "Use **bishop-seven-houses-pipeline**." |
+| **agent-orchestration-frameworks** | yousirjuan | Cursor / Claude | LangGraph vs LEAD-SHEET vs CrewAI; LangChain still Candidate | "Use **agent-orchestration-frameworks**." |
 
 ## Templates added 2026-05-14
 
