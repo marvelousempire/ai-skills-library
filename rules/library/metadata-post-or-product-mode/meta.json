@@ -1,0 +1,15 @@
+{
+  "id": "metadata-post-or-product-mode",
+  "alwaysApply": false,
+  "globs": [
+    "skills/**",
+    "agents/**",
+    "rules/library/**",
+    "**/post-meta.json",
+    "AI_AGENT_RULES/**",
+    "data/tower-marketplace.catalog.json"
+  ],
+  "category": "repo-discipline",
+  "owner": "ai-skills-library",
+  "version": "1.0.0"
+}

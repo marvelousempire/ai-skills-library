@@ -5,12 +5,12 @@ Like the **WordPress Plugins** screen: every **skill**, **agent**, and **tech st
 
 | Kind | Count | Directory |
 |------|-------|-----------|
-| **Skills** | 168 | [`SKILLS-PLUGIN-DIRECTORY.md`](SKILLS-PLUGIN-DIRECTORY.md) |
+| **Skills** | 172 | [`SKILLS-PLUGIN-DIRECTORY.md`](SKILLS-PLUGIN-DIRECTORY.md) |
 | **Agents** | 24 | [`AGENTS-PLUGIN-DIRECTORY.md`](AGENTS-PLUGIN-DIRECTORY.md) |
 | **Tech stacks** | 1 | [`skills/engineering/tech-stacks/TECH-STACKS-PLUGIN-DIRECTORY.md`](skills/engineering/tech-stacks/TECH-STACKS-PLUGIN-DIRECTORY.md) |
-| **Total** | 193 | this file |
+| **Total** | 197 | this file |
 
-**Generated:** 2026-05-20 07:03 UTC
+**Generated:** 2026-05-21 08:11 UTC
 
 Regenerate everything:
 
@@ -188,6 +188,7 @@ python3 scripts/generate-library-plugin-catalog.py
 | skill | **Gap Audit And Elevation** | Methodology | 1.0.0 | stable | After every meaningful ship, run the gap audit (specific incomplete items, named) + elevation pass (ambitious extensions). File the audit at… | [gap-audit-and-elevation](skills/methodology/gap-audit-and-elevation/skill.plugin.md) |
 | skill | **Graceful Degradation** | Methodology | 1.0.0 | stable | When a service is down, show a red pill, not a crash. When a build fails, report it and keep going. When `.env` is missing, skip with a warning. Every… | [graceful-degradation](skills/methodology/graceful-degradation/skill.plugin.md) |
 | skill | **Idempotent Commands** | Methodology | 1.0.0 | stable | Design Makefile + CLI commands so they're safe to re-run forever. `make ui` boots whatever is down + opens the browser, same result every time. Pre-flight… | [idempotent-commands](skills/methodology/idempotent-commands/skill.plugin.md) |
+| skill | **Metadata Post Or Product Mode** | Methodology | 1.0.0 | stable | Teaches Post mode (folder post-meta + lead sheet) vs Product mode (plugin.json catalog cards) before writing metadata. Use when asked "post or product… | [metadata-post-or-product-mode](skills/methodology/metadata-post-or-product-mode/skill.plugin.md) |
 | skill | **Migration Guide Format** | Methodology | 1.0.0 | stable | When swapping one tool for another (Docker Desktop → Colima, Forgejo → GitLab CE), write a step-by-step migration guide at… | [migration-guide-format](skills/methodology/migration-guide-format/skill.plugin.md) |
 | skill | **Moic Response Signatures** | Methodology | 1.0.0 | stable | Enforce Nephew/framework entity response identity with visible receipt signatures, response_signature MOIC metadata, and MOIC Signature Patrol. Use when… | [moic-response-signatures](skills/methodology/moic-response-signatures/skill.plugin.md) |
 | skill | **Multi Surface Design** | Methodology | 1.0.0 | stable | One engine, many faces. Build the core (`generate()`) once and expose it as CLI + MCP + Web UI + Docker so every user/agent finds the right entry point.… | [multi-surface-design](skills/methodology/multi-surface-design/skill.plugin.md) |
@@ -215,10 +216,13 @@ python3 scripts/generate-library-plugin-catalog.py
 | skill | **Ui Ux Pro Max** | Design / UI | 1.0.0 | stable | Comprehensive design guide for web and mobile applications. Covers styles, color palettes, font pairings, UX guidelines, and chart types across multiple… | [ui-ux-pro-max](skills/visual/design/ux/ui-ux-pro-max/skill.plugin.md) |
 | skill | **Associate Agent System** | You-Sir Juan | 1.0.0 | stable | The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label… | [associate-agent-system](skills/yousirjuan/associate-agent-system/skill.plugin.md) |
 | skill | **Bash Installer Oneliners** | You-Sir Juan | 1.0.0 | stable | Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent… | [bash-installer-oneliners](skills/yousirjuan/bash-installer-oneliners/skill.plugin.md) |
+| skill | **Bishop Agent Birth Kit** | You-Sir Juan | 1.0.0 | stable | When Bishop creates an agent, always issue certificate-of-origin.md, memory.md, and AI_AGENT_RULES/. Single DRY path via bishop/manager.py and… | [bishop-agent-birth-kit](skills/yousirjuan/bishop-agent-birth-kit/skill.plugin.md) |
 | skill | **Hardware Compat Doc** | You-Sir Juan | 1.0.0 | stable | How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings,… | [hardware-compat-doc](skills/yousirjuan/hardware-compat-doc/skill.plugin.md) |
 | skill | **Ios Realitykit 4 Patterns** | You-Sir Juan | 1.0.0 | stable | SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three… | [ios-realitykit-4-patterns](skills/yousirjuan/ios-realitykit-4-patterns/skill.plugin.md) |
 | skill | **Marketing Feature Doc** | You-Sir Juan | 1.0.0 | stable | Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works,… | [marketing-feature-doc](skills/yousirjuan/marketing-feature-doc/skill.plugin.md) |
 | skill | **Parallel Agent Coordination** | You-Sir Juan | 1.0.0 | stable | Split large builds across independent background agents by surface (iOS, web, backend), brief each agent with full terminology + member context up front, and… | [parallel-agent-coordination](skills/yousirjuan/parallel-agent-coordination/skill.plugin.md) |
+| skill | **Scene Skout Wayback Restore** | You-Sir Juan | 1.0.0 | stable | Scene Skout owns Wayback restore (HTML + CSS + assets + rewrite). Bishop archive-reviver is staff under scene-skout manager. Nephew routes to scene-skout first. | [scene-skout-wayback-restore](skills/yousirjuan/scene-skout-wayback-restore/skill.plugin.md) |
+| skill | **Wayback Site Reviver** | You-Sir Juan | 1.0.0 | stable | DEPRECATED — use scene-skout-wayback-restore. Wayback restore moved to Scene Skout; archive-reviver is staff under scene-skout. | [wayback-site-reviver](skills/yousirjuan/wayback-site-reviver/skill.plugin.md) |
 | tech_stack | **Cinematic Reality UI** | cinematic, immersive | 1.0.0 | stable | Sealed cinematic theme: RealityKit + WebGPU fluid + ACES bible — mood and ledger, not a single app. | [cinematic-reality-ui](skills/engineering/tech-stacks/cinematic-reality-ui/stack.plugin.md) |
 
 ---

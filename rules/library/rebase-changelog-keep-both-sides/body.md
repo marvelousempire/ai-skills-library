@@ -1,3 +1,15 @@
+---
+name: rebase-changelog-keep-both-sides
+id: RL-0049
+hash: a05820f
+keywords: [enforce-rebase, check-changelog, build-keep]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver rebase changelog keep both sides output correctly and completely.
+---
+
 # Rebase CHANGELOG conflicts — keep both sides
 
 When a rebase conflict occurs in `CHANGELOG.md`, the resolution must keep

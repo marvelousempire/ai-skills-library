@@ -1,5 +1,12 @@
 ---
 name: voice-chat-ai
+keywords: [integrate-voice, check-chat, file-voice]
+hash: 77ed314
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver voice chat ai output correctly and completely.
 description: "voice-chat-ai \u2014 Local voice conversation app with multiple LLM backends and pluggable TTS providers. Use when the user mentions or needs: local voice chat AI; voice-chat-ai; Ollama voice assistant."
 ---
 

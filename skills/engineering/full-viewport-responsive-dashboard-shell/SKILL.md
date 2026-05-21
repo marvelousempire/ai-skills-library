@@ -1,5 +1,12 @@
 ---
 name: full-viewport-responsive-dashboard-shell
+keywords: [run-full, check-viewport, build-responsive]
+hash: 9735e5d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver full viewport responsive dashboard shell output correctly and completely.
 description: Build and review browser dashboard shells that fill the viewport cleanly across phone, laptop, ultrawide, and wall/TV displays. Use when creating or auditing operator dashboards, product hubs, dense tools pages, responsive dashboard grids, sidebar layouts, or full-viewport web app shells.
 disable-model-invocation: true
 ---

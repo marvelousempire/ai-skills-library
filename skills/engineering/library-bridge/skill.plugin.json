@@ -48,7 +48,7 @@
   "invoke": "Use **library-bridge**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "3a8f2b1",
   "goal": "Any AI \u2014 Claude, GPT, Gemini, or anything else \u2014 gets the full library as its operating brain on startup with zero manual injection."
 }

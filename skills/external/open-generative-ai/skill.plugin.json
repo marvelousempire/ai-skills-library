@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use open-generative-ai"
+    "integrate-open",
+    "check-generative",
+    "file-open"
   ],
-  "keywords": [],
+  "keywords": [
+    "integrate-open",
+    "check-generative",
+    "file-open"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **open-generative-ai**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "c77236a",
+  "goal": "Deliver open generative ai output correctly and completely."
 }

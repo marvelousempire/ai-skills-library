@@ -1,7 +1,7 @@
 ---
 name: nephew-cloak-amending-mission
 id: SK-CLOAK-AMEND
-keywords: [nephew-cloak, amending-mission, simulated-commits, grok-simulation, witness-truth, automata-reconstruction]
+keywords: [audit-nephew, check-cloak, build-amending]
 goal: Permanently convert simulated AI work into witnessed GitHub truth across Nephew, Automata, and sibling repos — never claim ship without SHA.
 hash: pending
 relations: [ai-chat-archive-reconstruction, automata-reconstructor, gap-audit-and-elevation, plan-first]

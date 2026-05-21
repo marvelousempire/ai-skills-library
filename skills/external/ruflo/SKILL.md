@@ -1,5 +1,12 @@
 ---
 name: ruflo
+keywords: [integrate-ruflo]
+hash: 3e58c8f
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver ruflo output correctly and completely.
 description: "Ruflo \u2014 Agent orchestration platform: multi-agent swarms, workflows, RAG; Claude Code / Codex integration (per upstream). Use when the user mentions or needs: Ruflo; agent swarm orchestration; multi-agent Claude workflows."
 ---
 

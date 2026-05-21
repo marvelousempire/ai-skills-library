@@ -9,7 +9,7 @@ WordPress-style plugin cards for every **agent** in this library (same model as 
 
 **Unified catalog (skills + agents):** [`LIBRARY-PLUGIN-CATALOG.md`](LIBRARY-PLUGIN-CATALOG.md)
 
-**Total agent plugins:** 24 · **Generated:** 2026-05-20 07:03 UTC
+**Total agent plugins:** 24 · **Generated:** 2026-05-21 08:11 UTC
 
 Regenerate: `python3 scripts/generate-agent-plugin-manifests.py`
 

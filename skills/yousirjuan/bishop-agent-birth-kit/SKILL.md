@@ -1,7 +1,12 @@
 ---
 name: bishop-agent-birth-kit
 id: SK-0127
-keywords:
+keywords: [run-bishop, check-agent, build-birth]
+hash: 7685c2c
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
   - bishop create agent
   - certificate of origin
   - agent birth

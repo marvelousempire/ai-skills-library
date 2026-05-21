@@ -1,5 +1,12 @@
 ---
 name: blender-mcp
+keywords: [integrate-blender, check-mcp, file-blender]
+hash: 7bd1248
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver blender mcp output correctly and completely.
 description: "Blender MCP \u2014 Model Context Protocol bridge so agents can drive Blender scenes and operations. Use when the user mentions or needs: Blender MCP; control Blender from Claude; MCP Blender integration."
 ---
 

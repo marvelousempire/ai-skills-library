@@ -1,3 +1,15 @@
+---
+name: diagnosis-before-fix
+id: RL-0015
+hash: 9176973
+keywords: [enforce-diagnosis, check-before, build-fix]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver diagnosis before fix output correctly and completely.
+---
+
 # Diagnosis before fix — SSH to the DB first
 
 When stats show zeros or data is "missing," SSH to the production database

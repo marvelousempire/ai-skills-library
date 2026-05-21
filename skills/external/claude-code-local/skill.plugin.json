@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use claude-code-local"
+    "integrate-claude",
+    "check-code",
+    "build-local"
   ],
-  "keywords": [],
+  "keywords": [
+    "integrate-claude",
+    "check-code",
+    "build-local"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **claude-code-local**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "225fe27",
+  "goal": "Deliver claude code local output correctly and completely."
 }

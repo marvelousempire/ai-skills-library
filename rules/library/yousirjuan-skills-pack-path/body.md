@@ -1,7 +1,7 @@
 ---
 name: yousirjuan-skills-pack-path
 id: RL-0050
-keywords: [yousirjuan-skills, skills-pack, agent-managed, project-yousirjuan-retired]
+keywords: [enforce-yousirjuan, check-skills, build-pack]
 goal: Every agent cites and edits You-Sir Juan platform skills only under skills/yousirjuan/.
 hash: pending
 relations: [cross-reference-on-skill-add, associate-agent-terminology]

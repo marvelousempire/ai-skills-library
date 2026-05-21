@@ -24,20 +24,14 @@
     "claude"
   ],
   "triggers": [
-    "tanstack-virtual",
-    "framer-motion",
-    "motion",
-    "translateY",
-    "blank-list",
-    "stacked-rows"
+    "run-virtual",
+    "check-list",
+    "build-framer"
   ],
   "keywords": [
-    "tanstack-virtual",
-    "framer-motion",
-    "motion",
-    "translateY",
-    "blank-list",
-    "stacked-rows"
+    "run-virtual",
+    "check-list",
+    "build-framer"
   ],
   "overlap": [],
   "relations": [
@@ -51,7 +45,7 @@
   "invoke": "Use **virtual-list-framer-motion**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "claude-archive-2026-05",
   "goal": "Virtualized React lists stay visible when using Motion \u2014 transform on the positioning layer, opacity-only inside."
 }

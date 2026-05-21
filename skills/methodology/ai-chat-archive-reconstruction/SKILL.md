@@ -1,7 +1,7 @@
 ---
 name: ai-chat-archive-reconstruction
 id: SK-ARCH-RECON
-keywords: [reconstruct-archive, grok-export, nephew-rebuild, chat-to-repo, simulated-commits]
+keywords: [audit-chat, check-archive, build-reconstruction]
 goal: Rebuild a target repo from ingested AI chat exports with witnessed git commits — never claim push without SHA.
 hash: pending
 relations: [gap-audit-and-elevation, plan-first, nephew-cloak-amending-mission]

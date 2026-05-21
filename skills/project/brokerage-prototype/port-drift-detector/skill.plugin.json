@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use port-drift-detector"
+    "run-port",
+    "check-drift",
+    "build-detector"
   ],
-  "keywords": [],
+  "keywords": [
+    "run-port",
+    "check-drift",
+    "build-detector"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **port-drift-detector**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "da8598e",
+  "goal": "Deliver port drift detector output correctly and completely."
 }

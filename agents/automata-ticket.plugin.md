@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from agent source. Edit automata-ticket.plugin.json for card/grid metadata.
 agent_slug: automata
-generated_at: 2026-05-19T19:14:26Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--

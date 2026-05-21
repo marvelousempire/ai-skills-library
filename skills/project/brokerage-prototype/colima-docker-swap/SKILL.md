@@ -1,5 +1,12 @@
 ---
 name: colima-docker-swap
+keywords: [run-colima, check-docker, build-swap]
+hash: 5b89333
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver colima docker swap output correctly and completely.
 description: >-
   Detect a wedged Docker Desktop on macOS Tahoe + Apple Silicon and swap in
   Colima as the docker runtime — native arm64, same docker socket, no

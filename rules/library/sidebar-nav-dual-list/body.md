@@ -1,3 +1,15 @@
+---
+name: sidebar-nav-dual-list
+id: RL-0052
+hash: b6f8c5d
+keywords: [enforce-sidebar, check-nav, build-dual]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver sidebar nav dual list output correctly and completely.
+---
+
 # Sidebar nav dual-list antipattern — one source of truth
 
 When a codebase has a hardcoded sidebar component (`sidebar.tsx`) AND a

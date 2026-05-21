@@ -1,5 +1,12 @@
 ---
 name: port-drift-detector
+keywords: [run-port, check-drift, build-detector]
+hash: da8598e
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver port drift detector output correctly and completely.
 description: >-
   Cross-repo drift detection between paired implementations (e.g.,
   prototype + canonical). Reads a markdown ledger (PORTING_NOTES.md or

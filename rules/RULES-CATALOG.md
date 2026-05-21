@@ -12,6 +12,7 @@
 | `swift-codable-guard` | no | `**/*.swift` | ios-build |
 | `shared-util-extraction` | yes | `**/routes/*.js, **/*.swift` | backend-discipline |
 | `add-agent-to-skills-library` | yes | `agents/**, docs/external-tools.manifest.json, skills/external/**` | (uncategorized) |
+| `metadata-post-or-product-mode` | no | `skills/**, agents/**, rules/library/**, **/post-meta.json, AI_AGENT_RULES/**` | repo-discipline |
 
 Edit a rule in `rules/library/<id>/` then re-run [`scripts/sync-rules-into-repo.sh`](../scripts/sync-rules-into-repo.sh).
 

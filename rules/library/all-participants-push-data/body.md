@@ -1,3 +1,15 @@
+---
+name: all-participants-push-data
+id: RL-0005
+hash: 44d05c3
+keywords: [enforce-participants, check-push, build-data]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver all participants push data output correctly and completely.
+---
+
 # All participants push data — never single-point-of-failure on the creator
 
 In any system where multiple actors (devices, users) have copies of the same

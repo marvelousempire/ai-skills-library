@@ -1,5 +1,12 @@
 ---
 name: fork-divergence-tracker
+keywords: [audit-fork, check-divergence, build-tracker]
+hash: 8492547
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver fork divergence tracker output correctly and completely.
 description: >-
   When a project is a fork of an upstream that ships rapidly, build a
   "symlink + rsync hybrid" tracker so the fork knows when upstream

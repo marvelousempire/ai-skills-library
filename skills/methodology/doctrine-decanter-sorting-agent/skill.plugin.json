@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use doctrine-decanter-sorting-agent"
+    "audit-doctrine",
+    "check-decanter",
+    "build-sorting"
   ],
-  "keywords": [],
+  "keywords": [
+    "audit-doctrine",
+    "check-decanter",
+    "build-sorting"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **doctrine-decanter-sorting-agent**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "abc37c9",
+  "goal": "Deliver doctrine decanter sorting agent output correctly and completely."
 }

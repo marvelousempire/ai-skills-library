@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use understandings-library"
+    "audit-understandings",
+    "check-library",
+    "file-understandings"
   ],
-  "keywords": [],
+  "keywords": [
+    "audit-understandings",
+    "check-library",
+    "file-understandings"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **understandings-library**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "6329275",
+  "goal": "Deliver understandings library output correctly and completely."
 }

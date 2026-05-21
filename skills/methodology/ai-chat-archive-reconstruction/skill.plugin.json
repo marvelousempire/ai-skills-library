@@ -24,18 +24,14 @@
     "claude"
   ],
   "triggers": [
-    "reconstruct-archive",
-    "grok-export",
-    "nephew-rebuild",
-    "chat-to-repo",
-    "simulated-commits"
+    "audit-chat",
+    "check-archive",
+    "build-reconstruction"
   ],
   "keywords": [
-    "reconstruct-archive",
-    "grok-export",
-    "nephew-rebuild",
-    "chat-to-repo",
-    "simulated-commits"
+    "audit-chat",
+    "check-archive",
+    "build-reconstruction"
   ],
   "overlap": [],
   "relations": [
@@ -51,7 +47,7 @@
   "invoke": "Use **ai-chat-archive-reconstruction**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "pending",
   "goal": "Rebuild a target repo from ingested AI chat exports with witnessed git commits \u2014 never claim push without SHA."
 }

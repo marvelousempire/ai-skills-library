@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: forensic-case-investigation
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **forensic-case-investigation**.
 
 ## Triggers / keywords
 
-`Use forensic-case-investigation`
+`audit-forensic`, `check-case`, `build-investigation`
 
 ## Requires (run first)
 

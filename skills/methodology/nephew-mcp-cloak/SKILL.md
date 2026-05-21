@@ -1,7 +1,7 @@
 ---
 name: nephew-mcp-cloak
 id: SK-NEPHEW-MCP
-keywords: [nephew, mcp, cloak, dispatch, fidelity, orchestrate, model-context-protocol]
+keywords: [audit-nephew, check-mcp, build-cloak]
 goal: Wire Claude Code and other MCP clients to Nephew CLOAK native tools before opening the full skills library.
 hash: pending
 relations: [nephew-cloak-amending-mission]

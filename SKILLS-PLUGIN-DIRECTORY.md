@@ -6,7 +6,7 @@ WordPress-style plugin cards for every skill in this library. Each folder under 
 - `skill.plugin.json` — machine manifest (grid UIs, Bishop audits)
 - `skill.plugin.md` — human lead sheet
 
-**Total plugins:** 168 · **Generated:** 2026-05-19 22:56 UTC
+**Total plugins:** 172 · **Generated:** 2026-05-21 08:11 UTC
 
 Regenerate: `python3 scripts/generate-skill-plugin-manifests.py`
 
@@ -165,7 +165,7 @@ Regenerate: `python3 scripts/generate-skill-plugin-manifests.py`
 | [**Social Content**](skills/marketing/social-content/skill.plugin.md) | 1.3.0 | stable | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.… | Use **social-content**. |
 | [**Video**](skills/marketing/video/skill.plugin.md) | 1.0.0 | stable | When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video… | Use **video**. |
 
-## Methodology (25)
+## Methodology (26)
 
 | Plugin | Ver | Status | Summary | Invoke |
 |--------|-----|--------|---------|--------|
@@ -183,6 +183,7 @@ Regenerate: `python3 scripts/generate-skill-plugin-manifests.py`
 | [**Gap Audit And Elevation**](skills/methodology/gap-audit-and-elevation/skill.plugin.md) | 1.0.0 | stable | After every meaningful ship, run the gap audit (specific incomplete items, named) + elevation pass (ambitious extensions). File the audit at… | Use **gap-audit-and-elevation**. |
 | [**Graceful Degradation**](skills/methodology/graceful-degradation/skill.plugin.md) | 1.0.0 | stable | When a service is down, show a red pill, not a crash. When a build fails, report it and keep going. When `.env` is missing, skip with a warning. Every… | Use **graceful-degradation**. |
 | [**Idempotent Commands**](skills/methodology/idempotent-commands/skill.plugin.md) | 1.0.0 | stable | Design Makefile + CLI commands so they're safe to re-run forever. `make ui` boots whatever is down + opens the browser, same result every time. Pre-flight… | Use **idempotent-commands**. |
+| [**Metadata Post Or Product Mode**](skills/methodology/metadata-post-or-product-mode/skill.plugin.md) | 1.0.0 | stable | Teaches Post mode (folder post-meta + lead sheet) vs Product mode (plugin.json catalog cards) before writing metadata. Use when asked "post or product… | Use **metadata-post-or-product-mode**. |
 | [**Migration Guide Format**](skills/methodology/migration-guide-format/skill.plugin.md) | 1.0.0 | stable | When swapping one tool for another (Docker Desktop → Colima, Forgejo → GitLab CE), write a step-by-step migration guide at… | Use **migration-guide-format**. |
 | [**Moic Response Signatures**](skills/methodology/moic-response-signatures/skill.plugin.md) | 1.0.0 | stable | Enforce Nephew/framework entity response identity with visible receipt signatures, response_signature MOIC metadata, and MOIC Signature Patrol. Use when… | Use **moic-response-signatures**. |
 | [**Multi Surface Design**](skills/methodology/multi-surface-design/skill.plugin.md) | 1.0.0 | stable | One engine, many faces. Build the core (`generate()`) once and expose it as CLI + MCP + Web UI + Docker so every user/agent finds the right entry point.… | Use **multi-surface-design**. |
@@ -202,16 +203,19 @@ Regenerate: `python3 scripts/generate-skill-plugin-manifests.py`
 | [**Generate Weather Plates**](skills/project/red-e-play/generate-weather-plates/skill.plugin.md) | 1.0.0 | stable | Generate the 16 cinematic weather background plates (8 conditions × day/night) for the Red-E Play HomeView hero by calling OpenAI's gpt-image-1. Drops the… | Use **generate-weather-plates**. |
 | [**Verify Ship**](skills/project/red-e-play/verify-ship/skill.plugin.md) | 1.0.0 | stable | Audit whether work has actually shipped — committed, pushed, merged, deployed. Use when the user asks variants of "did it ship", "is it on origin", "are we… | Use **verify-ship**. |
 
-## You-Sir Juan (6)
+## You-Sir Juan (9)
 
 | Plugin | Ver | Status | Summary | Invoke |
 |--------|-----|--------|---------|--------|
 | [**Associate Agent System**](skills/yousirjuan/associate-agent-system/skill.plugin.md) | 1.0.0 | stable | The 4-persona paradigm architecture powering You-Sir Juan OS. Each family member gets a named Associate Agent with its own voice, color world, label… | Use **associate-agent-system**. |
 | [**Bash Installer Oneliners**](skills/yousirjuan/bash-installer-oneliners/skill.plugin.md) | 1.0.0 | stable | Production-quality bash installer structure for You-Sir Juan OS one-liners. Covers: detect → deps → clone/update → configure → services → model → LaunchAgent… | Use **bash-installer-oneliners**. |
+| [**Bishop Agent Birth Kit**](skills/yousirjuan/bishop-agent-birth-kit/skill.plugin.md) | 1.0.0 | stable | When Bishop creates an agent, always issue certificate-of-origin.md, memory.md, and AI_AGENT_RULES/. Single DRY path via bishop/manager.py and… | Use **bishop-agent-birth-kit**. |
 | [**Hardware Compat Doc**](skills/yousirjuan/hardware-compat-doc/skill.plugin.md) | 1.0.0 | stable | How to write a hardware compatibility doc for You-Sir Juan OS. Covers: capability matrix, Ollama model selection with token/sec estimates, Xcode/SDK ceilings,… | Use **hardware-compat-doc**. |
 | [**Ios Realitykit 4 Patterns**](skills/yousirjuan/ios-realitykit-4-patterns/skill.plugin.md) | 1.0.0 | stable | SwiftUI + RealityKit 4 component patterns for the You-Sir Juan OS iOS kiosk app. Covers AvatarRealityView, KioskMode, EnrollView, ParadigmIcon, and the three… | Use **ios-realitykit-4-patterns**. |
 | [**Marketing Feature Doc**](skills/yousirjuan/marketing-feature-doc/skill.plugin.md) | 1.0.0 | stable | Write a docs/marketing/NN-feature-name.md file for a shipped You-Sir Juan OS feature. Standard structure: tagline, what it is, why it matters, how it works,… | Use **marketing-feature-doc**. |
 | [**Parallel Agent Coordination**](skills/yousirjuan/parallel-agent-coordination/skill.plugin.md) | 1.0.0 | stable | Split large builds across independent background agents by surface (iOS, web, backend), brief each agent with full terminology + member context up front, and… | Use **parallel-agent-coordination**. |
+| [**Scene Skout Wayback Restore**](skills/yousirjuan/scene-skout-wayback-restore/skill.plugin.md) | 1.0.0 | stable | Scene Skout owns Wayback restore (HTML + CSS + assets + rewrite). Bishop archive-reviver is staff under scene-skout manager. Nephew routes to scene-skout first. | Use **scene-skout-wayback-restore**. |
+| [**Wayback Site Reviver**](skills/yousirjuan/wayback-site-reviver/skill.plugin.md) | 1.0.0 | stable | DEPRECATED — use scene-skout-wayback-restore. Wayback restore moved to Scene Skout; archive-reviver is staff under scene-skout. | Use **wayback-site-reviver**. |
 
 ## iOS (5)
 

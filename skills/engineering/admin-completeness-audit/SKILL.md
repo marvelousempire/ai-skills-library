@@ -1,5 +1,12 @@
 ---
 name: admin-completeness-audit
+keywords: [run-admin, check-completeness, build-audit]
+hash: 8445f3b
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver admin completeness audit output correctly and completely.
 description: "Audit whether an admin page or nav route is fully wired up across all required layers. Use when the user asks: 'check if admin page is wired up,' 'why doesn't the nav show,' 'admin route missing,' 'menu item not appearing,' 'admin page exists but I can't navigate to it,' 'new admin section not in sidebar,' 'admin search doesn't find the route,' 'breadcrumbs broken on admin page,' 'admin feature missing.' Runs a structured 5-step audit across nav config, sidebar, backend endpoint, TypeScript types, and API helper, then generates a remediation list."
 metadata:
   version: 1.0.0

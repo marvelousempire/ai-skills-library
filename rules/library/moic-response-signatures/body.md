@@ -1,7 +1,7 @@
 ---
 name: moic-response-signatures
 id: RL-MOIC-001
-keywords: [moic, response-signature, nephew, entity-signoff, signature-patrol]
+keywords: [enforce-moic, check-response, build-signatures]
 goal: Make Nephew/framework entity responses identifiable and auditable everywhere.
 hash: pending
 relations: [pipeline-stage-truth, verification-gates]

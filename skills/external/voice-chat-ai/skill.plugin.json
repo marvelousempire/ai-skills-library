@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use voice-chat-ai"
+    "integrate-voice",
+    "check-chat",
+    "file-voice"
   ],
-  "keywords": [],
+  "keywords": [
+    "integrate-voice",
+    "check-chat",
+    "file-voice"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": null,
   "philosophy_tagline": null,
   "invoke": "Use **voice-chat-ai**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "77ed314",
+  "goal": "Deliver voice chat ai output correctly and completely."
 }

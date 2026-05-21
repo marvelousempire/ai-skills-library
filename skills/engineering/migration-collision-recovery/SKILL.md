@@ -1,5 +1,12 @@
 ---
 name: migration-collision-recovery
+keywords: [run-migration, check-collision, build-recovery]
+hash: fff99ab
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver migration collision recovery output correctly and completely.
 description: "Recover from a database migration number collision — two migration files sharing the same numeric prefix. Use when: 'migration number collision,' 'duplicate migration prefix,' 'guard check failed on migration,' 'CI is failing on migration uniqueness check,' 'two migrations with the same number,' 'migration file conflict,' 'next-migration-number gave me a number that's already taken.' Also use proactively whenever you discover a collision during a rebase or PR review. Returns renamed files, updated references, and a clean commit."
 metadata:
   version: 1.0.0

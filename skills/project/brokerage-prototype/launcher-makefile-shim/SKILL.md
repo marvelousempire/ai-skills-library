@@ -1,5 +1,12 @@
 ---
 name: launcher-makefile-shim
+keywords: [run-launcher, check-makefile, build-shim]
+hash: bc5b37d
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver launcher makefile shim output correctly and completely.
 description: >-
   Add a thin Makefile shim over an existing `./go`-style launcher so `make`,
   `make go`, `make dev`, `make restart`, `make ports`, `make doctor`,

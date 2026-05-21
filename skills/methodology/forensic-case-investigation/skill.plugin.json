@@ -24,18 +24,26 @@
     "claude"
   ],
   "triggers": [
-    "Use forensic-case-investigation"
+    "audit-forensic",
+    "check-case",
+    "build-investigation"
   ],
-  "keywords": [],
+  "keywords": [
+    "audit-forensic",
+    "check-case",
+    "build-investigation"
+  ],
   "overlap": [],
   "relations": [],
-  "governed_by": [],
+  "governed_by": [
+    "global"
+  ],
   "philosophy": "My goal is to have the diligence of one tracking the footprints of an ant in the jungle.",
   "philosophy_tagline": "Ant-in-the-jungle diligence",
   "invoke": "Use **forensic-case-investigation**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
-  "hash": null,
-  "goal": null
+  "generated_at": "2026-05-21T08:11:23Z",
+  "hash": "fe7b9e4",
+  "goal": "Deliver forensic case investigation output correctly and completely."
 }

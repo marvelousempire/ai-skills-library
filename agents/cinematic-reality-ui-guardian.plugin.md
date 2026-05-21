@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from agent source. Edit cinematic-reality-ui-guardian.plugin.json for card/grid metadata.
 agent_slug: cinematic-reality-ui-guardian
-generated_at: 2026-05-20T07:03:19Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--

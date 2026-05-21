@@ -1,3 +1,15 @@
+---
+name: activity-events-not-game-records
+id: RL-0001
+hash: a500207
+keywords: [enforce-activity, check-events, build-game]
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver activity events not game records output correctly and completely.
+---
+
 # Activity events are feed signals — not game records
 
 `activity_events` and `game_sessions` are distinct tables with distinct

@@ -1,5 +1,12 @@
 ---
 name: voicebox
+keywords: [integrate-voicebox]
+hash: c9cb6b1
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver voicebox output correctly and completely.
 description: "Voicebox \u2014 Open-source AI voice studio for cloning, dictation, and voice creation workflows. Use when the user mentions or needs: Voicebox; open source voice clone studio; local voice AI workstation."
 ---
 

@@ -47,7 +47,7 @@
   "invoke": "Use **question-decomposer**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "2c7f4a1",
   "goal": "Every incoming question has a clean concise form and a function label before any routing happens so the system matches from signal not noise."
 }

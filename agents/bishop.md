@@ -33,29 +33,16 @@ Does not run lead investigation (that is forensic-case-investigator / Nephew dis
 
 ## Agent creation standard (mandatory)
 
-When Bishop **creates, scaffolds, or registers** any agent, treat the agent like a **WordPress plugin** — same catalog model as skills in this library.
+When Bishop **creates, scaffolds, or registers** any agent:
 
-### Required deliverables (every new agent)
+1. **Metadata shape** — follow [`rules/library/metadata-post-or-product-mode`](../rules/library/metadata-post-or-product-mode/body.md) (Product = plugin card + catalog; Post = `post-meta.json` + lead sheet when the agent has a workspace folder).
+2. **Philosophy** — block ship until `## Philosophy` blockquote + practice bullets exist (see below).
+3. **Catalog** — agent must appear in [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md) after `generate-agent-plugin-manifests.py` + `validate-agent-plugin-manifests.py`.
+4. **You-Sir Juan pack** — reject `skills/project/yousirjuan/` paths ([`yousirjuan-skills-pack-path`](../rules/library/yousirjuan-skills-pack-path/body.md)).
 
-| Artifact | Flat layout (`agents/<slug>.md`) | Folder layout (`agents/<slug>/AGENT.md`) |
-|----------|----------------------------------|------------------------------------------|
-| Contract | `agents/<slug>.md` | `agents/<slug>/AGENT.md` + `README.md` |
-| Machine card | `agents/<slug>.plugin.json` | `agents/<slug>/agent.plugin.json` |
-| Human lead sheet | `agents/<slug>.plugin.md` | `agents/<slug>/agent.plugin.md` |
-| Philosophy | `## Philosophy` blockquote in contract | same |
-| Skill bridge (if any) | `skills/.../bridge.manifest.json` | same |
+Teaching skill: [`metadata-post-or-product-mode`](../skills/methodology/metadata-post-or-product-mode/SKILL.md).
 
-After writing the contract, run:
-
-```bash
-python3 scripts/generate-agent-plugin-manifests.py
-python3 scripts/generate-library-plugin-catalog.py
-python3 scripts/validate-agent-plugin-manifests.py
-```
-
-The agent must appear in **[`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md)** (unified skills + agents grid) before Bishop signs off.
-
-### Required shape (contract body)
+### Philosophy gate (Bishop-only — not replaced by metadata rule)
 
 ```markdown
 ## Philosophy (mandatory)
@@ -65,19 +52,6 @@ The agent must appear in **[`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATAL
 ### What this means in practice
 - <3–7 bullets>
 ```
-
-### Rules
-
-1. **No philosophy → no ship.** Block registration until present.
-2. **Philosophy is operational** — not marketing copy.
-3. **Propagate** to `agents/<name>.md`, companion `SKILL.md` frontmatter `philosophy:` if any, and `bridge.manifest.json`.
-4. **Audit command:** grep new files for `## Philosophy`; fail if absent.
-5. **Skill plugin manifest:** every `skills/**/SKILL.md` folder must have `skill.plugin.json` + `skill.plugin.md` (run `generate-skill-plugin-manifests.py`).
-6. **Agent plugin manifest:** every agent must have `*.plugin.json` + `*.plugin.md` beside its source (run `generate-agent-plugin-manifests.py`). Bishop compares agents to WordPress plugins — if the card is missing, reject registration.
-7. **Catalog visibility:** skills and agents both show in [`LIBRARY-PLUGIN-CATALOG.md`](../LIBRARY-PLUGIN-CATALOG.md) — the library’s “Plugins” screen.
-8. **You-Sir Juan pack path:** platform skills live only at `skills/yousirjuan/<slug>/` — reject any scaffold or doc that uses `skills/project/yousirjuan/` ([`yousirjuan-skills-pack-path`](../rules/library/yousirjuan-skills-pack-path/body.md)).
-
-### Canonical example
 
 | Agent | Philosophy sentence |
 |-------|---------------------|

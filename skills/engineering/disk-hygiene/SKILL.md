@@ -1,5 +1,12 @@
 ---
 name: disk-hygiene
+keywords: [run-disk, check-hygiene, file-disk]
+hash: 370490b
+relations: []
+before: []
+governed_by: [global]
+meta: dynamic
+goal: Deliver disk hygiene output correctly and completely.
 description: "Reclaim disk space by auditing and cleaning stale worktrees, node_modules, build artifacts, and Xcode DerivedData. Use when the user reports: 'disk full,' 'no space left,' '99% disk,' 'out of disk,' 'xcodebuild failed with no space,' 'clear worktrees,' 'node_modules taking space,' 'clean up stale branches,' 'too many worktrees,' 'disk is almost full on VPS.' Also use proactively before triggering any iOS build if disk usage is above 80%. Returns a before/after disk report and a list of what was removed."
 metadata:
   version: 1.0.0

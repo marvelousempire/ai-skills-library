@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: full-viewport-responsive-dashboard-shell
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **full-viewport-responsive-dashboard-shell**.
 
 ## Triggers / keywords
 
-`Use full-viewport-responsive-dashboard-shell`
+`run-full`, `check-viewport`, `build-responsive`
 
 ## Requires (run first)
 

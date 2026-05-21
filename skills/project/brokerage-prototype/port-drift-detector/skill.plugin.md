@@ -1,7 +1,7 @@
 ---
 # Lead sheet — auto-generated from SKILL.md. Edit skill.plugin.json for card/grid metadata.
 skill_slug: port-drift-detector
-generated_at: 2026-05-19T19:05:57Z
+generated_at: 2026-05-21T08:11:23Z
 ---
 
 <!--
@@ -45,7 +45,7 @@ Use **port-drift-detector**.
 
 ## Triggers / keywords
 
-`Use port-drift-detector`
+`run-port`, `check-drift`, `build-detector`
 
 ## Requires (run first)
 

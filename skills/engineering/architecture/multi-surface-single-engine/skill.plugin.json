@@ -43,7 +43,7 @@
   "invoke": "Use **multi-surface-single-engine**.",
   "icon": null,
   "featured": false,
-  "generated_at": "2026-05-19T19:05:57Z",
+  "generated_at": "2026-05-21T08:11:23Z",
   "hash": "7dc96a6",
   "goal": "One engine powers every surface \u2014 the logic is never duplicated across CLI, web, Shortcut, or launchd."
 }

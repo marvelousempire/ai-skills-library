@@ -1,6 +1,7 @@
 ---
 name: plugin-economy
-keywords: [plugin-economy, document-installed-plugins, token-cost-honesty]
+keywords: [enforce-plugin, check-economy, file-plugin]
+hash: c8d59fb
 goal: When an agent's spec promises capabilities backed by upstream plugins or external packages, the dependency MUST be documented in the agent's spec AND its token cost MUST be stated. No silent installs, no architectural fictions.
 relations: [add-agent-to-skills-library]
 before: []
