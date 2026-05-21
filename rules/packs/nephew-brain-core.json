@@ -1,0 +1,16 @@
+{
+  "id": "nephew-brain-core",
+  "description": "Cross-repo discipline rules for Nephew brain repos (Cursor + Claude via sync-rules)",
+  "profile": "default-monorepo",
+  "rules": [
+    "moic-response-signatures",
+    "metadata-post-or-product-mode",
+    "plans-folder-convention",
+    "plan-first-for-substantive",
+    "dev-discipline",
+    "go-live-path",
+    "pipeline-stage-truth",
+    "quality-bar-do-it-right",
+    "verification-before-ship"
+  ]
+}
