@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "slug": "agent-orchestration-frameworks",
+  "name": "Agent orchestration frameworks",
+  "pack": "yousirjuan",
+  "pack_label": "You-Sir Juan",
+  "version": "1.0.0",
+  "status": "stable",
+  "artifact_type": "skill",
+  "summary": "LEAD-SHEET orchestration default; LangGraph/CrewAI Phase 2; LangChain Candidate until chosen.",
+  "skill_id": "SK-0133",
+  "skill_path": "skills/yousirjuan/agent-orchestration-frameworks",
+  "skill_md": "SKILL.md",
+  "lead_sheet_md": "skill.plugin.md",
+  "author": "marvelousempire",
+  "license": "MIT",
+  "tools": ["cursor", "claude"],
+  "triggers": ["choose-orchestration", "check-langgraph", "build-crew"],
+  "keywords": ["choose-orchestration", "check-langgraph", "build-crew"],
+  "governed_by": ["global"],
+  "invoke": "Use **agent-orchestration-frameworks**.",
+  "goal": "Choose folder-first vs LangGraph/CrewAI; defer LangChain until planned."
+}
