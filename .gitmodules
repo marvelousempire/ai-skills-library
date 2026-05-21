@@ -1,0 +1,9 @@
+[submodule "marketingskills"]
+	path = marketingskills
+	url = git@github.com:marvelousempire/marketingskills.git
+[submodule "ruflo"]
+	path = ruflo
+	url = git@github.com:marvelousempire/ruflo.git
+[submodule "claude-mem"]
+	path = claude-mem
+	url = git@github.com:marvelousempire/claude-mem.git
