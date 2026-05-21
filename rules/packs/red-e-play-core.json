@@ -5,6 +5,7 @@
   "rules": [
     "dev-discipline",
     "changelog-and-versioning",
+    "git-repo-commit-merge-push-pr-mr",
     "go-live-path",
     "parallel-surfaces-from-day-one",
     "pbxproj-conflict",

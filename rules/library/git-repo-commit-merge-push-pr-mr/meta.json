@@ -1,0 +1,6 @@
+{
+  "id": "git-repo-commit-merge-push-pr-mr",
+  "description": "Branch discipline, Bash heredoc commits and PRs, squash merge, zero GitHub Actions, laptop make deploy. Canonical source: nephew AI_AGENT_RULES/GIT_REPO_COMMIT_MERGE_AND_SQUASH_PUSH_PR_MR_RULE.md",
+  "alwaysApply": true,
+  "globs": []
+}
