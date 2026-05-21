@@ -1,5 +1,6 @@
 {
   "id": "metadata-post-or-product-mode",
+  "description": "Choose Post (workspace post-meta.json) vs Product (catalog/plugin card) before writing skill, agent, rule, or Tower metadata.",
   "alwaysApply": false,
   "globs": [
     "skills/**",

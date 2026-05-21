@@ -1,5 +1,6 @@
 {
   "id": "plan-first-for-substantive",
+  "description": "Write a numbered plan in plans/ and get approval before substantive multi-file changes.",
   "alwaysApply": true,
   "globs": ["**/*"],
   "category": "repo-discipline",

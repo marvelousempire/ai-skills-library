@@ -42,6 +42,10 @@ When Bishop **creates, scaffolds, or registers** any agent:
 
 Teaching skill: [`metadata-post-or-product-mode`](../skills/methodology/metadata-post-or-product-mode/SKILL.md).
 
+**Factory rules desk:** repo-level commandments drop in `AI_AGENT_RULES/desk/inbox/` (Bishop
+and Nephew); Nephew `scripts/dress-rules-desk.mjs` dresses Post-mode rules into
+`manifest.json`. Per-agent law stays in each agent's `AI_AGENT_RULES/`, not in this card.
+
 ### Philosophy gate (Bishop-only — not replaced by metadata rule)
 
 ```markdown

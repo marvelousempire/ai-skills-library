@@ -1,5 +1,6 @@
 {
   "id": "verification-before-ship",
+  "description": "Run verification commands and name pipeline stage before calling work shipped.",
   "alwaysApply": true,
   "globs": ["**/*"],
   "category": "repo-discipline",
