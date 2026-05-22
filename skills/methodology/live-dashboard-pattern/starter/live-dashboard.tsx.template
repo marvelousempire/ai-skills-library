@@ -1,33 +1,38 @@
 // ─────────────────────────────────────────────────────────────────────
-// TEMPLATE — fill in by copying verbatim from the canonical source.
+// TEMPLATE — primitives are now an installable package.
 //
-// SOURCE OF TRUTH:
-//   ~/Developer/nephew/apps/control-tower/src/lib/live-dashboard.tsx
+// PREFERRED PATH (no file needed in your repo):
+//   pnpm add @nephew/live-dashboard react react-dom
+//   import { useLivePoll, AnimatedNumber, ... } from "@nephew/live-dashboard";
 //
-// INSTRUCTIONS (per CHECKLIST.md Stage 1):
-//   1. Read the canonical file at the path above.
-//   2. Copy its full contents into a NEW file in this directory named
-//      `live-dashboard.tsx` (drop the `.template` extension).
-//   3. Do NOT modify the canonical body. Edits go upstream first.
-//   4. Confirm the new file exports the six primitives listed below,
-//      plus the supporting types.
+//   Same monorepo as the package: "@nephew/live-dashboard": "workspace:*"
+//   Separate repo (after publish): "@nephew/live-dashboard": "^0.1.0"
 //
-// REQUIRED EXPORTS:
-//   - useLivePoll<T>(fetcher, opts) — auto-polling hook with ring
-//     buffer + visibility-pause + cancellation
+// The package lives at:
+//   ~/Developer/nephew/packages/live-dashboard/
+//
+// You do NOT need to copy this file into your repo. The package is the
+// source of truth. Just install it and import.
+//
+// ─────────────────────────────────────────────────────────────────────
+// FALLBACK PATH (only when package install is not available):
+//
+// If the target environment cannot reach the package registry AND the
+// target repo is not in the Nephew monorepo, copy the canonical body
+// from:
+//   ~/Developer/nephew/packages/live-dashboard/src/live-dashboard.tsx
+// into your repo's `src/lib/live-dashboard.tsx`. Note that this creates
+// drift the moment the canonical updates.
+//
+// ─────────────────────────────────────────────────────────────────────
+//
+// REQUIRED EXPORTS (whichever path you take):
+//   - useLivePoll<T>(fetcher, opts) — auto-polling hook
 //   - <AnimatedNumber value fmt durationMs />
 //   - <MeterBar pct height />
-//   - <Sparkline series width height strokeClassName fillClassName />
+//   - <Sparkline series width height />
 //   - <LiveDot fetchedAt error loading />
 //   - <LiveTile label value fmt series unit />
-//
-// REQUIRED TYPES:
-//   - LivePollOpts
-//   - LivePollResult<T>
-//   - SparklineProps, MeterBarProps, etc.
-//
-// DEPENDENCIES (all React-built-in or browser-native):
-//   import { useEffect, useRef, useState, type ReactNode } from "react";
 //
 // ANTI-PATTERNS — reject the fill-in if it pulls in:
 //   - framer-motion, react-spring, motion/react
@@ -36,12 +41,12 @@
 //   - axios, ky, ofetch
 //
 // VERIFICATION:
-//   After the file is in place, the receiving AI should be able to:
-//     import { useLivePoll, AnimatedNumber } from "./live-dashboard";
-//   without errors. Run `pnpm typecheck` to confirm.
+//   After install, `import { useLivePoll } from "@nephew/live-dashboard"`
+//   should resolve without errors. Run `pnpm typecheck` to confirm.
 //
 // ─────────────────────────────────────────────────────────────────────
 
-// TODO: REMOVE THIS TEMPLATE LINE AND REPLACE THE FILE WITH THE
-// CANONICAL BODY FROM THE PATH IN THE HEADER ABOVE.
-export const _PLACEHOLDER = "not yet filled in — see header for instructions";
+// This file is intentionally empty — its purpose is the header comments
+// above. Delete this `.template` file from your starter folder once you
+// have the package installed in your consumer repo.
+export const _UNUSED = "delete this file once @nephew/live-dashboard is installed";
