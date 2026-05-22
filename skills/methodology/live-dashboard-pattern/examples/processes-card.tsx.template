@@ -1,0 +1,31 @@
+// ─────────────────────────────────────────────────────────────────────
+// TEMPLATE — verbatim copy task.
+//
+// SOURCE OF TRUTH:
+//   ~/Developer/nephew/apps/control-tower/src/pages/DustpanProcessesPage.tsx
+//
+// INSTRUCTIONS (per CHECKLIST.md Stage 3):
+//   1. Read the canonical file.
+//   2. Copy its contents EXACTLY into `processes-card.tsx` in this
+//      directory (drop the `.template` extension).
+//   3. Do NOT genericize. This is a reference copy.
+//
+// Key things this file demonstrates:
+//   - LIST layout (vs disks-card's GRID layout)
+//   - useState-driven sort control
+//   - Per-row dual meters (CPU + MEM)
+//   - Per-row sparkline keyed by numeric id (PID)
+//   - Min(100, cpu_pct) clamp on the meter — since multi-core CPU can
+//     exceed 100%, but the meter still wants to render as a fraction
+//
+// ANTI-PATTERNS:
+//   - Don't change the sort keys array
+//   - Don't replace the aggregate computation with a server endpoint
+//     (sums happen client-side on every render — that's correct)
+//
+// ─────────────────────────────────────────────────────────────────────
+
+// TODO: REPLACE WITH THE VERBATIM CONTENTS OF
+//   ~/Developer/nephew/apps/control-tower/src/pages/DustpanProcessesPage.tsx
+// AS OF COMMIT 6101cca (or later).
+export const _PLACEHOLDER = "not yet filled in";

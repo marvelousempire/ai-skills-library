@@ -1,0 +1,89 @@
+// ─────────────────────────────────────────────────────────────────────
+// TEMPLATE — distill from the canonical reference impl.
+//
+// SOURCE OF TRUTH (full production card):
+//   ~/Developer/nephew/apps/control-tower/src/pages/DustpanSummaryPage.tsx
+//
+// INSTRUCTIONS (per CHECKLIST.md Stage 2):
+//   1. Read the canonical reference impl at the path above.
+//   2. Produce a MINIMAL example (~100 LoC) that exercises ALL six
+//      primitives + OSChrome.
+//   3. Use a FAKE in-memory fetcher so the example runs without a
+//      backend (so a fresh reader can drop the file into any project
+//      and see motion immediately).
+//   4. Save as `ExampleCard.tsx` in this directory (drop the
+//      `.template` extension).
+//
+// SHAPE TO PRODUCE:
+//
+//   import { useLivePoll, AnimatedNumber, MeterBar, Sparkline,
+//            LiveDot, LiveTile } from "./live-dashboard";
+//   import { OSChrome, type AboutInfo } from "./os-chrome";
+//
+//   // Fake metric source so the example runs standalone.
+//   let _frame = 0;
+//   const fakeFetch = async () => {
+//     _frame += 1;
+//     return {
+//       cpu_pct:   50 + 30 * Math.sin(_frame / 10),
+//       mem_gb:    8  + 2 * Math.cos(_frame / 7),
+//       net_kbps:  200 + Math.random() * 50,
+//     };
+//   };
+//
+//   export function ExampleCard() {
+//     const { data, error, loading, fetchedAt, history, refresh } =
+//       useLivePoll(fakeFetch, { intervalMs: 1500, historySize: 40 });
+//
+//     const cpuSeries = history.map(h => h.cpu_pct);
+//     const memSeries = history.map(h => h.mem_gb);
+//
+//     // Minimal aboutInfo so OSPill renders sensible defaults.
+//     const about: AboutInfo = {
+//       app: "Example App", version: "0.1.0", os: "macOS 14.x",
+//       family: "macos", status: error ? "down" : loading ? "unknown" : "healthy",
+//     };
+//
+//     return (
+//       <div className="p-6 max-w-4xl mx-auto">
+//         <OSChrome info={about} />
+//         <h1 className="text-xl font-bold inline-flex items-center gap-2">
+//           Example Live Card <LiveDot fetchedAt={fetchedAt} error={error} loading={loading} />
+//         </h1>
+//
+//         <div className="grid gap-3 grid-cols-3 mt-4">
+//           <LiveTile label="CPU"   value={data?.cpu_pct ?? 0}  fmt={n => `${n.toFixed(1)}%`} series={cpuSeries} />
+//           <LiveTile label="MEM"   value={data?.mem_gb ?? 0}   fmt={n => `${n.toFixed(2)} GB`} series={memSeries} />
+//           <LiveTile label="NET"   value={data?.net_kbps ?? 0} fmt={n => `${n.toFixed(0)} kbps`} />
+//         </div>
+//
+//         <div className="mt-6 space-y-2">
+//           <div className="text-[11px] uppercase tracking-wider text-fg-faint">CPU bar</div>
+//           <MeterBar pct={Math.min(100, data?.cpu_pct ?? 0)} />
+//
+//           <div className="text-[11px] uppercase tracking-wider text-fg-faint">CPU sparkline</div>
+//           <Sparkline series={cpuSeries} width={400} height={40} />
+//
+//           <div className="text-[11px] uppercase tracking-wider text-fg-faint">CPU tween</div>
+//           <AnimatedNumber value={data?.cpu_pct ?? 0} fmt={n => `${n.toFixed(2)}%`} className="text-2xl font-mono" />
+//         </div>
+//
+//         <button onClick={refresh} className="mt-4 rounded border px-3 py-1 text-sm">
+//           ↻ Force refresh
+//         </button>
+//       </div>
+//     );
+//   }
+//
+// COMMENTS REQUIRED IN THE FINAL FILE:
+//   - Header explaining this is the minimal exemplar
+//   - Inline comment beside each primitive naming what it does
+//     ("LiveTile = label + animated number + sparkline")
+//   - Note that the fake fetcher should be replaced with a real
+//     fetch() call in production
+//
+// ─────────────────────────────────────────────────────────────────────
+
+// TODO: REMOVE THIS LINE AND REPLACE THE FILE WITH THE ~100-LINE EXAMPLE
+// AS SKETCHED IN THE HEADER ABOVE.
+export const _PLACEHOLDER = "not yet filled in — see header for the example shape";
