@@ -1,0 +1,6 @@
+{
+  "id": "ui-design-diagram-first",
+  "description": "When proposing or discussing UI/UX layouts, lead with a Unicode ASCII box diagram in a fenced text block, then a one-to-three sentence why citing a real-world product precedent (Apple, Linear, Figma, Stripe, Vercel, Vision OS).",
+  "alwaysApply": true,
+  "globs": []
+}
