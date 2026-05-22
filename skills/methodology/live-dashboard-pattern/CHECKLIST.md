@@ -21,30 +21,48 @@ is no novel design to invent here.
       `~/Developer/nephew/` (or its github.com origin). Every file in
       this recipe references a canonical sibling there.
 
-## Stage 1 — Fill in the starter primitives (10 min)
+## Stage 1 — Install the primitives package (2 min, was 10 min)
 
-The primitives library is ~470 LoC total across two files. You will copy
-the canonical bodies verbatim — DO NOT re-derive them from the SKILL.md
-prose. The canonical files are the source of truth.
+The primitives are now an installable workspace package
+**`@nephew/live-dashboard`** v0.1.0+ at
+`~/Developer/nephew/packages/live-dashboard/`. You do NOT need to copy
+files — just install the package.
 
-- [ ] **`starter/live-dashboard.tsx.template` → `starter/live-dashboard.tsx`**
-      Read the canonical body at:
-      `~/Developer/nephew/apps/control-tower/src/lib/live-dashboard.tsx`
-      Copy it verbatim into `starter/live-dashboard.tsx` (drop the
-      `.template` extension). Confirm it exports: `useLivePoll`,
-      `<AnimatedNumber>`, `<MeterBar>`, `<Sparkline>`, `<LiveDot>`,
-      `<LiveTile>`, plus the `LivePollOpts` and `LivePollResult` types.
+- [ ] **If your target repo is inside the Nephew monorepo:**
+      Add `"@nephew/live-dashboard": "workspace:*"` to its `package.json`
+      `dependencies`. Run `pnpm install` from the Nephew root.
 
-- [ ] **`starter/os-chrome.tsx.template` → `starter/os-chrome.tsx`**
-      Read the canonical body at:
-      `~/Developer/nephew/apps/control-tower/src/lib/os-chrome.tsx`
-      Copy verbatim. Confirm it exports: `<OSPill>`, `<AboutModal>`,
-      `<OSChrome>` (composite), plus the `AboutInfo` and `Health` types.
+- [ ] **If your target repo is a separate repo (different monorepo or
+      standalone):**
+      - **Preferred (after we publish to a registry):** `pnpm add @nephew/live-dashboard@latest`
+      - **Today (before publishing):** add as a `file:` dep pointing at
+        `~/Developer/nephew/packages/live-dashboard/`, or use
+        `pnpm link` for a global symlink. Either works as a stopgap
+        until the package is published.
 
-- [ ] **`starter/package-deps.md`** — already concrete. No fill-in
-      needed. Just confirm the target repo has these 5 deps installed
-      (react, react-router-dom, vite, typescript, tailwindcss). If
-      missing, run `pnpm add` accordingly.
+- [ ] **Confirm install:**
+      ```ts
+      import {
+        useLivePoll, AnimatedNumber, MeterBar, Sparkline, LiveDot,
+        LiveTile, OSChrome, type AboutInfo, type Health,
+      } from "@nephew/live-dashboard";
+      ```
+      Run `pnpm typecheck`. Should resolve with no errors.
+
+- [ ] **`starter/package-deps.md`** — already concrete. Confirm the
+      target repo has react + react-router-dom + vite + typescript +
+      tailwindcss installed alongside the @nephew/live-dashboard dep.
+
+### Fallback (rare): copy-verbatim
+
+Only if you cannot install the package (offline / different monorepo /
+publish blocked):
+
+- Read the canonical body at:
+  `~/Developer/nephew/packages/live-dashboard/src/live-dashboard.tsx`
+  and `os-chrome.tsx`. Copy verbatim into your repo's `src/lib/`. Drift
+  caveat — these copies stop receiving updates the moment the canonical
+  changes.
 
 ## Stage 2 — Build the reference page (10 min)
 

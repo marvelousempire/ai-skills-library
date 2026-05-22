@@ -16,14 +16,18 @@ AI when they want a live dashboard card built somewhere new.
 > history from a client-side ring buffer, show a live pulse dot in the
 > topbar, and degrade gracefully if the backend is down.
 >
-> Use the canonical six primitives from
-> `~/Developer/nephew/apps/control-tower/src/lib/live-dashboard.tsx` —
-> do NOT roll your own. If the receiving repo doesn't have that file
-> yet, copy it verbatim from `starter/live-dashboard.tsx` in the recipe
-> folder.
+> Use the canonical primitives from the **`@nephew/live-dashboard`**
+> package (workspace at `~/Developer/nephew/packages/live-dashboard/`).
+> Install it with `pnpm add @nephew/live-dashboard` (or `workspace:*`
+> if your repo is in the Nephew monorepo). Do NOT copy the files unless
+> the install path is blocked.
 >
-> Also carry the top-left OS pill + Apple "About This Mac"-precedent
-> modal using `os-chrome.tsx` (same source).
+> Imports look like:
+>   `import { useLivePoll, AnimatedNumber, MeterBar, Sparkline, LiveDot,
+>    LiveTile, OSChrome, type AboutInfo } from "@nephew/live-dashboard";`
+>
+> Carry the top-left OS pill + Apple "About This Mac"-precedent modal
+> via `<OSChrome>` from the same package.
 >
 > Bump the repo version + add a CHANGELOG entry per the
 > `version-bump-and-changelog` rule (mirrored in this repo's

@@ -2,6 +2,37 @@
 
 All notable changes to the AI Skills Library federation hub are documented here.
 
+## 2026-05-22 ET (even later) — Recipe references `@nephew/live-dashboard` package
+
+The primitives are now an installable workspace package
+(`@nephew/live-dashboard` v0.1.0+ in
+`~/Developer/nephew/packages/live-dashboard/`). The recipe templates +
+CHECKLIST + PROMPT updated to lead with `pnpm add @nephew/live-dashboard`
+instead of "copy verbatim from canonical."
+
+### Changed
+
+- **`CHECKLIST.md` Stage 1** — was "Copy verbatim into starter/live-dashboard.tsx
+  and starter/os-chrome.tsx (10 min)"; now "Add `@nephew/live-dashboard`
+  as a dep (2 min). Fallback: copy-verbatim only when install is blocked."
+- **`PROMPT.md`** — the verbatim hand-off prompt now says "install via
+  `pnpm add @nephew/live-dashboard`" instead of "copy from canonical."
+- **`starter/live-dashboard.tsx.template`** + **`starter/os-chrome.tsx.template`**
+  — content rewritten to lead with the install path. Files become
+  obsolete in the receiving repo once the package is installed (delete
+  them after install).
+
+### Why
+
+Per the operator's 2026-05-22 question "do the files travel with
+features or is it just static?" — answered by making the primitives
+installable. Files travel as a versioned package dep, not as copies.
+Updates flow via `pnpm update`. No drift.
+
+Reference: Nephew commit e8f1cb8 ships the package at v0.1.0.
+
+---
+
 ## 2026-05-22 ET (later) — Portable recipe folder for live-dashboard-pattern
 
 ### Added — `skills/methodology/live-dashboard-pattern/` becomes a portable recipe

@@ -1,54 +1,48 @@
 // ─────────────────────────────────────────────────────────────────────
-// TEMPLATE — fill in by copying verbatim from the canonical source.
+// TEMPLATE — OS chrome primitives are part of the @nephew/live-dashboard
+// package. No separate file needed in your repo.
 //
-// SOURCE OF TRUTH:
-//   ~/Developer/nephew/apps/control-tower/src/lib/os-chrome.tsx
+// PREFERRED PATH:
+//   pnpm add @nephew/live-dashboard
+//   import { OSPill, AboutModal, OSChrome, type AboutInfo, type Health }
+//     from "@nephew/live-dashboard";
 //
-// INSTRUCTIONS (per CHECKLIST.md Stage 1):
-//   1. Read the canonical file at the path above.
-//   2. Copy verbatim into `os-chrome.tsx` (drop the `.template` ext).
-//   3. Confirm the file exports the three primitives below + types.
+// Or for granular tree-shaken imports:
+//   import { OSChrome } from "@nephew/live-dashboard/os-chrome";
+//
+// ─────────────────────────────────────────────────────────────────────
+// FALLBACK PATH (only when package install is not available):
+//
+//   ~/Developer/nephew/packages/live-dashboard/src/os-chrome.tsx
+//
+// Copy verbatim into your repo's `src/lib/os-chrome.tsx`. Drift caveat
+// applies — same as live-dashboard.tsx fallback.
+//
+// ─────────────────────────────────────────────────────────────────────
 //
 // REQUIRED EXPORTS:
 //   - <OSPill info onClick />          — top-left platform indicator
 //   - <AboutModal info open onClose /> — Apple About-This-Mac modal
 //   - <OSChrome info />                — composite (pill + modal)
+//   - type AboutInfo + type Health
 //
-// REQUIRED TYPES:
-//   - AboutInfo { app, version, by?, icon?, os, family?, arch?,
-//                 kernel?, backend?, uptime?, memory?, status,
-//                 statusNote?, extras? }
-//   - Health = "healthy" | "warning" | "down" | "unknown"
+// PRECEDENT: Apple → menubar → "About This Mac" panel.
+//   Hero (icon + name + version + byline) → spec table (label/value
+//   rows, monospace values) → action row (bottom-right).
 //
-// PRECEDENT (per operator-control-tower-mindset node 2):
-//   Apple → menubar → "About This Mac" panel. The modal layout MUST
-//   match Apple's: hero (icon + name + version + byline) → spec table
-//   (label / value rows, monospace values) → action row (bottom-right).
-//
-// LED COLOR CONTRACT:
-//   🟢 healthy = all systems nominal
+// LED CONTRACT:
+//   🟢 healthy = nominal
 //   🟡 warning = working with non-critical warnings (pulses slowly)
 //   🔴 down    = backend down OR critical error
-//   ⚪ unknown = status not yet probed
+//   ⚪ unknown = not yet probed
 //
 // BACKEND CONTRACT — every operator app exposes:
 //   GET /api/v1/about → AboutInfo JSON
 //
-//   Reference impl (Python stdlib only):
-//   ~/Developer/dustpan/web/server.py `_build_about()` at the route
-//   `/api/v1/about`. Reads platform.mac_ver() / /etc/os-release /
-//   etc, formats uptime from a SERVER_START_TIME capture, reads RSS
-//   via resource.getrusage (handles macOS-bytes vs Linux-KB quirk),
-//   reads version from package.json (single source of truth).
-//
-// ANTI-PATTERNS — reject the fill-in if it:
-//   - Hardcodes the OS string anywhere ("macOS" in JSX)
-//   - Renders a custom platform indicator instead of <OSPill>
-//   - Builds a hand-rolled About modal instead of <AboutModal>
-//   - Adds the OS pill INSIDE an embedded iframe (it goes in the
-//     CT host page wrapping the iframe, not inside it)
+//   Reference impl: ~/Developer/dustpan/web/server.py `_build_about()`
+//   at the route `/api/v1/about`. Python stdlib only.
 //
 // ─────────────────────────────────────────────────────────────────────
 
-// TODO: REMOVE THIS LINE AND REPLACE THE FILE WITH THE CANONICAL BODY.
-export const _PLACEHOLDER = "not yet filled in — see header for instructions";
+// Delete this `.template` once @nephew/live-dashboard is installed.
+export const _UNUSED = "delete once @nephew/live-dashboard is installed";
