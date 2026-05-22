@@ -1,0 +1,29 @@
+// ─────────────────────────────────────────────────────────────────────
+// TEMPLATE — verbatim copy task.
+//
+// SOURCE OF TRUTH:
+//   ~/Developer/nephew/apps/control-tower/src/pages/DustpanSummaryPage.tsx
+//
+// INSTRUCTIONS (per CHECKLIST.md Stage 3):
+//   1. Read the canonical file.
+//   2. Copy its contents EXACTLY into `disks-card.tsx` in this
+//      directory (drop the `.template` extension).
+//   3. Do NOT genericize. Do NOT rename identifiers. This is a
+//      reference copy for future readers, not a starter file.
+//
+// The Topbar + DustpanNav imports in the canonical file point at the
+// Nephew CT internal paths. Future readers know they need to adapt
+// those paths to their own repo when porting — the comments at the
+// top of this file should call that out.
+//
+// ANTI-PATTERNS:
+//   - Don't strip comments — they explain the why
+//   - Don't change `useLivePoll(intervalMs: 2500)` — that's tuned
+//   - Don't replace any primitive with a custom equivalent
+//
+// ─────────────────────────────────────────────────────────────────────
+
+// TODO: REPLACE THIS FILE WITH THE VERBATIM CONTENTS OF
+//   ~/Developer/nephew/apps/control-tower/src/pages/DustpanSummaryPage.tsx
+// AS OF COMMIT 6101cca (or later).
+export const _PLACEHOLDER = "not yet filled in";

@@ -1,0 +1,47 @@
+// ─────────────────────────────────────────────────────────────────────
+// TEMPLATE — fill in by copying verbatim from the canonical source.
+//
+// SOURCE OF TRUTH:
+//   ~/Developer/nephew/apps/control-tower/src/lib/live-dashboard.tsx
+//
+// INSTRUCTIONS (per CHECKLIST.md Stage 1):
+//   1. Read the canonical file at the path above.
+//   2. Copy its full contents into a NEW file in this directory named
+//      `live-dashboard.tsx` (drop the `.template` extension).
+//   3. Do NOT modify the canonical body. Edits go upstream first.
+//   4. Confirm the new file exports the six primitives listed below,
+//      plus the supporting types.
+//
+// REQUIRED EXPORTS:
+//   - useLivePoll<T>(fetcher, opts) — auto-polling hook with ring
+//     buffer + visibility-pause + cancellation
+//   - <AnimatedNumber value fmt durationMs />
+//   - <MeterBar pct height />
+//   - <Sparkline series width height strokeClassName fillClassName />
+//   - <LiveDot fetchedAt error loading />
+//   - <LiveTile label value fmt series unit />
+//
+// REQUIRED TYPES:
+//   - LivePollOpts
+//   - LivePollResult<T>
+//   - SparklineProps, MeterBarProps, etc.
+//
+// DEPENDENCIES (all React-built-in or browser-native):
+//   import { useEffect, useRef, useState, type ReactNode } from "react";
+//
+// ANTI-PATTERNS — reject the fill-in if it pulls in:
+//   - framer-motion, react-spring, motion/react
+//   - swr, tanstack-query, react-query
+//   - recharts, victory, visx, d3-charts
+//   - axios, ky, ofetch
+//
+// VERIFICATION:
+//   After the file is in place, the receiving AI should be able to:
+//     import { useLivePoll, AnimatedNumber } from "./live-dashboard";
+//   without errors. Run `pnpm typecheck` to confirm.
+//
+// ─────────────────────────────────────────────────────────────────────
+
+// TODO: REMOVE THIS TEMPLATE LINE AND REPLACE THE FILE WITH THE
+// CANONICAL BODY FROM THE PATH IN THE HEADER ABOVE.
+export const _PLACEHOLDER = "not yet filled in — see header for instructions";
