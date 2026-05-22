@@ -2,6 +2,20 @@
 
 All notable changes to the AI Skills Library federation hub are documented here.
 
+## 2026-05-22 ET (latest) — LESSONS.md added to live-dashboard-pattern skill
+
+`skills/methodology/live-dashboard-pattern/LESSONS.md` — meta-record of how the skill's contract evolved during the 2026-05-22 rollout. Seven numbered lessons covering:
+
+1. Static-feeling pages ship by default; live-feeling pages need a forcing function
+2. Zero dependencies is achievable AND worth the discipline
+3. Files don't travel with features; packages do
+4. Apple's "About This Mac" is the right precedent
+5. Rules + skills propagate together
+6. Version-bump + CHANGELOG must be in the same PR
+7. Sandbox-blocked actions surface a workaround pattern
+
+Sits alongside SKILL.md (contract) + PROMPT.md (hand-off) + CHECKLIST.md (procedure). The file makes the skill's evolution legible to future sessions that want to add a 7th primitive or change a default.
+
 ## 2026-05-22 ET (even later) — Recipe references `@nephew/live-dashboard` package
 
 The primitives are now an installable workspace package
