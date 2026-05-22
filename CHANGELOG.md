@@ -2,6 +2,12 @@
 
 All notable changes to the AI Skills Library federation hub are documented here.
 
+## 2026-05-22 ET — Cassette discipline rule mirror
+
+`.claude/rules/cassette-discipline.md` + `.cursor/rules/cassette-discipline.mdc` — verbatim from Nephew canonical. Every host (AISL included — its skill catalog walk IS the manifest) follows the cassette/player model.
+
+---
+
 ## 2026-05-22 ET (latest) — LESSONS.md added to live-dashboard-pattern skill
 
 `skills/methodology/live-dashboard-pattern/LESSONS.md` — meta-record of how the skill's contract evolved during the 2026-05-22 rollout. Seven numbered lessons covering:
