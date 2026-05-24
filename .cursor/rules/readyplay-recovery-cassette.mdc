@@ -1,0 +1,107 @@
+---
+name: readyplay-recovery-cassette
+id: RL-RPRC-001
+keywords: [readyplay, recovery, cassette, pm2-cwd, marketing, outage, heredoc-button]
+goal: Make every ReadyPlay disaster recoverable from a single Nephew CT click — and from a paste-block on the Mac when CT itself is down.
+hash: pending-2026-05-23
+relations: [cassette-discipline, operator-control-tower-mindset, ask-when-blocked, contracts-and-prudence, apple-native-scripting-preference]
+before: []
+governed_by: [global]
+meta: dynamic
+---
+
+# ReadyPlay Recovery — heredoc-button cassette for the ecosystem
+
+## The verbatim source (stated by Avery 2026-05-23)
+
+> mark the solution and make sure it is in the quick recovery for the nephew system to recovery the readyplay ecosystem - heredoc button exectition too and all - the whole 9.
+
+Said after the 2026-05-23 outage where `readyplay.app` returned HTTP 502 for ~hours because `readyplay-marketing` pm2 had a stuck `cwd` (`/opt/readyplay/build/marketing` instead of `/opt/readyplay/marketing`). The process crashlooped 15,542 times before the operator noticed. Every prior deploy's `pm2 restart` reused the bad config, so the bug was self-renewing across every deploy. The recovery was `pm2 delete && pm2 start --cwd /opt/readyplay/marketing --interpreter /usr/bin/node` + `pm2 save`.
+
+## The rule
+
+Every recoverable disaster in the ReadyPlay ecosystem (marketing, player-web, admin, api) MUST exist as a **cassette** in the Nephew Control Tower: one button → one whitelisted operator script → recovery executed on the VPS via the existing SSE-stream bridge.
+
+Every cassette MUST also have a **heredoc-safe paste-block** in `READYPLAY_PASTE_BLOCK` (in `apps/control-tower/src/lib/readyplay-operator.ts`) so the operator can recover by direct shell when the Tower itself is the thing that's down.
+
+## The cassette stack (every recovery flows through these four layers)
+
+| Layer | File | Purpose |
+|---|---|---|
+| 1. Shell dispatcher | `nephew/scripts/readyplay-recovery.sh` | One file. One subcommand per recovery. Idempotent. Auto-detects local-on-VPS vs SSH-from-Mac. |
+| 2. Make targets | `nephew/Makefile` (`readyplay-*` targets) | Wraps each subcommand for direct CLI use AND for the operator-script bridge. |
+| 3. Whitelisted operator script | `nephew/data/operator-scripts.manifest.json` (`readyplay` section) | Server-operator only honors IDs in this manifest. Frontend never passes raw commands. |
+| 4. Native CT card | `nephew/apps/control-tower/src/pages/ReadyPlayRecoveryPage.tsx` + `lib/readyplay-operator.ts` + manifest row in `data/native-cards.manifest.json` | Renders the cassette grid + output console + paste-block clipboard. Auto-routed via `import.meta.glob` per cassette-discipline. |
+
+## Adding a new recovery cassette
+
+When a new ReadyPlay disaster recovery is identified:
+
+1. **Shell** — add a `cmd_<name>()` function in `scripts/readyplay-recovery.sh` + a case branch in `main()`. Subcommand name = kebab-case ("admin-pm2-fix").
+2. **Make** — add `readyplay-<name>:` target. Update `.PHONY` line.
+3. **Operator-script manifest** — add a row to the `readyplay` section.
+4. **Frontend lib** — add to `READYPLAY_SCRIPT` (the constants object), `READYPLAY_PASTE_BLOCK` (the heredoc string for direct-shell use), and `READYPLAY_CASSETTES` (the metadata array the page iterates).
+5. **CHANGELOG + version bump** per [`version-bump-and-changelog`](version-bump-and-changelog.md).
+6. **No other edits.** No `App.tsx` edit, no router change, no nav file change. The cassette pattern handles routing through manifest iteration.
+
+## When the rule fires
+
+- A ReadyPlay outage is recovered manually — the recovery procedure MUST land as a cassette before the session closes
+- A new known-failure mode is identified — add an audit cassette (read-only) before adding a fix cassette
+- A Pain Journal entry is added to `red-e-play-app/CLAUDE.md` describing a recoverable pattern — file a cassette to match
+
+## When the rule does NOT fire
+
+- One-off SSH commands the operator runs interactively (cleanup, debugging) — only persistent procedures become cassettes
+- Recovery procedures that require human judgment (deciding between rollback strategies, picking a SHA) — those stay as runbooks, not buttons
+- Backend (`readyplay-api`) data-layer recovery (migrations, dump/restore) — different blast radius, separate plan
+
+## What goes wrong without this rule
+
+- Operator memorizes the pm2-cwd-recovery one-liner, then forgets it two months later when the bug recurs
+- Recovery procedures live only in chat transcripts, become unfindable
+- Every new agent landing in the session has to re-derive the fix
+- Tower has no operator-actionable surface for production recovery — every disaster forces a SSH-from-Mac session even when the operator is sitting in front of the Tower
+
+## What good looks like
+
+- Every ReadyPlay outage that's happened more than once has a button
+- Each button has a paste-block fallback for when the Tower is the broken thing
+- The plan doc (`plans/0069-readyplay-recovery-cassette.md`) is the durable record of why each cassette exists
+- The Pain Journal entry in `red-e-play-app/CLAUDE.md` points at the cassette by name so the next debug session finds it immediately
+
+## Origin incident — 2026-05-23
+
+- `pm2 jlist | jq` showed `readyplay-marketing` had `pm_cwd = "/opt/readyplay/build/marketing"` (wrong) instead of `"/opt/readyplay/marketing"` (correct)
+- `exec_interpreter = "/home/abrownsanta/.cursor-server/bin/linux-x64/<sha>/node"` (fragile — breaks when Cursor's remote SSH session updates)
+- `restart_time = 15542` (crashlooping for hours/days)
+- `next start` error: `Could not find a production build in the '.next' directory` (because cwd had no `.next/`)
+- Fix: `pm2 delete readyplay-marketing && cd /opt/readyplay/marketing && pm2 start node_modules/next/dist/bin/next --cwd /opt/readyplay/marketing --interpreter /usr/bin/node -- start --port 3003 && pm2 save`
+- HTTP 200 restored within seconds.
+
+## Propagation
+
+Per [`rule-propagation-discipline`](rule-propagation-discipline.md), this rule lives in:
+
+| Surface | Path |
+|---|---|
+| **Nephew Claude (canonical)** | `nephew/.claude/rules/readyplay-recovery-cassette.md` (this file) |
+| **Nephew Cursor** | `nephew/.cursor/rules/readyplay-recovery-cassette.mdc` |
+| **AI Skills Library** | `ai-skills-library/.claude/rules/readyplay-recovery-cassette.md` + `.cursor/rules/readyplay-recovery-cassette.mdc` |
+| **Red-E Play app** | `red-e-play-app/.claude/rules/readyplay-recovery-cassette.md` + `.cursor/rules/readyplay-recovery-cassette.mdc` |
+| **Red-E Play Pain Journal** | new entry in `red-e-play-app/CLAUDE.md` Pain Journal section pointing at the cassette |
+| **Operator memory** | `~/.claude/projects/-Users-averygoodman-Developer/memory/reference_readyplay_recovery_cassette.md` |
+
+Dustpan, Clinic, Historia, Automata do NOT receive this rule — it's product-specific to ReadyPlay.
+
+## Related
+
+- **Plan:** [`plans/0069-readyplay-recovery-cassette.md`](../../plans/0069-readyplay-recovery-cassette.md) — the rollout this rule formalizes
+- **Code (script):** [`scripts/readyplay-recovery.sh`](../../scripts/readyplay-recovery.sh)
+- **Code (page):** [`apps/control-tower/src/pages/ReadyPlayRecoveryPage.tsx`](../../apps/control-tower/src/pages/ReadyPlayRecoveryPage.tsx)
+- **Code (lib):** [`apps/control-tower/src/lib/readyplay-operator.ts`](../../apps/control-tower/src/lib/readyplay-operator.ts)
+- **Sister rule:** [`cassette-discipline`](cassette-discipline.md) — host iterates manifests; cassettes are plug-ins
+- **Sister rule:** [`operator-control-tower-mindset`](operator-control-tower-mindset.md) — node 4 (real shell execution: buttons must DO things)
+- **Sister rule:** [`ask-when-blocked`](ask-when-blocked.md) — but if there's a button, don't ask, just offer to click
+- **Sister rule:** [`contracts-and-prudence`](contracts-and-prudence.md) — recovery cassettes ARE the prudent form of "I'll remember this fix"
+- **Pain Journal:** `red-e-play-app/CLAUDE.md` Web-X entry (added in the same PR cycle)
