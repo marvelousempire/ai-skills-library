@@ -1,5 +1,6 @@
 ---
 name: operator-control-tower-pad
+description: Design mindset for Automata Pad UI/UX — cockpit-grade surfaces for a single operator running a multi-repo control tower with MPC hardware metaphors.
 category: design/mindsets
 keywords: [operator-mindset, control-tower, automata-pad, mpc-aesthetic, diagram-first]
 goal: Capture the full psychological frame an agent uses when designing UI/UX surfaces for Avery Goodman's Automata Pad (and the wider Learn Mappers stack control tower).
