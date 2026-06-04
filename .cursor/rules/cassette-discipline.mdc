@@ -54,6 +54,82 @@ Every host in the operator stack MUST follow the **cassette/player** model:
 
 If a layer in your host doesn't have a manifest, the host is not cassette-compliant. Build one.
 
+## Fleet cassettes + the Speaker contract (backend)
+
+The four layers above are **frontend** cassettes. A whole class lives on the
+backend: **fleet cassettes** — self-contained services that plug into the
+Family Office fleet (the DGX). Examples shipped: `reranker` (:7997), `doc-rag`
+(:8004), `graph-service` (LangGraph, :8005), `comfyui` (:8188), the Historia
+sync. These are cassettes too, and they're how the player gets a **Speaker**.
+
+### What is a "Speaker"?
+
+A cassette is *heard* through two speakers. A cassette with no speaker is
+silent — loaded but unusable.
+
+1. **Health speaker** — every fleet cassette ships `GET /health` (liveness) and
+   `GET /doctor` (a deep probe of its own dependencies). This is how the player
+   *hears* it's alive and renders a true status LED. Ties directly to
+   [`os-pill-and-about-modal`](os-pill-and-about-modal.md) (the LED) and
+   [`live-dashboard-pattern`](live-dashboard-pattern.md) (the poll). A cassette
+   that can't answer `/doctor` cannot degrade gracefully — the host can't tell
+   "missing" from "broken."
+2. **Edge speaker** — a cassette becomes reachable by the family only when
+   exposed through the **gated VPS vhost** (mTLS + family-SSO,
+   `auth_request → 127.0.0.1:8088/api/v1/auth/verify`, anon → sign-in). That
+   gated surface *is* the speaker. Mirror the clinic/grafana vhosts; never
+   expose a cassette to the edge ungated.
+
+### The fleet cassette shape (zero-edit, like native cards)
+
+```
+deploy/fleet/<name>/
+  app.py | server.js     # the service
+  Dockerfile             # arm64 (see below)
+  doctor.sh              # GET /doctor health probe (doctor-script-pattern)
+```
+Plus **one** service block in `deploy/fleet/docker-compose.yml`. Endpoints are
+**env-configured, never hardcoded** (`DOC_RAG_URL`, `VLLM_URL`, …). Adding a
+fleet cassette = a folder + a compose row. Nothing else is edited — the same
+zero-edit discipline as native cards.
+
+### arm64-first (the Grace DGX reality)
+
+Off-the-shelf images are usually **amd64** and will not run on the Grace DGX
+(this bit us 5× in one session: Whisper, Infinity, ComfyUI, Metabase). Rule:
+
+- `docker manifest inspect <image>` for `arm64` **before** choosing an image.
+- amd64-only → **build a custom arm64 image** (the reranker/doc-rag pattern).
+- GPU cassettes → base on **NGC arm64 PyTorch** (CUDA built for Blackwell
+  GB10/sm_121, the same path vLLM uses); **stub PyPI extensions whose ABI
+  rejects NGC's torch** (e.g. an empty `torchaudio` module for ComfyUI, which
+  only imports it for an unused audio VAE).
+
+### Clean deploy = git, not scp
+
+The cassette lives in the **repo**; the host gets it via `git pull` +
+`docker compose build`, never ad-hoc `scp`. The repo is the source of truth;
+the DGX is a checkout. (Per [`multi-repo-sync-audit`](multi-repo-sync-audit.md)
++ [`contracts-and-prudence`](contracts-and-prudence.md) — scp'd-but-uncommitted
+work is invisible drift.)
+
+### The Speaker (edge) vhost template
+
+```nginx
+server {
+  listen 443 ssl;
+  server_name <cassette>.jailynmarvin.com;
+  ssl_certificate     /etc/letsencrypt/live/<cassette>.jailynmarvin.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/<cassette>.jailynmarvin.com/privkey.pem;
+  ssl_verify_client on;                                   # mTLS
+  ssl_client_certificate /etc/jailynmarvin-ca/ca.crt;
+  location = /family-auth-verify { internal; proxy_pass http://127.0.0.1:8088/api/v1/auth/verify; }
+  error_page 401 = @family_signin;
+  location @family_signin { return 302 https://jailynmarvin.com/sign-in; }
+  location / { auth_request /family-auth-verify; proxy_pass http://127.0.0.1:<host-port>; }
+}
+```
+
 ## The auto-discovery pattern (the trick that makes it zero-edit)
 
 For React/Vite hosts, use `import.meta.glob` so adding a `<Name>Page.tsx` file makes the component automatically available without editing imports:
