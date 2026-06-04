@@ -130,6 +130,29 @@ server {
 }
 ```
 
+### Reliability contract — a Speaker that stays good
+
+The two Speakers make a cassette *heard*; these four keep it *trustworthy*.
+Each was paid for the hard way (the doc-rag wedge + stale-brain session, 2026-06-04):
+
+1. **Single-flight long ops.** Any endpoint that runs a long mutating job
+   (ingest, reindex, build) MUST be single-flight: an overlapping call returns
+   **409 "already running"**, never queues. Queuing stacks on the worker and
+   wedges it — the count freezes and nothing progresses. Steal a stale lock
+   after a TTL so a crashed job can't block forever. (Ref: doc-rag `/ingest`.)
+2. **Freshness is part of liveness.** A cassette serving *derived* data
+   (embedded / ingested / computed) MUST declare how it stays current — a timer
+   or webhook — not just answer `/health`. "Healthy but stale" reads as working
+   and isn't. (Ref: the fleet brain-refresh timer.)
+3. **No-safe-default env → pin it in `.env`.** "Env-configured, never hardcoded"
+   is necessary but not sufficient. If a var has no safe default (a mount path,
+   a model name), a bare `docker compose up` silently uses the wrong default and
+   quietly guts the cassette. Pin it in the compose `.env`. (Ref: `RAW_DOCS_HOST`
+   defaulting to an empty `./raw-docs` — served zero docs until pinned.)
+4. **The probe must answer behind the gate.** A `/doctor` that 200s on loopback
+   but sits behind family-SSO at the edge makes the LED lie. Probe a loopback /
+   internal path, or account for the gate — an honest LED or none.
+
 ## The auto-discovery pattern (the trick that makes it zero-edit)
 
 For React/Vite hosts, use `import.meta.glob` so adding a `<Name>Page.tsx` file makes the component automatically available without editing imports:
