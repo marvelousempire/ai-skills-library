@@ -25,6 +25,7 @@ Every host in the operator stack MUST follow the **cassette/player** model:
 3. **Every cassette appears in a manifest.** One JSON file (or canonical glob) is the single source of truth for what's plugged in. The host iterates the manifest; it does NOT hardcode references to specific cassette IDs.
 4. **The host survives missing/broken cassettes.** Pulling a cassette out of the player doesn't break the player. A bad cassette renders a placeholder, never crashes the host. The other cassettes keep playing.
 5. **Adding a cassette = manifest edit + cassette file.** Never `App.tsx` edit. Never `vite.config.ts` edit. Never `nav.tsx` edit. Anything that requires editing N files to add one cassette is a violation.
+6. **A tape plays in any player.** A frontend speaker cassette renders in multiple hosts — the CT shell, a standalone Tauri app, a differently-themed player. Its core surface must NOT depend on host-only theme tokens; render a self-contained canvas, or use only tokens guaranteed across every host. A tape can't assume the player's color.
 
 ## When this rule fires
 
