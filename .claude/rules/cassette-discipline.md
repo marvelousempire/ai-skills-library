@@ -153,6 +153,17 @@ Each was paid for the hard way (the doc-rag wedge + stale-brain session, 2026-06
 4. **The probe must answer behind the gate.** A `/doctor` that 200s on loopback
    but sits behind family-SSO at the edge makes the LED lie. Probe a loopback /
    internal path, or account for the gate — an honest LED or none.
+5. **Auth-gate before paint — never flash the authenticated shell.** A surface
+   with an authenticated view MUST NOT render that shell (brand, nav, identity,
+   data) before the auth check resolves.
+   - ❌ **Don't** bake the authed shell into static HTML or render it optimistically
+     — anonymous visitors watch it paint for a beat before the login redirect (a
+     structure + identity sneak-peek). Gating the *API* 401 is necessary but not
+     sufficient; the *client* must not paint first.
+   - ✅ **Do** keep the shell hidden (`visibility:hidden`) until auth resolves, then
+     reveal the chosen view (hub *or* login) synchronously — or gate server-side
+     (302 before any shell HTML) where the surface isn't the login entry itself.
+   (Ref: the jailynmarvin.com apex sneak-peek, fixed 2026-06-04.)
 
 ## The auto-discovery pattern (the trick that makes it zero-edit)
 
