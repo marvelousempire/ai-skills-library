@@ -5,3 +5,22 @@ vendor/**/.DS_Store
 # Python cruft from vendored UI Pro
 __pycache__/
 *.pyc
+
+# Secret hygiene (secret-hygiene rule) — no secret reaches git.
+.env
+.env.*
+*.env
+!*.env.example
+!.env*.example
+!.env*.sample
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+wg*.conf
+wireguard*.conf
+*-privkey*
+ca.key
