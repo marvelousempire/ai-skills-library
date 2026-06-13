@@ -1,0 +1,112 @@
+---
+name: historia-taxes
+id: RL-HTAX
+keywords: [historia, taxes, agent-homes, collectables, rsync, nas, git-mirror, operating-memory, claude, cursor, grok, codex, centralized-knowledge]
+goal: Every agent-home owes its operating memory to Historia as a standing levy — collected to the NAS full-tier and the Git safe-tier on every sync, so all LLMs share centralized knowledge.
+relations: [multi-repo-sync-audit, secret-hygiene, rule-propagation-discipline, contracts-and-prudence]
+governed_by: [global]
+meta: dynamic
+---
+
+# Historia Taxes — every agent-home pays its operating memory to the commons
+
+## The verbatim source (stated by Avery 2026-06-12)
+
+> do we have CLAUDE.md rules for Historia and making clones and RSYNC auto of all
+> of our Historia collectables — We will call them **Historia Taxes** — for all the
+> items it collects ok? But is all this Claude and Grok and Cursor history in a
+> unified place so all chats and all LLM's have centralized knowledge
+
+## The rule
+
+**Historia Taxes** is the name for the standing levy every agent-home owes to
+Historia: the operating-memory artifacts each AI assistant produces are collected,
+on every sync, into one centralized store so all chats and all LLMs share one
+knowledge base.
+
+The tax is paid in **two tiers** (Historia's existing `agent-homes` collection
+machinery — do not invent a parallel pipeline):
+
+| Tier | What | Where | How |
+|---|---|---|---|
+| **Full tier (NAS)** | Raw sessions, transcripts, memory, skills, plans — everything | `/mnt/nas/historia/agent-homes/<host>/<provider>/` (CIFS, LAN-reachable at `nasa.local` / 192.168.10.119, mounted on the DGX) | `historia-rsync-vps.sh` → `ingest/rsync_agent_homes.py`; per-host `historia-mac-collector-rsync.sh` |
+| **Safe tier (Git)** | Secret-scanned, size-capped, project-filtered subset — plans, rules, skills, catalogs | `historia` repo `data/mirror/` + `catalog/` + `indexes/`, pushed to GitLab (+ GitHub) | `historia-sync.sh` (discover → validate → mirror → catalog → preflight → commit → push) |
+
+**Who is taxed (the collectables):** every agent-home — `~/.claude`, `~/.cursor`,
+`~/.grok`, `~/.codex`, `~/.openclaw` — plus every operator repo's safe-tier
+(`plans/`, `.claude/rules`, `.cursor/rules`, `docs/`, `CHANGELOG.md`). All operator
+repos pay (nephew, historia, red-e-play-app, clinic, yousirjuan, automata,
+ai-skills-library, bishop, search-my-engine, dustpan).
+
+**Cadence:** automatic. The `com.marvelousempire.historia-sync` LaunchAgent runs
+hourly on each Mac; `synthia-nas-mirror.timer` mirrors corpus repos to the NAS every
+6h. The tax is never a manual step you remember — it is owed continuously.
+
+**Privacy boundary (non-negotiable):** the full tier (raw history, which can carry
+secrets) lives **only** on the NAS — `data/raw/` and `data/staging/` are gitignored.
+Only the secret-scanned `data/mirror/` safe subset crosses into Git. A new collectable
+that would leak secrets into the Git tier is a tax violation, not a feature. See
+[[secret-hygiene]].
+
+**Perplexity is export-only:** it keeps no local history (cloud/server-side), so it
+pays its tax only when a manual export is dropped into the watched folder
+(`~/Downloads/Perplexity`). Don't claim Perplexity is auto-collected.
+
+## When this fires
+
+- Standing up a new agent-home, provider, or Mac → it must be added to the rsync
+  manifest + sources so it starts paying the tax.
+- Adding a new operator repo → add its safe-tier sources so its plans/rules/docs flow
+  into the Git mirror.
+- Any change to the collection pipeline → preserve both tiers and the privacy boundary.
+- When asked "is all our LLM history in one place?" → the answer is Historia, and this
+  rule is the spec for what "all" means.
+
+## When this does NOT fire
+
+- One-off manual file copies — the tax is the *automated* obligation, not every `cp`.
+- Throwaway scratch dirs or `/tmp` — not agent-homes.
+- Provider data that exists only in the cloud with no local/export path (auto-collection
+  impossible) — document it as export-only rather than pretending it's taxed.
+
+## Why
+
+Scattered AI history is unusable: each LLM knows only its own chats, knowledge is lost
+when a session ends, and no agent can learn from another's work. The tax makes the
+commons real — one cataloged, indexed, LAN-reachable store every agent and machine can
+pull. Skipping it (or letting a leg silently fail) means an LLM's learning evaporates
+and the "centralized knowledge" promise is a lie.
+
+## Examples
+
+### ✓ Compliant
+
+- A new Mac (`fivemac`) is added: its `historia-mac-collector` LaunchAgent rsyncs
+  `~/.claude`, `~/.cursor`, `~/.grok` to `/mnt/nas/historia/agent-homes/fivemac/`, and
+  its repos' safe-tier flows to the Git mirror — all automatically, hourly.
+- The rsync of one provider fails; the loop logs it and **continues** taxing the rest,
+  surfacing partial failure instead of silently dropping four providers.
+
+### ✗ Violation
+
+- The agent-homes rsync aborts after `cursor` (exit 23) and only `cursor/` lands on the
+  NAS — claude/grok/codex never pay. "Centralized" is false. (The real 2026-06-13 gap
+  this rule was written to close.)
+- A new repo ships plans/rules but is never added to Historia's sources, so its
+  operating memory is invisible to every other agent.
+- Raw session `.jsonl` with API keys gets committed to the Git safe tier — the privacy
+  boundary breached. Tax violation.
+
+## Propagation
+
+Canonical body: `nephew/.claude/rules/historia-taxes.md`. Mirrored per
+[[rule-propagation-discipline]] to `nephew/.cursor`, `historia/.claude` + `.cursor`,
+and every operator repo's `.claude/rules` + `.cursor/rules` (`.md` → `.mdc` for Cursor).
+Referenced from `historia/AI_AGENT_RULES/ORIENTATION.md`.
+
+## Related
+
+- [[multi-repo-sync-audit]] — confirming every repo actually syncs.
+- [[secret-hygiene]] — the privacy boundary the safe tier depends on.
+- [[contracts-and-prudence]] — a silently-failing tax leg is the careless failure mode.
+- Historia plans `0004-agent-homes-rsync-dual-backup`, `0005-nas-unified-memory-sme-fusion`.
