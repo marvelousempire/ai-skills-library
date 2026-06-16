@@ -36,6 +36,14 @@ Installs flat symlinks under `<project>/.cursor/skills/<skill-id>/`.
 | `ios-realitykit-4-patterns` | iOS kiosk RealityKit 4 UI |
 | `marketing-feature-doc` | `docs/marketing/NN-feature.md` for shipped features |
 | `parallel-agent-coordination` | Multi-surface iOS + web + backend builds |
+| `bishop-seven-houses-pipeline` | Bishop agent birth pipeline |
+| `bishop-pydantic-manifest-validation` | Manifest validation for agent bundles |
+| `infrastructure-operator-setup` | **Read order** for docs/setup + fleet operator context |
+| `family-office-voice-stack` | **Parakeet, Holler, Whisper, Fish Speech** — sovereign voice tiers |
+| `sovereign-rag-retrieve` | **Brain A/B, Qdrant, bge-m3, tower-api retrieve** |
+| `wireguard-bind-law` | **Plan 0180** — bind loopback + wg0 only |
+| `cassette-factory-brain-proxy` | **Cassette Factory** one-tap + NEPHEW_BRAIN_PROXY |
+| `sovereign-egress-default-deny` | **Plan 0231** — default deny cloud egress |
 
 ## Rule
 
