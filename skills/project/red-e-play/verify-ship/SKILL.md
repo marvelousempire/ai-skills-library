@@ -56,7 +56,7 @@ A markdown table the user can scan in 3 seconds:
 
 - **Never claim merged without checking origin.** Always run `gh pr view <id> --json state` and assert `state == MERGED`. Hopeful "I think it merged" is the failure mode.
 - **Surface gaps in plain language.** If something is local-only, say "⚠️ N commits on <branch> not pushed yet." Don't bury bad news in a table.
-- **Be specific about TestFlight.** iOS PRs merging to main does NOT mean the app on the user's phone is updated. Always note: "to see this on TestFlight, archive & upload from Xcode — iOS doesn't auto-deploy."
+- **Be specific about TestFlight (operator-only).** iOS PRs merging to main does NOT mean the app on the user's phone is updated. Agent "done" = verify build green + merged. Always note: "clean bill delivered — operator archives/uploads TestFlight in Xcode when ready." Agents do **not** archive, upload, or watch TestFlight processing unless explicitly asked (see `ios-testflight-operator-only`).
 
 ## When to pair with hooks
 

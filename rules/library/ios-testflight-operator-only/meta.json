@@ -1,0 +1,6 @@
+{
+  "id": "ios-testflight-operator-only",
+  "description": "iOS TestFlight upload/processing is operator-only — agents verify zero-error zero-warning builds and stop; operator archives/uploads in Xcode",
+  "alwaysApply": true,
+  "globs": []
+}

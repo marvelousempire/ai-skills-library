@@ -4,6 +4,7 @@
   "profile": "ios-xcode-monorepo",
   "rules": [
     "pbxproj-conflict",
-    "swift-codable-guard"
+    "swift-codable-guard",
+    "ios-testflight-operator-only"
   ]
 }

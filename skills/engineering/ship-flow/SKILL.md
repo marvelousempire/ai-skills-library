@@ -43,7 +43,7 @@ After each stage, the skill announces the pipeline stage explicitly (per [`pipel
 Per red-e-play's CLAUDE.md "Auto-merge & deploy authorization":
 
 - ✅ **backend, admin, marketing** — pre-authorized for full ship cycle
-- ⚠️ **iOS** — pre-authorized through TestFlight; App Store submission requires explicit user sign-off
+- ⚠️ **iOS** — agents run zero-error zero-warning verify build + merge; **operator** archives/uploads TestFlight (see red-e-play `.claude/rules/ios-testflight-operator-only.md`). App Store submission requires explicit user sign-off
 - ⚠️ **Substantive multi-PR plans** — per user's `feedback_deploy_authorization_scope` memory, deploy needs explicit "deploy" go-ahead
 
 ## The final report shape

@@ -37,6 +37,7 @@ Per `dev-discipline`: **committed → pushed → PR’d → merged → deployed*
 - **DB:** `npm run migrate` on production during backend deploy; name new migration files.
 - **API:** `make deploy-backend` from laptop (Red-E Play).
 - **Web:** `make deploy-admin` / `make deploy-marketing` / `make deploy-player-web`; local `pnpm build` before push when rules require it.
+- **iOS:** zero-error zero-warning `xcodebuild` verify only — report version + build as the clean bill. **Operator** uploads TestFlight in Xcode; agents do not (see `ios-testflight-operator-only`).
 - **Verify:** concrete curls and version checks.
 
 ## Version confirmation
