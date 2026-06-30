@@ -29,6 +29,7 @@
     "smoke-test-after-deploy",
     "askuserquestion-fallback",
     "quality-bar-do-it-right",
-    "pipeline-stage-truth"
+    "pipeline-stage-truth",
+    "ios-testflight-operator-only"
   ]
 }

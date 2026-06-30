@@ -5,6 +5,7 @@
 | `dev-discipline` | yes | — | red-e-play-core |
 | `changelog-and-versioning` | yes | — | red-e-play-core |
 | `go-live-path` | yes | — | red-e-play-core |
+| `ios-testflight-operator-only` | yes | — | red-e-play-core, ios-build |
 | `parallel-surfaces-from-day-one` | yes | — | red-e-play-core |
 | `ascii-flow-diagrams` | yes | — | global-communication |
 | `pbxproj-conflict` | yes | `**/*.pbxproj` | ios-build |

@@ -41,7 +41,7 @@ Take a working branch with green local state and ship it to live. Run as a backg
 
 Per red-e-play's CLAUDE.md:
 - ✅ backend, admin, marketing — pre-authorized for full ship cycle
-- ⚠️ iOS — pre-authorized through TestFlight; App Store submission needs explicit user sign-off
+- ⚠️ iOS — verify build + merge only; operator TestFlights in Xcode (`.claude/rules/ios-testflight-operator-only.md`). App Store submission needs explicit user sign-off
 - ⚠️ Substantive multi-PR plans — per user's `feedback_deploy_authorization_scope` memory, deploy needs explicit "deploy" go-ahead
 
 ## Related
