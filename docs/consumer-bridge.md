@@ -5,15 +5,17 @@
 ## Canonical checkout (author here)
 
 ```bash
-git clone https://github.com/marvelousempire/ai-skills-library.git ~/Developer/ai-skills-library
+git clone ssh://git@10.1.0.5:2424/marvelousempire/ai-skills-library.git ~/Developer/ai-skills-library
 cd ~/Developer/ai-skills-library
 bash scripts/install-hooks.sh
+# Optional offsite mirror remote:
+git remote add github git@github.com:marvelousempire/ai-skills-library.git 2>/dev/null || true
 ```
 
-Remotes: `origin` (GitHub) + `gitlab` (self-hosted). Push both:
+**Sovereign git:** Gitea on DGX (`origin`) is canonical; GitHub (`github`) is mirror only — Plan 0041.
 
 ```bash
-./scripts/push-all-remotes.sh
+./scripts/push-all-remotes.sh   # Gitea first, then github mirror (+ optional gitlab)
 ```
 
 ## What consumers do
